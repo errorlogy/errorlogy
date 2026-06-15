@@ -126,6 +126,12 @@ def print_candidate(c: dict, weights: dict, threshold: float) -> None:
 
 
 def main() -> int:
+    if hasattr(sys.stdout, "reconfigure"):
+        try:
+            sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
+
     parser = argparse.ArgumentParser(description="OSS funnel checklist (offline)")
     parser.add_argument("--name", "-n", help="Candidate id filter")
     parser.add_argument("--tracker", type=Path, default=TRACKER)
