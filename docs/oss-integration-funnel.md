@@ -110,9 +110,65 @@ Discover → Screen → Spike → Pilot → Adopt | Reject | Defer
 
 ---
 
+## Автообход GitHub
+
+Скрипт [`research/discover_github_oss.py`](../research/discover_github_oss.py) ищет репозитории через [GitHub Search API](https://docs.github.com/en/rest/search/search) по профилям запросов, заточенным под Errorlogy (forecasting, Hawkes/CEP, FastAPI agents, OpenAPI codegen, ingest/RSS, observability и т.д.).
+
+### Как это работает
+
+1. Для каждого встроенного запроса вызывается `GET /search/repositories` (сортировка по звёздам).
+2. Результаты **дедуплицируются** по `repo_url` относительно уже существующих записей в YAML.
+3. Новые строки получают `stage: discover`, `source: github-search`, `discovered_at: YYYY-MM-DD`, пустой `score` (рубрику заполняют на Screen).
+4. По умолчанию — **dry-run** (только вывод в консоль). Флаг `--apply` дописывает новые кандидаты в конец списка `candidates` без перезаписи комментариев в начале файла.
+
+### Команды
+
+```bash
+# Просмотр встроенных запросов
+python research/discover_github_oss.py --list-queries
+
+# Dry-run (без записи)
+python research/discover_github_oss.py
+
+# Записать новых кандидатов в трекер
+python research/discover_github_oss.py --apply
+
+# Один запрос, до 3 репозиториев
+python research/discover_github_oss.py --query "hawkes process python" --max-per-query 3 --apply
+```
+
+### Лимиты и токен
+
+| Режим | Лимит search API (ориентир) |
+|-------|-----------------------------|
+| Без токена | ~10 запросов/мин |
+| `GITHUB_TOKEN` или `GH_TOKEN` в окружении | ~30 запросов/мин |
+
+Для локального запуска: `export GITHUB_TOKEN=ghp_...` (PAT без лишних scope достаточно для search). **Не коммитить** токены и `.env`.
+
+Скрипт читает заголовки `X-RateLimit-*` и при исчерпании лимита ждёт до `X-RateLimit-Reset`.
+
+### CI (опционально)
+
+Workflow [`.github/workflows/oss-discover.yml`](../.github/workflows/oss-discover.yml): еженедельный cron (понедельник 06:00 UTC) и ручной `workflow_dispatch`. Использует встроенный `secrets.GITHUB_TOKEN`, запускает `--apply`, выкладывает артефакт `oss-candidates-yaml` — **merge в main вручную** после триажа (авто-push не настроен).
+
+### Поля автообнаружения
+
+| Поле | Значение |
+|------|----------|
+| `source` | `github-search` |
+| `search_query` | запрос, которым найден репозиторий |
+| `discovered_at` | дата ISO |
+| `github_stars` | звёзды на момент обхода |
+| `decision` | `pending` |
+
+После обхода: `python research/score_candidate.py` для Screen и решение spike / reject / defer.
+
+---
+
 ## Рабочий процесс (чеклист)
 
-1. Добавить кандидата в [`research/oss-candidates.yaml`](../research/oss-candidates.yaml) (`stage: discover`).
+1. Добавить кандидата в [`research/oss-candidates.yaml`](../research/oss-candidates.yaml) (`stage: discover`) — вручную или через `discover_github_oss.py --apply`.
 2. Заполнить рубрику → `python research/score_candidate.py` (или `--name <id>`).
 3. При score ≥ 3.0 и без veto → `stage: spike`, ветка `spike/<short-name>`.
 4. Spike: POC **вне** `main`; для MAS — предпочтительно `errorlogy-sandbox/` или отдельная ветка.

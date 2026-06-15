@@ -1,0 +1,44 @@
+name: OSS GitHub Discover
+
+on:
+  schedule:
+    # Mondays 06:00 UTC — weekly Discover pass
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      max_per_query:
+        description: Max repos per search query
+        required: false
+        default: "5"
+
+permissions:
+  contents: read
+
+jobs:
+  discover:
+    name: GitHub OSS discover
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Run discover (apply)
+        env:
+          # Default Actions token raises search rate limits vs unauthenticated.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python research/discover_github_oss.py --apply \
+            --max-per-query "${{ github.event.inputs.max_per_query || '5' }}"
+
+      - name: Upload updated tracker (if changed)
+        uses: actions/upload-artifact@v4
+        with:
+          name: oss-candidates-yaml
+          path: research/oss-candidates.yaml
+          if-no-files-found: ignore
