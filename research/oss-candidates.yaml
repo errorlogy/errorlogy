@@ -1,0 +1,91 @@
+# OSS integration candidate tracker for Errorlogy MVP
+# Entries marked "example" are placeholders — no adoption decision made.
+# Schema version: 1
+
+meta:
+  schema_version: 1
+  last_review: null  # YYYY-MM-DD quarterly
+  reviewer: null
+
+rubric_weights:
+  coupling: 1.0
+  duplication: 1.0
+  test_safety: 1.2
+  blast_radius: 1.2
+  license: 1.0
+  maintenance: 0.8
+  engine_llm_fit: 1.5
+  old_sketch_risk: 1.0
+
+screen_threshold: 3.0  # weighted mean 1..5 to proceed to spike
+
+candidates:
+  - id: temporal-python-sdk
+    name: Temporal Python SDK
+    repo_url: https://github.com/temporalio/sdk-python
+    category: workflow-orchestration
+    target_area: mas
+    stage: discover
+    example: true  # NOT DECIDED — illustrative only
+    decision: pending
+    review_after: null
+    score:
+      coupling: 2
+      duplication: 2
+      test_safety: 3
+      blast_radius: 2
+      license: 5
+      maintenance: 5
+      engine_llm_fit: 4
+      old_sketch_risk: 5
+      total: null  # run research/score_candidate.py
+    notes_ru: |
+      Пример: durable workflows для длинных ingest/calibration job.
+      Риск: дублирует линейный orchestrator MAS; высокий coupling.
+      Альтернатива — cron + scripts/ (уже есть run_ingest_cron.py).
+
+  - id: opentelemetry-python
+    name: OpenTelemetry Python
+    repo_url: https://github.com/open-telemetry/opentelemetry-python
+    category: observability
+    target_area: infra
+    stage: discover
+    example: true
+    decision: pending
+    review_after: null
+    score:
+      coupling: 4
+      duplication: 4
+      test_safety: 4
+      blast_radius: 4
+      license: 5
+      maintenance: 5
+      engine_llm_fit: 5
+      old_sketch_risk: 5
+      total: null
+    notes_ru: |
+      Пример: трассировка FastAPI + per-agent latency для MasPage.
+      Не трогает engine/μ. Pilot — opt-in middleware, default off.
+
+  - id: openapi-typescript-codegen
+    name: openapi-typescript-codegen
+    repo_url: https://github.com/ferdikoomen/openapi-typescript-codegen
+    category: api-codegen
+    target_area: gui
+    stage: discover
+    example: true
+    decision: pending
+    review_after: null
+    score:
+      coupling: 3
+      duplication: 3
+      test_safety: 4
+      blast_radius: 3
+      license: 5
+      maintenance: 3
+      engine_llm_fit: 5
+      old_sketch_risk: 5
+      total: null
+    notes_ru: |
+      Пример: генерация типов из OpenAPI (http://127.0.0.1:8000/openapi.json)
+      для errorlogy-gui/src/lib/api.ts. Сверить с ручными типами; blast radius — весь API client.
