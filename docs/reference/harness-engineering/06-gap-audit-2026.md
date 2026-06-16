@@ -59,3 +59,30 @@ Brief audit of eval harness coverage vs production MAS pipeline. Phase A closes 
 6. **Eval runner** — generic spec→pytest driver (not just Neutrality)
 
 See [05-next-steps.md](05-next-steps.md) for queue and adopt criteria.
+
+---
+
+## Re-audit scores (post Phase A+B — 2026-06-16)
+
+| Layer | Before | After | Notes |
+|-------|--------|-------|-------|
+| L1 Engine + CI | ~55% | **~68%** | Golden snapshot, API smoke, 74 keyless pytest |
+| L2 LLM agents | ~42% | **~54%** | Neutrality live pilot (20 seeds); Scout/Card deferred |
+| L3 Process + tooling | ~38% | **~50%** | Handbook, vault script, eval-live.yml |
+| **Overall harness maturity** | ~40–45% | **~57%** | |
+
+**Test runs (local, 2026-06-16):**
+
+- `pytest tests/ -q -m "not llm_eval"` → **74 passed**, 20 deselected
+- `EVAL_LIVE=1 pytest tests/evals/test_neutrality_live.py -m llm_eval` → **20 passed**, 10 deselected
+
+### Remaining gaps (priority)
+
+| Priority | Gap |
+|----------|-----|
+| **P0** | Scout extraction eval runner (seeds stub only) |
+| **P0** | Generic spec→pytest driver (Neutrality-only today) |
+| **P1** | Card Compiler eval; pipeline cassettes; Red Team live eval |
+| **P2** | OpenTelemetry spans; nightly full challenger; promptfoo adopt |
+
+Obsidian copy: `ERRORLOGY_MVP_OBSIDIAN/Отчёт — harness gap и планы 2026-06-16.md`
