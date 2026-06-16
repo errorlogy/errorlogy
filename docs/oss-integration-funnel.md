@@ -201,6 +201,7 @@ Workflow [`.github/workflows/oss-discover.yml`](../.github/workflows/oss-discove
 
 ## См. также
 
+- Harness engineering (eval/agent harness, принципы, чеклист): [`docs/reference/harness-engineering/README.md`](reference/harness-engineering/README.md)
 - Engine audit: `ERRORLOGY_MVP_OBSIDIAN/Анализ Claude — состояние engine v1.md`
 - TRN scope: `errorlogy-trn-sim/docs/SAFETY_AND_SCOPE.md`
 - Roadmap OSS mentions: `ERRORLOGY_MVP_OBSIDIAN/Roadmap — MAS math development TZ.md`

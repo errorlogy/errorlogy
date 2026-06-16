@@ -1,0 +1,73 @@
+# Harness spec — один MAS-агент (шаблон)
+# Копировать: docs/reference/harness-engineering/templates/harness-spec.yaml
+# → errorlogy-mas/tests/evals/specs/<agent_id>.yaml (когда eval pilot начнётся)
+
+schema_version: "1.0"
+
+agent:
+  id: neutrality_audit          # e.g. scout, red_team, card_compiler
+  module: mas.agents.neutrality # Python import path
+  pipeline_step: 14             # 1..14 in orchestrator order
+  llm_required: true            # false → covered by engine_only path only
+
+harness:
+  description: |
+    Краткое описание роли агента в eval. Не путать с eval harness repo tools.
+  inputs:
+    - name: analysis_context
+      from: orchestrator_state   # prior agent outputs
+    - name: card_draft
+      from: card_compiler
+  outputs:
+    schema: mas.schemas.analysis.NeutralityResult  # pydantic model name
+    required_fields:
+      - passed
+      - violations
+
+eval_layers:
+  L1_deterministic:
+  ci: always
+  tests:
+    - assert: output_schema_valid
+    - assert: field_exists
+      field: passed
+  L2_engine_only:
+    ci: always
+    note: Agent skipped when engine_only=True; assert orchestrator skip behavior
+  L4_live_llm:
+    ci: manual_or_nightly     # EVAL_LIVE=1
+    threshold: 0.85           # pass if >= 85% of runs pass
+    runs: 3
+    cases_ref: seeds/neutrality_violations.yaml
+
+graders:
+  deterministic:
+    - type: schema
+    - type: forbidden_substrings
+      patterns:
+        - "guilty"
+        - "criminal"
+        - "corrupt"
+      unless: legal_evidence_layer_present
+  llm_judge:
+    enabled: false              # prefer deterministic for MVP
+    rubric: |
+      Score 1 if output uses analytical language only.
+      Never treat mu as probability or guilt.
+    model: null                 # use mas router; never hardcode keys here
+
+invariants:
+  - mu_is_not_probability
+  - no_legal_accusation_without_evidence
+  - language_rules_from_agents_base
+
+oss_tool_binding: null          # e.g. pytest-agent-eval, promptfoo
+funnel:
+  stage: defer                    # discover | spike | pilot | adopt
+  candidate_id: null              # research/oss-candidates.yaml id
+
+metadata:
+  owner: ""
+  last_reviewed: "2026-06-15"
+  related_tests:
+    - errorlogy-mas/tests/test_dual_run.py

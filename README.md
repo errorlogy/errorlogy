@@ -8,6 +8,7 @@ Workspace объединяет **активную разработку** (нов
 |------|--------|------------|
 | `errorlogy-mas/` | **ACTIVE** | Multi-agent backend politic.bar: 14-агентный пайплайн, taxonomy v16, FastAPI, multi-LLM router *(собрано Claude)* |
 | `errorlogy-gui/` | **ACTIVE** | Electron + Vite + React desktop UI v0.2.4 (~90% API integration) |
+| `errorlogy-gui-v2/` | **ACTIVE** | Browser UI v0.1 — прогноз, потоки, методология (порт 5174) |
 | `ERRORLOGY/errorlogy_old_version/` | **OLD / SKETCH** | Ранние артефакты: politic.bar v0.6, AGIU, ТЗ, копии taxonomy |
 | `ERRORLOGY_MVP_OBSIDIAN/` | **Документация** | Obsidian: концепция, таксономия, карта, журнал работ |
 
@@ -32,6 +33,8 @@ API: `python api/main.py` → http://127.0.0.1:8000/docs
 
 Без LLM-ключей: режим **Engine only** на странице Analyze. Подробнее: [`errorlogy-gui/README.md`](errorlogy-gui/README.md).
 
+**Упрощённый UI прогноза:** [`errorlogy-gui-v2/README.md`](errorlogy-gui-v2/README.md) — `npm run dev` на порту 5174.
+
 Пайплайн:
 
 ```text
@@ -54,6 +57,7 @@ Scout → WMS → Classifier → Alpha → PNO → ACC → EGD → T4D → CAT �
 - Obsidian: [`ERRORLOGY_MVP_OBSIDIAN/`](ERRORLOGY_MVP_OBSIDIAN/) — [главная](ERRORLOGY_MVP_OBSIDIAN/00%20%E2%80%94%20%D0%93%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0.md)
 - Cursor: [`AGENTS.md`](AGENTS.md), [`.cursor/rules/`](.cursor/rules/)
 - **OSS evaluation funnel:** [`docs/oss-integration-funnel.md`](docs/oss-integration-funnel.md) — воронка оценки open-source кандидатов; трекер [`research/oss-candidates.yaml`](research/oss-candidates.yaml); чеклист `python research/score_candidate.py`
+- **Harness engineering:** [`docs/reference/harness-engineering/README.md`](docs/reference/harness-engineering/README.md) — eval/agent harness, принципы и чеклист для MAS
 
 ## Идея
 
