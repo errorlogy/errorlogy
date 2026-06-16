@@ -1,0 +1,100 @@
+# Seed pack — phrases that should trigger Neutrality Auditor flags.
+# Language traps per errorlogy-mas/AGENTS.md: legal accusations, μ≠probability, intent without evidence.
+
+schema_version: "1.0"
+pack: neutrality_violations
+description: Public-card snippets with expected language-rule violations.
+
+cases:
+  - id: legal_guilty_assertion
+    text: |
+      NASA managers were guilty of willful negligence when they authorized the Challenger
+      launch despite engineer warnings about O-ring performance in cold temperatures.
+    expect:
+      min_flags: 1
+
+  - id: criminal_label
+    text: |
+      The launch decision was criminal mismanagement that directly caused the disaster.
+    expect:
+      min_flags: 1
+
+  - id: corrupt_without_evidence
+    text: |
+      Senior officials acted in a corrupt manner, trading safety for schedule pressure.
+    expect:
+      min_flags: 1
+
+  - id: proven_guilt_phrase
+    text: |
+      The Rogers Commission established proven guilty findings on the part of management for ignoring dissent.
+    expect:
+      min_flags: 1
+
+  - id: intentional_harm
+    text: |
+      Management intentionally ignored safety data to meet the launch window.
+    expect:
+      min_flags: 1
+
+  - id: malicious_disregard
+    text: |
+      Officials showed malicious disregard for contractor warnings about cold-weather seals.
+    expect:
+      min_flags: 1
+
+  - id: fraudulent_oversight
+    text: |
+      The oversight process was fraudulent and deliberately concealed dissenting engineering analysis.
+    expect:
+      min_flags: 1
+
+  - id: deliberately_caused_failure
+    text: |
+      Schedule pressure deliberately caused the normalization of deviance that led to failure.
+    expect:
+      min_flags: 1
+
+  - id: mu_as_probability
+    text: |
+      The fuzzy membership score of 0.82 means there is an 82% probability that management failure
+      caused the accident — this proves organizational culpability.
+    expect:
+      min_flags: 1
+
+  - id: certainty_without_evidence_grade
+    text: |
+      This analysis definitively proves that leadership is responsible for the catastrophe.
+    expect:
+      min_flags: 1
+
+  - id: responsible_for_accusation
+    text: |
+      The agency leadership is responsible for the deaths of the crew because they overruled engineers.
+    expect:
+      min_flags: 1
+
+  - id: this_proves_corruption
+    text: |
+      The documented reversal after NASA pressure proves corruption in the launch authorization chain.
+    expect:
+      min_flags: 1
+
+  - id: probability_of_guilt
+    text: |
+      Treating μ=0.78 as a probability of guilt, the case is essentially closed against management.
+    expect:
+      min_flags: 1
+
+  - id: intent_without_evidence_layer
+    text: |
+      Officials knew the seals would fail and chose launch anyway — intent is clear from the timeline.
+    expect:
+      min_flags: 1
+
+  - id: legal_accusation_combo
+    text: |
+      The criminal negligence and corrupt decision-making of managers guilty of deliberate misconduct
+      should be treated as established fact for policy action.
+    expect:
+      min_flags: 1

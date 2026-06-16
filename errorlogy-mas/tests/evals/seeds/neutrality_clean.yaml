@@ -1,0 +1,47 @@
+# Seed pack — governance texts that should pass Neutrality Auditor (no or minimal flags).
+
+schema_version: "1.0"
+pack: neutrality_clean
+description: Analytical public-card snippets using approved Errorlogy language.
+
+cases:
+  - id: challenger_analytical
+    text: |
+      Analytical contribution: pre-launch authorization occurred despite documented engineer dissent
+      on O-ring performance in cold temperatures. The fuzzy membership μ for schedule-pressure signals
+      is consistent with weak-evidence hypotheses — not a probability statement. Confidence remains
+      bounded by evidence_grade=moderate; this is an early-warning hypothesis, not proof.
+    expect:
+      max_flags: 0
+
+  - id: capacity_mismatch_framing
+    text: |
+      Possible capacity mismatch between safety review processes and launch schedule demands.
+      Contributing signals are consistent with groupthink patterns under authority bias; alternative
+      explanations (resource constraints, communication gaps) remain plausible pending further review.
+    expect:
+      max_flags: 0
+
+  - id: mu_forecast_separation
+    text: |
+      Engine output separates mu_forecast (membership in failure-mode cluster), scenario_probability
+      (not computed here), confidence (analyst judgment), and evidence_grade (moderate). No legal
+      accusation layer is asserted; claims use analytical contribution language only.
+    expect:
+      max_flags: 0
+
+  - id: weak_evidence_hypothesis
+    text: |
+      Weak signals suggest a hypothesis of normalized deviance under schedule pressure. Evidence_grade
+      is weak; μ scores are capped accordingly and must not be read as guilt or intent. Further
+      documentary review could strengthen or weaken this early-warning framing.
+    expect:
+      max_flags: 0
+
+  - id: rogers_commission_neutral
+    text: |
+      The Rogers Commission report is consistent with organizational failure modes in the taxonomy,
+      including authority bias and dissent suppression. This monitoring card flags analytical patterns
+      for governance review — it does not assert criminal liability or proven intent.
+    expect:
+      max_flags: 0

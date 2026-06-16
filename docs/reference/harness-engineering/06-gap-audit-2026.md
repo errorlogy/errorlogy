@@ -28,13 +28,34 @@ Brief audit of eval harness coverage vs production MAS pipeline. Phase A closes 
 
 ---
 
-## Phase B (remaining)
+## Phase B (this change — Neutrality live eval pilot)
 
-1. **P1 — Neutrality + Card Compiler eval pilot** (`promptfoo` or `pytest-agent-eval`, `EVAL_LIVE=1`)
-2. **P2 — Scout extraction schema evals** (3 seed cases, threshold 0.8)
-3. **Seed packs** — `tests/evals/seeds/*.yaml` referenced in specs (not yet created)
+1. **Seed packs** — `errorlogy-mas/tests/evals/seeds/`:
+   - `neutrality_violations.yaml` (15 cases)
+   - `neutrality_clean.yaml` (5 cases)
+   - `scout_extraction.yaml` (3-case P2 stub)
+2. **Live eval runner** — `tests/evals/test_neutrality_live.py` (`pytest -m llm_eval`, gate `EVAL_LIVE=1`)
+3. **Vault → .env script** — `scripts/load_keys_from_vault.ps1` (local keys only, gitignored)
+4. **CI** — `.github/workflows/eval-live.yml` (`workflow_dispatch` only; secrets documented, not committed)
+5. **Spec wired** — `tests/evals/specs/neutrality.yaml` references seed paths + runner
+
+| Gap | Severity | Status after Phase B |
+|-----|----------|----------------------|
+| Per-agent LLM evals (Neutrality) | High | **Pilot** — live eval + seeds |
+| Seed packs in repo | Medium | **Done** |
+| P2 Scout extraction evals | High | Stub seeds only |
+| L4 live E2E in CI | Low (cost) | **Opt-in** workflow_dispatch |
+| Card Compiler live eval | Medium | Deferred — Neutrality-only pilot |
+
+---
+
+## Phase B (remaining after pilot)
+
+1. **P2 — Scout extraction schema evals** (wire `scout_extraction.yaml` to pytest)
+2. **Card Compiler + Neutrality joint eval**
+3. **Recorded outputs / cassettes** for full pipeline
 4. **P3 — OpenTelemetry** per-agent spans (opt-in middleware)
 5. **Nightly live workflow** — full `run_challenger.py` with keys
-6. **Eval runner** — wire specs to CI (opt-in job), not just documentation YAML
+6. **Eval runner** — generic spec→pytest driver (not just Neutrality)
 
 See [05-next-steps.md](05-next-steps.md) for queue and adopt criteria.

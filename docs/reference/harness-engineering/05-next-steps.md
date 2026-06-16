@@ -16,18 +16,28 @@
 
 ## Pilot (0.5–2 недели, узкий scope)
 
-### P1 — Neutrality + Card Compiler eval (рекомендуемый первый pilot)
+### P1 — Neutrality eval pilot ✅ (Phase B, 2026-06-15)
 
 **Почему первым:** языковые guards — чистый LLM-eval слой; не трогает μ engine.
 
 | Шаг | Деталь |
 |-----|--------|
-| Tool | `promptfoo` (red-team + custom assertions) **или** `pytest-agent-eval` YAML |
-| Scope | 10–20 фраз-нарушений + 5 clean outputs из seed cases |
-| Gate | `EVAL_LIVE=1` только на PR label / weekly workflow |
-| Success | 0 regressions на neutrality violations; CI default остаётся keyless |
+| Tool | `pytest` + `tests/evals/test_neutrality_live.py` |
+| Seeds | `tests/evals/seeds/neutrality_{violations,clean}.yaml` |
+| Keys | `scripts/load_keys_from_vault.ps1` → local `.env` (gitignored) |
+| Gate | `EVAL_LIVE=1`; CI `.github/workflows/eval-live.yml` (`workflow_dispatch`) |
+| Success | Violation seeds raise flags; clean seeds pass; default CI keyless |
 
-**Funnel:** Discover → Screen (fit ≥4) → Spike в `spike/neutrality-eval` → Pilot PR.
+```powershell
+cd errorlogy-mas
+.\scripts\load_keys_from_vault.ps1
+$env:EVAL_LIVE = "1"
+pytest tests/evals/test_neutrality_live.py -v
+```
+
+OAuth (`api/auth`) не используется в batch eval — только API keys из env.
+
+### P1b — Card Compiler eval (следующий шаг)
 
 ### P2 — pytest-agent-eval для Scout extraction
 
@@ -70,8 +80,8 @@
 ## Предлагаемая очередь (Q2–Q3 2026)
 
 ```text
-1. P1 Neutrality eval pilot     ← первое практическое применение
-2. harness-spec.yaml для Scout, Neutrality, Red Team
+1. P1 Neutrality eval pilot     ← DONE (Phase B)
+2. harness-spec.yaml для Scout, Neutrality, Red Team  ← DONE (Phase A)
 3. P2 Scout schema evals (pytest-agent-eval)
 4. P3 OpenTelemetry spike (infra)
 5. Nightly live workflow (optional full challenger)

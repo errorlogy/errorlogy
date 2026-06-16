@@ -1,0 +1,42 @@
+# Seed pack — minimal Scout extraction cases (P2 stub; not wired to live eval yet).
+
+schema_version: "1.0"
+pack: scout_extraction
+description: Future P2 pilot — raw text → GovernanceCase schema assertions.
+
+cases:
+  - id: challenger_minimal
+    raw_text: |
+      NASA managers approved Challenger launch despite engineer dissent on O-ring cold performance.
+      Thiokol recommended no launch below 53F. Schedule pressure documented.
+    case_id: US-NASA-1986-CHALLENGER-01
+    title: STS-51L Challenger
+    country: US
+    year: 1986
+    expect:
+      required_fields: [case_id, title, description, weak_signals]
+      weak_signals_min: 1
+
+  - id: generic_oversight
+    raw_text: |
+      A regulator accelerated permit approval while internal audit flagged compliance gaps.
+      Whistleblower concerns were escalated but not reflected in the public decision memo.
+    case_id: SEED-OVERSIGHT-001
+    title: Accelerated permit under audit flags
+    country: US
+    year: 2024
+    expect:
+      required_fields: [case_id, title, description, weak_signals]
+      weak_signals_min: 1
+
+  - id: schedule_pressure_stub
+    raw_text: |
+      Project leadership overrode safety hold points to meet a fixed public deadline.
+      Contractor risk register entries were marked resolved without independent verification.
+    case_id: SEED-SCHEDULE-001
+    title: Safety hold override for deadline
+    country: UK
+    year: 2023
+    expect:
+      required_fields: [case_id, title, description, weak_signals]
+      weak_signals_min: 1

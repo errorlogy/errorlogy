@@ -33,7 +33,12 @@ eval_layers:
     ci: manual_or_nightly
     threshold: 0.85
     runs: 3
-    cases_ref: seeds/neutrality_violations.yaml  # future pilot seed pack
+    cases_ref:
+      violations: seeds/neutrality_violations.yaml
+      clean: seeds/neutrality_clean.yaml
+    runner: tests/evals/test_neutrality_live.py
+    gate: EVAL_LIVE=1
+    oauth_note: Batch eval uses API keys from .env; api/auth OAuth is N/A
 
 graders:
   deterministic:
