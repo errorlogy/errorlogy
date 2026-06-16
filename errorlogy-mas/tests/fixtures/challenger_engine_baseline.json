@@ -1,0 +1,24 @@
+{
+  "case_id": "US-NASA-1986-CHALLENGER-01",
+  "wms": {
+    "msi": 0.6632,
+    "cep": 0.6632
+  },
+  "pno": {
+    "dominant_pno": "PNO-1"
+  },
+  "top_modes_ids": [
+    "PNO-4",
+    "CB-077",
+    "CB-074",
+    "CB-082",
+    "CB-032"
+  ],
+  "top_modes_mu": [
+    0.65,
+    0.5291,
+    0.5268,
+    0.5267,
+    0.525
+  ]
+}

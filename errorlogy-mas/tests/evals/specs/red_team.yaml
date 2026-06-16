@@ -1,0 +1,75 @@
+# Harness spec — Red Team (adversarial review)
+# Copied from docs/reference/harness-engineering/templates/harness-spec.yaml
+
+schema_version: "1.0"
+
+agent:
+  id: red_team
+  module: mas.agents.red_team
+  pipeline_step: 12
+  llm_required: true
+
+harness:
+  description: |
+    Adversarial review after LBI: flag overclaims, weak-evidence modes,
+    missing alternatives. Receives engine warning flags appended to notes.
+  inputs:
+    - name: case
+      from: orchestrator_state
+    - name: top_modes
+      from: alpha
+    - name: pno
+      from: pno
+    - name: acc
+      from: acc
+    - name: engine_warnings
+      from: mas.engine.guards.EngineWarnings
+  outputs:
+    schema: list[str]
+    required_fields:
+      - red_team_notes
+
+eval_layers:
+  L1_deterministic:
+    ci: always
+    tests:
+      - assert: output_is_json_array_of_strings
+      - assert: max_item_count
+        max: 5
+  L2_engine_only:
+    ci: always
+    note: Red Team skipped when engine_only=True; red_team_notes=[]
+  L4_live_llm:
+    ci: manual_or_nightly
+    threshold: 0.8
+    runs: 3
+    cases_ref: seeds/red_team_challenger.yaml  # future — Challenger + calibration seeds
+
+graders:
+  deterministic:
+    - type: schema
+    - type: weak_evidence_mu_cap
+      max_mu: 0.65
+      when_grade: weak
+  llm_judge:
+    enabled: false
+    rubric: |
+      Notes must cite mode IDs, avoid legal accusations, strengthen not invalidate.
+    model: null
+
+invariants:
+  - mu_is_not_probability
+  - no_legal_accusation_without_evidence
+  - language_rules_from_agents_base
+
+oss_tool_binding: promptfoo
+funnel:
+  stage: discover
+  candidate_id: promptfoo
+
+metadata:
+  owner: mas
+  last_reviewed: "2026-06-15"
+  related_tests:
+    - errorlogy-mas/tests/test_challenger_engine_snapshot.py
+    - errorlogy-mas/tests/test_dual_run.py

@@ -89,3 +89,51 @@ candidates:
     notes_ru: |
       Пример: генерация типов из OpenAPI (http://127.0.0.1:8000/openapi.json)
       для errorlogy-gui/src/lib/api.ts. Сверить с ручными типами; blast radius — весь API client.
+
+  - id: promptfoo
+    name: promptfoo
+    repo_url: https://github.com/promptfoo/promptfoo
+    category: llm-eval
+    target_area: mas
+    stage: discover
+    example: false
+    decision: pending
+    review_after: null
+    score:
+      coupling: 4
+      duplication: 4
+      test_safety: 4
+      blast_radius: 4
+      license: 5
+      maintenance: 4
+      engine_llm_fit: 4
+      old_sketch_risk: 5
+      total: null
+    notes_ru: |
+      Eval harness для Neutrality + Red Team (forbidden-substring graders, red-team cases).
+      Spec: errorlogy-mas/tests/evals/specs/neutrality.yaml, red_team.yaml.
+      CI default keyless; L4 live только EVAL_LIVE=1 / nightly.
+
+  - id: pytest-agent-eval
+    name: pytest-agent-eval
+    repo_url: https://github.com/langwatch/pytest-agent-evals
+    category: llm-eval
+    target_area: mas
+    stage: discover
+    example: false
+    decision: pending
+    review_after: null
+    score:
+      coupling: 5
+      duplication: 4
+      test_safety: 5
+      blast_radius: 4
+      license: 5
+      maintenance: 3
+      engine_llm_fit: 4
+      old_sketch_risk: 5
+      total: null
+    notes_ru: |
+      YAML/pytest eval runner для Scout GovernanceCase schema assertions.
+      Spec: errorlogy-mas/tests/evals/specs/scout.yaml.
+      Pilot P2 — deterministic fields in CI; LLM fields optional live.

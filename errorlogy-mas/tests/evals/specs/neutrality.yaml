@@ -1,0 +1,70 @@
+# Harness spec — Neutrality Auditor (language compliance)
+# Copied from docs/reference/harness-engineering/templates/harness-spec.yaml
+
+schema_version: "1.0"
+
+agent:
+  id: neutrality
+  module: mas.agents.neutrality
+  pipeline_step: 14
+  llm_required: true
+
+harness:
+  description: |
+    Scan public explanation card for language-rule violations (forbidden terms,
+    μ-as-probability, unsupported intent claims). Last step before API response.
+  inputs:
+    - name: public_card
+      from: card_compiler
+  outputs:
+    schema: list[str]
+    required_fields:
+      - neutrality_flags
+
+eval_layers:
+  L1_deterministic:
+    ci: always
+    tests:
+      - assert: forbidden_substrings_absent_in_fixture_outputs
+  L2_engine_only:
+    ci: always
+    note: Neutrality skipped when engine_only=True; neutrality_flags=[]
+  L4_live_llm:
+    ci: manual_or_nightly
+    threshold: 0.85
+    runs: 3
+    cases_ref: seeds/neutrality_violations.yaml  # future pilot seed pack
+
+graders:
+  deterministic:
+    - type: schema
+    - type: forbidden_substrings
+      patterns:
+        - "guilty"
+        - "criminal"
+        - "corrupt"
+      unless: legal_evidence_layer_present
+    - type: fixture_violation_detection
+      patterns_from: mas.agents.neutrality.FORBIDDEN_PATTERNS
+  llm_judge:
+    enabled: false
+    rubric: |
+      Score 1 if output uses analytical language only.
+      Never treat mu as probability or guilt.
+    model: null
+
+invariants:
+  - mu_is_not_probability
+  - no_legal_accusation_without_evidence
+  - language_rules_from_agents_base
+
+oss_tool_binding: promptfoo
+funnel:
+  stage: discover
+  candidate_id: promptfoo
+
+metadata:
+  owner: mas
+  last_reviewed: "2026-06-15"
+  related_tests:
+    - errorlogy-mas/tests/test_dual_run.py
