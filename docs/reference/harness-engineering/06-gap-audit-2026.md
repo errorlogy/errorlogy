@@ -42,8 +42,9 @@ Brief audit of eval harness coverage vs production MAS pipeline. Phase A closes 
 | Gap | Severity | Status after Phase B |
 |-----|----------|----------------------|
 | Per-agent LLM evals (Neutrality) | High | **Pilot** — live eval + seeds |
+| Per-agent LLM evals (Scout) | High | **Pilot** — live eval + 12 seeds (Phase C) |
 | Seed packs in repo | Medium | **Done** |
-| P2 Scout extraction evals | High | Stub seeds only |
+| P2 Scout extraction evals | High | **Done** — `test_scout_extraction_live.py` |
 | L4 live E2E in CI | Low (cost) | **Opt-in** workflow_dispatch |
 | Card Compiler live eval | Medium | Deferred — Neutrality-only pilot |
 
@@ -51,7 +52,7 @@ Brief audit of eval harness coverage vs production MAS pipeline. Phase A closes 
 
 ## Phase B (remaining after pilot)
 
-1. **P2 — Scout extraction schema evals** (wire `scout_extraction.yaml` to pytest)
+1. **P2 — Scout extraction schema evals** — **Done** (`test_scout_extraction_live.py`, 12 seeds)
 2. **Card Compiler + Neutrality joint eval**
 3. **Recorded outputs / cassettes** for full pipeline
 4. **P3 — OpenTelemetry** per-agent spans (opt-in middleware)
@@ -67,21 +68,21 @@ See [05-next-steps.md](05-next-steps.md) for queue and adopt criteria.
 | Layer | Before | After | Notes |
 |-------|--------|-------|-------|
 | L1 Engine + CI | ~55% | **~68%** | Golden snapshot, API smoke, 74 keyless pytest |
-| L2 LLM agents | ~42% | **~54%** | Neutrality live pilot (20 seeds); Scout/Card deferred |
-| L3 Process + tooling | ~38% | **~50%** | Handbook, vault script, eval-live.yml |
-| **Overall harness maturity** | ~40–45% | **~57%** | |
+| L2 LLM agents | ~42% | **~62%** | Neutrality live (20 seeds); Scout live (12 seeds) |
+| L3 Process + tooling | ~38% | **~52%** | Handbook, vault script, eval-live.yml, CI `-m not llm_eval` |
+| **Overall harness maturity** | ~40–45% | **~63%** | |
 
 **Test runs (local, 2026-06-16):**
 
-- `pytest tests/ -q -m "not llm_eval"` → **74 passed**, 20 deselected
+- `pytest tests/ -q -m "not llm_eval"` → **88 passed**, 32 deselected
 - `EVAL_LIVE=1 pytest tests/evals/test_neutrality_live.py -m llm_eval` → **20 passed**, 10 deselected
+- `EVAL_LIVE=1 pytest tests/evals/test_scout_extraction_live.py -m llm_eval` → **12 passed**, 14 deselected
 
 ### Remaining gaps (priority)
 
 | Priority | Gap |
 |----------|-----|
-| **P0** | Scout extraction eval runner (seeds stub only) |
-| **P0** | Generic spec→pytest driver (Neutrality-only today) |
+| **P0** | Generic spec→pytest driver (Neutrality + Scout runners today) |
 | **P1** | Card Compiler eval; pipeline cassettes; Red Team live eval |
 | **P2** | OpenTelemetry spans; nightly full challenger; promptfoo adopt |
 

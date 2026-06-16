@@ -1,8 +1,9 @@
-# Seed pack — minimal Scout extraction cases (P2 stub; not wired to live eval yet).
+# Seed pack — Scout extraction mini-cases (Harness Phase C).
+# Raw governance snippets → GovernanceCase schema assertions (live eval).
 
 schema_version: "1.0"
 pack: scout_extraction
-description: Future P2 pilot — raw text → GovernanceCase schema assertions.
+description: Raw text inputs for ScoutAgent live extraction eval.
 
 cases:
   - id: challenger_minimal
@@ -36,6 +37,123 @@ cases:
     case_id: SEED-SCHEDULE-001
     title: Safety hold override for deadline
     country: UK
+    year: 2023
+    expect:
+      required_fields: [case_id, title, description, weak_signals]
+      weak_signals_min: 1
+
+  - id: chernobyl_test_protocol
+    raw_text: |
+      Reactor operators ran a safety systems test with safety interlocks disabled.
+      Night-shift management approved deviations from the test procedure.
+      Anomalies in reactor power were noted before the excursion but not escalated to senior staff.
+    case_id: SU-USSR-1986-CHERNOBYL-01
+    title: Chernobyl Unit 4 safety test deviation
+    country: SU
+    year: 1986
+    expect:
+      required_fields: [case_id, title, description, weak_signals]
+      weak_signals_min: 1
+
+  - id: deepwater_bop_concerns
+    raw_text: |
+      Drilling contractor reported negative pressure test anomalies on the blowout preventer line.
+      Shore management authorized continued operations after a management-of-change review.
+      Cement bond log results were delayed while completion schedule advanced.
+    case_id: US-MMS-2010-DEEPWATER-01
+    title: Macondo well negative pressure test
+    country: US
+    year: 2010
+    expect:
+      required_fields: [case_id, title, description, weak_signals]
+      weak_signals_min: 1
+
+  - id: boeing_mcas_training_gap
+    raw_text: |
+      Fleet operators received limited simulator exposure to automated trim behavior after a design change.
+      Internal safety review memos flagged pilot workload under single-sensor failure scenarios.
+      Certification assumptions on crew response time were not updated in public training materials.
+    case_id: US-FAA-2018-737MAX-01
+    title: MCAS training and certification assumptions
+    country: US
+    year: 2018
+    expect:
+      required_fields: [case_id, title, description, weak_signals]
+      weak_signals_min: 1
+
+  - id: iraq_wmd_assessment
+    raw_text: |
+      Intelligence community issued a high-confidence assessment on unconventional weapons programs.
+      Dissenting analytic lines on procurement evidence were noted in footnotes but not in the executive summary.
+      Policymakers cited the assessment in public justification for intervention before site inspections concluded.
+    case_id: US-IC-2002-IRAQ-WMD-01
+    title: Iraq WMD analytic assessment divergence
+    country: US
+    year: 2002
+    expect:
+      required_fields: [case_id, title, description, weak_signals]
+      weak_signals_min: 1
+
+  - id: whistleblower_escalation
+    raw_text: |
+      A quality engineer filed a formal concern about batch release criteria.
+      Middle management reassigned the engineer to a non-production role within two weeks.
+      The concern was not entered into the enterprise risk register before shipment authorization.
+    case_id: SEED-WHISTLE-001
+    title: Quality concern reassignment before release
+    country: DE
+    year: 2021
+    expect:
+      required_fields: [case_id, title, description, weak_signals]
+      weak_signals_min: 1
+
+  - id: regulatory_capture_permit
+    raw_text: |
+      Former agency staff joined the applicant firm and led the environmental impact submission.
+      The agency waived a third-party review step citing backlog, with no written rationale in the docket.
+      Community objections were logged but not summarized in the approval record.
+    case_id: SEED-CAPTURE-001
+    title: Permit review with revolving-door applicant lead
+    country: US
+    year: 2022
+    expect:
+      required_fields: [case_id, title, description, weak_signals]
+      weak_signals_min: 1
+
+  - id: groupthink_launch_vote
+    raw_text: |
+      Contractor engineers initially recommended no launch; after offline caucus, management reversed the vote.
+      Dissent was not recorded in the official teleconference minutes.
+      Temperature data for joint seals were discussed but not entered as a formal constraint in the decision log.
+    case_id: SEED-GROUPTHINK-001
+    title: Teleconference vote reversal without dissent record
+    country: US
+    year: 1986
+    expect:
+      required_fields: [case_id, title, description, weak_signals]
+      weak_signals_min: 1
+
+  - id: pension_fund_risk_override
+    raw_text: |
+      Trustees approved a liability-driven investment shift despite actuarial stress-test warnings.
+      Risk committee minutes show a split vote; the public summary described unanimous support.
+      Liquidity buffers were reduced to meet short-term funding ratio targets.
+    case_id: GB-POL-1999-HORIZON-01
+    title: Pension strategy shift under stress-test flags
+    country: GB
+    year: 1999
+    expect:
+      required_fields: [case_id, title, description, weak_signals]
+      weak_signals_min: 1
+
+  - id: cyber_incident_ignored
+    raw_text: |
+      Security operations flagged lateral movement on the OT network during a maintenance window.
+      Plant manager deferred isolation to avoid production loss; ticket closed as false positive.
+      Similar indicators reappeared two weeks later on a safety-system engineering workstation.
+    case_id: SEED-CYBER-001
+    title: OT incident deferred for production continuity
+    country: AU
     year: 2023
     expect:
       required_fields: [case_id, title, description, weak_signals]

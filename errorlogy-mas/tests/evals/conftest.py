@@ -34,3 +34,10 @@ def neutrality_agent(llm_router):
     from mas.agents.neutrality import NeutralityAuditorAgent
 
     return NeutralityAuditorAgent()
+
+
+@pytest.fixture(scope="module")
+def scout_agent(llm_router):
+    from mas.agents.scout import ScoutAgent
+
+    return ScoutAgent()

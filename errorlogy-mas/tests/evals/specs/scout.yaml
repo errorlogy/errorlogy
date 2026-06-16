@@ -46,7 +46,8 @@ eval_layers:
     ci: manual_or_nightly
     threshold: 0.8
     runs: 3
-    cases_ref: seeds/scout_extraction.yaml  # future — data/calibration_targets.json seeds
+    cases_ref: seeds/scout_extraction.yaml
+    runner: tests/evals/test_scout_extraction_live.py
 
 graders:
   deterministic:
