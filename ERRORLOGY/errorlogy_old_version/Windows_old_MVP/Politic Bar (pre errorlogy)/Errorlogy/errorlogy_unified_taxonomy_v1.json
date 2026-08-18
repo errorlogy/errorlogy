@@ -1,0 +1,3367 @@
+{
+  "version": "1.0.0",
+  "ontology": "Errorlogy Unified Taxonomy",
+  "created_for": "Claude / LLM-readable multi-agent analysis of government-management errors",
+  "description": "Unified canonical file combining cognitive/group/informational biases (L1-L3), strategic/incentive failure modes (L4), mechanism/aggregation pathologies (L5), and the new composite Persistent Non-Optimality / Anti-Consensus layer (L6).",
+  "source_files": {
+    "cognitive_biases.json": {
+      "version": "0.2",
+      "count": 189,
+      "scope": "L1-L3 cognitive, group, informational environment modes"
+    },
+    "strategic_failure_modes.json": {
+      "version": "0.1",
+      "count": 14,
+      "scope": "L4 strategic / incentive-misalignment modes"
+    },
+    "mechanism_pathologies.json": {
+      "version": "0.1",
+      "count": 14,
+      "scope": "L5 mechanism / aggregation pathologies"
+    }
+  },
+  "counts": {
+    "CB_L1_L3": 189,
+    "SF_L4": 14,
+    "MP_L5": 14,
+    "atomic_total": 217,
+    "PNO_L6_patterns": 7
+  },
+  "layers": {
+    "L1": "Individual cognitive bias / judgment distortion",
+    "L2": "Group dynamic / collective deliberation failure",
+    "L3": "Informational-environment closure or echo chamber",
+    "L4": "Strategic / incentive-misalignment failure mode",
+    "L5": "Mechanism / aggregation pathology",
+    "L6": "Persistent Non-Optimality pattern: composite dynamic regime built from L1-L5 modes"
+  },
+  "meta_dimensions": {
+    "R": {
+      "name": "Representation Error",
+      "question": "What did the system fail to see or model correctly?"
+    },
+    "O": {
+      "name": "Objective Misalignment",
+      "question": "What effective objective diverged from the declared public mandate?"
+    },
+    "A": {
+      "name": "Aggregation Nonlinearity",
+      "question": "How did aggregation of preferences/signals distort the collective result?"
+    },
+    "C": {
+      "name": "Coordination Entropy",
+      "question": "What prevented known improvements from being coordinated or executed?"
+    },
+    "T": {
+      "name": "Temporal Instability",
+      "question": "How did locally rational choices compound or oscillate over time?"
+    },
+    "X": {
+      "name": "Anti-Consensus / Divergence",
+      "question": "How did multi-agent interaction prevent convergence or create false consensus?"
+    }
+  },
+  "atomic_modes": [
+    {
+      "id": "CB-001",
+      "name": "Confirmation bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Tendency to search for, interpret, and recall information that confirms one's prior beliefs.",
+      "operational_signature": "Policy rationale cites only supporting studies; contrary evidence in the record is acknowledged only to dismiss it or is absent entirely.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-002",
+      "name": "Anchoring",
+      "layer": "L1",
+      "family": "CB",
+      "category": "framing_and_anchoring",
+      "definition": "Over-reliance on the first piece of numerical information encountered when making subsequent estimates.",
+      "operational_signature": "A budget, target, or threshold matches a prior round's number with no stated reason, or the first figure floated by a senior official becomes the final figure with no analytic re-derivation.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-003",
+      "name": "Availability heuristic",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Judging the probability of an event by how easily examples come to mind.",
+      "operational_signature": "Risk assessment overweights recent or mediagenic events while treating common-but-quiet risks as background noise.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-004",
+      "name": "Representativeness heuristic",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Judging probability by how much an outcome resembles a mental prototype, neglecting base rates.",
+      "operational_signature": "A case is treated as typical of a category based on surface features, ignoring the prevalence of that category in the relevant population.",
+      "meta_dimensions": [
+        "R",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-005",
+      "name": "Base-rate neglect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Ignoring general statistical information in favor of case-specific information.",
+      "operational_signature": "Decision cites a vivid individual case or anecdote without reference to the underlying population statistics the policy will actually operate on.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-006",
+      "name": "Dunning–Kruger effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "People with low ability in a domain overestimate their competence in that domain.",
+      "operational_signature": "An official without documented domain expertise makes categorical technical claims and overrides published expert advice.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-007",
+      "name": "Overconfidence effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "Subjective confidence in one's judgments is reliably greater than objective accuracy.",
+      "operational_signature": "Projections are stated without confidence intervals, or the bands given are far narrower than the class of forecast historically supports.",
+      "meta_dimensions": [
+        "O",
+        "A"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-008",
+      "name": "Planning fallacy",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "Systematic underestimation of the time, cost, and risk of future actions.",
+      "operational_signature": "Public timelines and cost estimates match best-case internal numbers without adjustment for the reference class of similar public projects.",
+      "meta_dimensions": [
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-009",
+      "name": "Optimism bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "Tendency to believe one is less likely than others to experience a negative event.",
+      "operational_signature": "The decision assumes a benign trajectory when the comparable historical reference class shows a non-trivial rate of bad outcomes.",
+      "meta_dimensions": [
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-010",
+      "name": "Sunk-cost fallacy",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Continuing an endeavor because of previously invested resources, rather than marginal future value.",
+      "operational_signature": "Continuation of a program is justified by what has already been spent or committed, rather than by forward-looking cost-benefit analysis.",
+      "meta_dimensions": [
+        "R",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-011",
+      "name": "Status quo bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Preference for the current state of affairs, treating change as a loss.",
+      "operational_signature": "An existing policy is retained without review when its triggering conditions have demonstrably changed, with no stated justification for retention.",
+      "meta_dimensions": [
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-012",
+      "name": "Endowment effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "People demand more to give up something than they would pay to acquire it.",
+      "operational_signature": "Defense of an existing program, office, or budget line is disproportionate to the case that would be made to create it today.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-013",
+      "name": "Loss aversion",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Losses are psychologically about twice as powerful as equivalent gains.",
+      "operational_signature": "A policy trades a large expected gain for a small reduction in visible downside, with the asymmetry unexplained.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-014",
+      "name": "Framing effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "framing_and_anchoring",
+      "definition": "Different presentations of the same information produce different decisions.",
+      "operational_signature": "Option presentation in official documents systematically favors one choice (e.g. 'lives saved' vs 'deaths prevented') without counter-framing.",
+      "meta_dimensions": [
+        "R",
+        "O",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-015",
+      "name": "Hindsight bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "memory",
+      "definition": "Tendency to see past events as having been predictable.",
+      "operational_signature": "Post-hoc reviews treat an outcome as having been obvious, scrubbing the uncertainty present at the decision time from the record.",
+      "meta_dimensions": [
+        "R",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-016",
+      "name": "Outcome bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Judging a decision by its outcome rather than by the quality of the decision at the time.",
+      "operational_signature": "A good outcome is cited as vindication of a process that was itself flawed, or a bad outcome triggers sanction of a defensible process.",
+      "meta_dimensions": [
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-017",
+      "name": "Survivorship bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Focusing on entities that passed a selection process and overlooking those that did not.",
+      "operational_signature": "A policy is modeled on visible success cases while the larger set of failed comparable cases is unexamined.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-018",
+      "name": "Selection bias (in evaluation)",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Conclusions drawn from a non-representative sample.",
+      "operational_signature": "Program evaluation uses participant data that self-selected, with no correction for the selection effect.",
+      "meta_dimensions": [
+        "R",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-019",
+      "name": "Groupthink",
+      "layer": "L2",
+      "family": "CB",
+      "category": "group",
+      "definition": "Pressure for unanimity in a cohesive group overrides realistic appraisal of alternatives.",
+      "operational_signature": "Meeting minutes show no registered dissent on a complex decision, no devil's-advocate role, and no record of alternatives seriously considered.",
+      "meta_dimensions": [
+        "R",
+        "X"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-020",
+      "name": "Authority bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "social",
+      "definition": "Tendency to attribute greater accuracy to the opinion of an authority figure.",
+      "operational_signature": "A senior official's assertion overrides contrary technical analysis without the technical analysis being addressed on its merits.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-021",
+      "name": "In-group bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "social",
+      "definition": "Favoring members of one's own group.",
+      "operational_signature": "Contracts, appointments, or exemptions concentrate in a defined affiliation cluster beyond what the qualification pool predicts.",
+      "meta_dimensions": [
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-022",
+      "name": "Out-group homogeneity effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "social",
+      "definition": "Perceiving out-group members as more similar to each other than in-group members are.",
+      "operational_signature": "Policy addresses an external population as a monolith, with the heterogeneity of that population not reflected in the design.",
+      "meta_dimensions": [
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-023",
+      "name": "Halo effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "social",
+      "definition": "Overall impression of a person or entity influences judgment of specific traits.",
+      "operational_signature": "Credit given to an institution in one competency is transferred to unrelated competencies without independent evaluation.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-024",
+      "name": "Horn effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "social",
+      "definition": "Negative trait generalizes to unrelated traits.",
+      "operational_signature": "Institution disqualified from one domain is treated as unreliable in unrelated domains without cause.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-025",
+      "name": "Bandwagon effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "social",
+      "definition": "Adoption of a belief because many others hold it.",
+      "operational_signature": "Policy alignment across peer jurisdictions is cited as a reason for adoption, with no independent analysis of local fit.",
+      "meta_dimensions": [
+        "C"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-026",
+      "name": "False consensus effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "social",
+      "definition": "Overestimating the extent to which others share one's views.",
+      "operational_signature": "Policy assumes public support that polling or prior consultation does not substantiate.",
+      "meta_dimensions": [
+        "X"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-027",
+      "name": "Pluralistic ignorance",
+      "layer": "L2",
+      "family": "CB",
+      "category": "group",
+      "definition": "Privately held disagreement with a norm while publicly going along, in the mistaken belief one is alone.",
+      "operational_signature": "Internal dissent recorded post-hoc in memoirs or leaks despite unanimous public alignment at decision time.",
+      "meta_dimensions": [
+        "R",
+        "T",
+        "X"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-028",
+      "name": "Conformity bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "social",
+      "definition": "Alignment of expressed views with group consensus under social pressure.",
+      "operational_signature": "Formal votes or sign-offs show stereotyped unanimity in settings where genuine disagreement would be expected.",
+      "meta_dimensions": [
+        "X"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-029",
+      "name": "Just-world hypothesis",
+      "layer": "L1",
+      "family": "CB",
+      "category": "social",
+      "definition": "Belief that people get what they deserve.",
+      "operational_signature": "Policy assumes outcomes reflect merit, treating adverse circumstances as evidence of personal failing without supporting analysis.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-030",
+      "name": "Fundamental attribution error",
+      "layer": "L1",
+      "family": "CB",
+      "category": "attribution",
+      "definition": "Over-attributing others' behavior to disposition, under-attributing to situation.",
+      "operational_signature": "Policy design treats a population's behavior as a character trait rather than a response to the constraints the population faces.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-031",
+      "name": "Actor–observer bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "attribution",
+      "definition": "Attributing own behavior to context and others' to disposition.",
+      "operational_signature": "Institution excuses its own failures with situational reasoning while attributing peer failures to incompetence or bad faith.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-032",
+      "name": "Self-serving bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "attribution",
+      "definition": "Crediting successes to self, blaming failures on circumstances.",
+      "operational_signature": "After-action reports claim credit for favorable outcomes and attribute unfavorable ones to exogenous shocks.",
+      "meta_dimensions": [
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-033",
+      "name": "Ultimate attribution error",
+      "layer": "L1",
+      "family": "CB",
+      "category": "attribution",
+      "definition": "Group-level extension of attribution biases, favorable to in-group.",
+      "operational_signature": "Coalition partners' errors framed as accidents; opposition errors framed as patterns.",
+      "meta_dimensions": [
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-034",
+      "name": "Illusion of control",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "Overestimation of one's ability to control outcomes.",
+      "operational_signature": "Policy claims to deliver outcomes that depend substantially on actors, markets, or systems outside the deciding body's reach.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-035",
+      "name": "Illusion of explanatory depth",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "People feel they understand complex systems more deeply than they do.",
+      "operational_signature": "Public justification describes a mechanism in slogans; internal technical memoranda show the mechanism was not actually modeled.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-036",
+      "name": "Illusion of validity",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "Overestimating the accuracy of one's predictive judgments, especially when information is coherent.",
+      "operational_signature": "Forecasts stated with high confidence despite operating on the kind of input that the relevant reference class handles poorly.",
+      "meta_dimensions": [
+        "R",
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-037",
+      "name": "Illusion of transparency",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "Overestimating the degree to which others know one's internal states.",
+      "operational_signature": "Communications assume the public has context the public was never given, and read as evasive for that reason.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-038",
+      "name": "Spotlight effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "Overestimation of how much one is noticed by others.",
+      "operational_signature": "Decision-makers defend against imagined scrutiny that is not actually present, producing over-elaborate or defensive procedures.",
+      "meta_dimensions": [
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-039",
+      "name": "Naive realism",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "Belief that one perceives the world objectively, and that dissenters are biased, uninformed, or irrational.",
+      "operational_signature": "Official framing treats opposition as category-errors rather than as disagreements over facts or values.",
+      "meta_dimensions": [
+        "R",
+        "O",
+        "X"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-040",
+      "name": "Hostile attribution bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "attribution",
+      "definition": "Tendency to interpret ambiguous behavior as hostile.",
+      "operational_signature": "Ambiguous acts by counterparties (states, groups) read as adversarial by default, producing escalatory responses.",
+      "meta_dimensions": [
+        "A"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-041",
+      "name": "Confabulation (in decision records)",
+      "layer": "L1",
+      "family": "CB",
+      "category": "memory",
+      "definition": "Producing fabricated, distorted, or misinterpreted memories without intent to deceive.",
+      "operational_signature": "Retrospective accounts by the body insert rationales that are not present in the contemporaneous record.",
+      "meta_dimensions": [
+        "R",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-042",
+      "name": "Rosy retrospection",
+      "layer": "L1",
+      "family": "CB",
+      "category": "memory",
+      "definition": "Past events recalled more positively than they were judged at the time.",
+      "operational_signature": "Defense of continuing a program relies on a narrative of past success that the contemporaneous evaluation record does not support.",
+      "meta_dimensions": [
+        "R",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-043",
+      "name": "Telescoping effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "memory",
+      "definition": "Misremembering when events occurred.",
+      "operational_signature": "Official narratives compress or stretch timelines in ways that improve the optics, without citing the source of the dates.",
+      "meta_dimensions": [
+        "R",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-044",
+      "name": "Peak–end rule",
+      "layer": "L1",
+      "family": "CB",
+      "category": "memory",
+      "definition": "Judging experiences largely by their peak and their end.",
+      "operational_signature": "Program evaluation emphasizes a high point or final event, under-weighting steady-state performance.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-045",
+      "name": "Recency bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "memory",
+      "definition": "Over-weighting recent events relative to earlier ones.",
+      "operational_signature": "Trend-based policy leans on the latest data point as if it were a regime change, without testing for reversion.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-046",
+      "name": "Primacy effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "memory",
+      "definition": "First items in a sequence better remembered than middle items.",
+      "operational_signature": "Briefings privilege the first option presented; alternatives listed later receive comparatively shallow treatment.",
+      "meta_dimensions": [
+        "R",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-047",
+      "name": "Gambler's fallacy",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Belief that independent events are affected by prior independent outcomes.",
+      "operational_signature": "Risk planning assumes 'we're due' or 'we've had enough' of a given shock class in a way that treats independent events as dependent.",
+      "meta_dimensions": [
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-048",
+      "name": "Hot-hand fallacy",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Belief that success breeds success in independent trials.",
+      "operational_signature": "A run of favorable outcomes leads to scaling of an intervention without confirming the underlying mechanism.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-049",
+      "name": "Regression-to-the-mean neglect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Failure to anticipate that extreme observations will moderate.",
+      "operational_signature": "A post-intervention improvement from an extreme baseline is attributed to the intervention without a control or counterfactual.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-050",
+      "name": "Clustering illusion",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Seeing patterns in random data.",
+      "operational_signature": "Policy response to a short-run cluster of events treats the cluster as a trend absent significance testing.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-051",
+      "name": "Conjunction fallacy",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Estimating a specific conjunction as more probable than one of its components.",
+      "operational_signature": "Policy projections attach probabilities to richly-specified scenarios that exceed the probability of their less-specified parents.",
+      "meta_dimensions": [
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-052",
+      "name": "Neglect of probability",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Disregarding probability information when under uncertainty.",
+      "operational_signature": "Decisions treat low-probability high-salience risks and high-probability low-salience risks as comparable in weight.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-053",
+      "name": "Zero-risk bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Preferring to eliminate a small risk completely over reducing a larger risk substantially.",
+      "operational_signature": "Regulation targets full elimination of a minor exposure while leaving a much larger exposure partially addressed.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-054",
+      "name": "Denominator neglect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Focusing on the numerator of a ratio and neglecting the denominator.",
+      "operational_signature": "Threat communication cites absolute counts of incidents while not reporting the underlying base.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-055",
+      "name": "Ratio bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Larger-numerator ratios perceived as higher probability regardless of actual ratio.",
+      "operational_signature": "Communication chooses the numerically larger presentation of a risk (e.g. '10 in 100' vs '1 in 10') to drive perception.",
+      "meta_dimensions": [
+        "R",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-056",
+      "name": "Affect heuristic",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Using current emotion as a shortcut for risk/benefit judgment.",
+      "operational_signature": "A decision taken during an acute emotional moment departs from the body's standing risk framework without a reasoned update to the framework.",
+      "meta_dimensions": [
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-057",
+      "name": "Negativity bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Negative information weighted more than equivalent positive information.",
+      "operational_signature": "Risk-averse response to a single negative signal overrides a weight of positive evidence in the record.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-058",
+      "name": "Positivity bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Favorable information weighted more than unfavorable.",
+      "operational_signature": "Press releases and briefings systematically front positive indicators; negative indicators appear only under obligation.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-059",
+      "name": "Ostrich effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Avoidance of negative information.",
+      "operational_signature": "Known adverse data is not commissioned, not circulated, or not acted upon at the stage when action was still cheap.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-060",
+      "name": "Normalcy bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Underestimating the possibility or severity of a crisis because it has not yet occurred.",
+      "operational_signature": "Warnings from expert bodies are treated as alarmist up until the event, then as obvious after.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-061",
+      "name": "Dread risk bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Over-response to vivid low-probability risks relative to equivalently costly diffuse risks.",
+      "operational_signature": "Dramatic incidents prompt resource reallocation far exceeding what equivalent life- or cost-impact diffuse risks receive.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-062",
+      "name": "Risk compensation",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Behavior adjusts to perceived risk level, offsetting protective measures.",
+      "operational_signature": "Expected gains from a safety intervention not realized; behavioral offset not modeled at design time.",
+      "meta_dimensions": [
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-063",
+      "name": "Observer-expectancy effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Researcher bias influences subjects or interpretation.",
+      "operational_signature": "Internal studies producing results favorable to the commissioning body disproportionately cited; independent studies downplayed.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-064",
+      "name": "Experimenter's regress",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Difficulty separating what a result is from what it is taken to imply.",
+      "operational_signature": "Studies whose conclusions align with preferred policy treated as settled; equally credentialed studies with opposite conclusions treated as preliminary.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-065",
+      "name": "Belief bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Judging the strength of an argument by the believability of its conclusion.",
+      "operational_signature": "Arguments with desired conclusions accepted on lower evidentiary standards than arguments with undesired conclusions.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-066",
+      "name": "Motivated reasoning",
+      "layer": "L1",
+      "family": "CB",
+      "category": "motivation_and_identity",
+      "definition": "Reasoning shaped by desired conclusions rather than by evidence.",
+      "operational_signature": "Stated rationale follows a conclusion the body had political or personal reason to reach, with the evidentiary chain assembled backward from that conclusion.",
+      "meta_dimensions": [
+        "R",
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-067",
+      "name": "Identity-protective cognition",
+      "layer": "L1",
+      "family": "CB",
+      "category": "motivation_and_identity",
+      "definition": "Processing information so as to protect one's social identity.",
+      "operational_signature": "Positions on technical questions track factional identity to a degree the underlying technical evidence does not explain.",
+      "meta_dimensions": [
+        "R",
+        "O",
+        "X"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-068",
+      "name": "Belief perseverance",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Maintaining belief after the evidentiary basis has been discredited.",
+      "operational_signature": "Policy maintained after its empirical premise is withdrawn by the originating agency, with no revised rationale substituted.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-069",
+      "name": "Continued influence effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "memory",
+      "definition": "Misinformation continues to influence reasoning after retraction.",
+      "operational_signature": "Retracted claims continue to appear in subsequent official talking points, briefings, or justifications.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-070",
+      "name": "Backfire effect (contested)",
+      "layer": "L1",
+      "family": "CB",
+      "category": "motivation_and_identity",
+      "definition": "Corrections sometimes strengthen the misperception they aim to correct. Effect is contested but documented in some conditions.",
+      "operational_signature": "Official correction is issued in a form that emphasizes the original claim, empirically associated with persistence of the original claim.",
+      "meta_dimensions": [
+        "O",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-071",
+      "name": "Escalation of commitment",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Increased investment in a course of action in response to its failure.",
+      "operational_signature": "Failing program receives additional resources under the same theory of action, with no independent re-examination of the theory.",
+      "meta_dimensions": [
+        "R",
+        "O",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-072",
+      "name": "Narrative fallacy",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Imposing a coherent story on historical data where one is not warranted.",
+      "operational_signature": "Official history of a policy area is told as a causally connected sequence, with the contingency and noise in the actual record edited out.",
+      "meta_dimensions": [
+        "R",
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-073",
+      "name": "Texas sharpshooter fallacy",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Drawing the target around the clustered hits after the fact.",
+      "operational_signature": "Success criteria for an initiative announced or revised after outcomes are known.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-074",
+      "name": "Goodhart's law as bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "When a measure becomes a target, it ceases to be a good measure.",
+      "operational_signature": "Performance metrics attached to incentives produce gaming at the reporting layer, with no independent verification of the underlying state.",
+      "meta_dimensions": [
+        "R",
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-075",
+      "name": "Streetlight effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Searching where it is easy, not where the answer is.",
+      "operational_signature": "Investigations or reviews focus on easily-accessible records while the decisive records remain uncollected.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-076",
+      "name": "Parkinson's law of triviality",
+      "layer": "L2",
+      "family": "CB",
+      "category": "group",
+      "definition": "Disproportionate deliberation on trivial items because they are understandable.",
+      "operational_signature": "Meeting records show long debate on minor line items and pro-forma sign-off on larger consequential ones.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-077",
+      "name": "Zero-sum bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Tendency to view mixed-motive interactions as pure win/lose.",
+      "operational_signature": "Policy defaults to positional bargaining in situations where integrative options are documented in the record and declined without analysis.",
+      "meta_dimensions": [
+        "A"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-078",
+      "name": "Reactive devaluation",
+      "layer": "L1",
+      "family": "CB",
+      "category": "social",
+      "definition": "Proposals devalued because of who proposes them.",
+      "operational_signature": "Same proposal accepted from one source and rejected from another, with no substantive difference in the content.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-079",
+      "name": "Not-invented-here syndrome",
+      "layer": "L2",
+      "family": "CB",
+      "category": "group",
+      "definition": "Resistance to ideas originating outside the group.",
+      "operational_signature": "External best-practice adopted belatedly or rebranded; internal inferior alternative preferred meanwhile.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-080",
+      "name": "Proportionality bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Big outcomes must have big causes.",
+      "operational_signature": "Response to a large event dismisses mundane-but-adequate causal explanations in favor of conspiratorial or outsized framings.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-081",
+      "name": "Hyperbolic discounting",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Stronger preference for smaller-sooner over larger-later rewards.",
+      "operational_signature": "Policy preference for near-term visible wins over larger deferred gains, with no stated discount-rate rationale.",
+      "meta_dimensions": [
+        "R",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-082",
+      "name": "Present bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Discounting future costs and benefits relative to present ones.",
+      "operational_signature": "Fiscal decisions defer costs past the current administration's horizon in structurally predictable patterns.",
+      "meta_dimensions": [
+        "R",
+        "O",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-083",
+      "name": "Projection bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "Assuming future preferences will match current ones.",
+      "operational_signature": "Long-range plans assume current public opinion is stable across the plan's horizon, without sensitivity analysis.",
+      "meta_dimensions": [
+        "O",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-084",
+      "name": "Focalism (focusing illusion)",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Overweighting a single salient factor.",
+      "operational_signature": "Policy debate fixates on a single metric to the exclusion of the broader objective function the policy is meant to serve.",
+      "meta_dimensions": [
+        "R",
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-085",
+      "name": "Impact bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "Overestimating the emotional impact of future events.",
+      "operational_signature": "Decision-makers expect catastrophic public reaction to an option and reject it; the comparable historical reference class does not support the expectation.",
+      "meta_dimensions": [
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-086",
+      "name": "Empathy gap (hot/cold)",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "Underestimating how future affective states will shift one's preferences.",
+      "operational_signature": "Contingency plans drafted in calm conditions assume calm execution; crisis responses deviate from the plan predictably under stress.",
+      "meta_dimensions": [
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-087",
+      "name": "Moral licensing",
+      "layer": "L1",
+      "family": "CB",
+      "category": "motivation_and_identity",
+      "definition": "Past good behavior licenses later problematic behavior.",
+      "operational_signature": "Prior rights-protecting action cited as license for later rights-curtailing action in an unrelated domain.",
+      "meta_dimensions": [
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-088",
+      "name": "Moral credentialing",
+      "layer": "L1",
+      "family": "CB",
+      "category": "motivation_and_identity",
+      "definition": "Claimed moral standing used to dismiss scrutiny.",
+      "operational_signature": "Appeals to the body's past record used in place of a substantive answer to a specific current question.",
+      "meta_dimensions": [
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-089",
+      "name": "System justification",
+      "layer": "L1",
+      "family": "CB",
+      "category": "motivation_and_identity",
+      "definition": "Defense of existing arrangements even when they disadvantage oneself or one's group.",
+      "operational_signature": "Institutional arrangements defended with reasoning that does not engage with the critique on its merits.",
+      "meta_dimensions": [
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-090",
+      "name": "Backfire through reactance",
+      "layer": "L1",
+      "family": "CB",
+      "category": "motivation_and_identity",
+      "definition": "Pressure produces opposite compliance.",
+      "operational_signature": "Mandates produce measurable counter-compliance predicted in the pre-decision record but not mitigated in design.",
+      "meta_dimensions": [
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-091",
+      "name": "Naive cynicism",
+      "layer": "L1",
+      "family": "CB",
+      "category": "social",
+      "definition": "Expecting more egocentric bias in others than in oneself.",
+      "operational_signature": "Opposing parties' positions explained by self-interest; own side's by principle, with no symmetry check.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-092",
+      "name": "Illusory superiority",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "Overestimating one's qualities relative to others.",
+      "operational_signature": "Self-assessment of institutional performance materially exceeds independent benchmarks.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-093",
+      "name": "Hard–easy effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "Overconfidence on hard tasks; underconfidence on easy tasks.",
+      "operational_signature": "Confidence in complex forecasts exceeds confidence in simple ones, inverting the calibrated pattern.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-094",
+      "name": "Bias blind spot",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "Seeing bias in others more readily than in oneself.",
+      "operational_signature": "Post-mortem attributes errors to external actors' biases without examining the same biases in the deciding body.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-095",
+      "name": "Third-person effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "social",
+      "definition": "Perceiving mass-media messages as affecting others more than oneself.",
+      "operational_signature": "Officials regulate a media or information channel on the theory that others will be misled by it, while drawing on the same channel themselves.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-096",
+      "name": "Illusory truth effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Repetition increases perceived truthfulness.",
+      "operational_signature": "Un-evidenced claim becomes treated as baseline through repetition in official communication, without an intervening substantiation step.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-097",
+      "name": "Familiarity principle (mere exposure)",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Preference for things because they are familiar.",
+      "operational_signature": "Incumbent vendors, consultants, or frameworks retained through familiarity in the face of documented deficits.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-098",
+      "name": "Cheerleader effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "social",
+      "definition": "Individuals appear more attractive in a group.",
+      "operational_signature": "A weaker proposal bundled with stronger proposals clears review on the bundle's merits without item-level scrutiny.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-099",
+      "name": "Pseudocertainty effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "framing_and_anchoring",
+      "definition": "Certainty in part of a multi-stage outcome produces risk-averse choice.",
+      "operational_signature": "Policy locks in a risk-averse step on a conditional outcome that is itself uncertain, inflating apparent certainty.",
+      "meta_dimensions": [
+        "R",
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-100",
+      "name": "Certainty effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "framing_and_anchoring",
+      "definition": "Outcomes perceived as certain over-weighted versus merely probable.",
+      "operational_signature": "A guarantee framing commands a disproportionate premium over a statistically superior probabilistic alternative.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-101",
+      "name": "Isolation effect (Kahneman–Tversky)",
+      "layer": "L1",
+      "family": "CB",
+      "category": "framing_and_anchoring",
+      "definition": "Stripping common components from choices changes the choice.",
+      "operational_signature": "Choices presented with and without their shared context produce inconsistent official preferences within the same decision window.",
+      "meta_dimensions": [
+        "R",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-102",
+      "name": "Magnitude insensitivity",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Willingness to pay for an outcome does not scale with the outcome's size.",
+      "operational_signature": "Budgets attached to small and large versions of the same problem are roughly comparable, out of proportion to the problem's scale.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-103",
+      "name": "Scope insensitivity",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Evaluations of public goods do not scale with scope.",
+      "operational_signature": "Contingent-valuation-style justifications cite comparable willingness figures for very different-scale programs.",
+      "meta_dimensions": [
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-104",
+      "name": "Mental accounting",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Treating money differently depending on its source or designation.",
+      "operational_signature": "Funds in different ledgers treated as non-fungible when the legal record permits fungibility, with efficiency costs.",
+      "meta_dimensions": [
+        "R",
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-105",
+      "name": "Compromise effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "framing_and_anchoring",
+      "definition": "Preference for middle options in a set.",
+      "operational_signature": "Three-option framings in official reviews systematically converge on the middle option regardless of the underlying merit distribution.",
+      "meta_dimensions": [
+        "R",
+        "A"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-106",
+      "name": "Decoy effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "framing_and_anchoring",
+      "definition": "Addition of an asymmetrically dominated option shifts choice toward the dominating one.",
+      "operational_signature": "A third option introduced into a review appears present to shift preference between the other two, not as a serious candidate.",
+      "meta_dimensions": [
+        "R",
+        "A",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-107",
+      "name": "Less-is-better effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "framing_and_anchoring",
+      "definition": "Smaller set preferred in isolation, larger set preferred jointly.",
+      "operational_signature": "Public messaging prefers smaller numerical claims presented alone to larger claims presented with context.",
+      "meta_dimensions": [
+        "R",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-108",
+      "name": "Unit bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "framing_and_anchoring",
+      "definition": "Default portion or grain treated as the correct amount.",
+      "operational_signature": "Program sizing defaults to round administrative units rather than analytically derived thresholds.",
+      "meta_dimensions": [
+        "R",
+        "A"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-109",
+      "name": "Default effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "framing_and_anchoring",
+      "definition": "The pre-selected option has disproportionate uptake.",
+      "operational_signature": "Policy design sets a default that materially changes outcomes, presented as neutral.",
+      "meta_dimensions": [
+        "R",
+        "A",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-110",
+      "name": "Choice overload",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Too many options reduce choice quality and satisfaction.",
+      "operational_signature": "Consultation processes present so many options that structured ranking is impossible and the body selects by default.",
+      "meta_dimensions": [
+        "O",
+        "A",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-111",
+      "name": "Attentional bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Ongoing thoughts influence perception.",
+      "operational_signature": "A salient ongoing concern leads to systematic over-detection of that concern's signatures in incoming reports.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-112",
+      "name": "Attribute substitution",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Answering a hard question by answering an easier one without noticing.",
+      "operational_signature": "Policy analysis answers 'is this popular' when the brief called for 'does this work'.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-113",
+      "name": "WYSIATI (what you see is all there is)",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Treating available information as sufficient.",
+      "operational_signature": "Decisions conclude from the data at hand without commissioning or requesting the data that is absent but obtainable.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-114",
+      "name": "Illusory correlation",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Seeing relationships between variables where none exist.",
+      "operational_signature": "Policy rationale asserts a causal link between variables that co-vary in noisy data but not in controlled analysis.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-115",
+      "name": "Prevalence-induced concept change",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "As a phenomenon becomes less common, the concept expands to keep prevalence constant.",
+      "operational_signature": "The definition of a harm or threat expands over time in the body's own materials in a way that keeps reported incidence stable.",
+      "meta_dimensions": [
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-116",
+      "name": "Denomination effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "framing_and_anchoring",
+      "definition": "Larger denominations spent less readily than the equivalent in smaller ones.",
+      "operational_signature": "Consolidated block grants committed more conservatively than the same sum split across many line items.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-117",
+      "name": "Pro-innovation bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Overestimation of an innovation's usefulness and underestimation of its costs.",
+      "operational_signature": "Emerging-technology procurement cites benefits with precision and costs with hand-waving.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-118",
+      "name": "Pessimism bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Overestimating the probability of negative outcomes.",
+      "operational_signature": "Threat estimates systematically exceed historical base rates without stated revision of the base rate.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-119",
+      "name": "Illusion of asymmetric insight",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "Belief that one understands others better than others understand oneself.",
+      "operational_signature": "Official framings claim to know the opposition's true motives while asserting the opposition misunderstands one's own.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-120",
+      "name": "False uniqueness effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "Overestimating the uniqueness of one's own abilities.",
+      "operational_signature": "Institutional self-narrative positions the body as uniquely equipped in a role where peer benchmarks show comparable capacity elsewhere.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-121",
+      "name": "Worse-than-average effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "For difficult tasks, self-ratings below average.",
+      "operational_signature": "On hard technical items the body under-claims capacity it in fact has, declining to act.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-122",
+      "name": "Confabulated unanimity",
+      "layer": "L2",
+      "family": "CB",
+      "category": "group",
+      "definition": "Groups remember themselves as more unanimous than they were.",
+      "operational_signature": "Retrospective accounts of a deliberation claim unanimity that the contemporaneous minutes or votes do not support.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-123",
+      "name": "Risky shift / group polarization",
+      "layer": "L2",
+      "family": "CB",
+      "category": "group",
+      "definition": "Group decisions move to the extremes of pre-discussion tendencies.",
+      "operational_signature": "Committee outputs more extreme than the median pre-meeting position of members.",
+      "meta_dimensions": [
+        "X"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-124",
+      "name": "Shared-information bias",
+      "layer": "L2",
+      "family": "CB",
+      "category": "group",
+      "definition": "Groups spend more time on information members already share.",
+      "operational_signature": "Minutes show discussion time dominated by consensus points, with unshared specialist knowledge from individual members surfacing only briefly or not at all.",
+      "meta_dimensions": [
+        "R",
+        "T",
+        "X"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-125",
+      "name": "Abilene paradox",
+      "layer": "L2",
+      "family": "CB",
+      "category": "group",
+      "definition": "Groups pursue a course no individual member privately favors, each misreading the others.",
+      "operational_signature": "A decision no senior figure later defends as their own preference was nevertheless approved unanimously.",
+      "meta_dimensions": [
+        "X"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-126",
+      "name": "Diffusion of responsibility",
+      "layer": "L2",
+      "family": "CB",
+      "category": "group",
+      "definition": "Responsibility diffuses across a group, reducing individual action.",
+      "operational_signature": "A duty-to-act visible to multiple bodies goes undischarged with each citing another's jurisdiction.",
+      "meta_dimensions": [
+        "C"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-127",
+      "name": "Free-rider effect",
+      "layer": "L2",
+      "family": "CB",
+      "category": "group",
+      "definition": "Members rely on others' contribution to a shared task.",
+      "operational_signature": "Coalition commitments met by a subset while others under-contribute relative to stated share.",
+      "meta_dimensions": [
+        "O",
+        "C"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-128",
+      "name": "Social loafing",
+      "layer": "L2",
+      "family": "CB",
+      "category": "group",
+      "definition": "Reduced individual effort in group contexts.",
+      "operational_signature": "Interagency bodies produce less per-member output than comparable single-agency work-streams.",
+      "meta_dimensions": [
+        "C"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-129",
+      "name": "Social proof",
+      "layer": "L1",
+      "family": "CB",
+      "category": "social",
+      "definition": "Behavior copied from others as evidence of correctness.",
+      "operational_signature": "Policy adopted primarily because a peer jurisdiction adopted it, with local-fit analysis absent or cursory.",
+      "meta_dimensions": [
+        "R",
+        "C"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-130",
+      "name": "Commitment and consistency bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "motivation_and_identity",
+      "definition": "Drive to act consistently with prior public commitments.",
+      "operational_signature": "Policy held in place past the point its empirical premise supports, because reversal would be visibly inconsistent.",
+      "meta_dimensions": [
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-131",
+      "name": "Reciprocity bias (in regulatory capture context)",
+      "layer": "L1",
+      "family": "CB",
+      "category": "social",
+      "definition": "Tendency to return favors, exploited in policy settings.",
+      "operational_signature": "Pattern of decisions favorable to a regulated entity correlates with prior benefits flowing from that entity, above what policy merits alone would predict.",
+      "meta_dimensions": [
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-132",
+      "name": "Liking bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "social",
+      "definition": "Preference toward those we like.",
+      "operational_signature": "Selection decisions correlate with relational or affinity signals orthogonal to merit criteria.",
+      "meta_dimensions": [
+        "R",
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-133",
+      "name": "Scarcity bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Over-valuation of what is scarce.",
+      "operational_signature": "Artificially scarce policy slots (permits, licenses) produce evaluation shortcuts favoring early or well-placed applicants.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-134",
+      "name": "Contrast effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "framing_and_anchoring",
+      "definition": "Judgment of an item depends on what it is compared to.",
+      "operational_signature": "A policy is rated favorably against a straw-alternative when the defensible comparison would include a stronger peer.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-135",
+      "name": "Distinction bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "framing_and_anchoring",
+      "definition": "Options compared side-by-side appear more different than when evaluated separately.",
+      "operational_signature": "Side-by-side review produces ranking decisions that diverge from separate-evaluation results, without the divergence being noted.",
+      "meta_dimensions": [
+        "R",
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-136",
+      "name": "Illusion of clarity",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "Own communications feel clearer to the speaker than to the audience.",
+      "operational_signature": "Official communication tested post-hoc reveals audience comprehension far below the drafters' expectation; no pre-release testing was conducted.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-137",
+      "name": "Curse of knowledge",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "Experts fail to model what non-experts do not know.",
+      "operational_signature": "Public-facing materials assume technical fluency the population does not have, reducing effective access to the program.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-138",
+      "name": "Egocentric bias",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "Over-reliance on one's own perspective.",
+      "operational_signature": "Consultation processes weight input from constituencies closest to the deciding body's own demographics.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-139",
+      "name": "Naive empiricism",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Over-trust in selected empirical evidence absent a considered methodology.",
+      "operational_signature": "Cherry-picked datasets cited as decisive without accounting for the excluded data in the same record.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-140",
+      "name": "Law of the instrument",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Over-reliance on a familiar tool.",
+      "operational_signature": "A well-known policy instrument applied to a problem where evaluation shows the instrument is poorly matched.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-141",
+      "name": "Semmelweis reflex",
+      "layer": "L1",
+      "family": "CB",
+      "category": "motivation_and_identity",
+      "definition": "Reflexive rejection of new evidence that contradicts established paradigms.",
+      "operational_signature": "New methodological findings from internal or external bodies sidelined with procedural rather than substantive objections.",
+      "meta_dimensions": [
+        "R",
+        "O",
+        "C"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-142",
+      "name": "Pro-forma compliance",
+      "layer": "L2",
+      "family": "CB",
+      "category": "group",
+      "definition": "Compliance through procedure without attention to substance.",
+      "operational_signature": "Risk assessments and consultations conducted in the prescribed form but with no evidence the output affected the decision.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-143",
+      "name": "Motivated skepticism",
+      "layer": "L1",
+      "family": "CB",
+      "category": "motivation_and_identity",
+      "definition": "Skepticism selectively applied to undesired conclusions.",
+      "operational_signature": "Methodological standards raised specifically for studies with inconvenient findings; convenient findings accepted at a lower bar.",
+      "meta_dimensions": [
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-144",
+      "name": "Illusion of agency",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "Overestimating one's causal role in outcomes.",
+      "operational_signature": "Outcomes arising predominantly from exogenous factors attributed to policy action in official communications.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-145",
+      "name": "Illusion of moral superiority",
+      "layer": "L1",
+      "family": "CB",
+      "category": "motivation_and_identity",
+      "definition": "Self-rated ethics systematically above average.",
+      "operational_signature": "Institutional self-description systematically surpasses independent ethics reviews.",
+      "meta_dimensions": [
+        "R",
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-146",
+      "name": "Moral luck neglect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Ignoring the role of luck in moral and performance assessments.",
+      "operational_signature": "Credit and blame assigned without isolating the component of the outcome the deciding body could have controlled.",
+      "meta_dimensions": [
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-147",
+      "name": "Single-cause fallacy",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Treating multi-causal outcomes as having one cause.",
+      "operational_signature": "Official explanations for complex failures or successes name a single cause, suppressing documented co-causes.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-148",
+      "name": "Monocausal framing under uncertainty",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Forcing single-cause narratives under irreducible multi-causal uncertainty.",
+      "operational_signature": "Preliminary investigations publicly name a cause before the evidentiary phase permits single-cause conclusions.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-149",
+      "name": "Regression neglect in program evaluation",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Mistaking mean reversion for program effect.",
+      "operational_signature": "Programs targeted at extreme baseline conditions evaluated without controls; improvement claimed as attributable.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-150",
+      "name": "Publication / reporting asymmetry",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Selective release of favorable results.",
+      "operational_signature": "Commissioning body releases favorable internal studies and withholds or delays unfavorable ones.",
+      "meta_dimensions": [
+        "R",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-151",
+      "name": "Halo-contamination in appointments",
+      "layer": "L1",
+      "family": "CB",
+      "category": "social",
+      "definition": "Appointment decisions driven by reputation in unrelated domains.",
+      "operational_signature": "Appointee's high-profile unrelated success cited in lieu of domain-specific qualification in the appointment record.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-152",
+      "name": "Normality creep",
+      "layer": "L1",
+      "family": "CB",
+      "category": "memory",
+      "definition": "Gradual normalization of previously-unacceptable conduct.",
+      "operational_signature": "Procedural thresholds relaxed step-wise over time, with no step alone large enough to trigger review, cumulative change material.",
+      "meta_dimensions": [
+        "R",
+        "C",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-153",
+      "name": "Base-rate substitution by anecdote",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "A single vivid case displaces the statistical base rate in deliberation.",
+      "operational_signature": "Testimony from one case drives a policy whose operating parameters affect a population whose base rate does not match the testimony.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-154",
+      "name": "Evidence discounting by source friction",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Evidence is discounted by how inconvenient it is to act on.",
+      "operational_signature": "Findings requiring costly action face higher evidentiary scrutiny than findings supporting the status quo.",
+      "meta_dimensions": [
+        "R",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-155",
+      "name": "Pre-commitment lock-in",
+      "layer": "L1",
+      "family": "CB",
+      "category": "motivation_and_identity",
+      "definition": "Prior public commitments reduce willingness to update.",
+      "operational_signature": "Campaign- or coalition-level commitments cited as reason to maintain policies inconsistent with updated evidence.",
+      "meta_dimensions": [
+        "R",
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-156",
+      "name": "Risk homeostasis",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Populations maintain target risk levels; safety gains offset by behavior.",
+      "operational_signature": "Safety interventions model the direct effect only; the risk-substitution effect is absent from the impact assessment.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-157",
+      "name": "Theory-induced blindness",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "A dominant theory makes anomalies invisible.",
+      "operational_signature": "Persistent anomalies in program data are reclassified rather than treated as anomalies; the underlying theory is not revisited.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-158",
+      "name": "Substitution of intention for action",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Announced intent treated as if it were the action.",
+      "operational_signature": "Press releases announce an action; the administrative record shows the action was not commenced or funded.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-159",
+      "name": "Present-bias in enforcement",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Enforcement intensity declines with distance from the originating event.",
+      "operational_signature": "Violation-response data show sharp enforcement immediately post-incident, decaying rapidly independent of continuing violation.",
+      "meta_dimensions": [
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-160",
+      "name": "Consistency-preservation over truth",
+      "layer": "L1",
+      "family": "CB",
+      "category": "motivation_and_identity",
+      "definition": "Updating language rather than position to preserve apparent consistency.",
+      "operational_signature": "Official position on a question is described as unchanged while the operative definition of the question has shifted.",
+      "meta_dimensions": [
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-161",
+      "name": "Expert deference overshoot",
+      "layer": "L1",
+      "family": "CB",
+      "category": "social",
+      "definition": "Over-deference to experts outside their domain of expertise.",
+      "operational_signature": "An expert's authority in one technical area is extended to cover normative or cross-domain questions their expertise does not address.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-162",
+      "name": "Expert deference undershoot",
+      "layer": "L1",
+      "family": "CB",
+      "category": "social",
+      "definition": "Under-use of relevant expertise in favor of lay intuition.",
+      "operational_signature": "Technical decisions with established expert consensus decided against the consensus without a specific technical rebuttal.",
+      "meta_dimensions": [
+        "X"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-163",
+      "name": "Forecast anchoring to prior forecast",
+      "layer": "L1",
+      "family": "CB",
+      "category": "framing_and_anchoring",
+      "definition": "New forecasts anchored to prior public forecasts rather than to underlying data.",
+      "operational_signature": "Successive official forecasts show suspicious stability relative to the volatility of the underlying series.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-164",
+      "name": "Consensus display without consensus",
+      "layer": "L2",
+      "family": "CB",
+      "category": "group",
+      "definition": "Visible consensus produced by process design rather than agreement.",
+      "operational_signature": "Joint communiqués show agreement on items that internal documents show as contested.",
+      "meta_dimensions": [
+        "X"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-165",
+      "name": "Salience-driven agenda setting",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "The agenda follows salience rather than severity.",
+      "operational_signature": "Time and budget allocations track media salience of issues rather than independent severity signals.",
+      "meta_dimensions": [
+        "R",
+        "A",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-166",
+      "name": "Elite-sample generalization",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Drawing population conclusions from elite samples.",
+      "operational_signature": "Policies designed on the basis of consultations with non-representative elite stakeholders project their preferences onto the population.",
+      "meta_dimensions": [
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-167",
+      "name": "Representativeness-by-case in legal drafting",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Drafting law around a vivid case, ignoring the case's representativeness.",
+      "operational_signature": "Statute drafted in response to a specific incident is structurally misfit for the population of cases it will now govern.",
+      "meta_dimensions": [
+        "R",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-168",
+      "name": "Over-fitting to anecdote in enforcement",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Enforcement practice overfits to the case that triggered it.",
+      "operational_signature": "Enforcement guidance tracks the features of the triggering case to a degree that produces selective application.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-169",
+      "name": "Temporal discounting of diffuse victims",
+      "layer": "L1",
+      "family": "CB",
+      "category": "motivation_and_identity",
+      "definition": "Diffuse future victims under-weighted vs. identified present beneficiaries.",
+      "operational_signature": "Cost-benefit analyses weight identifiable current beneficiaries fully and future statistical beneficiaries at systematically reduced weight.",
+      "meta_dimensions": [
+        "O",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-170",
+      "name": "Identifiable victim effect",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Greater willingness to help an identified individual than an equivalent statistical life.",
+      "operational_signature": "Resource allocation responds to named cases while equivalent diffuse need receives less, beyond what published prioritization rules predict.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-171",
+      "name": "Precedent inertia",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Over-weighting prior decisions as justification.",
+      "operational_signature": "Precedent cited as controlling where precedent's factual basis does not apply; no distinguishing analysis performed.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-172",
+      "name": "Availability cascades",
+      "layer": "L1",
+      "family": "CB",
+      "category": "social",
+      "definition": "Self-reinforcing belief formation through media and social amplification.",
+      "operational_signature": "Policy activated by a rapidly amplifying public discourse where the underlying incidence has not changed materially.",
+      "meta_dimensions": [
+        "R",
+        "X"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-173",
+      "name": "Moral outrage overshoot in regulation",
+      "layer": "L1",
+      "family": "CB",
+      "category": "motivation_and_identity",
+      "definition": "Regulatory severity calibrated to public emotion rather than to harm.",
+      "operational_signature": "Penalty structures in newly-enacted rules exceed the scaling implied by the harm function in the accompanying impact assessment.",
+      "meta_dimensions": [
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-174",
+      "name": "Risk transfer illusion",
+      "layer": "L1",
+      "family": "CB",
+      "category": "probability_and_risk",
+      "definition": "Transferring risk perceived as eliminating it.",
+      "operational_signature": "Policy reassigns risk to another party (insurer, private operator, subnational unit) and treats the transfer as risk reduction in the headline framing.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-175",
+      "name": "Procedural laundering",
+      "layer": "L2",
+      "family": "CB",
+      "category": "group",
+      "definition": "Legitimacy sought through process checklists rather than outcomes.",
+      "operational_signature": "Criticism on substance is answered by pointing to process compliance, without substantive rebuttal.",
+      "meta_dimensions": [
+        "C"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-176",
+      "name": "Information-cascade in committees",
+      "layer": "L2",
+      "family": "CB",
+      "category": "group",
+      "definition": "Later speakers update on earlier speakers' signals, producing herding.",
+      "operational_signature": "Early strong signals by senior speakers correlate with sharp convergence of subsequent statements in the same meeting.",
+      "meta_dimensions": [
+        "R",
+        "X"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-177",
+      "name": "Illusory progress",
+      "layer": "L1",
+      "family": "CB",
+      "category": "self_assessment",
+      "definition": "Activity metrics mistaken for outcome progress.",
+      "operational_signature": "Progress reports dominated by input/activity metrics (meetings held, consultations opened) absent an outcome benchmark.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-178",
+      "name": "Scapegoating in review",
+      "layer": "L1",
+      "family": "CB",
+      "category": "attribution",
+      "definition": "Attribution of system failure to an individual.",
+      "operational_signature": "Post-incident review concludes with a single individual's fault while the system conditions that produced the failure remain unchanged.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-179",
+      "name": "Sanctity-of-mission inertia",
+      "layer": "L1",
+      "family": "CB",
+      "category": "motivation_and_identity",
+      "definition": "Mission statement used to resist even evidence-driven scope revision.",
+      "operational_signature": "Mandate revision rejected on identity grounds rather than on evidence or cost grounds.",
+      "meta_dimensions": [
+        "R",
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-180",
+      "name": "Complexity-avoidance simplification",
+      "layer": "L1",
+      "family": "CB",
+      "category": "decision_and_belief",
+      "definition": "Policy simplified to a legible form that the underlying problem does not support.",
+      "operational_signature": "Decision rests on a simplification whose failure modes are described in the underlying analysis but not reflected in the policy.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-181",
+      "name": "Combined-function conflict absorption",
+      "layer": "L1",
+      "family": "CB",
+      "category": "motivation_and_identity",
+      "definition": "A single body holding two mandates whose evidentiary intake structure favors one mandate over the other absorbs contrary signals asymmetrically, without the asymmetry being represented in its self-description.",
+      "operational_signature": "An agency with both a revenue/commercial mandate and a safety/regulatory mandate over the same industry accepts operator representations at a lower evidentiary bar than it applies to independent technical signals, while describing its regime as even-handed.",
+      "meta_dimensions": [
+        "O",
+        "T"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-182",
+      "name": "Source monoculture",
+      "layer": "L3",
+      "family": "CB",
+      "category": "informational_environment",
+      "definition": "The briefings, advisors, intelligence streams, or expert panels feeding a decision draw from a homogeneous origin (single agency, single ideological cluster, single contractor, single vetted list), and the homogeneity is not justified by the question being decided.",
+      "operational_signature": "Briefing logs, advisor rosters, or witness lists for the deliberation show one channel or one network supplying the bulk of inputs; alternative sources of comparable standing existed but were not engaged, with no documented reason for their exclusion.",
+      "meta_dimensions": [
+        "R",
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-183",
+      "name": "Structural dissent suppression",
+      "layer": "L3",
+      "family": "CB",
+      "category": "informational_environment",
+      "definition": "Dissenting analyses existed within the body's reach (internal memos, alternative-views channels, minority reports, dissenting expert testimony) and were not surfaced in the deliberation record, were demoted, classified out of view, or routed past the deciders. The suppression is a property of the routing system, not of any one decider's hostility to the dissent.",
+      "operational_signature": "A dissenting memo, footnote, minority report, or alt-views annex is later shown to have existed at decision time but was absent from the briefing pack, marked at a classification the deciders did not hold, or annexed in a position the briefing pack did not surface.",
+      "meta_dimensions": [
+        "R",
+        "T",
+        "X"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-184",
+      "name": "Briefing-pipeline closure",
+      "layer": "L3",
+      "family": "CB",
+      "category": "informational_environment",
+      "definition": "The intermediate stages between primary source and decider compress, summarize, or prioritize inputs in ways that eliminate uncertainty bands, dissent, or counter-evidence before they reach the room. The deciders see a cleaner record than exists.",
+      "operational_signature": "Comparison of the source stratum (raw analyses, working-level memos) with the decision-level briefing shows systematic loss of caveats, ranges, or contrary findings; the briefing pack is more confident than its underlying inputs warrant.",
+      "meta_dimensions": [
+        "R",
+        "X"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-185",
+      "name": "Selection-for-agreement in personnel",
+      "layer": "L3",
+      "family": "CB",
+      "category": "informational_environment",
+      "definition": "Personnel changes preceding the decision systematically replace dissenting voices with concurring ones, with the dissenting voices' published positions documented in the prior record. The deliberation that follows is structurally unable to surface the prior dissent.",
+      "operational_signature": "Departures, reassignments, non-renewals, or appointments in the months before the decision shift the balance of the deliberating body in one direction; the displaced individuals had documented prior positions on the question that the new composition does not represent.",
+      "meta_dimensions": [
+        "R",
+        "T",
+        "X"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-186",
+      "name": "Closed-loop validation",
+      "layer": "L3",
+      "family": "CB",
+      "category": "informational_environment",
+      "definition": "The body's outbound communications are addressed primarily to audiences whose composition mirrors its own inputs (friendly press, allied agencies, in-network experts), so that incoming feedback re-confirms the original frame. There is no scheduled exposure to hostile-witness, red-team, or adversarial-review channels.",
+      "operational_signature": "Press, consultation, and review channels used after the decision overlap heavily with the channels used before it; no adversarial review (independent audit, opposition-staffed panel, formal devil's advocate) is scheduled into the process.",
+      "meta_dimensions": [
+        "R",
+        "O"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-187",
+      "name": "Adversarial-channel atrophy",
+      "layer": "L3",
+      "family": "CB",
+      "category": "informational_environment",
+      "definition": "Standing channels designed to deliver contradiction (inspectors general, statutory minority counsel, alt-analysis cells, ombuds, scientific advisory boards with dissent rights) exist on paper but are under-resourced, vacant, bypassed, or have had their reporting lines shortened so that their findings do not reach the deliberation.",
+      "operational_signature": "An adversarial channel that the body's own framework assumes (e.g. an alt-analysis cell, an IG, a statutory advisory board) is unstaffed, last reported years ago, has its reports buried at a depth the deciders do not read to, or had its access revoked before the decision.",
+      "meta_dimensions": [
+        "R",
+        "X"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-188",
+      "name": "Sequential sign-off without convergent debate",
+      "layer": "L2",
+      "family": "CB",
+      "category": "group",
+      "definition": "A decision is built by passing a draft from station to station for individual sign-off, never assembling the signers in one room to compare reasoning. Each signer assumes the others have done the substantive work; no one has.",
+      "operational_signature": "The decision artifact carries a chain of initials or stamps but no record of a convening, no minutes of a debate, and no document showing the signers' reasoning was compared; the chain is the only deliberation evidence.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "CB-189",
+      "name": "Dissent-cost asymmetry",
+      "layer": "L2",
+      "family": "CB",
+      "category": "group",
+      "definition": "The structural cost of registering dissent inside the body (career risk, exclusion from future briefings, reputational exposure to the chair) is materially higher than the cost of concurring, and the chair tolerates the asymmetry. Silence ceases to be evidence of agreement.",
+      "operational_signature": "The body's prior record shows dissenters were demoted, transferred, excluded from subsequent meetings, or publicly criticized by the chair; the cost is documented and was not corrected; subsequent meetings show progressively narrower expressed disagreement.",
+      "meta_dimensions": [
+        "R",
+        "O",
+        "A"
+      ],
+      "source_file": "cognitive_biases.json"
+    },
+    {
+      "id": "SF-001",
+      "name": "Memo-trail deferral construction",
+      "layer": "L4",
+      "family": "SF",
+      "subtype": "L4b",
+      "definition": "Actor produces a documented record whose primary function is plausible deniability for the actor in the event of a downstream bad outcome, rather than improving the decision quality.",
+      "operational_signature": "Memos in the actor's name show defensive structure (caveats, distributions, requests-for-confirmation) disproportionate to the analytic content; the same actor's memos on lower-stakes matters of similar complexity show no such structure.",
+      "meta_dimensions": [
+        "R",
+        "T"
+      ],
+      "source_file": "strategic_failure_modes.json"
+    },
+    {
+      "id": "SF-002",
+      "name": "Decision-deferral to successor / post-tenure",
+      "layer": "L4",
+      "family": "SF",
+      "subtype": "L4b",
+      "definition": "A decision within the actor's mandate and within their tenure window is structured to fall on a successor or on a post-tenure body, where the deferral is not justified by analytic incompleteness.",
+      "operational_signature": "Documented deferral mechanism (commission referral, study extension, mandate transfer) lands the decision after the actor's known departure; the same record contains internal materials sufficient to decide, and no acknowledgement of the deferral's timing relative to the tenure window.",
+      "meta_dimensions": [
+        "O",
+        "T"
+      ],
+      "source_file": "strategic_failure_modes.json"
+    },
+    {
+      "id": "SF-003",
+      "name": "Insulation-by-delegation",
+      "layer": "L4",
+      "family": "SF",
+      "subtype": "L4b",
+      "definition": "Decision is delegated to a body or office from which the consequence cannot meaningfully return to the originating actor for accountability — not by mandate-fit but by accountability-distance.",
+      "operational_signature": "Delegation route bypasses bodies with closer subject-matter expertise in favor of bodies with weaker accountability links to the originating actor; rationale for the route is procedural rather than substantive.",
+      "meta_dimensions": [
+        "R",
+        "O",
+        "C"
+      ],
+      "source_file": "strategic_failure_modes.json"
+    },
+    {
+      "id": "SF-004",
+      "name": "Revolving-door alignment",
+      "layer": "L4",
+      "family": "SF",
+      "subtype": "L4c",
+      "definition": "Actor's decision favors an entity with which the actor has a documented prior or prospective employment, advisory, or board relationship.",
+      "operational_signature": "The receiving entity appears in the actor's prior employment history, post-government employment within a short window, or in documented negotiations during the decision period; the decision is favorable to that entity beyond what the public record's merit analysis supports.",
+      "meta_dimensions": [
+        "O"
+      ],
+      "source_file": "strategic_failure_modes.json"
+    },
+    {
+      "id": "SF-005",
+      "name": "Equity-position alignment",
+      "layer": "L4",
+      "family": "SF",
+      "subtype": "L4c",
+      "definition": "Actor or documented close family / trust holds a financial position whose value is materially affected by the decision, and the position is not blind-trusted, divested, or recused.",
+      "operational_signature": "Disclosure filings, court records, or credible reporting establish the holding; the holding is in the regulated counter-party or its documented dependents; no recusal or divestment is on the record.",
+      "meta_dimensions": [
+        "R",
+        "O"
+      ],
+      "source_file": "strategic_failure_modes.json"
+    },
+    {
+      "id": "SF-006",
+      "name": "Network-concentrated allocation",
+      "layer": "L4",
+      "family": "SF",
+      "subtype": "L4c",
+      "definition": "Contracts, appointments, exemptions, or authorizations concentrate in a documented family / professional / political / religious network at a rate beyond what the qualified-pool composition predicts.",
+      "operational_signature": "Allocation distribution shows statistical concentration in a definable network; the network membership predates the allocation; the qualification justification, if offered, does not address the concentration.",
+      "meta_dimensions": [
+        "R",
+        "O"
+      ],
+      "source_file": "strategic_failure_modes.json"
+    },
+    {
+      "id": "SF-007",
+      "name": "Faction-line voting against local evidence",
+      "layer": "L4",
+      "family": "SF",
+      "subtype": "L4e",
+      "definition": "On a technical or evidentiary matter, the actor's vote or stated position aligns with the faction line in cases where the locally available evidence supports the opposite outcome.",
+      "operational_signature": "Multiple peer voters with comparable access to the same record split along faction lines on a matter where the evidence is technically (not ideologically) determinable; the actor's stated reasoning does not address the technical record but invokes principle, identity, or solidarity terms.",
+      "meta_dimensions": [
+        "R",
+        "O",
+        "A"
+      ],
+      "source_file": "strategic_failure_modes.json"
+    },
+    {
+      "id": "SF-008",
+      "name": "Faction-aligned appointments overriding qualification",
+      "layer": "L4",
+      "family": "SF",
+      "subtype": "L4e",
+      "definition": "Appointments to technical / regulatory / oversight roles preferentially select faction-aligned candidates over candidates whose documented qualifications more closely match the role's published criteria.",
+      "operational_signature": "Appointee's qualifications fall short of the published criteria on at least one named axis; faction-aligned appointee pattern across multiple appointments under the same actor is documentable; rejected stronger candidates are documentable through public application records or reporting.",
+      "meta_dimensions": [
+        "R",
+        "O",
+        "X"
+      ],
+      "source_file": "strategic_failure_modes.json"
+    },
+    {
+      "id": "SF-009",
+      "name": "Externality omitted from rationale",
+      "layer": "L4",
+      "family": "SF",
+      "subtype": "L4g",
+      "definition": "Decision rationale optimizes the actor's formal mandate; foreseeable damage outside the mandate is documented in pre-decision analyses available to the actor but is absent from the decision rationale.",
+      "operational_signature": "Pre-decision analyses (working-level memos, commissioned studies, peer-agency briefings) establish the externality; the decision's published rationale does not engage with it; the omission is not justified by an information-availability argument that survives §5b A1-A3.",
+      "meta_dimensions": [
+        "R",
+        "O"
+      ],
+      "source_file": "strategic_failure_modes.json"
+    },
+    {
+      "id": "SF-010",
+      "name": "Externality dismissed without engagement",
+      "layer": "L4",
+      "family": "SF",
+      "subtype": "L4g",
+      "definition": "The externality is acknowledged in the decision rationale but is dismissed by category (\"out of scope\", \"another body's responsibility\") without analytic engagement with its magnitude or distribution.",
+      "operational_signature": "Decision text contains a reference to the externality and a category-level dismissal; no quantitative or institutional-incidence analysis is attached; no cross-body coordination is documented as an alternative handling.",
+      "meta_dimensions": [
+        "R",
+        "O",
+        "C"
+      ],
+      "source_file": "strategic_failure_modes.json"
+    },
+    {
+      "id": "SF-011",
+      "name": "Mandate-boundary exploitation",
+      "layer": "L4",
+      "family": "SF",
+      "subtype": "L4g",
+      "definition": "Actor structures the decision so that its costs fall predominantly outside the actor's mandate scope while its benefits fall inside — even where alternative structures with more even cost/benefit distribution were available.",
+      "operational_signature": "Comparison of the chosen design with documented alternatives shows the chosen design concentrates externalized cost; the alternatives were on the record at decision time; no published rationale addresses the cost-distribution asymmetry.",
+      "meta_dimensions": [
+        "R",
+        "O",
+        "T"
+      ],
+      "source_file": "strategic_failure_modes.json"
+    },
+    {
+      "id": "SF-012",
+      "name": "Procedural-equality assertion against expertise",
+      "layer": "L4",
+      "family": "SF",
+      "subtype": "L4h",
+      "definition": "Actor without the documented technical, factual, or jurisdictional capacity for the call invokes procedural standing (right to be heard, equality of voice, due-process objection) as the basis for blocking, delaying, or overriding the substantive determination, when a deferral channel was available and was not used.",
+      "operational_signature": "Actor's qualification gap is documentable on the record; the actor's intervention is procedural rather than substantive; an available deferral mechanism (referral, recusal, expert opinion) is documented as having been declined or not invoked; the substantive determination is delayed, modified, or reversed as a result.",
+      "meta_dimensions": [
+        "C",
+        "T"
+      ],
+      "source_file": "strategic_failure_modes.json"
+    },
+    {
+      "id": "SF-013",
+      "name": "Delay-as-veto without substantive opposition",
+      "layer": "L4",
+      "family": "SF",
+      "subtype": "L4h",
+      "definition": "Actor uses procedural delay tools (continuances, additional-review requests, point-of-order objections) repeatedly on a matter where the actor neither argues nor commissions substantive opposition; the cumulative delay achieves the effect of opposition without the burden of making a case.",
+      "operational_signature": "Delay actions cluster on one matter; actor's record on that matter contains no substantive analytic position; the delay timing aligns with windows where ratification, deadline-expiry, or external event would render the matter moot.",
+      "meta_dimensions": [
+        "C",
+        "T"
+      ],
+      "source_file": "strategic_failure_modes.json"
+    },
+    {
+      "id": "SF-014",
+      "name": "Deferral-channel non-use under capacity gap",
+      "layer": "L4",
+      "family": "SF",
+      "subtype": "L4h",
+      "definition": "Actor proceeds with a determination on a matter outside their documented capacity even though a deferral channel (technical advisory body, recusal mechanism, formal expert opinion request) was available and within their power to invoke.",
+      "operational_signature": "Capacity gap is documentable; deferral channel exists in the body's published procedures; actor did not invoke the channel; no documented justification for non-use that addresses the capacity gap.",
+      "meta_dimensions": [
+        "T"
+      ],
+      "source_file": "strategic_failure_modes.json"
+    },
+    {
+      "id": "MP-001",
+      "name": "Arrow-applicable aggregation hit impossibility constraint",
+      "layer": "L5",
+      "family": "MP",
+      "subtype": "L5a",
+      "definition": "The decision used a preference-aggregation rule over a domain where the conditions of Arrow's theorem (universal domain, non-dictatorship, independence of irrelevant alternatives, Pareto, transitivity) apply, and the observed output exhibits one of the forced violations. No alternative rule that could have been used in the same body (e.g. score voting, approval, pairwise with documented tie-break) was considered on the record.",
+      "operational_signature": "Three or more alternatives, multi-dimensional preferences documented; outcome is order-sensitive or non-Pareto; the body has procedural latitude on rule choice; no deliberation on alternative rules appears in the record.",
+      "meta_dimensions": [
+        "R",
+        "A",
+        "C"
+      ],
+      "source_file": "mechanism_pathologies.json"
+    },
+    {
+      "id": "MP-002",
+      "name": "Condorcet cycle in pairwise voting",
+      "layer": "L5",
+      "family": "MP",
+      "subtype": "L5a",
+      "definition": "A body used sequential pairwise elimination or amendment votes over options whose pairwise preference structure contains a documented cycle (A beats B, B beats C, C beats A among the voters). The chosen option is therefore an artifact of which pairing was scheduled first, not of aggregate preference.",
+      "operational_signature": "Voting transcripts allow reconstruction of pairwise preferences; a cycle exists; the eliminated options in earlier rounds would have beaten the winner had the schedule differed; schedule rationale not documented.",
+      "meta_dimensions": [
+        "R",
+        "A"
+      ],
+      "source_file": "mechanism_pathologies.json"
+    },
+    {
+      "id": "MP-003",
+      "name": "Gibbard-Satterthwaite strategic misrepresentation determining outcome",
+      "layer": "L5",
+      "family": "MP",
+      "subtype": "L5a",
+      "definition": "The voting / bidding / amendment rule is non-dictatorial with ≥3 outcomes; documented strategic voting (voters misrepresenting preferences to affect the outcome) shifted the result. The body had access to strategy-proof alternatives (randomization, restricted domain, approval with documented cut-off) and did not invoke them.",
+      "operational_signature": "Post-vote testimony, leaked positions, or inconsistency between public reasoning and vote reveal strategic misrepresentation; the pivot caused by the strategic votes changes the outcome on the record; no strategy-proofing of the mechanism is documented.",
+      "meta_dimensions": [
+        "O",
+        "A",
+        "T"
+      ],
+      "source_file": "mechanism_pathologies.json"
+    },
+    {
+      "id": "MP-004",
+      "name": "Nash equilibrium with documented Pareto gap",
+      "layer": "L5",
+      "family": "MP",
+      "subtype": "L5b",
+      "definition": "Agents with aligned information reach a Nash equilibrium whose payoff-profile is Pareto-dominated by another reachable profile. No coordination, communication, or commitment mechanism (which would move the game off the individually-rational frontier) was attempted despite documented availability.",
+      "operational_signature": "Payoff structure is reconstructable from public records (budgets, regulations, official incentive schedules); the better equilibrium is documented in analogous settings; the cost of the coordination mechanism is lower than the gap; no attempt is on the record.",
+      "meta_dimensions": [
+        "R",
+        "O",
+        "C"
+      ],
+      "source_file": "mechanism_pathologies.json"
+    },
+    {
+      "id": "MP-005",
+      "name": "Plott-McKelvey agenda control in multidimensional space",
+      "layer": "L5",
+      "family": "MP",
+      "subtype": "L5e",
+      "definition": "A multidimensional policy decision was resolved by majority rule through a specific sequence of amendments or motions. Documentable alternative orderings of the same amendments would have yielded substantively different outputs. The agenda-setter is identifiable and the ordering was not justified substantively.",
+      "operational_signature": "Policy space is multi-dimensional (≥2 independent issue axes); amendment / motion sequence is recorded; a plausible alternative sequence exists in the body's own procedural history; the rationale for the chosen sequence is procedural, not substantive.",
+      "meta_dimensions": [
+        "R",
+        "O",
+        "A"
+      ],
+      "source_file": "mechanism_pathologies.json"
+    },
+    {
+      "id": "MP-006",
+      "name": "Hardin common-pool collapse without enforcement institution",
+      "layer": "L5",
+      "family": "MP",
+      "subtype": "L5c",
+      "definition": "A shared resource (fishery, aquifer, airshed, spectrum, fiscal commons, administrative capacity) is governed under open-access or nominal-rights conditions; exploitation exceeds regeneration; no sanction / quota / assignment mechanism is operationally enforced. Ostrom-style governance (graduated sanctions, nested enterprises, monitoring by users) is documented in analogous commons but was not adopted.",
+      "operational_signature": "Resource depletion / congestion is measured in official data; the governing body has rule-making authority over the commons; no enforced allocation or sanction mechanism is on the record; analogous commons with documented governance produce sustained resource flows.",
+      "meta_dimensions": [
+        "R",
+        "C"
+      ],
+      "source_file": "mechanism_pathologies.json"
+    },
+    {
+      "id": "MP-007",
+      "name": "Olson-type large-group public-good failure",
+      "layer": "L5",
+      "family": "MP",
+      "subtype": "L5c",
+      "definition": "A public good with diffuse beneficiaries and concentrated opposition is not provided. The beneficiary group lacks selective incentives to organize (Olson); the opposition is small-enough to organize. No mechanism to solve the selective-incentive problem (matched funding, user fees, automatic contribution, statutory provision) is on the record.",
+      "operational_signature": "Benefit distribution is diffuse and well-documented; cost distribution is concentrated and well-documented; organized lobbying record is one-sided; available institutional responses (automatic provision, opt-out contribution, earmarked revenue) were considered and rejected without engagement with the selective-incentive problem, or were not considered at all.",
+      "meta_dimensions": [
+        "R"
+      ],
+      "source_file": "mechanism_pathologies.json"
+    },
+    {
+      "id": "MP-008",
+      "name": "Coase-Williamson transaction-cost veto of Pareto move",
+      "layer": "L5",
+      "family": "MP",
+      "subtype": "L5d",
+      "definition": "A Pareto-improving reallocation is theoretically available but is not made because transaction costs (negotiation, enforcement, contingent contracting) exceed the private gain to any party able to initiate. A documented low-transaction-cost alternative mechanism (a clearinghouse, a statutory default, a single-price auction) exists in analogous settings.",
+      "operational_signature": "The better allocation is identifiable in official analyses; the transaction-cost source is nameable (number of parties, legal uncertainty, enforcement asymmetry); the mover most able to initiate has no private residual claim that would justify the cost; a documented low-cost mechanism exists and was not attempted.",
+      "meta_dimensions": [
+        "R",
+        "A",
+        "C"
+      ],
+      "source_file": "mechanism_pathologies.json"
+    },
+    {
+      "id": "MP-009",
+      "name": "Jurisdictional-scope / externality-scope mismatch",
+      "layer": "L5",
+      "family": "MP",
+      "subtype": "L5f",
+      "definition": "The decision mechanism covers a smaller geographic / functional / temporal scope than the externality of the decision. No cross-jurisdiction coordination body with authority over the externality is invoked, although one exists in analogous settings (interstate compact, international convention, cross-ministry council, generational-impact board).",
+      "operational_signature": "The externality's scope is documented (emissions, capital flows, epidemiological transmission, long-horizon obligations); the deciding body's scope is smaller; a cross-jurisdiction institution with formal authority on the same class of question exists elsewhere and is not invoked; the decision rationale treats the out-of-scope externality as out-of-concern.",
+      "meta_dimensions": [
+        "R",
+        "O",
+        "C"
+      ],
+      "source_file": "mechanism_pathologies.json"
+    },
+    {
+      "id": "MP-010",
+      "name": "Concurrent-jurisdiction conflict without coordination",
+      "layer": "L5",
+      "family": "MP",
+      "subtype": "L5f",
+      "definition": "Two or more bodies have overlapping authority on the same question; their decisions conflict or one pre-empts the other without a coordination mechanism being invoked. An available coordination channel (joint committee, memorandum of understanding, statutory primacy clause, mediation panel) is documented in the body's own institutional framework and is not used.",
+      "operational_signature": "Conflicting rules / rulings from bodies with overlapping jurisdiction exist on the record; the conflict is documentable in reporting or litigation; the coordination mechanism is in published procedure and was not invoked; the final outcome is determined by timing, political weight, or resource asymmetry rather than by substantive resolution.",
+      "meta_dimensions": [
+        "R",
+        "O",
+        "C"
+      ],
+      "source_file": "mechanism_pathologies.json"
+    },
+    {
+      "id": "MP-011",
+      "name": "Temporal-discount trajectory of locally rational moves",
+      "layer": "L5",
+      "family": "MP",
+      "subtype": "L5g",
+      "definition": "A sequence of decisions, each defensible under the discount rate applied to its specific window, produces a cumulative trajectory that no actor in the sequence would have chosen as an end-state. The discount rate used at step-level exceeds the rate implied by the mandate's long-horizon obligations; no long-horizon check mechanism (multi-year budget review, generational-impact board, sunset clause with mandatory review) is invoked.",
+      "operational_signature": "Each decision in the sequence is documentably justified at its own time; the cumulative state at T+n is documentable in ex-post analyses; the delta between step-level discount rate and mandate-level discount rate is quantifiable or qualitatively clear; no cumulative-state review was scheduled or conducted during the sequence.",
+      "meta_dimensions": [
+        "R",
+        "O",
+        "T"
+      ],
+      "source_file": "mechanism_pathologies.json"
+    },
+    {
+      "id": "MP-012",
+      "name": "Oscillation without new information",
+      "layer": "L5",
+      "family": "MP",
+      "subtype": "L5g",
+      "definition": "A body reverses its decision on the same matter two or more times within a window during which no material new information entered the decision-relevant record. The reversals track composition change, political cycle, or agenda-rotation rather than evidence. The body has a standing-decision or res-judicata mechanism that could stabilize the ruling and did not invoke it.",
+      "operational_signature": "≥2 reversals on a matter within a bounded window; information environment unchanged per the body's own working record; reversal timing correlates with composition / cycle / agenda rather than evidence; standing-decision / precedent mechanism exists in the body's procedure and was not invoked.",
+      "meta_dimensions": [
+        "R",
+        "A",
+        "T"
+      ],
+      "source_file": "mechanism_pathologies.json"
+    },
+    {
+      "id": "MP-013",
+      "name": "Schelling deadlock / mutual-veto equilibrium",
+      "layer": "L5",
+      "family": "MP",
+      "subtype": "L5h",
+      "definition": "Two or more veto-holders occupy positions such that any move toward agreement by one is exploited by the other; a stable lose-lose equilibrium forms. A documented mediation / tie-break / commitment-device mechanism (binding arbitration, sunset with automatic default, credible third party) is available in the body's framework and is not invoked.",
+      "operational_signature": "Multiple veto-points documented; each side's public position shifts are followed by the other's extraction attempts documented in contemporaneous record; the mediation mechanism is in published procedure; cost of continued deadlock exceeds the cost of the mediation mechanism for all parties per reconstructable analysis.",
+      "meta_dimensions": [
+        "R",
+        "O",
+        "A"
+      ],
+      "source_file": "mechanism_pathologies.json"
+    },
+    {
+      "id": "MP-014",
+      "name": "Procedural-parity stalemate without tie-break",
+      "layer": "L5",
+      "family": "MP",
+      "subtype": "L5h",
+      "definition": "A bicameral, multi-chamber, or multi-veto system produces a null output on a matter whose decision is mandated by schedule or statute. A documented tie-break channel (conference committee, casting vote, cross-chamber reconciliation, escalation to higher body, referendum) exists in the constitutional or procedural framework and is not invoked or is invoked after the mandate window has closed.",
+      "operational_signature": "Mandated decision window has closed with no output; tie-break channel is explicit in published procedure; the channel was not used or was used past the window; the absence of decision has foreseeable downstream cost documented in pre-window analyses.",
+      "meta_dimensions": [
+        "O",
+        "C",
+        "T"
+      ],
+      "source_file": "mechanism_pathologies.json"
+    }
+  ],
+  "composite_patterns": [
+    {
+      "id": "PNO-001",
+      "name": "Informational persistent non-optimality",
+      "layer": "L6",
+      "family": "PNO",
+      "definition": "A system repeatedly acts on a distorted or closed representation of reality; error persists because the information environment reproduces the same partial model.",
+      "components": {
+        "CB": [
+          "CB-001",
+          "CB-113",
+          "CB-182",
+          "CB-183",
+          "CB-184",
+          "CB-186",
+          "CB-187"
+        ],
+        "SF": [
+          "SF-001",
+          "SF-009",
+          "SF-010"
+        ],
+        "MP": [
+          "MP-011",
+          "MP-012"
+        ]
+      },
+      "meta_profile": {
+        "R": 0.95,
+        "O": 0.35,
+        "A": 0.25,
+        "C": 0.35,
+        "T": 0.7,
+        "X": 0.5
+      },
+      "operational_signature": "Repeated decisions cite the same narrow source diet, lose caveats/dissent before decision level, omit known externalities, and compound over time despite post-decision evidence."
+    },
+    {
+      "id": "PNO-002",
+      "name": "Incentive-lock persistent non-optimality",
+      "layer": "L6",
+      "family": "PNO",
+      "definition": "The system stabilizes around actor incentives that diverge from the declared public mandate, making locally rational conduct globally suboptimal.",
+      "components": {
+        "CB": [
+          "CB-066",
+          "CB-074",
+          "CB-087",
+          "CB-088",
+          "CB-130",
+          "CB-131",
+          "CB-145",
+          "CB-155",
+          "CB-160"
+        ],
+        "SF": [
+          "SF-004",
+          "SF-005",
+          "SF-006",
+          "SF-011"
+        ],
+        "MP": [
+          "MP-004",
+          "MP-007"
+        ]
+      },
+      "meta_profile": {
+        "R": 0.45,
+        "O": 0.98,
+        "A": 0.55,
+        "C": 0.55,
+        "T": 0.55,
+        "X": 0.55
+      },
+      "operational_signature": "Declared goals and effective incentives diverge; allocations or decisions favor networks, holdings, careers, or factions beyond what merit analysis supports; Pareto-superior arrangements remain unused."
+    },
+    {
+      "id": "PNO-003",
+      "name": "Aggregation-rule persistent non-optimality",
+      "layer": "L6",
+      "family": "PNO",
+      "definition": "Collective choice procedures repeatedly generate outputs determined by agenda order, cycling, strategic misrepresentation, or voting-rule constraints rather than substantive preference quality.",
+      "components": {
+        "CB": [
+          "CB-105",
+          "CB-106",
+          "CB-109",
+          "CB-110",
+          "CB-124",
+          "CB-164",
+          "CB-176"
+        ],
+        "SF": [
+          "SF-007",
+          "SF-008"
+        ],
+        "MP": [
+          "MP-001",
+          "MP-002",
+          "MP-003",
+          "MP-005"
+        ]
+      },
+      "meta_profile": {
+        "R": 0.45,
+        "O": 0.55,
+        "A": 0.98,
+        "C": 0.6,
+        "T": 0.45,
+        "X": 0.7
+      },
+      "operational_signature": "Multiple alternatives and dimensions exist; different agenda orderings or strategic presentations would plausibly yield different results; no alternative aggregation rule or tie-break is considered."
+    },
+    {
+      "id": "PNO-004",
+      "name": "Coordination-entropy persistent non-optimality",
+      "layer": "L6",
+      "family": "PNO",
+      "definition": "Known improvements are not implemented because coordination costs, responsibility diffusion, free-riding, veto points, or transaction costs dominate the system.",
+      "components": {
+        "CB": [
+          "CB-126",
+          "CB-127",
+          "CB-128",
+          "CB-142",
+          "CB-175",
+          "CB-188"
+        ],
+        "SF": [
+          "SF-003",
+          "SF-012",
+          "SF-013",
+          "SF-014"
+        ],
+        "MP": [
+          "MP-006",
+          "MP-008",
+          "MP-010",
+          "MP-013",
+          "MP-014"
+        ]
+      },
+      "meta_profile": {
+        "R": 0.35,
+        "O": 0.55,
+        "A": 0.45,
+        "C": 0.98,
+        "T": 0.65,
+        "X": 0.75
+      },
+      "operational_signature": "Actors acknowledge a feasible better state or statutory duty, but responsibility diffuses across bodies; transaction, veto, or jurisdictional frictions prevent execution despite available coordination channels."
+    },
+    {
+      "id": "PNO-005",
+      "name": "Temporal-compounding persistent non-optimality",
+      "layer": "L6",
+      "family": "PNO",
+      "definition": "Sequences of locally defensible choices accumulate into a long-run state that no actor selected as an objective and that the system lacks a review mechanism to correct.",
+      "components": {
+        "CB": [
+          "CB-008",
+          "CB-010",
+          "CB-071",
+          "CB-081",
+          "CB-082",
+          "CB-152",
+          "CB-159",
+          "CB-169"
+        ],
+        "SF": [
+          "SF-002",
+          "SF-009",
+          "SF-010",
+          "SF-011",
+          "SF-013"
+        ],
+        "MP": [
+          "MP-011",
+          "MP-012"
+        ]
+      },
+      "meta_profile": {
+        "R": 0.45,
+        "O": 0.65,
+        "A": 0.4,
+        "C": 0.55,
+        "T": 0.98,
+        "X": 0.55
+      },
+      "operational_signature": "Each step is justified in its own decision window, but the cumulative path is harmful; long-horizon review, sunset, or generational-impact mechanisms are absent or bypassed."
+    },
+    {
+      "id": "PNO-006",
+      "name": "Inter-system persistent non-optimality",
+      "layer": "L6",
+      "family": "PNO",
+      "definition": "Multiple systems or jurisdictions optimize locally while externalities, regulatory gaps, or concurrent authority conflicts produce persistent global underperformance.",
+      "components": {
+        "CB": [
+          "CB-021",
+          "CB-022",
+          "CB-026",
+          "CB-091",
+          "CB-129",
+          "CB-181"
+        ],
+        "SF": [
+          "SF-007",
+          "SF-008",
+          "SF-009",
+          "SF-010",
+          "SF-011"
+        ],
+        "MP": [
+          "MP-009",
+          "MP-010",
+          "MP-013"
+        ]
+      },
+      "meta_profile": {
+        "R": 0.5,
+        "O": 0.7,
+        "A": 0.5,
+        "C": 0.9,
+        "T": 0.7,
+        "X": 0.8
+      },
+      "operational_signature": "One body treats harms outside its mandate as out-of-concern while another body has overlapping or adjacent authority; cross-jurisdiction coordination exists in analogous settings but is not invoked."
+    },
+    {
+      "id": "PNO-007",
+      "name": "Multi-agent anti-consensus persistent non-optimality",
+      "layer": "L6",
+      "family": "PNO",
+      "definition": "Agents fail to converge on a shared decision state; interaction increases divergence, false consensus, factional locking, or stalemate rather than decision quality.",
+      "components": {
+        "CB": [
+          "CB-019",
+          "CB-027",
+          "CB-028",
+          "CB-039",
+          "CB-067",
+          "CB-122",
+          "CB-123",
+          "CB-125",
+          "CB-164",
+          "CB-176",
+          "CB-189"
+        ],
+        "SF": [
+          "SF-007",
+          "SF-012",
+          "SF-013",
+          "SF-014"
+        ],
+        "MP": [
+          "MP-002",
+          "MP-005",
+          "MP-013",
+          "MP-014"
+        ]
+      },
+      "meta_profile": {
+        "R": 0.55,
+        "O": 0.75,
+        "A": 0.75,
+        "C": 0.9,
+        "T": 0.65,
+        "X": 0.98
+      },
+      "operational_signature": "Public consensus, formal sign-off, or procedural parity masks underlying disagreement; dissent is costly or suppressed; communication produces polarization, faction-line behavior, deadlock, or null output."
+    }
+  ],
+  "inference_rules": [
+    {
+      "id": "IR-001",
+      "name": "Evidence-first classification",
+      "rule": "Do not assign an atomic mode unless its operational_signature or government_decision_cue is supported by explicit evidence."
+    },
+    {
+      "id": "IR-002",
+      "name": "Composite pattern threshold",
+      "rule": "Assign an L6 PNO pattern only when at least two component families among CB/SF/MP are supported, unless the missing family is explicitly unobservable."
+    },
+    {
+      "id": "IR-003",
+      "name": "No intent inference without L4 evidence",
+      "rule": "Do not infer bad intent from L1-L3 or L5 alone; L4 requires documentary evidence of incentive alignment or mandate deviation."
+    },
+    {
+      "id": "IR-004",
+      "name": "Systemic failure distinction",
+      "rule": "L5 and L6 can be present even when individual actors are informed and acting in good faith."
+    },
+    {
+      "id": "IR-005",
+      "name": "Dynamic loop detection",
+      "rule": "Escalate to L6 when the same CB/SF/MP chain recurs across time, across bodies, or across clusters, producing persistent non-optimality."
+    }
+  ],
+  "case_schema": {
+    "case_id": "string",
+    "title": "string",
+    "jurisdiction": "string",
+    "sector": "string",
+    "decision_date": "YYYY-MM-DD or null",
+    "actors": [
+      "string"
+    ],
+    "documents": [
+      {
+        "title": "string",
+        "url_or_source": "string",
+        "date": "string",
+        "relevance": "string"
+      }
+    ],
+    "claims": [
+      {
+        "claim": "string",
+        "evidence_refs": [
+          "string"
+        ],
+        "confidence": 0.0
+      }
+    ],
+    "detected_atomic_modes": [
+      {
+        "id": "CB/SF/MP-xxx",
+        "evidence_refs": [
+          "string"
+        ],
+        "confidence": 0.0,
+        "rationale": "string"
+      }
+    ],
+    "detected_l6_patterns": [
+      {
+        "id": "PNO-xxx",
+        "component_support": {
+          "CB": [
+            "id"
+          ],
+          "SF": [
+            "id"
+          ],
+          "MP": [
+            "id"
+          ]
+        },
+        "confidence": 0.0,
+        "rationale": "string"
+      }
+    ],
+    "pno_profile": {
+      "R": 0.0,
+      "O": 0.0,
+      "A": 0.0,
+      "C": 0.0,
+      "T": 0.0,
+      "X": 0.0
+    },
+    "summary": "string"
+  }
+}

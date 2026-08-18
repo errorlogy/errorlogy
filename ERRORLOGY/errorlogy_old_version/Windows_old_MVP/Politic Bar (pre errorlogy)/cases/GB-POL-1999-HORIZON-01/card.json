@@ -1,0 +1,143 @@
+{
+  "id": "GB-POL-1999-HORIZON-01",
+  "version": 2,
+  "country": "GB",
+  "branch": "regulatory",
+  "level": "national",
+  "body": "Post Office Limited (and its predecessor Royal Mail Group Limited); Post Office Investigation Branch; Post Office private-prosecution function",
+  "decision_date": "1999-09-01/2015-12-31",
+  "summary": "From the late 1990s through the mid-2010s Post Office Limited prosecuted, or caused to be prosecuted, more than 900 sub-postmasters for theft, fraud, or false accounting on the basis of accounting shortfalls recorded by the Horizon IT system. The Court of Appeal (Criminal Division) from 2020 onward has quashed large numbers of these convictions on the basis that Post Office Limited failed to disclose known problems with the reliability of the Horizon evidence.",
+  "claimed": "The Post Office maintained, in prosecutions, civil proceedings, and public statements through 2019, that the Horizon system was reliable and that discrepancies recorded in branch accounts were caused by the acts of the individual sub-postmasters holding those branches.",
+  "known_or_knowable": "Within the Post Office's own record during the prosecution period: (i) internal bug reports on Horizon, including the 'Callendar Square' and 'Receipts and Payments Mismatch' bugs, showing that the system could produce false shortfall entries without any act by the sub-postmaster; (ii) Fujitsu's retained ability to remotely alter branch accounts without the sub-postmaster's knowledge or consent, with a corresponding audit trail internal to Fujitsu; (iii) independent investigation by Second Sight from 2012 onward identifying systemic issues; (iv) Mr Justice Fraser's 2019 findings in Bates v Post Office that the system 'was not remotely robust' and that Post Office knew of this.",
+  "decision": "Post Office Limited continued to bring prosecutions and maintain convictions on the basis of Horizon evidence through at least 2015. It continued to assert Horizon reliability in civil and judicial proceedings through 2019. Disclosure of material known to Post Office regarding Horizon's reliability was not made to defendants at the time of their prosecutions in a form consistent with the Criminal Procedure and Investigations Act 1996.",
+  "gap": "The body asserted in legal proceedings that Horizon was reliable while material in its own possession indicated specific and recurring reliability failures; the assertion of reliability was the evidentiary basis on which more than 900 prosecutions proceeded; the quashing of convictions from 2020 onward establishes that courts have accepted the material was both in Post Office's possession and undisclosed.",
+  "classifications": [
+    {
+      "bias_id": "CB-010",
+      "bias_name": "Sunk-cost fallacy",
+      "evidence_excerpt": "The institutional position defending Horizon's reliability became harder to reverse as the volume of prosecutions based on that position grew; reversing the position would have required acknowledging prior convictions as unsafe.",
+      "source_ref": "Bates v Post Office (No. 6) [2019] EWHC 3408 (QB), Judgment of Fraser J, §§ 929–945",
+      "confidence": "high",
+      "justification": "C1 — Fraser J documents the institutional dynamic. C2 — a procedural explanation (continuation of established litigation position) does not account for the persistence after internal bug reports were already in hand. C3 — survives the counter that any organization defends its position in litigation, because the specific claim is that the defence continued past the point the internal record would have supported reversal.",
+      "mode_id": "CB-010",
+      "mode_name": "Sunk-cost fallacy",
+      "layer": "L1"
+    },
+    {
+      "bias_id": "CB-068",
+      "bias_name": "Belief perseverance",
+      "evidence_excerpt": "Post Office's maintained position that Horizon was reliable persisted after internal engineering reports had documented specific bugs capable of producing false shortfalls without sub-postmaster action.",
+      "source_ref": "Bates v Post Office (No. 6), §§ 350–460",
+      "confidence": "high",
+      "justification": "C1 — the court identifies specific documented bugs whose existence was inconsistent with the maintained position. C2 — a procedural explanation (dispute over severity) does not account for the maintained headline claim of reliability. C3 — survives the counter that the bugs were rare and the system mostly reliable, because the reliability claim as made was categorical.",
+      "mode_id": "CB-068",
+      "mode_name": "Belief perseverance",
+      "layer": "L1"
+    },
+    {
+      "bias_id": "CB-089",
+      "bias_name": "System justification",
+      "evidence_excerpt": "The institutional defense of the Horizon system was bound up with the institutional identity of Post Office Limited as a reliable operator; defending Horizon was treated as coextensive with defending the institution.",
+      "source_ref": "Post Office Horizon IT Inquiry, Opening Statement, Sir Wyn Williams, 2022",
+      "confidence": "medium",
+      "justification": "C1 — the inquiry's own framing of the institutional dynamic. C2 — procedural explanation alone does not account for the degree to which the defense was treated as institutional self-defense. C3 — survives the counter that all institutions defend their operations, at medium confidence; the specific claim is about the threshold at which contrary evidence was absorbed.",
+      "mode_id": "CB-089",
+      "mode_name": "System justification",
+      "layer": "L1"
+    },
+    {
+      "bias_id": "CB-181",
+      "bias_name": "Combined-function conflict absorption",
+      "evidence_excerpt": "The investigatory and prosecutorial functions were contained within the same body whose commercial interests were served by a reliability finding; structural independence between the Horizon-audit function and the prosecution function was not established.",
+      "source_ref": "Horizon IT Inquiry phase 2 hearings, 2022–2023",
+      "confidence": "medium",
+      "justification": "C1 — the body held investigatory, prosecutorial, and commercial interests in the same matter; the operational cue (asymmetric evidentiary intake favoring the commercial/reliability interest) is visible in the disclosure pattern. C2 — a procedural explanation (standard disclosure practice) does not account for the systematic direction of the asymmetry. C3 — survives the counter that combined-function institutions are common, because the claim is about the unacknowledged asymmetry, not about the structure itself.",
+      "mode_id": "CB-181",
+      "mode_name": "Combined-function conflict absorption",
+      "layer": "L1"
+    }
+  ],
+  "counter_arguments": [
+    {
+      "targets": "CB-010",
+      "strongest_counter": "Organizations do not reverse legal positions on the basis of internal engineering reports; they reverse them on the basis of legal advice. The pattern may reflect ordinary legal conservatism.",
+      "does_it_survive": true,
+      "notes": "Retained. The counter is absorbed: the sunk-cost mechanism operated through legal conservatism rather than in spite of it. The classification names the mechanism; the counter names the channel."
+    },
+    {
+      "targets": "CB-068",
+      "strongest_counter": "Believing Horizon was reliable most of the time is compatible with acknowledging specific bugs; the categorical reliability claim may be a legal framing, not an analytic belief.",
+      "does_it_survive": true,
+      "notes": "Retained. The classification covers both — the categorical framing persisted in internal communications as well as in legal pleadings."
+    },
+    {
+      "targets": "CB-089",
+      "strongest_counter": "Institutional defense of a core system is not a bias; it is governance.",
+      "does_it_survive": true,
+      "notes": "Retained at medium confidence. The classification is about the threshold at which contrary evidence was absorbed into the institutional self-description, not about the fact of defense."
+    },
+    {
+      "targets": "CB-181",
+      "strongest_counter": "Combined investigator-prosecutor-operator structures are common in private-prosecution regimes and in corporate-security functions; the structure alone is not evidence of cognitive asymmetry.",
+      "does_it_survive": true,
+      "notes": "Retained. The classification targets the asymmetric evidentiary intake, not the structural conflict itself; the asymmetry is documented in the courts' findings on disclosure."
+    },
+    {
+      "targets": "CB-158",
+      "strongest_counter": "The taxonomic cue for CB-158 (press-release vs. administrative-record divergence) does not match the phenomenon here, which is a disclosure-compliance breach under the Criminal Procedure and Investigations Act 1996. That is a procedural/legal failure, not a cognitive substitution of announcement for action. C1 fails.",
+      "does_it_survive": false,
+      "notes": "Classification dropped post-red-team; reclassified as procedural/legal breach."
+    },
+    {
+      "targets": "gap",
+      "strongest_counter": "The gap established in the Court of Appeal quashing judgments is legally strong but has not been adjudicated as to individual intent; a neutral framing should distinguish institutional disclosure failure from individual misconduct.",
+      "does_it_survive": true,
+      "notes": "Gap retained as stated: the card records the institutional pattern, not any individual's intent. Individual findings, where made by the ongoing public inquiry, will be the basis of separate cards."
+    }
+  ],
+  "residual_uncertainty": "The Post Office Horizon IT Inquiry's final report is forthcoming as of the card's compile date; findings of individual fact may modify the attribution structure of this card. The full scope of Fujitsu's remote-access activity in branch accounts is being established through the inquiry and is partially disclosed in its published evidence bundles.",
+  "sources": [
+    {
+      "title": "Bates v Post Office Limited (No. 6: Horizon Issues) [2019] EWHC 3408 (QB)",
+      "url": "https://www.judiciary.uk/wp-content/uploads/2019/12/bates-v-post-office-judgment.pdf",
+      "published_date": "2019-12-16",
+      "source_type": "primary",
+      "notes": "Fraser J's judgment on Horizon reliability; the primary technical finding that Horizon was not robust."
+    },
+    {
+      "title": "Hamilton & Others v Post Office Limited [2021] EWCA Crim 577",
+      "url": "https://www.judiciary.uk/wp-content/uploads/2021/04/Hamilton-Others-v-Post-Office-judgment.pdf",
+      "published_date": "2021-04-23",
+      "source_type": "primary",
+      "notes": "Court of Appeal (Criminal Division) quashing 39 convictions; abuse-of-process finding on disclosure."
+    },
+    {
+      "title": "Post Office Horizon IT Inquiry (Chair: Sir Wyn Williams) — evidence and transcripts",
+      "url": "https://www.postofficehorizoninquiry.org.uk/",
+      "published_date": "2022-02-14",
+      "source_type": "primary",
+      "notes": "Statutory public inquiry; evidence bundles and hearing transcripts."
+    },
+    {
+      "title": "Criminal Procedure and Investigations Act 1996, as amended",
+      "url": "https://www.legislation.gov.uk/ukpga/1996/25",
+      "published_date": "1996-07-04",
+      "source_type": "primary",
+      "notes": "The disclosure-duty framework the Court of Appeal found had been breached."
+    }
+  ],
+  "analyst_notes": "Seed-case analysis produced by hand-application of the methodology. Four classifications retained (CB-010, CB-068, CB-089, CB-181), one (CB-158 substitution of intention for action) dropped after red-team pass as better fit by a procedural/legal breach category than by a cognitive bias. CB-131 (reciprocity) re-classified as CB-181 (combined-function conflict absorption) after the audit flagged the original label as a poor taxonomic fit. The case is methodologically useful because the gap is established by the courts themselves rather than by retrospective analysts, narrowing the space for neutrality disputes. [v0.1/v0.2 → v0.6 schema migration 2026-04-26: event_type, asymmetry_vectors, propagated_from, propagates_to, constitutive_roles defaulted to empty; classifications got mode_id and inferred layer per cognitive_biases.json category. Schema-only: no new factual claims introduced. Prior version: 1.]",
+  "compiled_at": "2026-04-23T00:00:00Z",
+  "dropped_after_redteam": [
+    {
+      "bias_id": "CB-158",
+      "bias_name": "Substitution of intention for action",
+      "reason_dropped": "Phenomenon is a disclosure-duty breach under CPIA 1996 — a procedural/legal failure, not a cognitive substitution. C1 fails."
+    }
+  ],
+  "event_type": "decision",
+  "asymmetry_vectors": [],
+  "propagated_from": [],
+  "propagates_to": [],
+  "constitutive_roles": []
+}

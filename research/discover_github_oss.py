@@ -33,6 +33,28 @@ except ImportError:
     sys.exit(1)
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def _load_repo_dotenv() -> None:
+    """Load KEY=value lines from repo root .env if vars not already in environ."""
+    path = ROOT / ".env"
+    if not path.is_file():
+        return
+    try:
+        for line in path.read_text(encoding="utf-8-sig").splitlines():
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            if "=" not in line:
+                continue
+            key, _, value = line.partition("=")
+            key = key.strip()
+            value = value.strip().strip('"').strip("'")
+            if key and key not in os.environ:
+                os.environ[key] = value
+    except OSError:
+        pass
+
 TRACKER = ROOT / "research" / "oss-candidates.yaml"
 API_BASE = "https://api.github.com"
 
@@ -227,7 +249,7 @@ def build_candidate(item: dict[str, Any], profile: dict[str, str], discovered_at
 def load_tracker(path: Path) -> dict[str, Any]:
     if not path.is_file():
         raise FileNotFoundError(f"Tracker not found: {path}")
-    return yaml.safe_load(path.read_text(encoding="utf-8"))
+    return yaml.safe_load(path.read_text(encoding="utf-8-sig"))
 
 
 def merge_candidates(
@@ -274,7 +296,7 @@ def format_candidate_block(cand: dict[str, Any]) -> str:
 def append_candidates(path: Path, new_candidates: list[dict[str, Any]]) -> None:
     if not new_candidates:
         return
-    text = path.read_text(encoding="utf-8").rstrip() + "\n"
+    text = path.read_text(encoding="utf-8-sig").rstrip() + "\n"
     for cand in new_candidates:
         text += "\n" + format_candidate_block(cand) + "\n"
     path.write_text(text, encoding="utf-8")
@@ -321,6 +343,8 @@ def main() -> int:
         help="Print built-in search profiles and exit",
     )
     args = parser.parse_args()
+
+    _load_repo_dotenv()
 
     if args.list_queries:
         for p in SEARCH_PROFILES:

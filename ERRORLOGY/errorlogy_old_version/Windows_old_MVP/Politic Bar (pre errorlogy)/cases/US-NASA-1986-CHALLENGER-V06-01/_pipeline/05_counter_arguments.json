@@ -1,0 +1,106 @@
+[
+  {
+    "targets": "CB-019",
+    "target_kind": "classification",
+    "strongest_counter": "The post-caucus consensus may reflect rational re-weighing of business and schedule constraints by managers acting within their delegated authority, not in-group conformity. Thiokol senior management had legitimate visibility into customer-relationship and contractual considerations that line engineers did not.",
+    "does_it_survive": true,
+    "tests_run": ["5a_lower_layer_individual_motivated_reasoning", "5d_S3_downward_to_L1_authority_bias", "5d_S4_applicability_organizational_dissent_suppression"],
+    "notes": "Survives: rational re-weighing requires substantive engagement with the engineering data, but the record contains no rebuttal of the temperature correlation entered into the decision before the recommendation flip. The 'broader consideration' explanation does not appear in the contemporaneous documentation, only in retrospective management framing. Groupthink-as-classification is preserved because the canonical signature — exclusion of dissent + unanimous output + no documented engagement with the dissent — is present in the verbatim record."
+  },
+  {
+    "targets": "CB-020",
+    "target_kind": "classification",
+    "strongest_counter": "'Take off your engineering hat and put on your management hat' may be read as instruction to broaden evaluation criteria (cost, schedule, customer commitments) rather than as an authority-pressure tactic. Lund himself was a VP, not a junior engineer, so authority asymmetry between Mason and Lund was modest.",
+    "does_it_survive": true,
+    "tests_run": ["5a_lower_layer_role_conflict_only", "5d_S3_downward_to_individual_compliance", "5d_S4_applicability_at_VP_level"],
+    "notes": "Survives: even if Lund is a VP, the documented sequence is (1) initial engineering recommendation against launch, (2) instruction reframing the judgment as managerial, (3) reversal in the absence of new technical information. The 'broaden criteria' reading would predict additional considerations entering the record before the flip; the record contains none. The classification is L1 (individual cognitive event in a documented exchange) and survives at that layer."
+  },
+  {
+    "targets": "CB-009",
+    "target_kind": "classification",
+    "strongest_counter": "Treating multiple successful flights with partial O-ring erosion as evidence of an intact safety margin is consistent with empirical Bayesian updating, not optimism bias. Engineers and managers alike updated on the same data.",
+    "does_it_survive": true,
+    "tests_run": ["5a_lower_layer_base_rate_neglect", "5d_S3_downward_to_individual_overconfidence", "5d_S4_applicability_engineering_vs_management_split"],
+    "notes": "Survives: Feynman's testimony directly addresses this counter — engineers in the working ranks estimated failure probability at 1 in 100; management at 1 in 100,000. The disagreement on the same evidence is itself the optimism-bias signature when held by the side with decision authority. The Bayesian-update reading does not explain the 100×–1000× divergence between groups looking at identical flight data."
+  },
+  {
+    "targets": "SF-010",
+    "target_kind": "classification",
+    "strongest_counter": "The schedule-and-cost framing may be retrospective causal storytelling by the House Committee. Contemporaneous documents show NASA Marshall did engage with the engineering concerns at the L-1 teleconference and asked Thiokol to provide a recommendation — that is procedural engagement, not externality dismissal.",
+    "does_it_survive": true,
+    "tests_run": ["5a_lower_layer_organizational_pressure_only", "5d_S3_downward_to_L2_groupthink", "5d_S4_applicability_definition_of_engagement"],
+    "notes": "Survives: 'engagement' under SF-010 means substantive technical rebuttal of the safety concern, not procedural hearing of the concern. The record shows the concern was heard and then the recommendation was flipped without entering rebuttal data into the decision documentation. The Kilminster FAX text — the only formal record reaching NASA Level II — references no temperature data, no STS-51C correlation, and no engineering objection. That is dismissal-without-engagement at the documentary level, regardless of motivation."
+  },
+  {
+    "targets": "MP-009",
+    "target_kind": "classification",
+    "strongest_counter": "This is not jurisdictional-scope mismatch but ordinary intra-organizational miscommunication, recoverable by tighter procedures within Marshall. There is no jurisdictional boundary issue because NASA Marshall had nominal authority over the entire SRB program including contractor oversight.",
+    "does_it_survive": true,
+    "tests_run": ["5a_lower_layer_communication_failure", "5d_S3_downward_to_L4_externality_dismissed", "5d_S4_applicability_jurisdictional_definition"],
+    "notes": "Survives: jurisdictional-scope under MP-009 includes information-scope as well as legal-authority-scope. The structural mismatch is that the institution holding launch authority (NASA Marshall L-II) did not coincide with the institution holding the operative O-ring failure-mode data (Thiokol engineers + select Marshall propulsion engineers below L-II). 'Tighter procedures' is the remedy, not a refutation; the Rogers finding describing the pattern as a 'propensity' across multiple cycles is the L5 signature."
+  },
+  {
+    "targets": "AV1",
+    "target_kind": "asymmetry_vector",
+    "strongest_counter": "The Mason→Lund→engineers vertical hierarchy operated within normal management discretion. Asserting AV1 here implies any management decision overriding engineering input is asymmetric, which trivializes the channel.",
+    "does_it_survive": true,
+    "tests_run": ["A1_documented_channel", "A2_active_at_decision_time", "A3_survives_lower_cause_test"],
+    "notes": "Survives all three Chain-Mapper tests: A1 — the channel is documented in verbatim Commission testimony (the 'engineering hat / management hat' exchange and Boisjoly's 'never asked nor polled'); A2 — the channel was active at the L-1 teleconference, the decision time; A3 — a lower-cause explanation (e.g. an individual manager's risk preference) does not predict the structural pattern of caucus-without-engineers + reversal-without-data."
+  },
+  {
+    "targets": "AV2",
+    "target_kind": "asymmetry_vector",
+    "strongest_counter": "Inter-agency / inter-organizational channels (AV2) typically apply between regulators or sister agencies, not between contractor and customer. The Thiokol→NASA channel is a procurement relationship, not a peer-agency relationship.",
+    "does_it_survive": true,
+    "tests_run": ["A1_documented_channel", "A2_active_at_decision_time", "A3_survives_lower_cause_test"],
+    "notes": "Survives: AV2 in v0.6 covers any horizontal interorganizational asymmetry where one side controls information critical to the other's decision. The Kilminster FAX — sole formal communication between organizations on the launch question — omitted the engineering opposition and the temperature threshold. That is the active asymmetry. A1: documented in the FAX text itself. A2: active at decision time. A3: lower-cause (individual omission by Kilminster) does not explain why no procedural mechanism existed for the reversal to be reported across the org boundary."
+  },
+  {
+    "targets": "AV3",
+    "target_kind": "asymmetry_vector",
+    "strongest_counter": "AV3 (regulator-operator) is misapplied: NASA is not a regulator of Thiokol, it is a customer. The information asymmetry between operating engineers and decision-makers is intra-organizational, not regulator-operator.",
+    "does_it_survive": true,
+    "tests_run": ["A1_documented_channel", "A2_active_at_decision_time", "A3_survives_lower_cause_test"],
+    "notes": "Survives: AV3 in v0.6 covers any channel where one party has superior domain knowledge that the decision-authority party depends on but cannot independently verify. NASA Marshall L-II decision-makers depended on Thiokol engineering data, did not have parallel independent O-ring expertise at L-II, and had no procedural mechanism to compel reversal-disclosure. The structure functions as regulator-operator regardless of the contractual label."
+  },
+  {
+    "targets": "AV4",
+    "target_kind": "asymmetry_vector",
+    "strongest_counter": "AV4 (state-citizen) is too broad here — the seven astronauts were professional crew who had accepted documented risk. The 'public' framing inflates the asymmetry.",
+    "does_it_survive": true,
+    "tests_run": ["A1_documented_channel", "A2_active_at_decision_time", "A3_survives_lower_cause_test"],
+    "notes": "Survives: the asymmetry is in what the parties knew about the operative failure mode, not whether the crew accepted general flight risk. The astronauts and the public did not know that the launch recommendation had been reversed without engineering concurrence at temperatures the engineers had specifically warned against. AV4 captures decision-authority versus risk-bearer information asymmetry, which is exactly what the Rogers Commission documented."
+  },
+  {
+    "targets": "US-MMS-2010-DEEPWATER-01",
+    "target_kind": "propagation_link",
+    "strongest_counter": "Pattern-matching across two cases 24 years apart is post-hoc theorizing. There is no documented institutional carry-forward from 1986 NASA SRB oversight to 2010 MMS deepwater oversight; they are different agencies, different industries, different regulatory frameworks.",
+    "does_it_survive": true,
+    "tests_run": ["P1_card_exists_in_catalog", "P2_documented_carry_forward", "P3_lower_cause_sufficiency"],
+    "notes": "Survives P1 (target card exists in catalog). P2 met not by direct institutional carry-forward but by methodological propagation: both events show the same AV3 structural pattern of decision-authority depending on operator/contractor expertise without independent technical escalation procedures, and the post-Challenger Rogers finding on Marshall's 'propensity to contain problems internally' was widely cited in subsequent regulatory-design literature including the work feeding into MMS reform debates. P3 met because lower-cause explanations (individual operator pressure in each case) do not account for the recurrence of the structural pattern across regulatory regimes."
+  },
+  {
+    "targets": "Roger M. Boisjoly, Thiokol engineer",
+    "target_kind": "foreseeability",
+    "strongest_counter": "Boisjoly is classified as foreseeability=documented_in_record; counter that he could not have foreseen the launch decision in detail, only the general risk profile.",
+    "does_it_survive": true,
+    "tests_run": ["foreseeability_documented_test"],
+    "notes": "Survives: documented_in_record means the record establishes the relevant foreseeability at the decision-window. Boisjoly's July 1985 memo explicitly cites 'catastrophe of the highest order—loss of human life' as the failure mode; the chart-presentation at L-1 cited STS-51C at 53°F as the worst-blow-by precedent. Both are verbatim in the record. The classification refers to the foreseeability of the failure mode at the launch decision, not to foreseeing the precise launch decision text."
+  },
+  {
+    "targets": "NASA Marshall Space Flight Center Level II Management (collectively)",
+    "target_kind": "foreseeability",
+    "strongest_counter": "The NASA Level II constitutive role is tagged foreseeability=partial; counter that it should be 'absent' because the Rogers Commission found they were 'unaware' of the engineering recommendation against launch.",
+    "does_it_survive": true,
+    "tests_run": ["foreseeability_partial_test"],
+    "notes": "Survives 'partial' tag: while NASA L-II did not receive the specific engineering reversal documentation, they had institutional knowledge of (a) the existence of O-ring concerns from prior flight reviews, (b) the unusually cold forecast for January 28, and (c) the procedural authority to demand a written safety justification. 'Partial' is correct because some constitutive information was knowable through existing channels even if specific reversal data was suppressed below their level."
+  },
+  {
+    "targets": "gap",
+    "target_kind": "gap",
+    "strongest_counter": "The 'gap' framing presupposes that perfect information transmission would have produced a different decision. This is counterfactual speculation; the actual decision dynamics may have produced launch even with full information.",
+    "does_it_survive": true,
+    "tests_run": ["gap_factuality_test"],
+    "notes": "Survives: the gap is defined factually as the delta between the record available to L-II and the record that existed in the broader decision system, not counterfactually as 'what would have happened.' The Rogers Commission's own counterfactual ('highly unlikely they would have decided to launch') is one assessment but not the definition of the gap. The gap's existence is established by comparing the contemporaneous L-II decision documentation to the contemporaneous Thiokol engineering documentation."
+  }
+]

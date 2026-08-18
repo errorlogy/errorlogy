@@ -1,0 +1,124 @@
+"""Add a propagation edge between two published cards.
+
+Schema-only operation: appends `propagated_from` on the downstream card
+and triggers `catalog.update_propagates_to` to write the matching
+`propagates_to` back-ref on the upstream card. No LLM. No new factual
+claims beyond what the analyst supplies on the command line — and the
+evidence_excerpt is required to be verbatim text (Verifier will check
+when the card is next re-run through the pipeline).
+
+The tool exists so the analyst-authored edges do not require a full
+pipeline run; specifically, when an existing pair of cards
+self-evidently shares a documented propagation channel and verbatim
+quote, an edge can be authored deterministically.
+
+Usage
+-----
+    python -m tools.add_propagation_edge \
+        --downstream US-MMS-2010-DEEPWATER-01 \
+        --upstream   US-NASA-1986-CHALLENGER-V06-01 \
+        --channel    AV3 \
+        --evidence   "..." \
+        --source     "Rogers Commission Report, Vol. I, Chapter V" \
+        --justification "..." \
+        [--apply]
+
+Idempotent: re-running with the same (downstream, upstream) replaces
+the prior link, and the upstream's back-ref is replaced rather than
+duplicated (catalog.update_propagates_to enforces this).
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+from datetime import datetime
+
+from politic_bar import catalog
+
+
+def main(argv: list[str] | None = None) -> int:
+    ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    ap.add_argument("--downstream", required=True,
+                    help="case_id of the downstream card (gets propagated_from)")
+    ap.add_argument("--upstream", required=True,
+                    help="case_id of the upstream card (gets propagates_to back-ref)")
+    ap.add_argument("--channel", required=True,
+                    choices=["AV1", "AV2", "AV3", "AV4", "AV5"],
+                    help="asymmetry-vector channel through which the error propagated")
+    ap.add_argument("--evidence", required=True,
+                    help="verbatim excerpt anchoring the propagation claim")
+    ap.add_argument("--source", required=True,
+                    help="source ref / locator for the excerpt")
+    ap.add_argument("--justification", default="",
+                    help="P1-P3 justification per METHODOLOGY §5b")
+    ap.add_argument("--apply", action="store_true",
+                    help="write changes (default is dry-run)")
+    args = ap.parse_args(argv)
+
+    down_path = catalog.CASES_DIR / args.downstream / "card.json"
+    if not down_path.exists():
+        print(f"error: downstream cases/{args.downstream}/card.json not found")
+        return 2
+
+    upstream = catalog.load_card(args.upstream)
+    if upstream is None:
+        print(f"error: upstream cases/{args.upstream}/card.json not found")
+        return 2
+
+    # Hard guard: hronological direction. Upstream date must be <= downstream.
+    up_date = upstream.get("decision_date", "")
+    # raw_decode tolerates trailing whitespace / mount-cache padding past
+    # the closing `}` (cowork mount can leave shrink-residue in the tail).
+    down, _ = json.JSONDecoder().raw_decode(down_path.read_text(encoding="utf-8"))
+    down_date = down.get("decision_date", "")
+    if up_date and down_date and up_date.split("/")[0] > down_date.split("/")[-1]:
+        print(f"error: upstream date {up_date} is later than downstream date "
+              f"{down_date}. Propagation cannot run backwards in time. "
+              f"Did you swap --upstream and --downstream?")
+        return 3
+
+    new_link = {
+        "card_id": args.upstream,
+        "channel": args.channel,
+        "evidence_excerpt": args.evidence,
+        "source_ref": args.source,
+        "justification": args.justification,
+    }
+
+    existing = down.get("propagated_from", []) or []
+    existing = [e for e in existing if e.get("card_id") != args.upstream]
+    existing.append(new_link)
+    down["propagated_from"] = existing
+
+    prior_version = down.get("version", 1)
+    down["version"] = prior_version + 1
+    edit_note = (
+        f"[Edge added by analyst {datetime.utcnow().date().isoformat()}: "
+        f"propagated_from += {args.upstream} via {args.channel}. "
+        f"Schema-only edit; no new factual claims beyond the cited excerpt.]"
+    )
+    existing_notes = (down.get("analyst_notes") or "").strip()
+    down["analyst_notes"] = (
+        f"{existing_notes} {edit_note}".strip() if existing_notes else edit_note
+    )
+
+    print(f"downstream {args.downstream}: v{prior_version} → v{down['version']}; "
+          f"propagated_from += {args.upstream} via {args.channel}")
+    if not args.apply:
+        print("dry-run; re-run with --apply to write changes.")
+        return 0
+
+    down_path.write_text(
+        json.dumps(down, indent=2, default=str, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    print(f"wrote {down_path}")
+
+    touched = catalog.update_propagates_to(down)
+    print(f"upstream back-refs updated on: {touched}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,0 +1,855 @@
+{
+  "case_id": "GB-POL-1999-HORIZON-01",
+  "top_modes": [
+    {
+      "mode_id": "MP-004",
+      "name": "Nash equilibrium with documented Pareto gap",
+      "mu": 0.65,
+      "confidence": 0.5,
+      "evidence_grade": "weak",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "SF-004",
+      "name": "Revolving-door alignment",
+      "mu": 0.9172,
+      "confidence": 0.625,
+      "evidence_grade": "moderate",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "CB-066",
+      "name": "Motivated reasoning",
+      "mu": 0.9,
+      "confidence": 0.602,
+      "evidence_grade": "moderate",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "CB-089",
+      "name": "System justification",
+      "mu": 0.4574,
+      "confidence": 0.625,
+      "evidence_grade": "moderate",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "CB-160",
+      "name": "Consistency-preservation over truth",
+      "mu": 0.441,
+      "confidence": 0.605,
+      "evidence_grade": "moderate",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "CB-067",
+      "name": "Identity-protective cognition",
+      "mu": 0.438,
+      "confidence": 0.602,
+      "evidence_grade": "moderate",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "CB-141",
+      "name": "Semmelweis reflex",
+      "mu": 0.4376,
+      "confidence": 0.601,
+      "evidence_grade": "moderate",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "CB-130",
+      "name": "Commitment and consistency bias",
+      "mu": 0.4341,
+      "confidence": 0.597,
+      "evidence_grade": "moderate",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "CB-070",
+      "name": "Backfire effect (contested)",
+      "mu": 0.4328,
+      "confidence": 0.595,
+      "evidence_grade": "moderate",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "CB-181",
+      "name": "Combined-function conflict absorption",
+      "mu": 0.4309,
+      "confidence": 0.593,
+      "evidence_grade": "moderate",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "CB-179",
+      "name": "Sanctity-of-mission inertia",
+      "mu": 0.4271,
+      "confidence": 0.589,
+      "evidence_grade": "moderate",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "CB-173",
+      "name": "Moral outrage overshoot in regulation",
+      "mu": 0.4258,
+      "confidence": 0.587,
+      "evidence_grade": "moderate",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "CB-155",
+      "name": "Pre-commitment lock-in",
+      "mu": 0.425,
+      "confidence": 0.586,
+      "evidence_grade": "moderate",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "CB-090",
+      "name": "Backfire through reactance",
+      "mu": 0.4237,
+      "confidence": 0.585,
+      "evidence_grade": "moderate",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "CB-145",
+      "name": "Illusion of moral superiority",
+      "mu": 0.4236,
+      "confidence": 0.584,
+      "evidence_grade": "moderate",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "SF-005",
+      "name": "Equity-position alignment",
+      "mu": 0.4217,
+      "confidence": 0.584,
+      "evidence_grade": "moderate",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "SF-006",
+      "name": "Network-concentrated allocation",
+      "mu": 0.4204,
+      "confidence": 0.583,
+      "evidence_grade": "moderate",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "CB-088",
+      "name": "Moral credentialing",
+      "mu": 0.4195,
+      "confidence": 0.579,
+      "evidence_grade": "moderate",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "CB-143",
+      "name": "Motivated skepticism",
+      "mu": 0.4182,
+      "confidence": 0.578,
+      "evidence_grade": "moderate",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "CB-087",
+      "name": "Moral licensing",
+      "mu": 0.4119,
+      "confidence": 0.57,
+      "evidence_grade": "moderate",
+      "contributing_signals": []
+    }
+  ],
+  "wms": {
+    "msi": 0.0,
+    "cep": 0.0,
+    "active_signals": [],
+    "early_warning_hypothesis": "Early-warning hypothesis: limited weak-signal accumulation detected; monitoring remains advisable under uncertainty."
+  },
+  "alpha": {
+    "initial_mu": {
+      "CB-089": 0.4574,
+      "SF-004": 0.4553,
+      "CB-160": 0.441,
+      "CB-066": 0.4387,
+      "CB-067": 0.438,
+      "CB-141": 0.4376,
+      "CB-130": 0.4341,
+      "CB-070": 0.4328,
+      "CB-181": 0.4309,
+      "CB-179": 0.4271,
+      "CB-173": 0.4258,
+      "CB-155": 0.425,
+      "CB-090": 0.4237,
+      "CB-145": 0.4236,
+      "SF-005": 0.4217,
+      "SF-006": 0.4204,
+      "CB-088": 0.4195,
+      "CB-143": 0.4182,
+      "CB-087": 0.4119,
+      "SF-008": 0.2668
+    },
+    "propagated_mu": {
+      "CB-089": 0.4574,
+      "SF-004": 0.9172306721150496,
+      "CB-160": 0.441,
+      "CB-066": 0.8999793634042895,
+      "CB-067": 0.438,
+      "CB-141": 0.4376,
+      "CB-130": 0.4341,
+      "CB-070": 0.4328,
+      "CB-181": 0.4309,
+      "CB-179": 0.4271,
+      "CB-173": 0.4258,
+      "CB-155": 0.425,
+      "CB-090": 0.4237,
+      "CB-145": 0.4236,
+      "SF-005": 0.4217,
+      "SF-006": 0.4204,
+      "CB-088": 0.4195,
+      "CB-143": 0.4182,
+      "CB-087": 0.4119,
+      "SF-008": 0.2668,
+      "MP-004": 0.9270657754128425
+    },
+    "activated_edges": [
+      {
+        "from_id": "CB-066",
+        "to_id": "SF-004",
+        "weight": 0.8,
+        "delta_mu": 0.1625
+      },
+      {
+        "from_id": "SF-004",
+        "to_id": "MP-004",
+        "weight": 0.8,
+        "delta_mu": 0.3096
+      },
+      {
+        "from_id": "SF-006",
+        "to_id": "MP-004",
+        "weight": 0.7,
+        "delta_mu": 0.2501
+      },
+      {
+        "from_id": "CB-066",
+        "to_id": "SF-004",
+        "weight": 0.8,
+        "delta_mu": 0.114
+      },
+      {
+        "from_id": "SF-004",
+        "to_id": "MP-004",
+        "weight": 0.8,
+        "delta_mu": 0.185
+      },
+      {
+        "from_id": "MP-004",
+        "to_id": "CB-066",
+        "weight": 0.5,
+        "delta_mu": 0.1335
+      },
+      {
+        "from_id": "SF-006",
+        "to_id": "MP-004",
+        "weight": 0.7,
+        "delta_mu": 0.1101
+      },
+      {
+        "from_id": "CB-066",
+        "to_id": "SF-004",
+        "weight": 0.8,
+        "delta_mu": 0.1044
+      },
+      {
+        "from_id": "SF-004",
+        "to_id": "MP-004",
+        "weight": 0.8,
+        "delta_mu": 0.0722
+      },
+      {
+        "from_id": "MP-004",
+        "to_id": "CB-066",
+        "weight": 0.5,
+        "delta_mu": 0.1554
+      },
+      {
+        "from_id": "CB-066",
+        "to_id": "SF-004",
+        "weight": 0.8,
+        "delta_mu": 0.0811
+      },
+      {
+        "from_id": "MP-004",
+        "to_id": "CB-066",
+        "weight": 0.5,
+        "delta_mu": 0.1073
+      },
+      {
+        "from_id": "MP-004",
+        "to_id": "CB-066",
+        "weight": 0.5,
+        "delta_mu": 0.065
+      }
+    ],
+    "top_modes": [
+      {
+        "mode_id": "MP-004",
+        "name": "Nash equilibrium with documented Pareto gap",
+        "mu": 0.65,
+        "confidence": 0.5,
+        "evidence_grade": "weak",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "SF-004",
+        "name": "Revolving-door alignment",
+        "mu": 0.9172,
+        "confidence": 0.625,
+        "evidence_grade": "moderate",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "CB-066",
+        "name": "Motivated reasoning",
+        "mu": 0.9,
+        "confidence": 0.602,
+        "evidence_grade": "moderate",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "CB-089",
+        "name": "System justification",
+        "mu": 0.4574,
+        "confidence": 0.625,
+        "evidence_grade": "moderate",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "CB-160",
+        "name": "Consistency-preservation over truth",
+        "mu": 0.441,
+        "confidence": 0.605,
+        "evidence_grade": "moderate",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "CB-067",
+        "name": "Identity-protective cognition",
+        "mu": 0.438,
+        "confidence": 0.602,
+        "evidence_grade": "moderate",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "CB-141",
+        "name": "Semmelweis reflex",
+        "mu": 0.4376,
+        "confidence": 0.601,
+        "evidence_grade": "moderate",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "CB-130",
+        "name": "Commitment and consistency bias",
+        "mu": 0.4341,
+        "confidence": 0.597,
+        "evidence_grade": "moderate",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "CB-070",
+        "name": "Backfire effect (contested)",
+        "mu": 0.4328,
+        "confidence": 0.595,
+        "evidence_grade": "moderate",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "CB-181",
+        "name": "Combined-function conflict absorption",
+        "mu": 0.4309,
+        "confidence": 0.593,
+        "evidence_grade": "moderate",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "CB-179",
+        "name": "Sanctity-of-mission inertia",
+        "mu": 0.4271,
+        "confidence": 0.589,
+        "evidence_grade": "moderate",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "CB-173",
+        "name": "Moral outrage overshoot in regulation",
+        "mu": 0.4258,
+        "confidence": 0.587,
+        "evidence_grade": "moderate",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "CB-155",
+        "name": "Pre-commitment lock-in",
+        "mu": 0.425,
+        "confidence": 0.586,
+        "evidence_grade": "moderate",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "CB-090",
+        "name": "Backfire through reactance",
+        "mu": 0.4237,
+        "confidence": 0.585,
+        "evidence_grade": "moderate",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "CB-145",
+        "name": "Illusion of moral superiority",
+        "mu": 0.4236,
+        "confidence": 0.584,
+        "evidence_grade": "moderate",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "SF-005",
+        "name": "Equity-position alignment",
+        "mu": 0.4217,
+        "confidence": 0.584,
+        "evidence_grade": "moderate",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "SF-006",
+        "name": "Network-concentrated allocation",
+        "mu": 0.4204,
+        "confidence": 0.583,
+        "evidence_grade": "moderate",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "CB-088",
+        "name": "Moral credentialing",
+        "mu": 0.4195,
+        "confidence": 0.579,
+        "evidence_grade": "moderate",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "CB-143",
+        "name": "Motivated skepticism",
+        "mu": 0.4182,
+        "confidence": 0.578,
+        "evidence_grade": "moderate",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "CB-087",
+        "name": "Moral licensing",
+        "mu": 0.4119,
+        "confidence": 0.57,
+        "evidence_grade": "moderate",
+        "contributing_signals": []
+      }
+    ]
+  },
+  "pno": {
+    "dominant_pno": "PNO-1",
+    "scores": {
+      "PNO-1": 1.0,
+      "PNO-2": 0.6407,
+      "PNO-3": 0.1105,
+      "PNO-4": 0.0,
+      "PNO-5": 0.0,
+      "PNO-6": 0.0391,
+      "PNO-7": 0.0
+    },
+    "explanation": "Analytical regime PNO-1 scores highest (1.00). Informational Persistent Non-Optimality is consistent with the activated mode profile — hypothesis only, not a legal finding."
+  },
+  "acc": {
+    "max_contribution_cluster": {
+      "cluster_id": "ACC-003",
+      "name": "Procurement-rent cluster",
+      "score": 0.1087,
+      "signature_modes": [
+        "SF-006",
+        "SF-004",
+        "GT_EXT-023",
+        "GT_EXT-024",
+        "MP-004"
+      ],
+      "explanation": "Analytical contribution cluster ACC-003: mean μ=0.45 across 3/5 signature modes (hypothesis, not guilt)."
+    },
+    "clusters": [
+      {
+        "cluster_id": "ACC-003",
+        "name": "Procurement-rent cluster",
+        "score": 0.1087,
+        "signature_modes": [
+          "SF-006",
+          "SF-004",
+          "GT_EXT-023",
+          "GT_EXT-024",
+          "MP-004"
+        ],
+        "explanation": "Analytical contribution cluster ACC-003: mean μ=0.45 across 3/5 signature modes (hypothesis, not guilt)."
+      },
+      {
+        "cluster_id": "ACC-010",
+        "name": "Crisis-compression cluster",
+        "score": 0.011,
+        "signature_modes": [
+          "CB-113",
+          "CB-184",
+          "LCJ-007",
+          "SF-006",
+          "MP-008",
+          "LCC-005"
+        ],
+        "explanation": "Analytical contribution cluster ACC-010: mean μ=0.07 across 1/6 signature modes (hypothesis, not guilt)."
+      },
+      {
+        "cluster_id": "ACC-001",
+        "name": "Capacity-veto cluster",
+        "score": 0.0,
+        "signature_modes": [
+          "LCC-002",
+          "LCC-004",
+          "SF-013",
+          "MP-013",
+          "MP-014"
+        ],
+        "explanation": "Analytical contribution cluster ACC-001: mean μ=0.00 across 0/5 signature modes (hypothesis, not guilt)."
+      },
+      {
+        "cluster_id": "ACC-002",
+        "name": "Legal-delay cluster",
+        "score": 0.0,
+        "signature_modes": [
+          "LCJ-001",
+          "LCJ-002",
+          "LCJ-003",
+          "LCJ-006",
+          "MP-008",
+          "MP-010"
+        ],
+        "explanation": "Analytical contribution cluster ACC-002: mean μ=0.00 across 0/6 signature modes (hypothesis, not guilt)."
+      },
+      {
+        "cluster_id": "ACC-004",
+        "name": "Narrative-amplification cluster",
+        "score": 0.0,
+        "signature_modes": [
+          "HM-013",
+          "HM-014",
+          "HM-017",
+          "HM-020",
+          "GT-043",
+          "CB-164"
+        ],
+        "explanation": "Analytical contribution cluster ACC-004: mean μ=0.00 across 0/6 signature modes (hypothesis, not guilt)."
+      },
+      {
+        "cluster_id": "ACC-005",
+        "name": "Expert-exclusion cluster",
+        "score": 0.0,
+        "signature_modes": [
+          "LCC-003",
+          "LCC-007",
+          "SF-012",
+          "SF-014",
+          "CB-180"
+        ],
+        "explanation": "Analytical contribution cluster ACC-005: mean μ=0.00 across 0/5 signature modes (hypothesis, not guilt)."
+      },
+      {
+        "cluster_id": "ACC-006",
+        "name": "Data-silo / measurement cluster",
+        "score": 0.0,
+        "signature_modes": [
+          "CB-074",
+          "CB-113",
+          "WMS-007",
+          "WMS-015",
+          "MP_EXT-029",
+          "MP_EXT-031"
+        ],
+        "explanation": "Analytical contribution cluster ACC-006: mean μ=0.00 across 0/6 signature modes (hypothesis, not guilt)."
+      },
+      {
+        "cluster_id": "ACC-007",
+        "name": "Interagency churn cluster",
+        "score": 0.0,
+        "signature_modes": [
+          "WMS-017",
+          "SF-002",
+          "SF-013",
+          "MP-013",
+          "MP_EXT-027"
+        ],
+        "explanation": "Analytical contribution cluster ACC-007: mean μ=0.00 across 0/5 signature modes (hypothesis, not guilt)."
+      },
+      {
+        "cluster_id": "ACC-008",
+        "name": "Externality-displacement cluster",
+        "score": 0.0,
+        "signature_modes": [
+          "SF-009",
+          "SF-010",
+          "SF-011",
+          "MP-009",
+          "MP_EXT-043"
+        ],
+        "explanation": "Analytical contribution cluster ACC-008: mean μ=0.00 across 0/5 signature modes (hypothesis, not guilt)."
+      },
+      {
+        "cluster_id": "ACC-009",
+        "name": "Technical-debt dependency cluster",
+        "score": 0.0,
+        "signature_modes": [
+          "WMS-016",
+          "WMS-019",
+          "MP_EXT-030",
+          "MP-035",
+          "LCC-009"
+        ],
+        "explanation": "Analytical contribution cluster ACC-009: mean μ=0.00 across 0/5 signature modes (hypothesis, not guilt)."
+      }
+    ]
+  },
+  "egd": {
+    "echo_room_pressure": 0.08,
+    "hidden_signal_prior": 0.0,
+    "likely_egd_modes": []
+  },
+  "t4d": {
+    "worldline": [
+      {
+        "t": "2025",
+        "stage": "weak_signal",
+        "modes": [],
+        "description": "UK Post Office Limited prosecuted hundreds of sub-postmasters for theft and false accounting"
+      },
+      {
+        "t": "2001",
+        "stage": "inquiry",
+        "modes": [],
+        "description": "Sub-postmasters reported bugs"
+      },
+      {
+        "t": "2002",
+        "stage": "ignored_warning",
+        "modes": [],
+        "description": "and accounting errors for years; Post Office management dismissed complaints and pursued"
+      },
+      {
+        "t": "2010",
+        "stage": "failure",
+        "modes": [],
+        "description": "A public inquiry found systematic denial, cover-up, and failure of oversight"
+      },
+      {
+        "t": "2000",
+        "stage": "weak_signal",
+        "modes": [],
+        "description": "over more than a decade"
+      }
+    ],
+    "warning_to_action_latency_risk": 0.65,
+    "intervention_window_loss": 0.65,
+    "irreversibility_threshold_risk": 0.27
+  },
+  "cat": {
+    "catastrophe_hypothesis": "CAT-003",
+    "bifurcation_risk": 0.3638,
+    "hysteresis_risk": 0.325,
+    "explanation": "Bifurcation hypothesis CAT-003 (Swallowtail — path dependence transition) is analytically consistent with CEP=0.00, irreversibility=0.27. Canonical form reference: x**5 + a*x**3 + b*x**2 + c*x. Hypothesis only — not a prediction."
+  },
+  "fpd": {
+    "horizon": "medium",
+    "mode_forecasts": [
+      {
+        "mode_id": "MP-004",
+        "mu_forecast": 0.9872,
+        "scenario_probability": 0.4455,
+        "confidence": 0.635,
+        "evidence_grade": "moderate"
+      },
+      {
+        "mode_id": "SF-004",
+        "mu_forecast": 0.997,
+        "scenario_probability": 0.4455,
+        "confidence": 0.6725,
+        "evidence_grade": "moderate"
+      },
+      {
+        "mode_id": "CB-066",
+        "mu_forecast": 0.9963,
+        "scenario_probability": 0.4455,
+        "confidence": 0.6656,
+        "evidence_grade": "moderate"
+      },
+      {
+        "mode_id": "CB-089",
+        "mu_forecast": 0.9802,
+        "scenario_probability": 0.4455,
+        "confidence": 0.6725,
+        "evidence_grade": "moderate"
+      },
+      {
+        "mode_id": "CB-160",
+        "mu_forecast": 0.9796,
+        "scenario_probability": 0.4455,
+        "confidence": 0.6665,
+        "evidence_grade": "moderate"
+      }
+    ],
+    "pno_transition_forecast": "PNO transition hypothesis: regime PNO-1 may persist or deepen if CEP remains elevated (analytical forecast, not certainty).",
+    "early_warnings": [],
+    "confidence": 0.5688
+  },
+  "lbi": {
+    "alternatives": []
+  },
+  "public_explanation": "",
+  "red_team_notes": [],
+  "neutrality_flags": [],
+  "metadata": {
+    "engine": "v1-math",
+    "engine_warnings": [
+      "MP-004: weak evidence capped μ 0.927→0.65"
+    ],
+    "pipeline_metrics": {
+      "run_id": "6ee88709",
+      "case_id": "GB-POL-1999-HORIZON-01",
+      "engine_only": true,
+      "engine_version": "v1-math",
+      "started_at": "2026-06-21T18:40:05.432865+00:00",
+      "finished_at": null,
+      "status": "running",
+      "steps": [
+        {
+          "agent_id": "wms",
+          "kind": "engine",
+          "duration_ms": 0.6,
+          "status": "ok",
+          "provider": null,
+          "model": null,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "detail": ""
+        },
+        {
+          "agent_id": "classifier",
+          "kind": "engine",
+          "duration_ms": 5532.0,
+          "status": "ok",
+          "provider": null,
+          "model": null,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "detail": ""
+        },
+        {
+          "agent_id": "alpha",
+          "kind": "engine",
+          "duration_ms": 1.6,
+          "status": "ok",
+          "provider": null,
+          "model": null,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "detail": ""
+        },
+        {
+          "agent_id": "pno",
+          "kind": "engine",
+          "duration_ms": 0.3,
+          "status": "ok",
+          "provider": null,
+          "model": null,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "detail": ""
+        },
+        {
+          "agent_id": "acc",
+          "kind": "engine",
+          "duration_ms": 0.5,
+          "status": "ok",
+          "provider": null,
+          "model": null,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "detail": ""
+        },
+        {
+          "agent_id": "egd",
+          "kind": "engine",
+          "duration_ms": 0.3,
+          "status": "ok",
+          "provider": null,
+          "model": null,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "detail": ""
+        },
+        {
+          "agent_id": "t4d",
+          "kind": "engine",
+          "duration_ms": 2286.0,
+          "status": "ok",
+          "provider": null,
+          "model": null,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "detail": ""
+        },
+        {
+          "agent_id": "cat",
+          "kind": "engine",
+          "duration_ms": 1220.1,
+          "status": "ok",
+          "provider": null,
+          "model": null,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "detail": ""
+        },
+        {
+          "agent_id": "fpd",
+          "kind": "engine",
+          "duration_ms": 0.6,
+          "status": "ok",
+          "provider": null,
+          "model": null,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "detail": ""
+        }
+      ],
+      "totals": {
+        "total_duration_ms": 9042.0,
+        "engine_steps": 9,
+        "llm_steps": 0,
+        "engine_duration_ms": 9042.0,
+        "llm_duration_ms": 0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      }
+    },
+    "engine_only": true,
+    "source_discovery": {
+      "provider": "exa",
+      "hits": 2,
+      "urls": [
+        "https://www.postofficehorizoninquiry.org.uk/sites/default/files/2025-07/Post%20Office%20Horizon%20IT%20Inquiry%20Final%20Report%20Volume%201_0.pdf",
+        "https://www.postofficehorizoninquiry.org.uk/sites/default/files/2025-07/Post_Office_Horizon_Inquiry_Volume_1_Rapid_Read.pdf"
+      ]
+    }
+  }
+}

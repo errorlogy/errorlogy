@@ -1,0 +1,164 @@
+{
+  "skeleton": {
+    "country": "US",
+    "branch": "executive",
+    "level": "national",
+    "body": "NASA Marshall Space Flight Center (Level II management)",
+    "decision_date": "1986-01-27/1986-01-28",
+    "event_type": "decision",
+    "sources": [
+      {
+        "title": "Rogers Commission Report, Vol. I, Chapter IV–V: The Cause of the Accident",
+        "url": "https://history.nasa.gov/rogersrep/v1ch4.htm",
+        "published_date": "1986-06-06",
+        "accessed_date": null,
+        "source_type": "primary",
+        "notes": null
+      },
+      {
+        "title": "Rogers Commission Report, Vol. II, Appendix F: Personal Observations on the Reliability of the Shuttle (R. P. Feynman)",
+        "url": "https://history.nasa.gov/rogersrep/v2appf.htm",
+        "published_date": "1986-06-06",
+        "accessed_date": null,
+        "source_type": "primary",
+        "notes": null
+      },
+      {
+        "title": "Investigation of the Challenger Accident: Report of the Committee on Science and Technology, House Report 99-1016",
+        "url": "https://www.govinfo.gov/app/details/GPO-CRPT-99hrpt1016",
+        "published_date": "1986-10-29",
+        "accessed_date": null,
+        "source_type": "primary",
+        "notes": null
+      },
+      {
+        "title": "Testimony of Roger M. Boisjoly before the Presidential Commission, Commission Vol. IV",
+        "url": "https://history.nasa.gov/rogersrep/v4index.htm",
+        "published_date": "1986-02-25",
+        "accessed_date": null,
+        "source_type": "primary",
+        "notes": null
+      },
+      {
+        "title": "Rogers Commission Report, Vol. I, Chapter V: NASA Marshall / Morton Thiokol internal documentation and Kilminster FAX",
+        "url": "https://history.nasa.gov/rogersrep/v1ch5.htm",
+        "published_date": "1986-06-06",
+        "accessed_date": null,
+        "source_type": "primary",
+        "notes": null
+      }
+    ]
+  },
+  "summary": "NASA Marshall Space Flight Center Level II management and Morton Thiokol contractor management decided to launch Space Shuttle Challenger STS-51L on January 28, 1986, despite engineering recommendations against launch at temperatures below 53°F and documented O-ring erosion concerns. The decision followed a teleconference in which Thiokol engineers presented data correlating O-ring blow-by to cold weather, after which Thiokol management reversed its initial no-launch recommendation following an off-line caucus, and this reversal was not communicated to NASA decision-makers along with the engineering objections that preceded it.",
+  "claimed": "NASA Marshall Space Flight Center management and Morton Thiokol management claimed that STS-51L was safe to launch on January 28, 1986, and that the Solid Rocket Booster would perform acceptably at the forecasted temperature.",
+  "claimed_citations": [
+    {
+      "source_id": "SOURCE 5",
+      "excerpt": "MTI recommends STS-51L launch proceed on 28 January 1986. SRM-25 will not be significantly different from SRM-15.",
+      "locator": "Kilminster FAX, late January 27, 1986"
+    }
+  ],
+  "known_or_knowable": "As of January 27–28, 1986, the record available to decision-makers at NASA Marshall and to Thiokol management included: (1) engineering data presented during the L-1 teleconference showing correlation between O-ring blow-by and cold weather, specifically citing STS-51C (launch temperature 53°F) which had experienced severe blow-by; (2) Boisjoly's initial engineering recommendation against launch below 53°F; (3) Boisjoly's July 31, 1985 memo to Lund characterizing O-ring erosion as a serious problem with potential for 'catastrophe of the highest order—loss of human life'; (4) the fact that Thiokol engineers did not agree with the management decision to recommend launch, as evidenced by Boisjoly's statement that he was 'never asked nor polled' during the management caucus; and (5) forecast temperatures for January 28 launch were significantly below the 53°F threshold cited in the engineering analysis.",
+  "known_citations": [
+    {
+      "source_id": "SOURCE 1",
+      "excerpt": "Mr. Roger Boisjoly [Thiokol engineer] presented charts showing the correlation between O-ring blow-by and cold weather, citing the January 1985 STS-51C flight (launch temperature 53°F) which had experienced the worst blow-by observed to that date.",
+      "locator": "Rogers Commission Report, Vol. I, Chapter V, L-1 teleconference reconstruction"
+    },
+    {
+      "source_id": "SOURCE 4",
+      "excerpt": "This letter is written to insure that management is fully aware of the seriousness of the current O-Ring erosion problem... The result would be a catastrophe of the highest order—loss of human life.",
+      "locator": "Boisjoly's July 31, 1985 internal memo to R. K. Lund"
+    },
+    {
+      "source_id": "SOURCE 1",
+      "excerpt": "Mr. Jerald Mason [Thiokol Senior VP, Wasatch Division] turned to Mr. Robert Lund [Thiokol VP Engineering] and said, 'Take off your engineering hat and put on your management hat.' Following a roughly 30-minute off-line caucus, Thiokol management returned to the teleconference and recommended launch.",
+      "locator": "Rogers Commission Report, Vol. I, Chapter V"
+    },
+    {
+      "source_id": "SOURCE 4",
+      "excerpt": "I was asked, yes, at that point in time I was asked to, if I would go into the room. And I did. I didn't agree with some of the statements that were being made to support the decision. I was never asked nor polled, and it was clearly a management decision from that point.",
+      "locator": "Boisjoly testimony before Presidential Commission, February 25, 1986"
+    }
+  ],
+  "decision": "NASA Marshall Space Flight Center Level II management, in consultation with Thiokol contractor management, decided to proceed with the launch of STS-51L on January 28, 1986. This decision was implemented: the launch occurred on January 28, 1986, at 11:39 a.m. EST, and the vehicle was destroyed 73 seconds after liftoff due to O-ring failure in the right solid rocket booster.",
+  "decision_citations": [
+    {
+      "source_id": "SOURCE 5",
+      "excerpt": "MTI recommends STS-51L launch proceed on 28 January 1986.",
+      "locator": "Kilminster FAX, January 27, 1986, post-management-caucus"
+    },
+    {
+      "source_id": "SOURCE 1",
+      "excerpt": "The decision to launch the Challenger was flawed. Those who made that decision were unaware of the recent history of problems concerning the O-rings and the joint and were unaware of the initial written recommendation of the contractor advising against the launch at temperatures below 53 degrees Fahrenheit and the continuing opposition of the engineers at Thiokol after the management reversed its position.",
+      "locator": "Rogers Commission Report, Vol. I, Chapter V, p. 82 et seq."
+    }
+  ],
+  "gap": "The gap is constituted by the asymmetry between what the decisionmakers at NASA Marshall were aware of and what was documented in the record available to them. Specifically: (1) Thiokol engineers presented quantitative data correlating O-ring blow-by to launch temperature and recommended no launch below 53°F; (2) Thiokol management subsequently reversed this recommendation in an off-line caucus without the participation or polling of the engineers who had presented the data; (3) NASA Marshall's decision-makers did not receive the engineering recommendation or the fact of its reversal, only the final management recommendation to proceed; (4) the Rogers Commission found that 'If the decisionmakers had known all of the facts, it is highly unlikely that they would have decided to launch 51-L on January 28, 1986.' The gap is therefore the absence of the engineering objection and its supporting data from the decision record that reached NASA Level II management, combined with the absence of any mechanism to surface or escalate the reversals of safety recommendations within Thiokol to NASA's awareness.",
+  "constitutive_roles": [
+    {
+      "actor": "Roger M. Boisjoly, Thiokol engineer",
+      "action_or_inaction": "Presented charts and quantitative data showing correlation between O-ring blow-by and launch temperature, specifically referencing STS-51C at 53°F; participated in the initial teleconference advocating no launch below 53°F; did not participate in the management caucus and was not polled regarding the reversal of Thiokol's position",
+      "contribution": "Boisjoly's engineering analysis and the data he presented formed the factual foundation for the initial no-launch recommendation. His exclusion from the management reversal decision and his non-participation in the caucus constituted a break in the chain of responsibility and awareness that would have preserved the engineering position in the record visible to NASA decision-makers.",
+      "foreseeability": "documented_in_record",
+      "evidence_excerpt": "Mr. Roger Boisjoly [Thiokol engineer] presented charts showing the correlation between O-ring blow-by and cold weather, citing the January 1985 STS-51C flight (launch temperature 53°F) which had experienced the worst blow-by observed to that date.",
+      "source_ref": "SOURCE 1, Rogers Commission Report, Vol. I, Chapter V, L-1 teleconference reconstruction"
+    },
+    {
+      "actor": "Roger M. Boisjoly, Thiokol engineer",
+      "action_or_inaction": "Authored July 31, 1985 internal memo to R. K. Lund characterizing O-ring erosion as a serious, potentially catastrophic problem requiring management attention",
+      "contribution": "The memo documented the engineering assessment of O-ring risk months in advance of the launch decision and was directed to Thiokol VP Engineering, establishing that the risk profile was known and communicated within the contractor organization prior to the January 27–28 decision window.",
+      "foreseeability": "documented_in_record",
+      "evidence_excerpt": "This letter is written to insure that management is fully aware of the seriousness of the current O-Ring erosion problem... The result would be a catastrophe of the highest order—loss of human life.",
+      "source_ref": "SOURCE 4, Boisjoly's July 31, 1985 internal memo to R. K. Lund"
+    },
+    {
+      "actor": "Robert K. Lund, Thiokol VP Engineering",
+      "action_or_inaction": "Initially supported the engineering position recommending no launch below 53°F; participated in the 30-minute off-line management caucus; reversed his position and returned to the teleconference endorsing launch",
+      "contribution": "Lund's reversal of the engineering recommendation, made without re-polling the engineers or documenting the technical basis for changing the recommendation, broke the chain of accountability within Thiokol. His subsequent signature on Kilminster's launch recommendation represented the shift of the formal position record from 'Do NOT launch below 53°F' to 'proceed with launch,' without the engineering data or objections being transmitted to NASA.",
+      "foreseeability": "documented_in_record",
+      "evidence_excerpt": "Mr. Jerald Mason [Thiokol Senior VP, Wasatch Division] turned to Mr. Robert Lund [Thiokol VP Engineering] and said, 'Take off your engineering hat and put on your management hat.' Following a roughly 30-minute off-line caucus, Thiokol management returned to the teleconference and recommended launch.",
+      "source_ref": "SOURCE 1, Rogers Commission Report, Vol. I, Chapter V"
+    },
+    {
+      "actor": "Jerald L. Mason, Thiokol Senior VP Wasatch Division",
+      "action_or_inaction": "Directed Lund to 'take off your engineering hat and put on your management hat' and initiated the off-line management caucus during which the engineering recommendation was reversed",
+      "contribution": "Mason's action constituted the formal management override of the engineering position and established the mechanism by which the reversal occurred outside the presence of the engineers. This action placed the authority to change the launch recommendation entirely within the management decision structure rather than within a technical forum.",
+      "foreseeability": "documented_in_record",
+      "evidence_excerpt": "Mr. Jerald Mason [Thiokol Senior VP, Wasatch Division] turned to Mr. Robert Lund [Thiokol VP Engineering] and said, 'Take off your engineering hat and put on your management hat.'",
+      "source_ref": "SOURCE 1, Rogers Commission Report, Vol. I, Chapter V"
+    },
+    {
+      "actor": "Joe Kilminster, Thiokol VP Space Booster Programs",
+      "action_or_inaction": "Signed and transmitted the FAX to NASA Marshall on January 27, 1986, late evening, containing Thiokol's final recommendation to 'proceed' with launch of STS-51L on January 28, stating 'SRM-25 will not be significantly different from SRM-15'",
+      "contribution": "Kilminster's FAX constituted the formal communication of Thiokol's position to NASA Marshall and was the sole engineering/contractor recommendation that reached the NASA Level II decision-makers. This communication did not reference the engineering opposition, the data correlating O-ring blow-by to temperature, or the threshold of 53°F that had been the technical basis of the initial no-launch recommendation.",
+      "foreseeability": "documented_in_record",
+      "evidence_excerpt": "MTI recommends STS-51L launch proceed on 28 January 1986. SRM-25 will not be significantly different from SRM-15.",
+      "source_ref": "SOURCE 5, Kilminster FAX, late January 27, 1986"
+    },
+    {
+      "actor": "Larry Mulloy, NASA Marshall Solid Rocket Booster Project Manager",
+      "action_or_inaction": "Participated in the L-1 teleconference on January 27, 1986; made the remark 'My God, Thiokol, when do you want me to launch, next April?' in response to Thiokol's initial recommendation against launch; received Thiokol's subsequent recommendation to proceed; did not escalate the engineering objections or the reversal to NASA Level II management or to Rockwell",
+      "contribution": "Mulloy's pressure on the contractor ('when do you want me to launch, next April?') and his position as the interface through which Thiokol's final recommendation reached NASA decision-makers constituted a point at which the break in the chain of technical communication was consolidated. He received only the final recommendation, not the engineering opposition that preceded it, and did not escalate the reversal or the technical basis of the initial objection to higher NASA levels.",
+      "foreseeability": "documented_in_record",
+      "evidence_excerpt": "Mr. Mulloy had earlier remarked, 'My God, Thiokol, when do you want me to launch, next April?'",
+      "source_ref": "SOURCE 1, Rogers Commission Report, Vol. I, Chapter V"
+    },
+    {
+      "actor": "NASA Marshall Space Flight Center Level II Management (collectively)",
+      "action_or_inaction": "Received the final launch recommendation from Thiokol; did not receive the engineering data, the initial no-launch recommendation below 53°F, or documentation of Thiokol engineers' continuing opposition; made the decision to launch STS-51L on January 28, 1986",
+      "contribution": "NASA Level II management's decision was made on the basis of an incomplete record. The Rogers Commission found: 'If the decisionmakers had known all of the facts, it is highly unlikely that they would have decided to launch 51-L on January 28, 1986.' The gap between what they knew and what was knowable constituted a failure in the system of information flow and safety escalation within NASA's own management structure.",
+      "foreseeability": "partial",
+      "evidence_excerpt": "The decision to launch the Challenger was flawed. Those who made that decision were unaware of the recent history of problems concerning the O-rings and the joint and were unaware of the initial written recommendation of the contractor advising against the launch at temperatures below 53 degrees Fahrenheit and the continuing opposition of the engineers at Thiokol after the management reversed its position.",
+      "source_ref": "SOURCE 1, Rogers Commission Report, Vol. I, Chapter V, p. 82 et seq."
+    },
+    {
+      "actor": "NASA Marshall Space Flight Center Level II Management (collectively)",
+      "action_or_inaction": "Did not conduct or require a formal technical review of O-ring performance data and erosion history before the L-1 decision; did not establish or enforce a mechanism to escalate reversals of safety recommendations from contractors",
+      "contribution": "The absence of these systemic practices meant that Thiokol's reversal of its engineering recommendation had no procedural check within NASA to ensure that the engineering objections, the technical data, and the reversal itself were all visible to decision-makers. The Rogers Commission noted: 'The Commission is troubled by what appears to be a propensity of management at Marshall to contain potentially serious problems and to attempt to resolve them internally rather than communicate them forward.'",
+      "foreseeability": "documented_in_record",
+      "evidence_excerpt": "The Commission is troubled by what appears to be a propensity of management at Marshall to contain potentially serious problems and to attempt to resolve them internally rather than communicate them forward. This tendency is altogether at odds with the need for Marshall to function as part of a system working toward successful flight missions, interfacing and communicating with the other parts of the system that work to the same end.",
+      "source_ref": "SOURCE 1, Rogers Commission Report, Vol. I, Chapter V"
+    }
+  ]
+}

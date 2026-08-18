@@ -1,0 +1,28 @@
+# Secrets
+anthropic_api_key.txt
+*.env
+.env
+
+# Mount / sync debug artefacts
+_sync_canary.txt
+_mount_probe_*.txt
+_archive/
+
+# Cowork mount-cache workaround leftovers (see feedback_cowork_mount_cache_bug)
+tests/_DEAD_*.txt
+tests/_OLD_*.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# pytest
+.pytest_cache/
+pytest-cache-files-*/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,18 @@
+[project]
+name = "errorlogy-trn-sim"
+version = "0.1.0"
+description = "TRN synthetic agent simulation — research layer for Errorlogy MVP"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.23",
+    "pandas>=1.5",
+    "matplotlib>=3.7",
+]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,43 @@
+{
+  "asymmetry_vectors": [
+    {
+      "type": "AV1",
+      "between": "Thiokol Senior Management (Mason, Lund) — Thiokol Engineers (Boisjoly et al.)",
+      "evidence_excerpt": "Mr. Jerald Mason [Thiokol Senior VP, Wasatch Division] turned to Mr. Robert Lund [Thiokol VP Engineering] and said, 'Take off your engineering hat and put on your management hat.' Following a roughly 30-minute off-line caucus, Thiokol management returned to the teleconference and recommended launch... I was never asked nor polled, and it was clearly a management decision from that point.",
+      "source_ref": "SOURCE 1, Rogers Commission Report, Vol. I, Chapter V; SOURCE 4, Boisjoly testimony"
+    },
+    {
+      "type": "AV2",
+      "between": "Thiokol Management (who held the reversal decision) — NASA Marshall Level II Management (who needed to know the reversal and its technical basis)",
+      "evidence_excerpt": "MTI recommends STS-51L launch proceed on 28 January 1986. SRM-25 will not be significantly different from SRM-15. [Final FAX contained only launch recommendation; did not reference engineering opposition, temperature threshold of 53°F, or O-ring blow-by correlation data presented during teleconference]",
+      "source_ref": "SOURCE 5, Kilminster FAX, late January 27, 1986; SOURCE 1, Rogers Commission Report Vol. I, Chapter V"
+    },
+    {
+      "type": "AV1",
+      "between": "NASA Marshall Level II Management — Morton Thiokol Contractor Engineering Organization",
+      "evidence_excerpt": "The decision to launch the Challenger was flawed. Those who made that decision were unaware of the recent history of problems concerning the O-rings and the joint and were unaware of the initial written recommendation of the contractor advising against the launch at temperatures below 53 degrees Fahrenheit and the continuing opposition of the engineers at Thiokol after the management reversed its position.",
+      "source_ref": "SOURCE 1, Rogers Commission Report, Vol. I, Chapter V, p. 82 et seq."
+    },
+    {
+      "type": "AV3",
+      "between": "Thiokol Operating Engineers (Boisjoly, engineers with O-ring test data and erosion history) — NASA Marshall Project Manager (Mulloy) and Level II Management",
+      "evidence_excerpt": "Mr. Roger Boisjoly [Thiokol engineer] presented charts showing the correlation between O-ring blow-by and cold weather, citing the January 1985 STS-51C flight (launch temperature 53°F) which had experienced the worst blow-by observed to that date. [This technical data did not reach NASA Level II decision-makers; Mulloy received only the final management recommendation.]",
+      "source_ref": "SOURCE 1, Rogers Commission Report, Vol. I, Chapter V; SOURCE 4, Boisjoly testimony"
+    },
+    {
+      "type": "AV4",
+      "between": "NASA/Thiokol Decision Authority — Seven Astronauts and Public (who would be exposed to the risk if launch proceeded at unsafe temperature)",
+      "evidence_excerpt": "This letter is written to insure that management is fully aware of the seriousness of the current O-Ring erosion problem... The result would be a catastrophe of the highest order—loss of human life. [Boisjoly's July 1985 memo articulated the potential outcome; the information asymmetry meant decision-makers and those at risk did not share the same factual foundation regarding the failure mode.]",
+      "source_ref": "SOURCE 4, Boisjoly's July 31, 1985 internal memo to R. K. Lund"
+    }
+  ],
+  "propagation_links": [
+    {
+      "card_id": "US-MMS-2010-DEEPWATER-01",
+      "channel": "AV3",
+      "evidence_excerpt": "The MMS agency operated an oversight regime in which inspection intensity, testing requirements, and technical review did not scale with the deepwater operating envelope... operator representations were treated as largely self-validating. [Similarly, NASA Marshall's Level II management did not establish or enforce a mechanism to escalate reversals of safety recommendations or to independently verify contractor technical claims against the engineers' data.]",
+      "source_ref": "SOURCE 1, Rogers Commission Report, Vol. I, Chapter V: 'The Commission is troubled by what appears to be a propensity of management at Marshall to contain potentially serious problems and to attempt to resolve them internally rather than communicate them forward.'",
+      "justification": "P1: Card US-MMS-2010-DEEPWATER-01 exists in catalog (MMS 2010). P2: The propagation channel is AV3 (operator/contractor superior domain knowledge not subject to independent technical escalation by regulator). P3: Both cases exhibit the pattern that regulatory or decision-making authority relied on contractor/operator representations without establishing independent technical verification mechanisms or escalation procedures to surface contradictory engineering data. In the Challenger case, Boisjoly's quantitative data on O-ring blow-by was not escalated to NASA Level II; in MMS/Deepwater case, deepwater operating envelope expertise remained with the operator. The local explanation (Thiokol management's business pressure, Mulloy's schedule pressure) does not fully account for NASA's failure to institute formal escalation procedures for reversals of safety recommendations without upstream institutional learning about such failures."
+    }
+  ]
+}

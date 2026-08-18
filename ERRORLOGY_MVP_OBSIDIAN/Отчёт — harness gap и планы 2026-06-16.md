@@ -8,14 +8,15 @@
 
 ## Executive summary
 
-После Phase A и B зрелость eval-harness выросла с **~40–45%** до **~57%**. Детерминированный слой (engine + CI) достиг целевых **~68%** — golden snapshot Challenger, smoke `POST /api/analyze`, 74 keyless pytest. LLM-слой получил первый рабочий pilot: Neutrality live eval (20/20 passed при `EVAL_LIVE=1`). Главные оставшиеся разрывы: Scout extraction eval, Card Compiler, cassettes и generic spec→pytest driver.
+После Phase A/B/C (Scout pilot) зрелость eval-harness выросла с **~40–45%** до **~63%**. L1 (~68%): golden snapshot, API smoke, **88 keyless pytest**, CI с `-m "not llm_eval"`. L2: два live pilot — Neutrality **20/20**, Scout extraction **12/12** при `EVAL_LIVE=1`. Главные оставшиеся разрывы: generic spec→pytest driver, Card Compiler eval, cassettes, Red Team live.
 
-**Прогон тестов (2026-06-16):**
+**Прогон тестов (2026-06-16, обновлено):**
 
 | Команда | Результат |
 |---------|-----------|
-| `py -3.12 -m pytest tests/ -q -m "not llm_eval"` | **74 passed**, 20 deselected (~7.6 min) |
-| `EVAL_LIVE=1 pytest tests/evals/test_neutrality_live.py -m llm_eval` | **20 passed**, 10 deselected (~1.6 min) |
+| `py -3.12 -m pytest tests/ -q -m "not llm_eval"` | **88 passed**, 32 deselected |
+| `EVAL_LIVE=1 pytest tests/evals/test_neutrality_live.py -m llm_eval` | **20 passed**, 10 deselected |
+| `EVAL_LIVE=1 pytest tests/evals/test_scout_extraction_live.py -m llm_eval` | **12 passed**, 14 deselected (~79s) |
 
 ---
 
@@ -24,14 +25,14 @@
 | Слой | Было (2026-06-15) | Стало (2026-06-16) | Δ | Комментарий |
 |------|-------------------|---------------------|---|-------------|
 | **L1 — Engine + CI** | ~55% | **~68%** | +13 | Golden baseline, API smoke, 74 keyless теста, CI pytest + engine-only |
-| **L2 — LLM-агенты** | ~42% | **~54%** | +12 | Neutrality pilot (seeds + live runner); Scout/Red Team — только spec |
+| **L2 — LLM-агенты** | ~42% | **~62%** | +20 | Neutrality + Scout live pilots; Red Team — только spec |
 | **L3 — Процесс + tooling** | ~38% | **~50%** | +12 | Handbook, vault→.env, eval-live.yml; promptfoo/nightly — нет |
-| **Общая зрелость** | ~40–45% | **~57%** | +12–17 | Сильный L1; L2/L3 — ранний pilot |
+| **Общая зрелость** | ~40–45% | **~63%** | +18–23 | L1 силён; L2 — два агента с live eval |
 
 ### Пирамида eval (факт)
 
 ```text
-L4 Live LLM eval     [~]  Neutrality pilot ✅; Scout/Card — нет
+L4 Live LLM eval     [██] Neutrality ✅ Scout ✅; Card/Red Team — нет
 L3 Golden/cassettes  [~]  engine baseline ✅; full pipeline cassettes — нет
 L2 Integration       [██] engine_only smoke + API contract
 L1 Unit pytest       [███] engine modules + ingest + guards
@@ -70,8 +71,8 @@ L1 Unit pytest       [███] engine modules + ingest + guards
 
 | Gap | Статус |
 |-----|--------|
-| Scout extraction live eval (seeds есть, runner нет) | Stub only |
-| Generic spec→pytest driver (только Neutrality wired) | Отсутствует |
+| Scout extraction live eval | ✅ `0c4c91a` — 12 seeds, 12/12 live |
+| Generic spec→pytest driver (Neutrality + Scout hand-wired) | Отсутствует |
 
 ### P1 (важно)
 
@@ -80,7 +81,7 @@ L1 Unit pytest       [███] engine modules + ingest + guards
 | Card Compiler + Neutrality joint eval | Deferred |
 | Recorded outputs / cassettes full pipeline | Deferred |
 | Red Team live eval harness | Spec only |
-| CI: явный `-m "not llm_eval"` в ci.yml | Опционально (сейчас skip через marker) |
+| CI: явный `-m "not llm_eval"` в ci.yml | ✅ Done (`0c4c91a`) |
 
 ### P2 (улучшения)
 
@@ -94,8 +95,8 @@ L1 Unit pytest       [███] engine modules + ingest + guards
 
 ## Phase C roadmap (следующий harness)
 
-1. **P2 — Scout extraction schema evals** — wire `scout_extraction.yaml` → pytest
-2. **P1b — Card Compiler eval** — joint с Neutrality
+1. ~~Scout extraction live eval~~ ✅ (`test_scout_extraction_live.py`, commit `0c4c91a`)
+2. **P1 — Card Compiler eval** — joint с Neutrality
 3. **P3 — OpenTelemetry** — FastAPI span per agent step
 4. **Nightly live workflow** — full challenger с keys
 5. **Generic eval runner** — spec YAML → pytest (не только Neutrality)
@@ -122,9 +123,24 @@ L1 Unit pytest       [███] engine modules + ingest + guards
 
 ## Следующие 3 действия
 
-1. **Phase C — Scout eval** — подключить `scout_extraction.yaml` к pytest (deterministic schema assertions).
-2. **Пройти GUI v2 E2E** — Challenger `engine_only` на `:5174`, зафиксировать UX-заметки.
-3. **Починить GITHUB_TOKEN** — новый PAT → `research/.env` → smoke `discover_github_oss.py --query "hawkes" --max-per-query 2`.
+1. **Generic spec→pytest driver** — обобщить Neutrality + Scout runners.
+2. **Card Compiler live eval** — joint с Neutrality на публичном output.
+3. **GUI v2 E2E smoke** — Challenger `engine_only` на `:5174`.
+
+---
+
+## Следующие шаги (приоритизация, 2026-06-16)
+
+| Горизонт | Действие | Почему |
+|----------|----------|--------|
+| ~~Неделя~~ | ~~Scout live eval~~ | ✅ `0c4c91a` |
+| ~~Неделя~~ | ~~`-m "not llm_eval"` в ci.yml~~ | ✅ `0c4c91a` |
+| **Неделя** | GUI v2 smoke `engine_only` на `:5174` | Параллельно harness; фиксирует product loop |
+| **2–4 нед** | Generic spec→pytest driver | После Scout (2-й агент), не раньше |
+| **2–4 нед** | Card Compiler + Neutrality joint eval | Замыкает публичный output chain |
+| **Отложить** | OTel, nightly full challenger, promptfoo adopt | Observability/cost без роста eval coverage |
+| **Отложить** | Agent-Reach в MAS | `discover`, verdict maybe; cherry-pick CLIs при ingest-spike |
+| **Отложить** | GITHUB_TOKEN 401 | Dry-run работает; unblock когда нужен OSS discover |
 
 ---
 

@@ -1,0 +1,14 @@
+---
+description: errorlogy-mas is the active MVP backend; errorlogy-gui is API-integrated desktop UI
+globs: errorlogy-mas/**,errorlogy-gui/**
+alwaysApply: true
+---
+
+# Errorlogy active MVP
+
+- **Primary backend:** `errorlogy-mas/` — 14-agent pipeline, FastAPI, taxonomy v16 (built by Claude).
+- **Desktop UI:** `errorlogy-gui/` — Electron + Vite/React v0.2.4, ~90% MAS API integration (`src/lib/api.ts`).
+- Follow `errorlogy-mas/AGENTS.md` for language rules (μ ≠ probability, no legal accusations).
+- Ontology source for code: `errorlogy-mas/data/errorlogy_unified_taxonomy_v16.json`.
+- Do not commit `.env` or API keys.
+- OLD SKETCH remains under `ERRORLOGY/errorlogy_old_version/` — do not merge without explicit migration task.

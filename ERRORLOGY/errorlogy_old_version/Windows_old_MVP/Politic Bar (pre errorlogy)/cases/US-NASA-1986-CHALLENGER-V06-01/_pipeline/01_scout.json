@@ -1,0 +1,48 @@
+{
+  "status": "ok",
+  "skeleton": {
+    "country": "US",
+    "branch": "executive",
+    "level": "national",
+    "body": "NASA Marshall Space Flight Center (Level II management)",
+    "decision_date": "1986-01-27/1986-01-28",
+    "event_type": "decision",
+    "sources": [
+      {
+        "title": "Rogers Commission Report, Vol. I, Chapter IV–V: The Cause of the Accident",
+        "url": "https://history.nasa.gov/rogersrep/v1ch4.htm",
+        "published_date": "1986-06-06",
+        "source_type": "primary",
+        "notes": null
+      },
+      {
+        "title": "Rogers Commission Report, Vol. II, Appendix F: Personal Observations on the Reliability of the Shuttle (R. P. Feynman)",
+        "url": "https://history.nasa.gov/rogersrep/v2appf.htm",
+        "published_date": "1986-06-06",
+        "source_type": "primary",
+        "notes": null
+      },
+      {
+        "title": "Investigation of the Challenger Accident: Report of the Committee on Science and Technology, House Report 99-1016",
+        "url": "https://www.govinfo.gov/app/details/GPO-CRPT-99hrpt1016",
+        "published_date": "1986-10-29",
+        "source_type": "primary",
+        "notes": null
+      },
+      {
+        "title": "Testimony of Roger M. Boisjoly before the Presidential Commission, Commission Vol. IV",
+        "url": "https://history.nasa.gov/rogersrep/v4index.htm",
+        "published_date": "1986-02-25",
+        "source_type": "primary",
+        "notes": null
+      },
+      {
+        "title": "Rogers Commission Report, Vol. I, Chapter V: NASA Marshall / Morton Thiokol internal documentation and Kilminster FAX",
+        "url": "https://history.nasa.gov/rogersrep/v1ch5.htm",
+        "published_date": "1986-06-06",
+        "source_type": "primary",
+        "notes": null
+      }
+    ]
+  }
+}

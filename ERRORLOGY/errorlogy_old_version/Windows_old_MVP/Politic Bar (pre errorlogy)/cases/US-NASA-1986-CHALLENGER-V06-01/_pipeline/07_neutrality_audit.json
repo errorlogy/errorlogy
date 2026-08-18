@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "violations": [],
+  "rewrite_suggestions": [
+    "summary: descriptive language ('decided to launch despite engineering recommendations against launch') is factual and neutral; no rewrite required",
+    "claimed/known/decision split: tracked separately as required by §3, with each clause traceable to a verbatim citation; passes N1 (no implicit causation), N2 (no motive imputation), N3 (no normative adjectives outside cited material)",
+    "constitutive_roles: each entry uses 'action_or_inaction' and 'contribution' framing without imputing motive; foreseeability tags are based on what the source bundle establishes was in the record (N6 satisfied)",
+    "asymmetry_vectors: between-party identifiers use role-based descriptions ('Thiokol Senior Management', 'NASA Marshall Level II Management'), not personal characterization (N4 satisfied)",
+    "classifications: each justification cites the specific record element supporting the validity tests (C1/C2/C3) without entering normative claims about the actors (N5 satisfied)",
+    "gap: stated as factual delta between two documented record-states, not as 'what should have happened' (N7 satisfied)",
+    "residual_uncertainty (in compiler output): explicitly notes which counter-arguments survived versus were defeated, preserving the methodological honesty required by §6"
+  ]
+}

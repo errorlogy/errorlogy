@@ -1,0 +1,35 @@
+{
+  "actor_id": "robert-k-lund-thiokol-vp-engineering",
+  "display_name": "Robert K. Lund, Thiokol VP Engineering",
+  "entries": [
+    {
+      "card_id": "US-NASA-1986-CHALLENGER-V06-01",
+      "decision_date": "1986-01-27/1986-01-28",
+      "body": "NASA Marshall Space Flight Center (Level II management)",
+      "branch": "executive",
+      "level": "national",
+      "role": "named_in_roles",
+      "role_detail": "Initially supported the engineering position recommending no launch below 53°F; participated in the 30-minute off-line management caucus; reversed his position and returned to the teleconference endorsing launch",
+      "classifications": [
+        "L2:CB-019",
+        "L1:CB-020",
+        "L1:CB-009",
+        "L4:SF-010",
+        "L5:MP-009"
+      ],
+      "foreseeability": "documented_in_record",
+      "asymmetry_vectors": [
+        "AV1",
+        "AV2",
+        "AV1",
+        "AV3",
+        "AV4"
+      ],
+      "propagated_from_ids": [
+        "US-MMS-2010-DEEPWATER-01"
+      ]
+    }
+  ],
+  "possibly_same_as": [],
+  "version": 2
+}

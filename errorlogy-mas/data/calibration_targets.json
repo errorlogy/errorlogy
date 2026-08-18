@@ -1,0 +1,202 @@
+{
+  "challenger-1986": {
+    "top5": [
+      "PNO-4",
+      "CAT-001",
+      "MP-035",
+      "CB-001",
+      "MP-005"
+    ],
+    "weak_signals": []
+  },
+  "chernobyl-1986": {
+    "top5": [
+      "MP-011",
+      "CB-081",
+      "SF-002",
+      "MP-009",
+      "SF-014"
+    ],
+    "weak_signals": []
+  },
+  "iraq-wmd-2003": {
+    "top5": [
+      "MP-005",
+      "CB-001",
+      "CB-164",
+      "SF-007",
+      "SF-009"
+    ],
+    "weak_signals": []
+  },
+  "post-office-horizon-1999": {
+    "top5": [
+      "MP-011",
+      "MP-013",
+      "CB-081",
+      "MP-008",
+      "MP-009"
+    ],
+    "weak_signals": []
+  },
+  "deepwater-horizon-2010": {
+    "top5": [
+      "MP-011",
+      "CB-081",
+      "SF-002",
+      "LCC-005",
+      "CAT-007"
+    ],
+    "weak_signals": []
+  },
+  "flint-water-2014": {
+    "top5": [
+      "MP-011",
+      "CB-081",
+      "SF-002",
+      "MP-005",
+      "LCC-009"
+    ],
+    "weak_signals": []
+  },
+  "enron-2001": {
+    "top5": [
+      "MP-011",
+      "CB-081",
+      "MP-009",
+      "SF-002",
+      "PNO-5"
+    ],
+    "weak_signals": []
+  },
+  "boeing-737max-2019": {
+    "top5": [
+      "MP-011",
+      "SF-002",
+      "CB-081",
+      "MP-004",
+      "MP-005"
+    ],
+    "weak_signals": []
+  },
+  "hurricane-katrina-2005": {
+    "top5": [
+      "MP-011",
+      "CB-081",
+      "SF-002",
+      "PNO-7",
+      "LCJ-001"
+    ],
+    "weak_signals": []
+  },
+  "opioid-purdue-2007": {
+    "top5": [
+      "MP-011",
+      "SF-009",
+      "CB-081",
+      "CB-059",
+      "CB-069"
+    ],
+    "weak_signals": []
+  },
+  "abu-ghraib-2004": {
+    "top5": [
+      "MP-011",
+      "SF-002",
+      "CB-081",
+      "CB-113",
+      "LCC-005"
+    ],
+    "weak_signals": []
+  },
+  "hillsborough-1989": {
+    "top5": [
+      "MP-011",
+      "CB-081",
+      "MP-009",
+      "SF-002",
+      "CAT-007"
+    ],
+    "weak_signals": []
+  },
+  "infected-blood-1970s": {
+    "top5": [
+      "MP-009",
+      "SF-014",
+      "CAT-005",
+      "MP-011",
+      "CAT-002"
+    ],
+    "weak_signals": []
+  },
+  "grenfell-2017": {
+    "top5": [
+      "MP-005",
+      "SF-007",
+      "CB-123",
+      "CB-001",
+      "CB-027"
+    ],
+    "weak_signals": []
+  },
+  "bristol-heart-1990s": {
+    "top5": [
+      "CB-118",
+      "CB-042",
+      "CB-110",
+      "CB-150",
+      "CB-102"
+    ],
+    "weak_signals": []
+  },
+  "volkswagen-dieselgate-2015": {
+    "top5": [
+      "MP-011",
+      "CB-081",
+      "SF-002",
+      "LCC-005",
+      "MP_EXT-044"
+    ],
+    "weak_signals": []
+  },
+  "mad-cow-bse-1996": {
+    "top5": [
+      "CB-003",
+      "CB-114",
+      "CB-059",
+      "CB-052",
+      "CB-156"
+    ],
+    "weak_signals": []
+  },
+  "greek-debt-crisis-2010": {
+    "top5": [
+      "CB-047",
+      "CB-102",
+      "CB-116",
+      "MP-006",
+      "CB-072"
+    ],
+    "weak_signals": []
+  },
+  "fukushima-2011": {
+    "top5": [
+      "MP-005",
+      "SF-007",
+      "CB-027",
+      "CB-001",
+      "CB-164"
+    ],
+    "weak_signals": []
+  },
+  "rwanda-un-1994": {
+    "top5": [
+      "MP-004",
+      "SF-004",
+      "CB-066",
+      "SF-003",
+      "CB-090"
+    ],
+    "weak_signals": []
+  }
+}

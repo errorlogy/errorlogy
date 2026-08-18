@@ -1,0 +1,9 @@
+{
+  "lambda_trn": "number",
+  "consensus_mean": "number",
+  "polarization_mean": "number",
+  "extreme_share_mean": "number",
+  "entropy_mean": "number",
+  "risk_index_mean": "number",
+  "anticonsensus_rate": "number"
+}

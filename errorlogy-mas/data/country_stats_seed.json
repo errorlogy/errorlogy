@@ -1,0 +1,213 @@
+{
+  "countries": [
+    {
+      "iso3": "USA",
+      "name": "United States",
+      "cases": 14,
+      "avg_mu": 0.71,
+      "max_cep": 0.82,
+      "avg_echo_pressure": 0.74,
+      "dominant_pno": "PNO-1",
+      "top_families": { "CB": 5, "MP": 4, "SF": 3, "CAT": 2 },
+      "recent_cases": [
+        {
+          "case_id": "US-NASA-1986-CHALLENGER-01",
+          "title": "STS-51L Challenger",
+          "year": 1986,
+          "country": "USA",
+          "dominant_pno": "PNO-1",
+          "max_mu": 0.99,
+          "cep": 0.31,
+          "cat": "CAT-003"
+        }
+      ]
+    },
+    {
+      "iso3": "GBR",
+      "name": "United Kingdom",
+      "cases": 6,
+      "avg_mu": 0.58,
+      "max_cep": 0.61,
+      "avg_echo_pressure": 0.52,
+      "dominant_pno": "PNO-2",
+      "top_families": { "SF": 3, "CB": 2, "EGD": 1 },
+      "recent_cases": [
+        {
+          "case_id": "UK-HILLSBOROUGH-1989",
+          "title": "Hillsborough disaster response",
+          "year": 1989,
+          "country": "GBR",
+          "dominant_pno": "PNO-2",
+          "max_mu": 0.72,
+          "cep": 0.55,
+          "cat": "CAT-010"
+        }
+      ]
+    },
+    {
+      "iso3": "FRA",
+      "name": "France",
+      "cases": 5,
+      "avg_mu": 0.54,
+      "max_cep": 0.48,
+      "avg_echo_pressure": 0.46,
+      "dominant_pno": "PNO-3",
+      "top_families": { "CB": 2, "LCJ": 2, "MP": 1 },
+      "recent_cases": []
+    },
+    {
+      "iso3": "DEU",
+      "name": "Germany",
+      "cases": 4,
+      "avg_mu": 0.51,
+      "max_cep": 0.44,
+      "avg_echo_pressure": 0.41,
+      "dominant_pno": "PNO-1",
+      "top_families": { "CB": 2, "ACC": 1, "T4D": 1 },
+      "recent_cases": []
+    },
+    {
+      "iso3": "JPN",
+      "name": "Japan",
+      "cases": 7,
+      "avg_mu": 0.63,
+      "max_cep": 0.68,
+      "avg_echo_pressure": 0.59,
+      "dominant_pno": "PNO-1",
+      "top_families": { "CB": 3, "CAT": 2, "WMS": 2 },
+      "recent_cases": [
+        {
+          "case_id": "JP-FUKUSHIMA-2011",
+          "title": "Fukushima Daiichi regulatory cascade",
+          "year": 2011,
+          "country": "JPN",
+          "dominant_pno": "PNO-1",
+          "max_mu": 0.81,
+          "cep": 0.68,
+          "cat": "CAT-001"
+        }
+      ]
+    },
+    {
+      "iso3": "RUS",
+      "name": "Russia",
+      "cases": 8,
+      "avg_mu": 0.66,
+      "max_cep": 0.71,
+      "avg_echo_pressure": 0.63,
+      "dominant_pno": "PNO-4",
+      "top_families": { "CB": 3, "EGD": 2, "SF": 2, "MP": 1 },
+      "recent_cases": [
+        {
+          "case_id": "RU-KURSK-2000",
+          "title": "Kursk submarine rescue delay",
+          "year": 2000,
+          "country": "RUS",
+          "dominant_pno": "PNO-4",
+          "max_mu": 0.77,
+          "cep": 0.64,
+          "cat": "CAT-002"
+        }
+      ]
+    },
+    {
+      "iso3": "CHN",
+      "name": "China",
+      "cases": 9,
+      "avg_mu": 0.59,
+      "max_cep": 0.57,
+      "avg_echo_pressure": 0.55,
+      "dominant_pno": "PNO-3",
+      "top_families": { "CB": 4, "EGD": 2, "ACC": 2, "CAT": 1 },
+      "recent_cases": []
+    },
+    {
+      "iso3": "BRA",
+      "name": "Brazil",
+      "cases": 5,
+      "avg_mu": 0.52,
+      "max_cep": 0.49,
+      "avg_echo_pressure": 0.48,
+      "dominant_pno": "PNO-2",
+      "top_families": { "CB": 2, "SF": 2, "LCC": 1 },
+      "recent_cases": []
+    },
+    {
+      "iso3": "IND",
+      "name": "India",
+      "cases": 6,
+      "avg_mu": 0.55,
+      "max_cep": 0.53,
+      "avg_echo_pressure": 0.50,
+      "dominant_pno": "PNO-2",
+      "top_families": { "CB": 3, "ACC": 2, "WMS": 1 },
+      "recent_cases": []
+    },
+    {
+      "iso3": "UKR",
+      "name": "Ukraine",
+      "cases": 4,
+      "avg_mu": 0.61,
+      "max_cep": 0.58,
+      "avg_echo_pressure": 0.56,
+      "dominant_pno": "PNO-5",
+      "top_families": { "C": 2, "CB": 1, "CAT": 1 },
+      "recent_cases": []
+    },
+    {
+      "iso3": "CAN",
+      "name": "Canada",
+      "cases": 3,
+      "avg_mu": 0.47,
+      "max_cep": 0.42,
+      "avg_echo_pressure": 0.39,
+      "dominant_pno": "PNO-1",
+      "top_families": { "CB": 2, "WMS": 1 },
+      "recent_cases": []
+    },
+    {
+      "iso3": "AUS",
+      "name": "Australia",
+      "cases": 3,
+      "avg_mu": 0.49,
+      "max_cep": 0.45,
+      "avg_echo_pressure": 0.43,
+      "dominant_pno": "PNO-2",
+      "top_families": { "SF": 1, "CB": 1, "EGD": 1 },
+      "recent_cases": []
+    },
+    {
+      "iso3": "ZAF",
+      "name": "South Africa",
+      "cases": 4,
+      "avg_mu": 0.57,
+      "max_cep": 0.51,
+      "avg_echo_pressure": 0.49,
+      "dominant_pno": "PNO-3",
+      "top_families": { "CB": 2, "LAC": 1, "ACC": 1 },
+      "recent_cases": []
+    },
+    {
+      "iso3": "MEX",
+      "name": "Mexico",
+      "cases": 4,
+      "avg_mu": 0.53,
+      "max_cep": 0.50,
+      "avg_echo_pressure": 0.47,
+      "dominant_pno": "PNO-2",
+      "top_families": { "CB": 2, "LCJ": 1, "SF": 1 },
+      "recent_cases": []
+    },
+    {
+      "iso3": "SAU",
+      "name": "Saudi Arabia",
+      "cases": 3,
+      "avg_mu": 0.50,
+      "max_cep": 0.46,
+      "avg_echo_pressure": 0.44,
+      "dominant_pno": "PNO-4",
+      "top_families": { "EGD": 1, "CB": 1, "MP": 1 },
+      "recent_cases": []
+    }
+  ]
+}

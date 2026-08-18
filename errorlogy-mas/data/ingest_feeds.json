@@ -1,0 +1,24 @@
+{
+  "feeds": [
+    {
+      "url": "https://feeds.bbci.co.uk/news/politics/rss.xml",
+      "label": "BBC Politics",
+      "country": "UK"
+    },
+    {
+      "url": "https://www.gov.uk/government/feed",
+      "label": "UK Government announcements",
+      "country": "UK"
+    },
+    {
+      "url": "https://www.nasa.gov/rss/dyn/breaking_news.rss",
+      "label": "NASA Breaking News",
+      "country": "USA"
+    },
+    {
+      "url": "https://www.gao.gov/rss/reports.xml",
+      "label": "US GAO Reports",
+      "country": "USA"
+    }
+  ]
+}

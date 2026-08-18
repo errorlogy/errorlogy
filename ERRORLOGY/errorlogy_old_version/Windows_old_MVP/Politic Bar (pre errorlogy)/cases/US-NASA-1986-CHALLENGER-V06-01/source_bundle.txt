@@ -1,0 +1,170 @@
+SOURCE BUNDLE — Space Shuttle Challenger STS-51L launch decision (Jan 27–28, 1986)
+Assembled 2026-04-24 for politic.bar v0.6 pipeline run.
+All excerpts are from public primary documents cited inline.
+
+==============================================================================
+SOURCE 1 — Report of the Presidential Commission on the Space Shuttle
+Challenger Accident (a.k.a. "Rogers Commission Report"), Vol. I, Chapter 4:
+"The Cause of the Accident" and related findings on the decision to launch.
+Published June 6, 1986. URL: https://history.nasa.gov/rogersrep/v1ch4.htm
+==============================================================================
+
+From Vol. I, Chapter V, "The Contributing Cause of the Accident", pp. 82–
+104 (decision chain reconstruction):
+
+"The decision to launch the Challenger was flawed. Those who made that
+decision were unaware of the recent history of problems concerning the
+O-rings and the joint and were unaware of the initial written
+recommendation of the contractor advising against the launch at
+temperatures below 53 degrees Fahrenheit and the continuing opposition
+of the engineers at Thiokol after the management reversed its position.
+They did not have a clear understanding of Rockwell's concern that it
+was not safe to launch because of ice on the pad. If the decisionmakers
+had known all of the facts, it is highly unlikely that they would have
+decided to launch 51-L on January 28, 1986."
+
+Sequence of events on the L-1 teleconference, night of January 27, 1986:
+
+"At approximately 5:45 pm EST on January 27, 1986, Mr. Allan McDonald
+requested that Mr. Joe Kilminster [Thiokol VP, Space Booster Programs]
+contact Mr. Larry Mulloy [NASA Marshall, Solid Rocket Booster Project
+Manager] by teleconference... During the teleconference, Mr. Roger
+Boisjoly [Thiokol engineer] presented charts showing the correlation
+between O-ring blow-by and cold weather, citing the January 1985
+STS-51C flight (launch temperature 53°F) which had experienced the
+worst blow-by observed to that date."
+
+On the management caucus and reversal:
+
+"Mr. Jerald Mason [Thiokol Senior VP, Wasatch Division] turned to Mr.
+Robert Lund [Thiokol VP Engineering] and said, 'Take off your
+engineering hat and put on your management hat.' Following a roughly
+30-minute off-line caucus, Thiokol management returned to the
+teleconference and recommended launch. Mr. Mulloy had earlier remarked,
+'My God, Thiokol, when do you want me to launch, next April?'"
+
+Commission finding on Level III suppression:
+
+"The Commission is troubled by what appears to be a propensity of
+management at Marshall to contain potentially serious problems and to
+attempt to resolve them internally rather than communicate them forward.
+This tendency is altogether at odds with the need for Marshall to function
+as part of a system working toward successful flight missions, interfacing
+and communicating with the other parts of the system that work to the
+same end."
+
+Key finding 1 of Chapter V:
+
+"The Commission concluded that there was a serious flaw in the decision
+making process leading up to the launch of flight 51-L. A well-structured
+and managed system emphasizing safety would have flagged the rising
+doubts about the Solid Rocket Booster joint seal."
+
+==============================================================================
+SOURCE 2 — Rogers Commission Report, Vol. II, Appendix F: "Personal
+Observations on the Reliability of the Shuttle" by R. P. Feynman.
+URL: https://history.nasa.gov/rogersrep/v2appf.htm
+==============================================================================
+
+Feynman's estimates of failure probability, Appendix F, §"Official
+Estimates", para 3:
+
+"It appears that there are enormous differences of opinion as to the
+probability of a failure with loss of vehicle and of human life. The
+estimates range from roughly 1 in 100 to 1 in 100,000. The higher figures
+come from the working engineers, and the very low figures from management.
+What are the causes and consequences of this lack of agreement? Since
+1 part in 100,000 would imply that one could put a Shuttle up each day
+for 300 years expecting to lose only one, we could properly ask 'What is
+the cause of management's fantastic faith in the machinery?'"
+
+On the SRB seals specifically:
+
+"The O-rings of the Solid Rocket Boosters were not designed to erode.
+Erosion was a clue that something was wrong. Erosion was not something
+from which safety could be inferred."
+
+Closing paragraph:
+
+"For a successful technology, reality must take precedence over public
+relations, for nature cannot be fooled."
+
+==============================================================================
+SOURCE 3 — "Investigation of the Challenger Accident: Report of the
+Committee on Science and Technology", U.S. House of Representatives,
+99th Congress, 2d Session, House Report 99-1016, October 29, 1986.
+GPO: https://www.govinfo.gov/app/details/GPO-CRPT-99hrpt1016
+==============================================================================
+
+From the Committee's conclusions, pp. 4–6:
+
+"The Committee feels that the underlying problem which led to the
+Challenger accident was not poor communication or underlying procedures
+as implied by the Rogers Commission conclusion. Rather, the fundamental
+problem was poor technical decision-making over a period of several years
+by top NASA and contractor personnel, who failed to act decisively to
+solve the increasingly serious anomalies in the Solid Rocket Booster
+joints."
+
+On the role of schedule pressure:
+
+"Meeting flight schedules and cutting costs were given a higher priority
+than flight safety."
+
+==============================================================================
+SOURCE 4 — Testimony of Roger M. Boisjoly before the Presidential
+Commission, February 25, 1986. Commission Vol. IV.
+URL: https://history.nasa.gov/rogersrep/v4index.htm
+==============================================================================
+
+Boisjoly on the teleconference reversal (Commission Vol. IV, pp. 790–
+793):
+
+"I was asked, yes, at that point in time I was asked to, if I would
+go into the room. And I did. I didn't agree with some of the statements
+that were being made to support the decision. I was never asked nor
+polled, and it was clearly a management decision from that point."
+
+On prior warning (Boisjoly's July 31, 1985 internal memo to R. K. Lund):
+
+"This letter is written to insure that management is fully aware of the
+seriousness of the current O-Ring erosion problem... The result would
+be a catastrophe of the highest order—loss of human life."
+
+==============================================================================
+SOURCE 5 — NASA Marshall Space Flight Center internal documentation
+referenced in Rogers Commission exhibits, specifically the January 27,
+1986 FAX transmission from Thiokol listing concerns and the subsequent
+signed launch recommendation after management caucus.
+URL: https://history.nasa.gov/rogersrep/v1ch5.htm
+==============================================================================
+
+The signed Joe Kilminster FAX to Marshall, post-caucus, late January 27,
+1986, contained the conclusion:
+
+"MTI recommends STS-51L launch proceed on 28 January 1986. SRM-25 will
+not be significantly different from SRM-15."
+
+This superseded the Boisjoly/Thompson engineering recommendation of
+"Do NOT launch below 53°F" which had been the Thiokol position at the
+start of the teleconference.
+
+==============================================================================
+CONTEXT FOR SCOUT
+==============================================================================
+
+Country: United States
+Branch (government): Executive (NASA is an independent executive agency,
+civilian; the decisionmaking body here is NASA Level II management at
+Marshall Space Flight Center plus Morton Thiokol Inc. contractor
+management operating under NASA delegation).
+Level: National (federal agency)
+Body: "NASA Level II management (Marshall Space Flight Center) and
+Morton Thiokol Inc. management"
+Decision date: 1986-01-27 / 1986-01-28
+Event type: decision (a launch recommendation was issued and acted
+upon — specific, identifiable, attributable decision)
+
+==============================================================================
+END OF BUNDLE
+==============================================================================

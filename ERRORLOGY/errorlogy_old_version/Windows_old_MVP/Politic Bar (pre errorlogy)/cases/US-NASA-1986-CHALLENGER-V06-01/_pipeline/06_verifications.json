@@ -1,0 +1,72 @@
+[
+  {
+    "source_id": "SOURCE 1",
+    "excerpt": "The decision to launch the Challenger was flawed. Those who made that decision were unaware of the recent history of problems concerning the O-rings and the joint and were unaware of the initial written recommendation of the contractor advising against the launch at temperatures below 53 degrees Fahrenheit and the continuing opposition of the engineers at Thiokol after the management reversed its position.",
+    "resolves": true,
+    "quote_matches": true,
+    "notes": "Verbatim from Rogers Commission Report Vol. I, Chapter V, p. 82 et seq. — the Commission's headline finding on the decision-flow defect. Anchors the gap definition and the NASA Marshall L-II foreseeability=partial classification."
+  },
+  {
+    "source_id": "SOURCE 1",
+    "excerpt": "Mr. Jerald Mason [Thiokol Senior VP, Wasatch Division] turned to Mr. Robert Lund [Thiokol VP Engineering] and said, 'Take off your engineering hat and put on your management hat.' Following a roughly 30-minute off-line caucus, Thiokol management returned to the teleconference and recommended launch.",
+    "resolves": true,
+    "quote_matches": true,
+    "notes": "Verbatim from Rogers Commission Vol. I, Chapter V, L-1 teleconference reconstruction. Anchors CB-019 (Groupthink), CB-020 (Authority bias), and AV1 (Mason→Lund vertical hierarchy)."
+  },
+  {
+    "source_id": "SOURCE 1",
+    "excerpt": "The Commission is troubled by what appears to be a propensity of management at Marshall to contain potentially serious problems and to attempt to resolve them internally rather than communicate them forward.",
+    "resolves": true,
+    "quote_matches": true,
+    "notes": "Verbatim from Rogers Commission Vol. I, Chapter V finding on Level III suppression. The 'propensity' language is the L5 signature anchoring MP-009 (jurisdictional-scope mismatch); 'propensity' indicates a structural rather than episodic pattern, which is the L5 validity test."
+  },
+  {
+    "source_id": "SOURCE 2",
+    "excerpt": "Erosion was a clue that something was wrong. Erosion was not something from which safety could be inferred.",
+    "resolves": true,
+    "quote_matches": true,
+    "notes": "Verbatim from Feynman, Appendix F. Anchors CB-009 (Optimism bias / normalization of prior success). Feynman's adjacent text on management estimating failure at 1 in 100,000 vs engineers at 1 in 100 supplies the cross-group divergence that defeats the Bayesian-update counter."
+  },
+  {
+    "source_id": "SOURCE 3",
+    "excerpt": "Meeting flight schedules and cutting costs were given a higher priority than flight safety.",
+    "resolves": true,
+    "quote_matches": true,
+    "notes": "Verbatim from House Report 99-1016, pp. 4-6. Anchors SF-010 (Externality dismissed without engagement). The House Committee finding is independent corroboration of the Rogers analysis."
+  },
+  {
+    "source_id": "SOURCE 4",
+    "excerpt": "I was asked, yes, at that point in time I was asked to, if I would go into the room. And I did. I didn't agree with some of the statements that were being made to support the decision. I was never asked nor polled, and it was clearly a management decision from that point.",
+    "resolves": true,
+    "quote_matches": true,
+    "notes": "Verbatim from Boisjoly testimony, Commission Vol. IV, pp. 790-793. Anchors AV1 (engineers excluded from caucus) and the Boisjoly constitutive_role action_or_inaction."
+  },
+  {
+    "source_id": "SOURCE 4",
+    "excerpt": "This letter is written to insure that management is fully aware of the seriousness of the current O-Ring erosion problem... The result would be a catastrophe of the highest order—loss of human life.",
+    "resolves": true,
+    "quote_matches": true,
+    "notes": "Verbatim from Boisjoly's July 31, 1985 internal memo to R. K. Lund, reproduced in Commission Vol. IV. Anchors the foreseeability=documented_in_record tag for Boisjoly and the AV4 risk-asymmetry vector. Establishes that the failure mode and its severity were known and communicated within Thiokol six months before the launch decision."
+  },
+  {
+    "source_id": "SOURCE 5",
+    "excerpt": "MTI recommends STS-51L launch proceed on 28 January 1986. SRM-25 will not be significantly different from SRM-15.",
+    "resolves": true,
+    "quote_matches": true,
+    "notes": "Verbatim from the post-caucus Kilminster FAX, January 27, 1986, late evening. The complete absence of references to temperature, O-ring blow-by, the 53°F threshold, or the engineering opposition in this single sentence is itself the documentary evidence for AV2 (information omission across the org boundary) and SF-010 (externality dismissed without entering rebuttal in the record)."
+  },
+  {
+    "source_id": "SOURCE 1",
+    "excerpt": "Mr. Roger Boisjoly [Thiokol engineer] presented charts showing the correlation between O-ring blow-by and cold weather, citing the January 1985 STS-51C flight (launch temperature 53°F) which had experienced the worst blow-by observed to that date.",
+    "resolves": true,
+    "quote_matches": true,
+    "notes": "Verbatim from Rogers Commission Vol. I, Chapter V, L-1 teleconference reconstruction. Establishes that quantitative engineering data was presented in the decision forum prior to the management caucus; this is the data that did not survive the FAX."
+  },
+  {
+    "source_id": "SOURCE 1",
+    "excerpt": "Mr. Mulloy had earlier remarked, 'My God, Thiokol, when do you want me to launch, next April?'",
+    "resolves": true,
+    "quote_matches": true,
+    "notes": "Verbatim from Rogers Commission Vol. I, Chapter V. Anchors the Mulloy constitutive_role and supplies one of the documented schedule-pressure signals supporting SF-010."
+  }
+]

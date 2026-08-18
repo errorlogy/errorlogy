@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "hooks": {
+    "afterAgentResponse": [
+      {
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .cursor/hooks/obsidian-memory.ps1",
+        "timeout": 20,
+        "failClosed": false
+      }
+    ]
+  }
+}
+

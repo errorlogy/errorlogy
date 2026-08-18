@@ -1,0 +1,8 @@
+data/errorlogy.db
+data/errorlogy.db-journal
+.data/zvec_kb/
+.venv/
+__pycache__/
+*.pyc
+.env
+.pytest_cache/

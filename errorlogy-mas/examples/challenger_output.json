@@ -1,0 +1,1244 @@
+{
+  "case_id": "US-NASA-1986-CHALLENGER-01",
+  "top_modes": [
+    {
+      "mode_id": "MP-011",
+      "name": "Temporal-discount trajectory of locally rational moves",
+      "mu": 0.9932,
+      "confidence": 0.663,
+      "evidence_grade": "moderate",
+      "contributing_signals": [
+        "WMS-003",
+        "WMS-006",
+        "WMS-013"
+      ]
+    },
+    {
+      "mode_id": "PNO-4",
+      "name": "PNO-4",
+      "mu": 0.65,
+      "confidence": 0.5,
+      "evidence_grade": "weak",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "CAT-001",
+      "name": "Fold catastrophe / threshold collapse",
+      "mu": 0.9071,
+      "confidence": 0.687,
+      "evidence_grade": "moderate",
+      "contributing_signals": [
+        "WMS-003",
+        "WMS-006",
+        "WMS-013"
+      ]
+    },
+    {
+      "mode_id": "MP-035",
+      "name": "Path dependence trap",
+      "mu": 0.9,
+      "confidence": 0.668,
+      "evidence_grade": "moderate",
+      "contributing_signals": [
+        "WMS-003",
+        "WMS-006",
+        "WMS-013"
+      ]
+    },
+    {
+      "mode_id": "MP_EXT-025",
+      "name": "MP_EXT-025",
+      "mu": 0.65,
+      "confidence": 0.5,
+      "evidence_grade": "weak",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "CAT-008",
+      "name": "Hysteresis of institutional correction",
+      "mu": 0.65,
+      "confidence": 0.5,
+      "evidence_grade": "weak",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "CB-081",
+      "name": "Hyperbolic discounting",
+      "mu": 0.65,
+      "confidence": 0.5,
+      "evidence_grade": "weak",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "SF-002",
+      "name": "Decision-deferral to successor / post-tenure",
+      "mu": 0.65,
+      "confidence": 0.5,
+      "evidence_grade": "weak",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "PNO-7",
+      "name": "PNO-7",
+      "mu": 0.65,
+      "confidence": 0.5,
+      "evidence_grade": "weak",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "PNO-6",
+      "name": "PNO-6",
+      "mu": 0.65,
+      "confidence": 0.5,
+      "evidence_grade": "weak",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "MP_EXT-034",
+      "name": "MP_EXT-034",
+      "mu": 0.65,
+      "confidence": 0.5,
+      "evidence_grade": "weak",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "CB-001",
+      "name": "Confirmation bias",
+      "mu": 0.65,
+      "confidence": 0.5,
+      "evidence_grade": "weak",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "SF-009",
+      "name": "Externality omitted from rationale",
+      "mu": 0.65,
+      "confidence": 0.5,
+      "evidence_grade": "weak",
+      "contributing_signals": []
+    },
+    {
+      "mode_id": "CB-008",
+      "name": "Planning fallacy",
+      "mu": 0.606,
+      "confidence": 0.675,
+      "evidence_grade": "moderate",
+      "contributing_signals": [
+        "WMS-003",
+        "WMS-006",
+        "WMS-013"
+      ]
+    },
+    {
+      "mode_id": "MP-003",
+      "name": "Gibbard-Satterthwaite strategic misrepresentation determining outcome",
+      "mu": 0.6043,
+      "confidence": 0.677,
+      "evidence_grade": "moderate",
+      "contributing_signals": [
+        "WMS-003",
+        "WMS-006",
+        "WMS-013"
+      ]
+    },
+    {
+      "mode_id": "MP-012",
+      "name": "Oscillation without new information",
+      "mu": 0.6034,
+      "confidence": 0.676,
+      "evidence_grade": "moderate",
+      "contributing_signals": [
+        "WMS-003",
+        "WMS-006",
+        "WMS-013"
+      ]
+    },
+    {
+      "mode_id": "MP-002",
+      "name": "Condorcet cycle in pairwise voting",
+      "mu": 0.6003,
+      "confidence": 0.672,
+      "evidence_grade": "moderate",
+      "contributing_signals": [
+        "WMS-003",
+        "WMS-006",
+        "WMS-013"
+      ]
+    },
+    {
+      "mode_id": "T4D-017",
+      "name": "Irreversibility threshold crossing",
+      "mu": 0.597,
+      "confidence": 0.672,
+      "evidence_grade": "moderate",
+      "contributing_signals": [
+        "WMS-003",
+        "WMS-006",
+        "WMS-013"
+      ]
+    },
+    {
+      "mode_id": "MP-005",
+      "name": "Plott-McKelvey agenda control in multidimensional space",
+      "mu": 0.5913,
+      "confidence": 0.662,
+      "evidence_grade": "moderate",
+      "contributing_signals": [
+        "WMS-003",
+        "WMS-006",
+        "WMS-013"
+      ]
+    },
+    {
+      "mode_id": "CAT-009",
+      "name": "Bifurcation set crossing",
+      "mu": 0.5882,
+      "confidence": 0.662,
+      "evidence_grade": "moderate",
+      "contributing_signals": [
+        "WMS-003",
+        "WMS-006",
+        "WMS-013"
+      ]
+    }
+  ],
+  "wms": {
+    "msi": 0.452,
+    "cep": 0.452,
+    "active_signals": [
+      "WMS-003",
+      "WMS-006",
+      "WMS-013"
+    ],
+    "early_warning_hypothesis": "Early-warning hypothesis: multisource signal index suggests analytical attention to weak but consistent warning patterns."
+  },
+  "alpha": {
+    "initial_mu": {
+      "CAT-001": 0.6093,
+      "CB-008": 0.606,
+      "MP-003": 0.6043,
+      "MP-012": 0.6034,
+      "MP-002": 0.6003,
+      "T4D-017": 0.597,
+      "MP-035": 0.593,
+      "MP-011": 0.5927,
+      "MP-005": 0.5913,
+      "CAT-009": 0.5882,
+      "GT-031": 0.5876,
+      "CAT-011": 0.5867,
+      "T4D-010": 0.586,
+      "MP-001": 0.5802,
+      "CB-167": 0.5746,
+      "CB-004": 0.5717,
+      "T4D-020": 0.4948,
+      "CAT-015": 0.4933,
+      "GT-028": 0.4892,
+      "T4D-013": 0.488
+    },
+    "propagated_mu": {
+      "CAT-001": 0.9071497008569886,
+      "CB-008": 0.606,
+      "MP-003": 0.6043,
+      "MP-012": 0.6034,
+      "MP-002": 0.6003,
+      "T4D-017": 0.597,
+      "MP-035": 0.8999535566234602,
+      "MP-011": 0.9931747371062001,
+      "MP-005": 0.5913,
+      "CAT-009": 0.5882,
+      "GT-031": 0.5876,
+      "CAT-011": 0.5867,
+      "T4D-010": 0.586,
+      "MP-001": 0.5802,
+      "CB-167": 0.5746,
+      "CB-004": 0.5717,
+      "T4D-020": 0.4948,
+      "CAT-015": 0.4933,
+      "GT-028": 0.4892,
+      "T4D-013": 0.488,
+      "CB-081": 0.8743713022566889,
+      "CB-011": 0.3711918211626234,
+      "CB-001": 0.7647487634861526,
+      "CAT-008": 0.8827790031458101,
+      "MP_EXT-034": 0.8200340115404772,
+      "MP_EXT-025": 0.8885513971605123,
+      "PNO-6": 0.8251062073842861,
+      "PNO-4": 0.9121271778799787,
+      "SF-002": 0.8650347605533534,
+      "SF-009": 0.7565740856252949,
+      "PNO-7": 0.8480760102715205
+    },
+    "activated_edges": [
+      {
+        "from_id": "MP-011",
+        "to_id": "CB-081",
+        "weight": 0.6,
+        "delta_mu": 0.3023
+      },
+      {
+        "from_id": "MP-011",
+        "to_id": "CB-011",
+        "weight": 0.1575,
+        "delta_mu": 0.0793
+      },
+      {
+        "from_id": "MP-005",
+        "to_id": "CB-001",
+        "weight": 0.5,
+        "delta_mu": 0.2513
+      },
+      {
+        "from_id": "T4D-010",
+        "to_id": "MP-035",
+        "weight": 0.75,
+        "delta_mu": 0.152
+      },
+      {
+        "from_id": "T4D-010",
+        "to_id": "CAT-008",
+        "weight": 0.7,
+        "delta_mu": 0.3487
+      },
+      {
+        "from_id": "T4D-013",
+        "to_id": "MP_EXT-034",
+        "weight": 0.7,
+        "delta_mu": 0.2904
+      },
+      {
+        "from_id": "T4D-017",
+        "to_id": "MP_EXT-025",
+        "weight": 0.7,
+        "delta_mu": 0.3552
+      },
+      {
+        "from_id": "T4D-017",
+        "to_id": "CAT-001",
+        "weight": 0.75,
+        "delta_mu": 0.1487
+      },
+      {
+        "from_id": "T4D-020",
+        "to_id": "PNO-6",
+        "weight": 0.7,
+        "delta_mu": 0.2944
+      },
+      {
+        "from_id": "CAT-001",
+        "to_id": "PNO-4",
+        "weight": 0.7,
+        "delta_mu": 0.3625
+      },
+      {
+        "from_id": "CAT-015",
+        "to_id": "PNO-4",
+        "weight": 0.7,
+        "delta_mu": 0.2935
+      },
+      {
+        "from_id": "CB-081",
+        "to_id": "SF-002",
+        "weight": 0.8,
+        "delta_mu": 0.2055
+      },
+      {
+        "from_id": "CB-001",
+        "to_id": "SF-009",
+        "weight": 0.7,
+        "delta_mu": 0.1495
+      },
+      {
+        "from_id": "MP-011",
+        "to_id": "CB-081",
+        "weight": 0.6,
+        "delta_mu": 0.2109
+      },
+      {
+        "from_id": "MP-011",
+        "to_id": "CB-011",
+        "weight": 0.1575,
+        "delta_mu": 0.0731
+      },
+      {
+        "from_id": "MP-005",
+        "to_id": "CB-001",
+        "weight": 0.5,
+        "delta_mu": 0.1881
+      },
+      {
+        "from_id": "T4D-010",
+        "to_id": "MP-035",
+        "weight": 0.75,
+        "delta_mu": 0.0952
+      },
+      {
+        "from_id": "T4D-010",
+        "to_id": "CAT-008",
+        "weight": 0.7,
+        "delta_mu": 0.2271
+      },
+      {
+        "from_id": "T4D-013",
+        "to_id": "MP_EXT-034",
+        "weight": 0.7,
+        "delta_mu": 0.2061
+      },
+      {
+        "from_id": "T4D-017",
+        "to_id": "MP_EXT-025",
+        "weight": 0.7,
+        "delta_mu": 0.229
+      },
+      {
+        "from_id": "T4D-017",
+        "to_id": "CAT-001",
+        "weight": 0.75,
+        "delta_mu": 0.0921
+      },
+      {
+        "from_id": "T4D-020",
+        "to_id": "PNO-6",
+        "weight": 0.7,
+        "delta_mu": 0.2077
+      },
+      {
+        "from_id": "CAT-001",
+        "to_id": "PNO-4",
+        "weight": 0.7,
+        "delta_mu": 0.1551
+      },
+      {
+        "from_id": "CAT-015",
+        "to_id": "PNO-4",
+        "weight": 0.7,
+        "delta_mu": 0.101
+      },
+      {
+        "from_id": "CAT-008",
+        "to_id": "PNO-7",
+        "weight": 0.7,
+        "delta_mu": 0.2075
+      },
+      {
+        "from_id": "CB-081",
+        "to_id": "SF-002",
+        "weight": 0.8,
+        "delta_mu": 0.2772
+      },
+      {
+        "from_id": "SF-002",
+        "to_id": "MP-011",
+        "weight": 0.9,
+        "delta_mu": 0.064
+      },
+      {
+        "from_id": "CB-001",
+        "to_id": "SF-009",
+        "weight": 0.7,
+        "delta_mu": 0.2224
+      },
+      {
+        "from_id": "MP-011",
+        "to_id": "CB-081",
+        "weight": 0.6,
+        "delta_mu": 0.1472
+      },
+      {
+        "from_id": "MP-011",
+        "to_id": "CB-011",
+        "weight": 0.1575,
+        "delta_mu": 0.0673
+      },
+      {
+        "from_id": "MP-005",
+        "to_id": "CB-001",
+        "weight": 0.5,
+        "delta_mu": 0.1409
+      },
+      {
+        "from_id": "T4D-010",
+        "to_id": "MP-035",
+        "weight": 0.75,
+        "delta_mu": 0.0597
+      },
+      {
+        "from_id": "T4D-010",
+        "to_id": "CAT-008",
+        "weight": 0.7,
+        "delta_mu": 0.1479
+      },
+      {
+        "from_id": "T4D-013",
+        "to_id": "MP_EXT-034",
+        "weight": 0.7,
+        "delta_mu": 0.1462
+      },
+      {
+        "from_id": "T4D-017",
+        "to_id": "MP_EXT-025",
+        "weight": 0.7,
+        "delta_mu": 0.1477
+      },
+      {
+        "from_id": "T4D-017",
+        "to_id": "CAT-001",
+        "weight": 0.75,
+        "delta_mu": 0.0571
+      },
+      {
+        "from_id": "T4D-020",
+        "to_id": "PNO-6",
+        "weight": 0.7,
+        "delta_mu": 0.1466
+      },
+      {
+        "from_id": "CAT-008",
+        "to_id": "PNO-7",
+        "weight": 0.7,
+        "delta_mu": 0.2715
+      },
+      {
+        "from_id": "CB-081",
+        "to_id": "SF-002",
+        "weight": 0.8,
+        "delta_mu": 0.2322
+      },
+      {
+        "from_id": "SF-002",
+        "to_id": "MP-011",
+        "weight": 0.9,
+        "delta_mu": 0.1268
+      },
+      {
+        "from_id": "CB-001",
+        "to_id": "SF-009",
+        "weight": 0.7,
+        "delta_mu": 0.2169
+      },
+      {
+        "from_id": "SF-009",
+        "to_id": "MP-011",
+        "weight": 0.8,
+        "delta_mu": 0.0868
+      },
+      {
+        "from_id": "MP-011",
+        "to_id": "CB-081",
+        "weight": 0.6,
+        "delta_mu": 0.1138
+      },
+      {
+        "from_id": "MP-011",
+        "to_id": "CB-011",
+        "weight": 0.1575,
+        "delta_mu": 0.0686
+      },
+      {
+        "from_id": "MP-005",
+        "to_id": "CB-001",
+        "weight": 0.5,
+        "delta_mu": 0.1055
+      },
+      {
+        "from_id": "T4D-010",
+        "to_id": "CAT-008",
+        "weight": 0.7,
+        "delta_mu": 0.0963
+      },
+      {
+        "from_id": "T4D-013",
+        "to_id": "MP_EXT-034",
+        "weight": 0.7,
+        "delta_mu": 0.1038
+      },
+      {
+        "from_id": "T4D-017",
+        "to_id": "MP_EXT-025",
+        "weight": 0.7,
+        "delta_mu": 0.0952
+      },
+      {
+        "from_id": "T4D-020",
+        "to_id": "PNO-6",
+        "weight": 0.7,
+        "delta_mu": 0.1034
+      },
+      {
+        "from_id": "CAT-008",
+        "to_id": "PNO-7",
+        "weight": 0.7,
+        "delta_mu": 0.2244
+      },
+      {
+        "from_id": "CB-081",
+        "to_id": "SF-002",
+        "weight": 0.8,
+        "delta_mu": 0.15
+      },
+      {
+        "from_id": "SF-002",
+        "to_id": "MP-011",
+        "weight": 0.9,
+        "delta_mu": 0.0709
+      },
+      {
+        "from_id": "CB-001",
+        "to_id": "SF-009",
+        "weight": 0.7,
+        "delta_mu": 0.1678
+      },
+      {
+        "from_id": "SF-009",
+        "to_id": "MP-011",
+        "weight": 0.8,
+        "delta_mu": 0.0519
+      },
+      {
+        "from_id": "MP-011",
+        "to_id": "CB-081",
+        "weight": 0.6,
+        "delta_mu": 0.1003
+      },
+      {
+        "from_id": "MP-011",
+        "to_id": "CB-011",
+        "weight": 0.1575,
+        "delta_mu": 0.0829
+      },
+      {
+        "from_id": "MP-005",
+        "to_id": "CB-001",
+        "weight": 0.5,
+        "delta_mu": 0.079
+      },
+      {
+        "from_id": "T4D-010",
+        "to_id": "CAT-008",
+        "weight": 0.7,
+        "delta_mu": 0.0628
+      },
+      {
+        "from_id": "T4D-013",
+        "to_id": "MP_EXT-034",
+        "weight": 0.7,
+        "delta_mu": 0.0736
+      },
+      {
+        "from_id": "T4D-017",
+        "to_id": "MP_EXT-025",
+        "weight": 0.7,
+        "delta_mu": 0.0614
+      },
+      {
+        "from_id": "T4D-020",
+        "to_id": "PNO-6",
+        "weight": 0.7,
+        "delta_mu": 0.073
+      },
+      {
+        "from_id": "CAT-008",
+        "to_id": "PNO-7",
+        "weight": 0.7,
+        "delta_mu": 0.1448
+      }
+    ],
+    "top_modes": [
+      {
+        "mode_id": "MP-011",
+        "name": "Temporal-discount trajectory of locally rational moves",
+        "mu": 0.9932,
+        "confidence": 0.663,
+        "evidence_grade": "moderate",
+        "contributing_signals": [
+          "WMS-003",
+          "WMS-006",
+          "WMS-013"
+        ]
+      },
+      {
+        "mode_id": "PNO-4",
+        "name": "PNO-4",
+        "mu": 0.65,
+        "confidence": 0.5,
+        "evidence_grade": "weak",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "CAT-001",
+        "name": "Fold catastrophe / threshold collapse",
+        "mu": 0.9071,
+        "confidence": 0.687,
+        "evidence_grade": "moderate",
+        "contributing_signals": [
+          "WMS-003",
+          "WMS-006",
+          "WMS-013"
+        ]
+      },
+      {
+        "mode_id": "MP-035",
+        "name": "Path dependence trap",
+        "mu": 0.9,
+        "confidence": 0.668,
+        "evidence_grade": "moderate",
+        "contributing_signals": [
+          "WMS-003",
+          "WMS-006",
+          "WMS-013"
+        ]
+      },
+      {
+        "mode_id": "MP_EXT-025",
+        "name": "MP_EXT-025",
+        "mu": 0.65,
+        "confidence": 0.5,
+        "evidence_grade": "weak",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "CAT-008",
+        "name": "Hysteresis of institutional correction",
+        "mu": 0.65,
+        "confidence": 0.5,
+        "evidence_grade": "weak",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "CB-081",
+        "name": "Hyperbolic discounting",
+        "mu": 0.65,
+        "confidence": 0.5,
+        "evidence_grade": "weak",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "SF-002",
+        "name": "Decision-deferral to successor / post-tenure",
+        "mu": 0.65,
+        "confidence": 0.5,
+        "evidence_grade": "weak",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "PNO-7",
+        "name": "PNO-7",
+        "mu": 0.65,
+        "confidence": 0.5,
+        "evidence_grade": "weak",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "PNO-6",
+        "name": "PNO-6",
+        "mu": 0.65,
+        "confidence": 0.5,
+        "evidence_grade": "weak",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "MP_EXT-034",
+        "name": "MP_EXT-034",
+        "mu": 0.65,
+        "confidence": 0.5,
+        "evidence_grade": "weak",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "CB-001",
+        "name": "Confirmation bias",
+        "mu": 0.65,
+        "confidence": 0.5,
+        "evidence_grade": "weak",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "SF-009",
+        "name": "Externality omitted from rationale",
+        "mu": 0.65,
+        "confidence": 0.5,
+        "evidence_grade": "weak",
+        "contributing_signals": []
+      },
+      {
+        "mode_id": "CB-008",
+        "name": "Planning fallacy",
+        "mu": 0.606,
+        "confidence": 0.675,
+        "evidence_grade": "moderate",
+        "contributing_signals": [
+          "WMS-003",
+          "WMS-006",
+          "WMS-013"
+        ]
+      },
+      {
+        "mode_id": "MP-003",
+        "name": "Gibbard-Satterthwaite strategic misrepresentation determining outcome",
+        "mu": 0.6043,
+        "confidence": 0.677,
+        "evidence_grade": "moderate",
+        "contributing_signals": [
+          "WMS-003",
+          "WMS-006",
+          "WMS-013"
+        ]
+      },
+      {
+        "mode_id": "MP-012",
+        "name": "Oscillation without new information",
+        "mu": 0.6034,
+        "confidence": 0.676,
+        "evidence_grade": "moderate",
+        "contributing_signals": [
+          "WMS-003",
+          "WMS-006",
+          "WMS-013"
+        ]
+      },
+      {
+        "mode_id": "MP-002",
+        "name": "Condorcet cycle in pairwise voting",
+        "mu": 0.6003,
+        "confidence": 0.672,
+        "evidence_grade": "moderate",
+        "contributing_signals": [
+          "WMS-003",
+          "WMS-006",
+          "WMS-013"
+        ]
+      },
+      {
+        "mode_id": "T4D-017",
+        "name": "Irreversibility threshold crossing",
+        "mu": 0.597,
+        "confidence": 0.672,
+        "evidence_grade": "moderate",
+        "contributing_signals": [
+          "WMS-003",
+          "WMS-006",
+          "WMS-013"
+        ]
+      },
+      {
+        "mode_id": "MP-005",
+        "name": "Plott-McKelvey agenda control in multidimensional space",
+        "mu": 0.5913,
+        "confidence": 0.662,
+        "evidence_grade": "moderate",
+        "contributing_signals": [
+          "WMS-003",
+          "WMS-006",
+          "WMS-013"
+        ]
+      },
+      {
+        "mode_id": "CAT-009",
+        "name": "Bifurcation set crossing",
+        "mu": 0.5882,
+        "confidence": 0.662,
+        "evidence_grade": "moderate",
+        "contributing_signals": [
+          "WMS-003",
+          "WMS-006",
+          "WMS-013"
+        ]
+      }
+    ]
+  },
+  "pno": {
+    "dominant_pno": "PNO-1",
+    "scores": {
+      "PNO-1": 1.0,
+      "PNO-2": 0.1235,
+      "PNO-3": 0.4589,
+      "PNO-4": 0.0,
+      "PNO-5": 0.2479,
+      "PNO-6": 0.0479,
+      "PNO-7": 0.0629
+    },
+    "explanation": "Analytical regime PNO-1 scores highest (1.00). Informational Persistent Non-Optimality is consistent with the activated mode profile — hypothesis only, not a legal finding."
+  },
+  "acc": {
+    "max_contribution_cluster": {
+      "cluster_id": "ACC-009",
+      "name": "Technical-debt dependency cluster",
+      "score": 0.0135,
+      "signature_modes": [
+        "WMS-016",
+        "WMS-019",
+        "MP_EXT-030",
+        "MP-035",
+        "LCC-009"
+      ],
+      "explanation": "Analytical contribution cluster ACC-009: mean μ=0.18 across 1/5 signature modes (hypothesis, not guilt)."
+    },
+    "clusters": [
+      {
+        "cluster_id": "ACC-009",
+        "name": "Technical-debt dependency cluster",
+        "score": 0.0135,
+        "signature_modes": [
+          "WMS-016",
+          "WMS-019",
+          "MP_EXT-030",
+          "MP-035",
+          "LCC-009"
+        ],
+        "explanation": "Analytical contribution cluster ACC-009: mean μ=0.18 across 1/5 signature modes (hypothesis, not guilt)."
+      },
+      {
+        "cluster_id": "ACC-007",
+        "name": "Interagency churn cluster",
+        "score": 0.013,
+        "signature_modes": [
+          "WMS-017",
+          "SF-002",
+          "SF-013",
+          "MP-013",
+          "MP_EXT-027"
+        ],
+        "explanation": "Analytical contribution cluster ACC-007: mean μ=0.17 across 1/5 signature modes (hypothesis, not guilt)."
+      },
+      {
+        "cluster_id": "ACC-008",
+        "name": "Externality-displacement cluster",
+        "score": 0.0113,
+        "signature_modes": [
+          "SF-009",
+          "SF-010",
+          "SF-011",
+          "MP-009",
+          "MP_EXT-043"
+        ],
+        "explanation": "Analytical contribution cluster ACC-008: mean μ=0.15 across 1/5 signature modes (hypothesis, not guilt)."
+      },
+      {
+        "cluster_id": "ACC-001",
+        "name": "Capacity-veto cluster",
+        "score": 0.0,
+        "signature_modes": [
+          "LCC-002",
+          "LCC-004",
+          "SF-013",
+          "MP-013",
+          "MP-014"
+        ],
+        "explanation": "Analytical contribution cluster ACC-001: mean μ=0.00 across 0/5 signature modes (hypothesis, not guilt)."
+      },
+      {
+        "cluster_id": "ACC-002",
+        "name": "Legal-delay cluster",
+        "score": 0.0,
+        "signature_modes": [
+          "LCJ-001",
+          "LCJ-002",
+          "LCJ-003",
+          "LCJ-006",
+          "MP-008",
+          "MP-010"
+        ],
+        "explanation": "Analytical contribution cluster ACC-002: mean μ=0.00 across 0/6 signature modes (hypothesis, not guilt)."
+      },
+      {
+        "cluster_id": "ACC-003",
+        "name": "Procurement-rent cluster",
+        "score": 0.0,
+        "signature_modes": [
+          "SF-006",
+          "SF-004",
+          "GT_EXT-023",
+          "GT_EXT-024",
+          "MP-004"
+        ],
+        "explanation": "Analytical contribution cluster ACC-003: mean μ=0.00 across 0/5 signature modes (hypothesis, not guilt)."
+      },
+      {
+        "cluster_id": "ACC-004",
+        "name": "Narrative-amplification cluster",
+        "score": 0.0,
+        "signature_modes": [
+          "HM-013",
+          "HM-014",
+          "HM-017",
+          "HM-020",
+          "GT-043",
+          "CB-164"
+        ],
+        "explanation": "Analytical contribution cluster ACC-004: mean μ=0.00 across 0/6 signature modes (hypothesis, not guilt)."
+      },
+      {
+        "cluster_id": "ACC-005",
+        "name": "Expert-exclusion cluster",
+        "score": 0.0,
+        "signature_modes": [
+          "LCC-003",
+          "LCC-007",
+          "SF-012",
+          "SF-014",
+          "CB-180"
+        ],
+        "explanation": "Analytical contribution cluster ACC-005: mean μ=0.00 across 0/5 signature modes (hypothesis, not guilt)."
+      },
+      {
+        "cluster_id": "ACC-006",
+        "name": "Data-silo / measurement cluster",
+        "score": 0.0,
+        "signature_modes": [
+          "CB-074",
+          "CB-113",
+          "WMS-007",
+          "WMS-015",
+          "MP_EXT-029",
+          "MP_EXT-031"
+        ],
+        "explanation": "Analytical contribution cluster ACC-006: mean μ=0.00 across 0/6 signature modes (hypothesis, not guilt)."
+      },
+      {
+        "cluster_id": "ACC-010",
+        "name": "Crisis-compression cluster",
+        "score": 0.0,
+        "signature_modes": [
+          "CB-113",
+          "CB-184",
+          "LCJ-007",
+          "SF-006",
+          "MP-008",
+          "LCC-005"
+        ],
+        "explanation": "Analytical contribution cluster ACC-010: mean μ=0.00 across 0/6 signature modes (hypothesis, not guilt)."
+      }
+    ]
+  },
+  "egd": {
+    "echo_room_pressure": 0.74,
+    "hidden_signal_prior": 0.75,
+    "likely_egd_modes": []
+  },
+  "t4d": {
+    "worldline": [
+      {
+        "t": "1986",
+        "stage": "failure",
+        "modes": [],
+        "description": "The Space Shuttle Challenger (STS-51L) broke apart 73 seconds into its flight on January 28, 1986,"
+      },
+      {
+        "t": "1977",
+        "stage": "weak_signal",
+        "modes": [],
+        "description": "killing all seven crew members"
+      },
+      {
+        "t": "1977",
+        "stage": "escalation",
+        "modes": [],
+        "description": "- The night before launch (January 27), Thiokol engineers held an emergency teleconference with"
+      },
+      {
+        "t": "1977",
+        "stage": "escalation",
+        "modes": [],
+        "description": "Engineers recommended delaying the launch due to temperatures forecast at 18°F,"
+      },
+      {
+        "t": "1977",
+        "stage": "weak_signal",
+        "modes": [],
+        "description": "far below any previous launch temperature (53°F was the coldest prior launch)"
+      }
+    ],
+    "warning_to_action_latency_risk": 0.9,
+    "intervention_window_loss": 0.3904,
+    "irreversibility_threshold_risk": 0.4608
+  },
+  "cat": {
+    "catastrophe_hypothesis": "CAT-000",
+    "bifurcation_risk": 0.4583,
+    "hysteresis_risk": 0.5063,
+    "explanation": "Bifurcation hypothesis CAT-000 (CAT-000) is analytically consistent with CEP=0.45, irreversibility=0.46. Canonical form reference: generic_fold. Hypothesis only — not a prediction."
+  },
+  "fpd": {
+    "horizon": "medium",
+    "mode_forecasts": [
+      {
+        "mode_id": "MP-011",
+        "mu_forecast": 1.0,
+        "scenario_probability": 0.4833,
+        "confidence": 0.6476,
+        "evidence_grade": "moderate"
+      },
+      {
+        "mode_id": "PNO-4",
+        "mu_forecast": 1.0,
+        "scenario_probability": 0.4833,
+        "confidence": 0.5987,
+        "evidence_grade": "moderate"
+      },
+      {
+        "mode_id": "CAT-001",
+        "mu_forecast": 1.0,
+        "scenario_probability": 0.4833,
+        "confidence": 0.6548,
+        "evidence_grade": "moderate"
+      },
+      {
+        "mode_id": "MP-035",
+        "mu_forecast": 1.0,
+        "scenario_probability": 0.4833,
+        "confidence": 0.6491,
+        "evidence_grade": "moderate"
+      },
+      {
+        "mode_id": "MP_EXT-025",
+        "mu_forecast": 1.0,
+        "scenario_probability": 0.4833,
+        "confidence": 0.5987,
+        "evidence_grade": "moderate"
+      }
+    ],
+    "pno_transition_forecast": "PNO transition hypothesis: regime PNO-1 may persist or deepen if CEP remains elevated (analytical forecast, not certainty).",
+    "early_warnings": [],
+    "confidence": 0.6138
+  },
+  "lbi": {
+    "alternatives": []
+  },
+  "public_explanation": "",
+  "red_team_notes": [],
+  "neutrality_flags": [],
+  "metadata": {
+    "engine": "v1-math",
+    "engine_warnings": [
+      "PNO-4: weak evidence capped μ 0.912→0.65",
+      "MP_EXT-025: weak evidence capped μ 0.889→0.65",
+      "CAT-008: weak evidence capped μ 0.883→0.65",
+      "CB-081: weak evidence capped μ 0.874→0.65",
+      "SF-002: weak evidence capped μ 0.865→0.65",
+      "PNO-7: weak evidence capped μ 0.848→0.65",
+      "PNO-6: weak evidence capped μ 0.825→0.65",
+      "MP_EXT-034: weak evidence capped μ 0.820→0.65",
+      "CB-001: weak evidence capped μ 0.765→0.65",
+      "SF-009: weak evidence capped μ 0.757→0.65"
+    ],
+    "pipeline_metrics": {
+      "run_id": "f85798ba",
+      "case_id": "US-NASA-1986-CHALLENGER-01",
+      "engine_only": true,
+      "engine_version": "v1-math",
+      "started_at": "2026-06-14T14:26:26.121634+00:00",
+      "finished_at": null,
+      "status": "running",
+      "steps": [
+        {
+          "agent_id": "wms",
+          "kind": "engine",
+          "duration_ms": 0.4,
+          "status": "ok",
+          "provider": null,
+          "model": null,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "detail": ""
+        },
+        {
+          "agent_id": "classifier",
+          "kind": "engine",
+          "duration_ms": 38861.3,
+          "status": "ok",
+          "provider": null,
+          "model": null,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "detail": ""
+        },
+        {
+          "agent_id": "alpha",
+          "kind": "engine",
+          "duration_ms": 2.1,
+          "status": "ok",
+          "provider": null,
+          "model": null,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "detail": ""
+        },
+        {
+          "agent_id": "pno",
+          "kind": "engine",
+          "duration_ms": 0.3,
+          "status": "ok",
+          "provider": null,
+          "model": null,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "detail": ""
+        },
+        {
+          "agent_id": "acc",
+          "kind": "engine",
+          "duration_ms": 0.4,
+          "status": "ok",
+          "provider": null,
+          "model": null,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "detail": ""
+        },
+        {
+          "agent_id": "egd",
+          "kind": "engine",
+          "duration_ms": 0.1,
+          "status": "ok",
+          "provider": null,
+          "model": null,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "detail": ""
+        },
+        {
+          "agent_id": "t4d",
+          "kind": "engine",
+          "duration_ms": 618.4,
+          "status": "ok",
+          "provider": null,
+          "model": null,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "detail": ""
+        },
+        {
+          "agent_id": "cat",
+          "kind": "engine",
+          "duration_ms": 0.2,
+          "status": "ok",
+          "provider": null,
+          "model": null,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "detail": ""
+        },
+        {
+          "agent_id": "fpd",
+          "kind": "engine",
+          "duration_ms": 0.5,
+          "status": "ok",
+          "provider": null,
+          "model": null,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "detail": ""
+        }
+      ],
+      "totals": {
+        "total_duration_ms": 39483.7,
+        "engine_steps": 9,
+        "llm_steps": 0,
+        "engine_duration_ms": 39483.7,
+        "llm_duration_ms": 0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      }
+    },
+    "engine_only": true
+  }
+}

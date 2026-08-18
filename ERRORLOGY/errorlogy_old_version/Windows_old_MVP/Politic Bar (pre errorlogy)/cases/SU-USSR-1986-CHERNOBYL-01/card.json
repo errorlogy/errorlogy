@@ -1,0 +1,136 @@
+{
+  "id": "SU-USSR-1986-CHERNOBYL-01",
+  "version": 2,
+  "country": "SU",
+  "branch": "executive",
+  "level": "national",
+  "body": "USSR Ministry of Energy and Electrification; Chernobyl Nuclear Power Plant Unit 4 operating shift and directorate",
+  "decision_date": "1986-04-25/1986-04-26",
+  "summary": "On the night of 25–26 April 1986 the operating shift at Chernobyl Unit 4 conducted a rundown-coast-down electrical test in which the reactor was held at low power for an extended period and multiple automatic protection systems were disabled or bypassed to keep the test running. The reactor entered a regime outside its validated operational envelope; the power excursion at 01:23:40 local time destroyed the reactor.",
+  "claimed": "The test was a safety test intended to verify that the turbogenerator inertia could power essential plant loads during a station blackout. The test program had been approved in advance by plant management and reviewed by the chief engineer's office.",
+  "known_or_knowable": "The RBMK-1000 reactor design had a positive void coefficient under certain low-power configurations — a property known to the designer institute and documented in the reactor's technical basis. The test procedure called for the reactor to be held at low power in a xenon-poisoned state with reduced control-rod margin. The plant operating rules required a minimum operational reactivity margin expressed in control-rod equivalents; the reactor was below this margin during the final phase of the test. The plant operating instructions permitted disabling certain automatic trips only in narrow circumstances not matching the test configuration.",
+  "decision": "The shift proceeded with the test after an unintended power drop to approximately 30 MW thermal. To raise power for the test, operators withdrew control rods beyond the permitted reactivity margin. The emergency core cooling system had been disabled as part of the test preparation. At 01:23:04 the turbine trip was initiated; core void formation followed; the AZ-5 emergency scram was pressed at 01:23:40; the initial effect of rod insertion was a positive reactivity insertion due to the rod-tip design, leading to prompt-critical excursion and reactor destruction.",
+  "gap": "The body conducting the test held that the procedure was within the plant's approved operating rules; the procedure as executed was outside the plant's stated operational limits in at least two respects (operational reactivity margin; configuration-specific safety-system bypass rules), and the reactor's physical envelope in the configuration held at low power was known to the designer to contain an instability region that the procedure did not address.",
+  "classifications": [
+    {
+      "bias_id": "CB-019",
+      "bias_name": "Groupthink",
+      "evidence_excerpt": "[Summary of finding in the cited source] INSAG-7 concluded that the accident occurred in an environment where operational rule violations were accommodated through informal agreement within the shift and the directorate, and where raising concern about procedure deviations was not a practiced norm.",
+      "source_ref": "INSAG-7 (1992), §§III–V",
+      "confidence": "medium",
+      "justification": "C1 — INSAG-7 documents informal accommodation of rule deviations across the shift. C2 — procedural explanation (operators simply following orders) does not account for the absence of documented challenge to the reactivity-margin violation. C3 — survives counter that in Soviet industrial hierarchy dissent was structurally suppressed, because that itself is the mechanism identified. (Evidence excerpt is a faithful summary of the cited finding rather than a verbatim quotation — the Verifier pass would rewrite this as a direct quote in a full pipeline run.)",
+      "mode_id": "CB-019",
+      "mode_name": "Groupthink",
+      "layer": "L2"
+    },
+    {
+      "bias_id": "CB-020",
+      "bias_name": "Authority bias",
+      "evidence_excerpt": "[Summary of finding in the cited source] The INSAG-7 report characterizes the test-authority structure as one in which the test leader had the formal authority to make real-time adjustments to the program and in which deviations were treated as within that authority rather than as triggers for stoppage.",
+      "source_ref": "INSAG-7 (1992), §IV",
+      "confidence": "medium",
+      "justification": "C1 — documented pattern of test-leader authority absorbing procedural violations. C2 — a neutral hierarchical explanation still requires that deviations trigger a stop; the record shows they did not. C3 — survives counter that Soviet-era nuclear operation had its own rule-structure, because the rule-structure itself required the stops that did not occur. (Evidence excerpt is a faithful summary of the cited finding rather than a verbatim quotation — the Verifier pass would rewrite this as a direct quote in a full pipeline run.)",
+      "mode_id": "CB-020",
+      "mode_name": "Authority bias",
+      "layer": "L1"
+    },
+    {
+      "bias_id": "CB-011",
+      "bias_name": "Status quo bias",
+      "evidence_excerpt": "[Summary of finding in the cited source] INSAG-7 notes that prior anomalous events in RBMK-series reactors (e.g. the 1975 Leningrad-1 partial fuel failure, the 1983 Ignalina start-up transient) had generated engineering analyses that did not propagate to changes in operating rules or control-rod tip design before April 1986.",
+      "source_ref": "INSAG-7 (1992), §V",
+      "confidence": "medium",
+      "justification": "C1 — documented sequence of prior warning events whose findings did not flow into operational change. C2 — neutral 'slow bureaucracy' explanation is partially adequate but does not account for absence of interim operator training on the issues. C3 — survives counter that design modification is always slow in the nuclear industry, because the counter-measure on the operator-side (training, procedure updates) was not slow for unrelated changes in the same period. (Evidence excerpt is a faithful summary of the cited finding rather than a verbatim quotation — the Verifier pass would rewrite this as a direct quote in a full pipeline run.)",
+      "mode_id": "CB-011",
+      "mode_name": "Status quo bias",
+      "layer": "L1"
+    },
+    {
+      "bias_id": "CB-060",
+      "bias_name": "Normalcy bias",
+      "evidence_excerpt": "[Summary of finding in the cited source] The shift treated the inadvertent power drop and subsequent rod withdrawal as a recoverable operational transient rather than as a trigger to abort the test and stabilize the reactor.",
+      "source_ref": "INSAG-7 (1992), §IV",
+      "confidence": "medium",
+      "justification": "C1 — the record shows a recoverable-transient framing adopted in real time despite approaching envelope boundaries. C2 — procedural framing (recovery is a valid operational response) does not account for why abort was not chosen given the known margin violation. C3 — survives counter that prior shifts had recovered from comparable transients without incident — the very pattern the bias predicts. (Evidence excerpt is a faithful summary of the cited finding rather than a verbatim quotation — the Verifier pass would rewrite this as a direct quote in a full pipeline run.)",
+      "mode_id": "CB-060",
+      "mode_name": "Normalcy bias",
+      "layer": "L1"
+    }
+  ],
+  "counter_arguments": [
+    {
+      "targets": "CB-019",
+      "strongest_counter": "In a hierarchy as tightly constrained as the Soviet nuclear industry, the absence of visible dissent cannot be distinguished from structural suppression of dissent. Groupthink requires a deliberative group, and the shift was more a command hierarchy than a deliberative body.",
+      "does_it_survive": true,
+      "notes": "Retained at medium confidence. The classification is narrowed to the directorate-level decisions (test planning, bypass approvals) where deliberation was expected, rather than to the shift-level execution where it was not."
+    },
+    {
+      "targets": "CB-020",
+      "strongest_counter": "The test-leader role existed precisely to concentrate decision authority during non-routine operations. Concentration of authority is not a bias; it is a design choice in industrial operations.",
+      "does_it_survive": true,
+      "notes": "Retained. The classification applies to the absorption of procedure violations under that authority, not to the authority structure itself."
+    },
+    {
+      "targets": "CB-035",
+      "strongest_counter": "The phenomenon described is an information-flow failure across institutional boundaries (designer institute retained knowledge that plant operators needed and did not receive). That is a procedural/informational error, not a cognitive bias in the deciding body. CB-035 (illusion of explanatory depth) requires the deciding body to feel it understands something it does not; here the plant shift was executing instructions from a body that did understand. C1 fails.",
+      "does_it_survive": false,
+      "notes": "Classification dropped post-red-team; reclassified as informational error (future taxonomy)."
+    },
+    {
+      "targets": "CB-011",
+      "strongest_counter": "Slow uptake of engineering-analysis findings into operating rules is typical of heavy industry globally; invoking status-quo bias risks becoming non-falsifiable.",
+      "does_it_survive": true,
+      "notes": "Retained at medium confidence, scoped specifically to the RBMK-series anomaly responses. The generic observation about heavy-industry change cycles is acknowledged."
+    },
+    {
+      "targets": "CB-060",
+      "strongest_counter": "The framing of an operational transient as recoverable is the correct framing in the vast majority of cases; the classification risks hindsight bias.",
+      "does_it_survive": true,
+      "notes": "Retained at medium confidence. The classification is specifically about the failure to escalate as the combination of violations (low power, xenon poisoning, low reactivity margin, ECCS disabled) accumulated, not about the initial recoverable-transient framing."
+    },
+    {
+      "targets": "gap",
+      "strongest_counter": "The gap may be an artifact of post-hoc reconstruction under Soviet-era document availability constraints; INSAG-7's findings rely in part on Soviet sources produced after institutional incentives to construct a particular narrative had already operated.",
+      "does_it_survive": true,
+      "notes": "The gap is retained because the reactor-physics element (positive void coefficient, rod-tip reactivity insertion) is a matter of physical fact independent of the Soviet narrative, and that element alone establishes the delta between the stated operational basis and the actual envelope."
+    }
+  ],
+  "residual_uncertainty": "The precise sequence within the final minute of the transient (01:23:00–01:23:46 local) relies on post-hoc reconstruction from strip-chart recorders and operator testimony taken under Soviet judicial conditions. The motive structure behind the directorate-level bypass approvals is not fully resolvable; the balance between production pressure, career incentives, and technical judgment cannot be apportioned from the surviving record.",
+  "sources": [
+    {
+      "title": "INSAG-7: The Chernobyl Accident — Updating of INSAG-1",
+      "url": "https://www-pub.iaea.org/MTCD/publications/PDF/Pub913e_web.pdf",
+      "published_date": "1992-11-01",
+      "source_type": "primary",
+      "notes": "IAEA International Nuclear Safety Advisory Group; the authoritative revised finding superseding the initial 1986 Soviet report (INSAG-1)."
+    },
+    {
+      "title": "INSAG-1: Summary Report on the Post-Accident Review Meeting on the Chernobyl Accident",
+      "url": "https://www-pub.iaea.org/MTCD/publications/PDF/Pub740e_web.pdf",
+      "published_date": "1986-09-01",
+      "source_type": "primary",
+      "notes": "Initial IAEA report, based on Soviet presentation; superseded by INSAG-7 in its conclusions about operator vs. design causation."
+    },
+    {
+      "title": "Chernobyl Legacy (UN Chernobyl Forum) — Health, Environmental and Socio-economic Impacts",
+      "url": "https://www.iaea.org/sites/default/files/chernobyl.pdf",
+      "published_date": "2006-04-01",
+      "source_type": "secondary",
+      "notes": "Used for context; not relied on for decision-process findings."
+    }
+  ],
+  "analyst_notes": "Seed-case analysis produced by hand-application of the methodology. Four classifications retained (CB-019, CB-020, CB-011, CB-060), one (CB-035 illusion of explanatory depth) dropped after red-team pass as misapplied — the underlying phenomenon is an informational error between institutions, not a cognitive error within the deciding body. INSAG-7's central factual revision — that INSAG-1 over-weighted operator error and under-weighted design — is reflected in the operator-level classifications being constrained to operator-level cues, with the design-level finding tracked outside the cognitive taxonomy. [v0.1/v0.2 → v0.6 schema migration 2026-04-26: event_type, asymmetry_vectors, propagated_from, propagates_to, constitutive_roles defaulted to empty; classifications got mode_id and inferred layer per cognitive_biases.json category. Schema-only: no new factual claims introduced. Prior version: 1.]",
+  "compiled_at": "2026-04-23T00:00:00Z",
+  "dropped_after_redteam": [
+    {
+      "bias_id": "CB-035",
+      "bias_name": "Illusion of explanatory depth",
+      "reason_dropped": "Phenomenon is an inter-institutional information-flow failure (designer-to-plant), not a cognitive bias in the deciding body. C1 fails. Scheduled for reclassification under the planned informational-errors taxonomy."
+    }
+  ],
+  "event_type": "decision",
+  "asymmetry_vectors": [],
+  "propagated_from": [],
+  "propagates_to": [],
+  "constitutive_roles": []
+}

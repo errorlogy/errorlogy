@@ -12,16 +12,35 @@ __pycache__/
 .pytest_cache/
 *.egg-info/
 
-# Node
+# Node / frontend builds
 node_modules/
 dist/
+dist-ssr/
+dist-electron/
+dist-electron-*/
 out/
+build/
+*.exe
+*.blockmap
+win-unpacked/
+
+# Python / data
+.ruff_cache/
+.data/
+data/errorlogy.db
+data/errorlogy.db-journal
+
+# Local tooling
+.claude/
+.cursor/hooks/
+_trn_extract/
 
 # OS / IDE
 .DS_Store
 Thumbs.db
 .idea/
 *.log
+ERRORLOGY_MVP_OBSIDIAN/.obsidian/
 
 # Sandbox / local outputs
 errorlogy-trn-sim/outputs/

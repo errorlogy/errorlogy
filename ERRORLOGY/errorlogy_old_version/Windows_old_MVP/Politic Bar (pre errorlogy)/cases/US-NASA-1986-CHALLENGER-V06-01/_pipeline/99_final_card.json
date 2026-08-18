@@ -1,0 +1,19 @@
+{
+  "card_written": "/sessions/determined-youthful-ramanujan/mnt/Projects--POLITIC.BAR (1)/cases/US-NASA-1986-CHALLENGER-V06-01/card.json",
+  "propagates_to_updated": [
+    "US-MMS-2010-DEEPWATER-01"
+  ],
+  "actor_profiles_updated": [
+    "nasa-marshall-space-flight-center-level-ii-management",
+    "roger-m-boisjoly-thiokol-engineer",
+    "roger-m-boisjoly-thiokol-engineer",
+    "robert-k-lund-thiokol-vp-engineering",
+    "jerald-l-mason-thiokol-senior-vp-wasatch-division",
+    "joe-kilminster-thiokol-vp-space-booster-programs",
+    "larry-mulloy-nasa-marshall-solid-rocket-booster-project-manager",
+    "nasa-marshall-space-flight-center-level-ii-management-collectively",
+    "nasa-marshall-space-flight-center-level-ii-management-collectively"
+  ],
+  "candidate_attractor_flag": null,
+  "compiled_at": "2026-04-25T03:24:30.927646Z"
+}

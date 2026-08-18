@@ -1,0 +1,15 @@
+{
+  "experiment_id": "string",
+  "repeat": "integer",
+  "lambda_trn": "number",
+  "q_mean": "number",
+  "r_mean": "number",
+  "echo_chi": "number",
+  "confidence_h_mean": "number",
+  "consensus_final": "number",
+  "polarization_final": "number",
+  "extreme_share_final": "number",
+  "entropy_final": "number",
+  "trn_risk_index": "number",
+  "anticonsensus_final": "integer"
+}

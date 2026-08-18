@@ -1,4 +1,23 @@
-# ERRORLOGY_MVP
+# Errorlogy
+
+**https://errorlogy.com** — аналитическая платформа об ошибках государственного управления.
+
+> *Errors in governance as observable objects: the gap between what was declared, what was known, and what was decided.*
+
+**Errorlogy** моделирует ошибки госуправления как наблюдаемые объекты (разрыв: заявлено / известно / решено).  
+**politic.bar** — первый продукт: аналитический каталог публичных карточек без обвинительного языка.
+
+## Слои анализа
+
+```text
+DATA → WMS → CB/SF/MP/GT/HM/... → α → ACC → PNO → FPD
+```
+
+Подробнее: [`docs/concept/`](docs/concept/) · Obsidian: [`ERRORLOGY_MVP_OBSIDIAN/`](ERRORLOGY_MVP_OBSIDIAN/)
+
+---
+
+# ERRORLOGY_MVP — репозиторий разработки
 
 ## Статус репозитория
 

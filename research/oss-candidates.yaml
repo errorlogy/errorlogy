@@ -137,3 +137,36 @@ candidates:
       YAML/pytest eval runner для Scout GovernanceCase schema assertions.
       Spec: errorlogy-mas/tests/evals/specs/scout.yaml.
       Pilot P2 — deterministic fields in CI; LLM fields optional live.
+
+  - id: agent-reach
+    name: Agent-Reach
+    repo_url: https://github.com/Panniantong/Agent-Reach
+    category: data-ingestion
+    target_area: mas
+    stage: discover
+    example: false
+    decision: pending
+    review_after: 2026-Q3
+    source: manual-eval
+    discovered_at: 2026-06-16
+    github_stars: 31937
+    score:
+      coupling: 2
+      duplication: 2
+      test_safety: 2
+      blast_radius: 4
+      license: 5
+      maintenance: 4
+      engine_llm_fit: 5
+      old_sketch_risk: 5
+      total: 3.67
+    notes_ru: |
+      MIT, Python 3.10+. Installer/router для AI-агентов (Cursor/Claude Code): выбирает
+      и health-check'ает CLI-бэкенды (Jina Reader, twitter-cli, rdt-cli, yt-dlp, gh, feedparser,
+      Exa/mcporter, bili-cli, OpenCLI). Не серверный ingest-pipeline — агент вызывает shell напрямую.
+      Пересечение с MAS: Exa, RSS, URL уже в mas/ingest/fetchers/; US gov (CourtListener, FR, OIG)
+      Agent-Reach не покрывает. Gap: Twitter/Reddit/YouTube для social_media_layer и EGD weak signals.
+      Вердикт: maybe — не тянуть пакет agent-reach в production FastAPI; spike: cherry-pick
+      twitter-cli / Jina Reader как опциональные fetchers в ingest/ или dev-only Scout source gathering.
+      Риски: cookie-auth, datacenter 403 (Reddit), нестабильность бэкендов, CI без ключей/cookies.
+      Альтернатива: прямая интеграция upstream CLIs по списку channels/ из README, без meta-installer.

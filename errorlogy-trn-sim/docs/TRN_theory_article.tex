@@ -1,0 +1,42 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,booktabs}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian,english]{babel}
+\title{Транс-реактивная сеть как синтетическая агентная модель информационной фрагментации}
+\author{TRN Synthetic Modeling Package}
+\date{}
+\begin{document}
+\maketitle
+
+\section{Аннотация}
+Рассматривается синтетическая агентная модель TRN как параметризованной информационной среды. Модель предназначена для анализа консенсуса, поляризации, фрагментации и антиконсенсуса. Реальные персональные данные и реальные платформенные API не используются.
+
+\section{Модель агентов}
+Каждый агент задаётся вектором
+\[
+x_i(t)=(b_i(t),e_i(t),q_i(t),r_i(t),m_i(t)).
+\]
+
+\section{Динамика}
+\[
+b_i(t+1)=clip_{[-1,1]}[b_i(t)+\Delta t(S_i(t)+I_i(t)+\eta_i(t))].
+\]
+
+\section{TRN-поле}
+\[
+I_i(t)=\lambda m_i(1-r_i)(1-q_i)A_i(t)(P_i(t)-b_i(t)).
+\]
+
+\section{Антиконсенсус}
+Антиконсенсус фиксируется при
+\[
+C(t)<0.45,\quad Pol(t)>0.44,\quad Ext(t)>0.35.
+\]
+
+\section{Индекс риска}
+\[
+R_{TRN}=\frac{\lambda\bar m(1-\bar r)(1-\bar q)\chi}{\bar h+\epsilon}.
+\]
+
+\end{document}

@@ -1,0 +1,10 @@
+{
+  "version": "calibrated-v1",
+  "weights": {
+    "dimension": 0.35,
+    "keyword": 0.25,
+    "signal": 0.2,
+    "layer": 0.1,
+    "boost": 0.1
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "id": "US-NASA-1986-CHALLENGER-01",
+  "version": 2,
+  "country": "US",
+  "branch": "executive",
+  "level": "national",
+  "body": "NASA Level II management (Marshall Space Flight Center) and Morton Thiokol management",
+  "decision_date": "1986-01-27/1986-01-28",
+  "summary": "NASA Level II management, following a pre-launch teleconference the evening of January 27 1986, approved the STS-51L launch for the next morning at a forecast launch-pad temperature of approximately 29–31°F. The contractor's engineers had recommended no-launch below 53°F on the basis of O-ring resiliency data; contractor management reversed position after senior NASA officials expressed concern with the engineering recommendation.",
+  "claimed": "NASA's Flight Readiness process had certified the vehicle for launch; the contractor's launch-approval signature was in hand by launch time, and NASA senior management proceeded on the basis that the flight was within the established acceptable-risk envelope.",
+  "known_or_knowable": "Thiokol engineers had assembled temperature-versus-O-ring-blow-by data showing degraded resiliency below roughly 53°F; the engineers' initial written recommendation that evening opposed launch below 53°F; the temperature forecast for the morning of January 28 1986 was in the 26–29°F range at the pad; the concern and its technical basis were communicated to NASA Marshall management during the teleconference, and Thiokol engineers continued to oppose launch after their management reversed position. None of this information was transmitted to the Level I / Mission Management Team above Marshall.",
+  "decision": "Launch proceeded at 11:38 EST on January 28 1986. The vehicle was destroyed at T+73 seconds following a burn-through at the aft field joint of the right Solid Rocket Booster.",
+  "gap": "The body that authorized launch did so on the stated basis of meeting established flight-readiness criteria, while the contemporaneous engineering assessment that had been presented to Marshall — including a documented temperature threshold for O-ring performance and an explicit recommendation not to launch below it — was not reflected in the decision and was not conveyed upward beyond Level II.",
+  "classifications": [
+    {
+      "bias_id": "CB-019",
+      "bias_name": "Groupthink",
+      "evidence_excerpt": "A well structured and managed system emphasizing safety would have flagged the rising doubts about the Solid Rocket Booster joint seal. Had these matters been clearly stated and emphasized in the flight readiness process in terms reflecting the views of most of the Thiokol engineers and at least some of the Marshall engineers, it seems likely that the launch of 51-L might not have occurred when it did.",
+      "source_ref": "Rogers Commission Report, Vol. 1, Ch. 5 (1986)",
+      "confidence": "high",
+      "justification": "C1 — the teleconference minutes and sworn testimony show the Marshall management response to engineering dissent was to press for consensus at the meeting, not to surface the dissent upward. C2 — the procedural alternative (managers weighing technical input on merits) does not account for the pattern in which the dissent was narrowed to the room rather than escalated. C3 — survives the counter that experienced managers can legitimately override engineering caution, because that override requires a substantive rebuttal of the data, which the record does not contain.",
+      "mode_id": "CB-019",
+      "mode_name": "Groupthink",
+      "layer": "L2"
+    },
+    {
+      "bias_id": "CB-020",
+      "bias_name": "Authority bias",
+      "evidence_excerpt": "Boisjoly and Thompson each testified that after the Thiokol off-line caucus in which management reversed position, senior Thiokol management told them to 'take off your engineering hat and put on your management hat.'",
+      "source_ref": "Rogers Commission Report, Vol. 1, testimony of Roger Boisjoly and Arnie Thompson",
+      "confidence": "high",
+      "justification": "C1 — a specific quoted instruction from senior management to subordinate engineers to reframe their technical judgment as a management decision. C2 — procedural explanation (managers exercising legitimate decision authority) does not require subordinating the engineering assessment to do so. C3 — survives counter that 'management hat' simply meant broadening considerations, because the record shows no additional considerations were in fact brought in before the reversal.",
+      "mode_id": "CB-020",
+      "mode_name": "Authority bias",
+      "layer": "L1"
+    },
+    {
+      "bias_id": "CB-009",
+      "bias_name": "Optimism bias",
+      "evidence_excerpt": "NASA managers had been aware of the O-ring erosion in previous flights but had accepted the phenomenon as within experience... the standard reading was that the vehicle had flown safely in previous cases with observed erosion, therefore erosion was within acceptable limits.",
+      "source_ref": "Rogers Commission Report, Vol. 1, Ch. 6",
+      "confidence": "medium",
+      "justification": "C1 — the flight-readiness record repeatedly logs O-ring erosion and blow-by as 'within experience.' C2 — the neutral procedural alternative (normal engineering risk-acceptance) does not explain why the progression of events was treated as stabilizing rather than as deterioration. C3 — survives counter that the data were genuinely ambiguous, at medium confidence, because no pre-existing baseline had been established for low-temperature erosion.",
+      "mode_id": "CB-009",
+      "mode_name": "Optimism bias",
+      "layer": "L1"
+    }
+  ],
+  "counter_arguments": [
+    {
+      "targets": "CB-019",
+      "strongest_counter": "The observed teleconference dynamic — contractor management reversing position after senior customer pressure — is better explained as commercial coercion under procurement dependence (Thiokol's SRB contract was up for recompete) than as a Janis-style group dynamic. What looks like groupthink is really contract-loss fear.",
+      "does_it_survive": true,
+      "notes": "Classification survives because (a) the commercial-coercion and groupthink framings are complementary, not alternative — contract fear is a mechanism, groupthink is the observable pattern; (b) the Janis-specific features (illusion of unanimity, self-censorship in the Thiokol caucus, absence of a devil's-advocate role, mindguards at the information boundary) are each independently documented by the Rogers Commission."
+    },
+    {
+      "targets": "CB-020",
+      "strongest_counter": "The reframing of the decision as a management call rather than an engineering call is a legitimate step in any organization with distinct engineering and management authority. It is not by itself a bias.",
+      "does_it_survive": true,
+      "notes": "Survives because the switch was invoked without substituting any management-level evidence that the engineering evidence was wrong. A legitimate management reframing requires bringing in considerations the engineers did not have; the record shows no such considerations."
+    },
+    {
+      "targets": "CB-009",
+      "strongest_counter": "Treating past non-failure as evidence of acceptable risk is normal probabilistic reasoning if the underlying failure process is stationary. NASA's acceptance of erosion may simply reflect the reasonable prior that erosion had not grown.",
+      "does_it_survive": true,
+      "notes": "Survives at medium confidence because the underlying process was known not to be stationary at low temperature — the temperature-dependence was precisely what the engineers were presenting."
+    },
+    {
+      "targets": "CB-071",
+      "strongest_counter": "Schedule pressure is present in every operational program and is therefore non-specific. More importantly, the specific mechanism by which schedule pressure is alleged to have operated — pressure on management to proceed — is already captured by CB-019 (groupthink under authority pressure) and CB-020 (authority bias in the Thiokol reversal). CB-071 adds no independent explanatory content.",
+      "does_it_survive": false,
+      "notes": "Classification dropped post-red-team as redundant."
+    },
+    {
+      "targets": "gap",
+      "strongest_counter": "Every launch decision is a judgment under uncertainty, and the existence of engineering dissent is not itself evidence of a decision error. A 'gap' between claimed criteria and engineering recommendation may simply reflect normal disagreement that management adjudicates.",
+      "does_it_survive": true,
+      "notes": "The gap is retained because the adjudication requires (a) the dissenting evidence to be surfaced to the decision level and (b) a substantive response to it. The record shows neither occurred — the dissent was not transmitted to Level I and no substantive technical response to the temperature-resiliency data was generated."
+    }
+  ],
+  "residual_uncertainty": "The record does not resolve whether the Thiokol management reversal, once senior NASA concern was registered, was driven primarily by deference, by contractual fear of losing the SRB contract, or by a good-faith re-evaluation. The teleconference audio does not fully capture the off-line Thiokol caucus. Post-hoc testimony is sworn but is post-hoc.",
+  "sources": [
+    {
+      "title": "Report of the Presidential Commission on the Space Shuttle Challenger Accident (Rogers Commission), Volume 1",
+      "url": "https://history.nasa.gov/rogersrep/v1ch4.htm",
+      "published_date": "1986-06-06",
+      "source_type": "primary",
+      "notes": "Official commission report, including sworn testimony of Boisjoly, Thompson, Mulloy, and Lund."
+    },
+    {
+      "title": "Report of the Presidential Commission on the Space Shuttle Challenger Accident, Appendix F — Personal Observations on the Reliability of the Shuttle (R. P. Feynman)",
+      "url": "https://history.nasa.gov/rogersrep/v2appf.htm",
+      "published_date": "1986-06-06",
+      "source_type": "primary",
+      "notes": "Commissioner Feynman's dissent on reliability estimates."
+    },
+    {
+      "title": "House Committee on Science and Technology, Investigation of the Challenger Accident (H. Rept. 99-1016)",
+      "url": "https://www.govinfo.gov/app/details/GPO-CRPT-99hrpt1016",
+      "published_date": "1986-10-29",
+      "source_type": "primary",
+      "notes": "Parallel congressional investigation; corroborates Rogers Commission on decision-process findings."
+    }
+  ],
+  "analyst_notes": "Seed-case analysis produced by hand-application of the methodology. Three classifications retained, one (CB-071 escalation of commitment) dropped after red-team pass as redundant with CB-019 and CB-020. One additional candidate (CB-074 Goodhart's law, on flight-readiness metrics) was considered and omitted at the classifier stage — the record does not establish the causal link to this specific decision event, though the underlying criticism appears in Feynman's Appendix F. Carried forward as a pattern-level hypothesis. [v0.1/v0.2 → v0.6 schema migration 2026-04-26: event_type, asymmetry_vectors, propagated_from, propagates_to, constitutive_roles defaulted to empty; classifications got mode_id and inferred layer per cognitive_biases.json category. Schema-only: no new factual claims introduced. Prior version: 1.]",
+  "compiled_at": "2026-04-23T00:00:00Z",
+  "dropped_after_redteam": [
+    {
+      "bias_id": "CB-071",
+      "bias_name": "Escalation of commitment",
+      "reason_dropped": "Schedule-pressure mechanism is absorbed by CB-019 and CB-020; no independent explanatory value. Retained as a pattern-level hypothesis (STS-program-wide schedule pressure) but not as an event-level classification for this decision."
+    }
+  ],
+  "event_type": "decision",
+  "asymmetry_vectors": [],
+  "propagated_from": [],
+  "propagates_to": [],
+  "constitutive_roles": []
+}

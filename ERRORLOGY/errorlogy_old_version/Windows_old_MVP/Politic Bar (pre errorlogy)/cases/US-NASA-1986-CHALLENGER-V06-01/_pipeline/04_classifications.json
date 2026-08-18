@@ -1,0 +1,47 @@
+[
+  {
+    "mode_id": "CB-019",
+    "mode_name": "Groupthink",
+    "layer": "L2",
+    "evidence_excerpt": "A well-structured and managed system emphasizing safety would have flagged the rising doubts about the Solid Rocket Booster joint seal.",
+    "source_ref": "Rogers Commission Report, Vol. I, Chapter V, finding 1",
+    "confidence": "high",
+    "justification": "L2 validity conditions met: (C1) the teleconference minutes and sworn testimony show Thiokol management exited the caucus with a unanimous launch-recommend output after exclusion of dissenting engineers; (C2) a procedural alternative of weighing engineering input on merits does not predict the observed narrowing of dissent to the caucus room; (C3) survives counter that experienced managers may legitimately override engineering caution, because override requires substantive rebuttal of the data which the record does not contain."
+  },
+  {
+    "mode_id": "CB-020",
+    "mode_name": "Authority bias",
+    "layer": "L1",
+    "evidence_excerpt": "Mr. Jerald Mason turned to Mr. Robert Lund and said, 'Take off your engineering hat and put on your management hat.'",
+    "source_ref": "Rogers Commission Report, Vol. I, Chapter V",
+    "confidence": "high",
+    "justification": "L1 conditions: (C1) a quoted direct instruction from senior management to a subordinate to reframe a technical judgment as a managerial one; (C2) the procedural explanation that management was simply broadening criteria does not require subordinating the engineering assessment; (C3) survives counter that 'management hat' meant weighing broader considerations, because no additional considerations appear in the record before the reversal."
+  },
+  {
+    "mode_id": "CB-009",
+    "mode_name": "Optimism bias / normalization of prior success",
+    "layer": "L1",
+    "evidence_excerpt": "Erosion was a clue that something was wrong. Erosion was not something from which safety could be inferred.",
+    "source_ref": "Rogers Commission Vol. II, Appendix F (Feynman)",
+    "confidence": "high",
+    "justification": "L1 conditions: (C1) the record shows NASA managers interpreted observed but partial O-ring erosion on prior flights as validating a safety margin, not as an anomaly; (C2) the operative decision-rule treated non-failure as positive evidence of safety, which is a canonical optimism-bias signature; (C3) survives counter that treating flight history as empirical data is standard engineering, because engineering standard practice treats unexpected erosion as a warning, not a margin."
+  },
+  {
+    "mode_id": "SF-010",
+    "mode_name": "Externality dismissed without engagement",
+    "layer": "L4",
+    "evidence_excerpt": "Meeting flight schedules and cutting costs were given a higher priority than flight safety.",
+    "source_ref": "Investigation of the Challenger Accident, House Report 99-1016 (1986), pp. 4-6",
+    "confidence": "high",
+    "justification": "L4g conditions: (C1) the House Committee and the Rogers Commission both document that Thiokol management's recommendation-reversal and Marshall's acceptance of it were conditioned on schedule and cost considerations; (C2) the engineering safety concern constitutes a technical externality to the contracting/schedule decision frame; (C3) the record shows the engineering data was dismissed without substantive engagement (no rebuttal of the temperature correlation was entered into the decision record before the recommendation flip)."
+  },
+  {
+    "mode_id": "MP-009",
+    "mode_name": "Jurisdictional-scope / externality-scope mismatch",
+    "layer": "L5",
+    "evidence_excerpt": "The Commission is troubled by what appears to be a propensity of management at Marshall to contain potentially serious problems and to attempt to resolve them internally rather than communicate them forward.",
+    "source_ref": "Rogers Commission Report, Vol. I, Chapter V",
+    "confidence": "high",
+    "justification": "L5f conditions: (C1) the decision-authority boundary (Marshall Level II) and the information-scope boundary (engineering O-ring history held at Thiokol plus select Marshall engineers) did not align, so the jurisdiction holding launch authority did not coincide with the jurisdiction holding the risk-relevant information; (C2) this is a structural, not individual, failure — the org chart and the flight-readiness process both permitted Level II to terminate escalation; (C3) survives counter that this is just L2 groupthink, because the pattern persisted across multiple tenure cycles at Marshall and is described in the Rogers finding as a 'propensity' rather than an episode."
+  }
+]

@@ -1,0 +1,136 @@
+{
+  "id": "US-IC-2002-IRAQ-WMD-01",
+  "version": 2,
+  "country": "US",
+  "branch": "executive",
+  "level": "national",
+  "body": "United States Intelligence Community (coordinated through the Director of Central Intelligence), with National Intelligence Council authorship of the October 2002 National Intelligence Estimate",
+  "decision_date": "2002-10-01/2003-03-19",
+  "summary": "In October 2002 the Intelligence Community produced a classified National Intelligence Estimate on Iraq's weapons programs stating with high confidence that Iraq had reconstituted its chemical and biological weapons programs and was reconstituting its nuclear program. Post-invasion investigation by the Iraq Survey Group and subsequent bipartisan reviews (SSCI 2004; Silberman-Robb 2005) concluded that the NIE's key judgments were not supported by the underlying intelligence.",
+  "claimed": "The October 2002 NIE assessed with 'high confidence' that Iraq was continuing and expanding its chemical, biological, and nuclear programs; that assessment was presented in that form in declassified products and in senior-official statements through early 2003 as the evidentiary basis for subsequent policy decisions.",
+  "known_or_knowable": "Within the intelligence record available at the time: (i) the State Department's Bureau of Intelligence and Research (INR) dissented on the nuclear reconstitution judgment; (ii) the aluminum-tubes interpretation relied on by WINPAC was contested by Department of Energy technical experts on centrifuge feasibility grounds; (iii) the mobile biological weapons assessment relied substantially on a single human source (code-named CURVEBALL) whose reporting had been flagged internally for reliability concerns by the DIA's Defense HUMINT Service; (iv) UNMOVIC inspection reports from late 2002 and early 2003 reported no discovery of active WMD programs at the sites to which inspectors were directed.",
+  "decision": "The NIE was disseminated to policymakers in October 2002 with the stated high-confidence judgments. The unclassified 'White Paper' version retained the headline judgments while omitting most dissents and caveats. Senior officials publicly presented the assessments as established. Subsequent policy decisions proceeded on that evidentiary basis.",
+  "gap": "The body asserted a 'high confidence' assessment whose supporting analytic chain, as later reconstructed from the same underlying intelligence, did not sustain that confidence level — specifically because dissenting views on core technical questions and reliability problems on core sources were compressed or absent from the headline judgments and from the unclassified product.",
+  "classifications": [
+    {
+      "bias_id": "CB-019",
+      "bias_name": "Groupthink",
+      "evidence_excerpt": "The Intelligence Community suffered from a collective presumption... 'group think' dynamic",
+      "source_ref": "SSCI 2004, Conclusions (the committee's own term)",
+      "confidence": "high",
+      "justification": "C1 — the SSCI uses the term directly. C2 — the ordinary-analysis explanation does not produce the observed suppression of INR and DOE dissents in the headline judgments. C3 — survives the counter that 'groupthink' is used loosely by the committee, because the specific features — illusion of unanimity in the NIE key judgments, non-propagation of dissent to the unclassified White Paper, absence of a devil's-advocate pass — are each independently documented. The collective-presumption pattern identified by the SSCI operates as both groupthink (unanimity, non-propagation of dissent) and as its downstream effect on individual analyst interpretation; the latter is often separately classified as confirmation bias but here rests on the same evidentiary base and is subsumed.",
+      "mode_id": "CB-019",
+      "mode_name": "Groupthink",
+      "layer": "L2"
+    },
+    {
+      "bias_id": "CB-068",
+      "bias_name": "Belief perseverance",
+      "evidence_excerpt": "Analysts continued to hold the view that Iraq possessed stockpiles of chemical and biological weapons despite the absence of direct evidence from current collection; historical baseline beliefs about the pre-1991 program served as the default assumption in the absence of current data.",
+      "source_ref": "Commission on the Intelligence Capabilities of the United States Regarding Weapons of Mass Destruction (Silberman-Robb), Overview, 2005",
+      "confidence": "high",
+      "justification": "C1 — the Silberman-Robb report describes the pre-1991 prior as a default that current data had to overcome rather than as a hypothesis to be tested. C2 — a procedural explanation (continuity in analytic lines) does not account for the asymmetry in which confirming scraps updated the belief and disconfirming data did not. C3 — survives the counter that prior-continuity is normal in intelligence work, because the specific claim is about the magnitude of the asymmetry.",
+      "mode_id": "CB-068",
+      "mode_name": "Belief perseverance",
+      "layer": "L1"
+    },
+    {
+      "bias_id": "CB-113",
+      "bias_name": "WYSIATI (what you see is all there is)",
+      "evidence_excerpt": "The Intelligence Community produced key judgments that exceeded what the underlying reporting could support, in part because gaps in coverage after 1998 were not treated as reasons to reduce confidence but were compensated by historical baseline assumptions.",
+      "source_ref": "Silberman-Robb Report (2005), Ch. 1",
+      "confidence": "high",
+      "justification": "C1 — the commission specifically identifies reduced post-1998 coverage as an unacknowledged confidence-degrader. C2 — a procedural explanation (use available data) fails because the available data was treated as sufficient rather than as partial. C3 — survives the counter that policymakers require judgments even under partial data, because the requirement is for calibrated judgments, not for higher-confidence framing.",
+      "mode_id": "CB-113",
+      "mode_name": "WYSIATI (what you see is all there is)",
+      "layer": "L1"
+    },
+    {
+      "bias_id": "CB-150",
+      "bias_name": "Publication / reporting asymmetry",
+      "evidence_excerpt": "The unclassified version of the October 2002 NIE, released as a White Paper, omitted or softened several of the dissents and caveats that appeared in the classified Key Judgments, including the INR dissent on nuclear reconstitution.",
+      "source_ref": "SSCI 2004, Ch. II (nuclear) and Ch. V (chemical)",
+      "confidence": "high",
+      "justification": "C1 — the SSCI documents specific dissents present in the classified product and absent from the unclassified one. C2 — a procedural explanation (clarity for public audience) does not account for the asymmetry in which uncertainty-reducing content was retained and uncertainty-raising content was dropped. C3 — survives the counter that declassification requires editing, because the editing was systematically one-directional.",
+      "mode_id": "CB-150",
+      "mode_name": "Publication / reporting asymmetry",
+      "layer": "L1"
+    }
+  ],
+  "counter_arguments": [
+    {
+      "targets": "CB-001",
+      "strongest_counter": "The SSCI passage cited for CB-001 (confirmation bias) is the same passage cited for CB-019 (groupthink), and the SSCI itself uses 'group think' as the framing. The two classifications are resting on the same evidence, violating the C2 requirement that each bias beat the procedural baseline independently. CB-019 captures the collective-dynamic element more precisely; CB-001 should be folded in rather than double-counted.",
+      "does_it_survive": false,
+      "notes": "Classification dropped post-red-team; mechanism absorbed into CB-019."
+    },
+    {
+      "targets": "CB-019",
+      "strongest_counter": "Coordinated intelligence products by design suppress internal dissent in their headline judgments to produce actionable guidance. What the SSCI calls groupthink may be the normal operation of NIE tradecraft.",
+      "does_it_survive": true,
+      "notes": "Retained at high confidence. NIE tradecraft explicitly permits and requires footnoting of dissents; the failure here was the non-propagation of such footnotes into the unclassified product consumed by policymakers and the public."
+    },
+    {
+      "targets": "CB-068",
+      "strongest_counter": "Persistence of prior beliefs is epistemically correct when the prior was well-founded — and Iraq's pre-1991 WMD program was well-documented.",
+      "does_it_survive": true,
+      "notes": "Retained. The classification applies specifically to the failure to update the prior against the post-1998 coverage gap and the 1995–1998 UNSCOM findings on program reductions, not to the initial prior."
+    },
+    {
+      "targets": "CB-113",
+      "strongest_counter": "Intelligence must always act on partial data; treating partial data as sufficient is operationally necessary.",
+      "does_it_survive": true,
+      "notes": "Retained. The counter argues for calibrated confidence under partial data, not for the high-confidence framing the record actually produced."
+    },
+    {
+      "targets": "CB-150",
+      "strongest_counter": "Unclassified products are necessarily summarized and simplified; reducing caveat-density is normal.",
+      "does_it_survive": true,
+      "notes": "Retained. The argument is not about caveat density but about directional asymmetry in which caveats were preserved and which were omitted."
+    },
+    {
+      "targets": "gap",
+      "strongest_counter": "Every intelligence judgment that is later shown wrong in one direction will look, in retrospect, as if it had a gap between claimed confidence and underlying basis. Hindsight bias cautions against reading this as a systematic failure.",
+      "does_it_survive": true,
+      "notes": "The gap is retained because the SSCI and Silberman-Robb reviews reconstructed the assessment from the contemporaneous record (not from post-invasion knowledge) and reached the conclusion that the confidence level was not supported at the time of writing, independent of what was later found on the ground."
+    }
+  ],
+  "residual_uncertainty": "The record does not fully resolve the relative weights of analytic bias, collection gaps, and institutional incentives in producing the specific confidence levels in the October 2002 NIE. The interaction between policymaker requests for specific judgments and analytic production is partially redacted in the SSCI's published version and is discussed at a level of generality in Silberman-Robb.",
+  "sources": [
+    {
+      "title": "Senate Select Committee on Intelligence, Report on the U.S. Intelligence Community's Prewar Intelligence Assessments on Iraq",
+      "url": "https://www.intelligence.senate.gov/sites/default/files/publications/108301.pdf",
+      "published_date": "2004-07-07",
+      "source_type": "primary",
+      "notes": "SSCI bipartisan report; primary source for the groupthink / confirmation bias findings."
+    },
+    {
+      "title": "Report of the Commission on the Intelligence Capabilities of the United States Regarding Weapons of Mass Destruction (Silberman-Robb)",
+      "url": "https://irp.fas.org/offdocs/wmd_report.pdf",
+      "published_date": "2005-03-31",
+      "source_type": "primary",
+      "notes": "Bipartisan presidential commission; primary source for belief-perseverance and WYSIATI findings."
+    },
+    {
+      "title": "Iraq Survey Group Final Report (Duelfer Report)",
+      "url": "https://irp.fas.org/cia/product/dulfer-isg.html",
+      "published_date": "2004-09-30",
+      "source_type": "primary",
+      "notes": "Post-invasion ground-truth on the actual state of Iraqi programs; establishes the factual anchor against which the NIE is compared."
+    }
+  ],
+  "analyst_notes": "Seed-case analysis produced by hand-application of the methodology. Four classifications retained (CB-019, CB-068, CB-113, CB-150), one (CB-001 confirmation bias) dropped after red-team pass as double-counting with CB-019 on the same SSCI passage. The case is methodologically important because it is one of the few where multiple bipartisan review bodies reconstructed both the contemporaneous record and the ground truth, allowing the gap to be established with unusually high confidence. UK intelligence equivalents (Butler Review 2004) produce a parallel card and are scheduled for separate treatment to preserve methodological symmetry. [v0.1/v0.2 → v0.6 schema migration 2026-04-26: event_type, asymmetry_vectors, propagated_from, propagates_to, constitutive_roles defaulted to empty; classifications got mode_id and inferred layer per cognitive_biases.json category. Schema-only: no new factual claims introduced. Prior version: 1.]",
+  "compiled_at": "2026-04-23T00:00:00Z",
+  "dropped_after_redteam": [
+    {
+      "bias_id": "CB-001",
+      "bias_name": "Confirmation bias",
+      "reason_dropped": "Resting on the same SSCI passage as CB-019; the two classifications were double-counting a single collective dynamic. Absorbed into CB-019. A differentiated CB-001 claim would require an evidence excerpt distinct from the groupthink finding."
+    }
+  ],
+  "event_type": "decision",
+  "asymmetry_vectors": [],
+  "propagated_from": [],
+  "propagates_to": [],
+  "constitutive_roles": []
+}

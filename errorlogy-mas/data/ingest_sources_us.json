@@ -1,0 +1,57 @@
+{
+  "sources": [
+    {
+      "id": "federal_register",
+      "fetcher": "federal_register",
+      "label": "Federal Register",
+      "wms_environment": "legal_judicial",
+      "requires_key": false,
+      "country": "USA"
+    },
+    {
+      "id": "courtlistener_recap",
+      "fetcher": "courtlistener",
+      "label": "CourtListener (RECAP dockets)",
+      "wms_environment": "legal_judicial",
+      "requires_key": false,
+      "country": "USA",
+      "params": { "search_type": "r" }
+    },
+    {
+      "id": "govinfo_gao",
+      "fetcher": "govinfo",
+      "label": "GovInfo GAO reports",
+      "wms_environment": "audit_oversight",
+      "requires_key": true,
+      "country": "USA",
+      "params": { "collection": "GAOREPORTS" }
+    },
+    {
+      "id": "govinfo_crpt",
+      "fetcher": "govinfo",
+      "label": "GovInfo congressional reports",
+      "wms_environment": "audit_oversight",
+      "requires_key": true,
+      "country": "USA",
+      "params": { "collection": "CRPT" }
+    },
+    {
+      "id": "oig_doj",
+      "fetcher": "oig",
+      "label": "DOJ Office of Inspector General",
+      "wms_environment": "audit_oversight",
+      "requires_key": false,
+      "country": "USA",
+      "params": { "office": "doj" }
+    },
+    {
+      "id": "legiscan_us",
+      "fetcher": "legiscan",
+      "label": "LegiScan US Congress",
+      "wms_environment": "parliamentary_inquiry",
+      "requires_key": true,
+      "country": "USA",
+      "params": { "state": "US" }
+    }
+  ]
+}

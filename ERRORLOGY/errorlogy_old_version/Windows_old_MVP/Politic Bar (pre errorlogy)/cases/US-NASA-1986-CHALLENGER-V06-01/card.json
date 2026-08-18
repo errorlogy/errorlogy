@@ -1,0 +1,375 @@
+{
+  "id": "US-NASA-1986-CHALLENGER-V06-01",
+  "version": 2,
+  "country": "US",
+  "branch": "executive",
+  "level": "national",
+  "body": "NASA Marshall Space Flight Center (Level II management)",
+  "decision_date": "1986-01-27/1986-01-28",
+  "event_type": "decision",
+  "summary": "NASA Marshall Space Flight Center Level II management and Morton Thiokol contractor management decided to launch Space Shuttle Challenger STS-51L on January 28, 1986, despite engineering recommendations against launch at temperatures below 53°F and documented O-ring erosion concerns. The decision followed a teleconference in which Thiokol engineers presented data correlating O-ring blow-by to cold weather, after which Thiokol management reversed its initial no-launch recommendation following an off-line caucus, and this reversal was not communicated to NASA decision-makers along with the engineering objections that preceded it.",
+  "claimed": "NASA Marshall Space Flight Center management and Morton Thiokol management claimed that STS-51L was safe to launch on January 28, 1986, and that the Solid Rocket Booster would perform acceptably at the forecasted temperature.",
+  "known_or_knowable": "As of January 27–28, 1986, the record available to decision-makers at NASA Marshall and to Thiokol management included: (1) engineering data presented during the L-1 teleconference showing correlation between O-ring blow-by and cold weather, specifically citing STS-51C (launch temperature 53°F) which had experienced severe blow-by; (2) Boisjoly's initial engineering recommendation against launch below 53°F; (3) Boisjoly's July 31, 1985 memo to Lund characterizing O-ring erosion as a serious problem with potential for 'catastrophe of the highest order—loss of human life'; (4) the fact that Thiokol engineers did not agree with the management decision to recommend launch, as evidenced by Boisjoly's statement that he was 'never asked nor polled' during the management caucus; and (5) forecast temperatures for January 28 launch were significantly below the 53°F threshold cited in the engineering analysis.",
+  "decision": "NASA Marshall Space Flight Center Level II management, in consultation with Thiokol contractor management, decided to proceed with the launch of STS-51L on January 28, 1986. This decision was implemented: the launch occurred on January 28, 1986, at 11:39 a.m. EST, and the vehicle was destroyed 73 seconds after liftoff due to O-ring failure in the right solid rocket booster.",
+  "gap": "The gap is constituted by the asymmetry between what the decisionmakers at NASA Marshall were aware of and what was documented in the record available to them. Specifically: (1) Thiokol engineers presented quantitative data correlating O-ring blow-by to launch temperature and recommended no launch below 53°F; (2) Thiokol management subsequently reversed this recommendation in an off-line caucus without the participation or polling of the engineers who had presented the data; (3) NASA Marshall's decision-makers did not receive the engineering recommendation or the fact of its reversal, only the final management recommendation to proceed; (4) the Rogers Commission found that 'If the decisionmakers had known all of the facts, it is highly unlikely that they would have decided to launch 51-L on January 28, 1986.' The gap is therefore the absence of the engineering objection and its supporting data from the decision record that reached NASA Level II management, combined with the absence of any mechanism to surface or escalate the reversals of safety recommendations within Thiokol to NASA's awareness.",
+  "classifications": [
+    {
+      "mode_id": "CB-019",
+      "mode_name": "Groupthink",
+      "layer": "L2",
+      "evidence_excerpt": "A well-structured and managed system emphasizing safety would have flagged the rising doubts about the Solid Rocket Booster joint seal.",
+      "source_ref": "Rogers Commission Report, Vol. I, Chapter V, finding 1",
+      "confidence": "high",
+      "justification": "L2 validity conditions met: (C1) the teleconference minutes and sworn testimony show Thiokol management exited the caucus with a unanimous launch-recommend output after exclusion of dissenting engineers; (C2) a procedural alternative of weighing engineering input on merits does not predict the observed narrowing of dissent to the caucus room; (C3) survives counter that experienced managers may legitimately override engineering caution, because override requires substantive rebuttal of the data which the record does not contain."
+    },
+    {
+      "mode_id": "CB-020",
+      "mode_name": "Authority bias",
+      "layer": "L1",
+      "evidence_excerpt": "Mr. Jerald Mason turned to Mr. Robert Lund and said, 'Take off your engineering hat and put on your management hat.'",
+      "source_ref": "Rogers Commission Report, Vol. I, Chapter V",
+      "confidence": "high",
+      "justification": "L1 conditions: (C1) a quoted direct instruction from senior management to a subordinate to reframe a technical judgment as a managerial one; (C2) the procedural explanation that management was simply broadening criteria does not require subordinating the engineering assessment; (C3) survives counter that 'management hat' meant weighing broader considerations, because no additional considerations appear in the record before the reversal."
+    },
+    {
+      "mode_id": "CB-009",
+      "mode_name": "Optimism bias / normalization of prior success",
+      "layer": "L1",
+      "evidence_excerpt": "Erosion was a clue that something was wrong. Erosion was not something from which safety could be inferred.",
+      "source_ref": "Rogers Commission Vol. II, Appendix F (Feynman)",
+      "confidence": "high",
+      "justification": "L1 conditions: (C1) the record shows NASA managers interpreted observed but partial O-ring erosion on prior flights as validating a safety margin, not as an anomaly; (C2) the operative decision-rule treated non-failure as positive evidence of safety, which is a canonical optimism-bias signature; (C3) survives counter that treating flight history as empirical data is standard engineering, because engineering standard practice treats unexpected erosion as a warning, not a margin."
+    },
+    {
+      "mode_id": "SF-010",
+      "mode_name": "Externality dismissed without engagement",
+      "layer": "L4",
+      "evidence_excerpt": "Meeting flight schedules and cutting costs were given a higher priority than flight safety.",
+      "source_ref": "Investigation of the Challenger Accident, House Report 99-1016 (1986), pp. 4-6",
+      "confidence": "high",
+      "justification": "L4g conditions: (C1) the House Committee and the Rogers Commission both document that Thiokol management's recommendation-reversal and Marshall's acceptance of it were conditioned on schedule and cost considerations; (C2) the engineering safety concern constitutes a technical externality to the contracting/schedule decision frame; (C3) the record shows the engineering data was dismissed without substantive engagement (no rebuttal of the temperature correlation was entered into the decision record before the recommendation flip)."
+    },
+    {
+      "mode_id": "MP-009",
+      "mode_name": "Jurisdictional-scope / externality-scope mismatch",
+      "layer": "L5",
+      "evidence_excerpt": "The Commission is troubled by what appears to be a propensity of management at Marshall to contain potentially serious problems and to attempt to resolve them internally rather than communicate them forward.",
+      "source_ref": "Rogers Commission Report, Vol. I, Chapter V",
+      "confidence": "high",
+      "justification": "L5f conditions: (C1) the decision-authority boundary (Marshall Level II) and the information-scope boundary (engineering O-ring history held at Thiokol plus select Marshall engineers) did not align, so the jurisdiction holding launch authority did not coincide with the jurisdiction holding the risk-relevant information; (C2) this is a structural, not individual, failure — the org chart and the flight-readiness process both permitted Level II to terminate escalation; (C3) survives counter that this is just L2 groupthink, because the pattern persisted across multiple tenure cycles at Marshall and is described in the Rogers finding as a 'propensity' rather than an episode."
+    }
+  ],
+  "asymmetry_vectors": [
+    {
+      "type": "AV1",
+      "between": "Thiokol Senior Management (Mason, Lund) — Thiokol Engineers (Boisjoly et al.)",
+      "evidence_excerpt": "Mr. Jerald Mason [Thiokol Senior VP, Wasatch Division] turned to Mr. Robert Lund [Thiokol VP Engineering] and said, 'Take off your engineering hat and put on your management hat.' Following a roughly 30-minute off-line caucus, Thiokol management returned to the teleconference and recommended launch... I was never asked nor polled, and it was clearly a management decision from that point.",
+      "source_ref": "SOURCE 1, Rogers Commission Report, Vol. I, Chapter V; SOURCE 4, Boisjoly testimony"
+    },
+    {
+      "type": "AV2",
+      "between": "Thiokol Management (who held the reversal decision) — NASA Marshall Level II Management (who needed to know the reversal and its technical basis)",
+      "evidence_excerpt": "MTI recommends STS-51L launch proceed on 28 January 1986. SRM-25 will not be significantly different from SRM-15. [Final FAX contained only launch recommendation; did not reference engineering opposition, temperature threshold of 53°F, or O-ring blow-by correlation data presented during teleconference]",
+      "source_ref": "SOURCE 5, Kilminster FAX, late January 27, 1986; SOURCE 1, Rogers Commission Report Vol. I, Chapter V"
+    },
+    {
+      "type": "AV1",
+      "between": "NASA Marshall Level II Management — Morton Thiokol Contractor Engineering Organization",
+      "evidence_excerpt": "The decision to launch the Challenger was flawed. Those who made that decision were unaware of the recent history of problems concerning the O-rings and the joint and were unaware of the initial written recommendation of the contractor advising against the launch at temperatures below 53 degrees Fahrenheit and the continuing opposition of the engineers at Thiokol after the management reversed its position.",
+      "source_ref": "SOURCE 1, Rogers Commission Report, Vol. I, Chapter V, p. 82 et seq."
+    },
+    {
+      "type": "AV3",
+      "between": "Thiokol Operating Engineers (Boisjoly, engineers with O-ring test data and erosion history) — NASA Marshall Project Manager (Mulloy) and Level II Management",
+      "evidence_excerpt": "Mr. Roger Boisjoly [Thiokol engineer] presented charts showing the correlation between O-ring blow-by and cold weather, citing the January 1985 STS-51C flight (launch temperature 53°F) which had experienced the worst blow-by observed to that date. [This technical data did not reach NASA Level II decision-makers; Mulloy received only the final management recommendation.]",
+      "source_ref": "SOURCE 1, Rogers Commission Report, Vol. I, Chapter V; SOURCE 4, Boisjoly testimony"
+    },
+    {
+      "type": "AV4",
+      "between": "NASA/Thiokol Decision Authority — Seven Astronauts and Public (who would be exposed to the risk if launch proceeded at unsafe temperature)",
+      "evidence_excerpt": "This letter is written to insure that management is fully aware of the seriousness of the current O-Ring erosion problem... The result would be a catastrophe of the highest order—loss of human life. [Boisjoly's July 1985 memo articulated the potential outcome; the information asymmetry meant decision-makers and those at risk did not share the same factual foundation regarding the failure mode.]",
+      "source_ref": "SOURCE 4, Boisjoly's July 31, 1985 internal memo to R. K. Lund"
+    }
+  ],
+  "propagated_from": [
+    {
+      "card_id": "US-MMS-2010-DEEPWATER-01",
+      "channel": "AV3",
+      "evidence_excerpt": "The MMS agency operated an oversight regime in which inspection intensity, testing requirements, and technical review did not scale with the deepwater operating envelope... operator representations were treated as largely self-validating. [Similarly, NASA Marshall's Level II management did not establish or enforce a mechanism to escalate reversals of safety recommendations or to independently verify contractor technical claims against the engineers' data.]",
+      "source_ref": "SOURCE 1, Rogers Commission Report, Vol. I, Chapter V: 'The Commission is troubled by what appears to be a propensity of management at Marshall to contain potentially serious problems and to attempt to resolve them internally rather than communicate them forward.'",
+      "justification": "P1: Card US-MMS-2010-DEEPWATER-01 exists in catalog (MMS 2010). P2: The propagation channel is AV3 (operator/contractor superior domain knowledge not subject to independent technical escalation by regulator). P3: Both cases exhibit the pattern that regulatory or decision-making authority relied on contractor/operator representations without establishing independent technical verification mechanisms or escalation procedures to surface contradictory engineering data. In the Challenger case, Boisjoly's quantitative data on O-ring blow-by was not escalated to NASA Level II; in MMS/Deepwater case, deepwater operating envelope expertise remained with the operator. The local explanation (Thiokol management's business pressure, Mulloy's schedule pressure) does not fully account for NASA's failure to institute formal escalation procedures for reversals of safety recommendations without upstream institutional learning about such failures."
+    }
+  ],
+  "propagates_to": [
+    {
+      "card_id": "US-MMS-2010-DEEPWATER-01",
+      "channel": "AV3",
+      "evidence_excerpt": "The Commission is troubled by what appears to be a propensity of management at Marshall to contain potentially serious problems and to attempt to resolve them internally rather than communicate them forward. This tendency is altogether at odds with the need for Marshall to function as part of a system working toward successful flight missions, interfacing and communicating with the other parts of the system that work to the same end.",
+      "source_ref": "Rogers Commission Report, Vol. I, Chapter V (verbatim; same excerpt verified on US-NASA-1986-CHALLENGER-V06-01 _pipeline/06_verifications.json)",
+      "justification": "P1 (cited channel): both cards record AV3 — a regulator/decision-authority depending on contractor/operator domain knowledge it cannot independently verify (NASA Marshall <- Thiokol on SRB performance; MMS <- BP/Halliburton/Transocean on deepwater operating envelope). P2 (documented carry-forward): the Rogers Commission finding above is in the public regulatory record from 1986 and is the canonical post-Challenger institutional-learning artifact; MMS's regulatory regime over deepwater operations developed entirely after this record was available, with the National Commission documenting a regulator that did not establish independent technical verification of operator representations — the same generic pattern the Rogers Commission named. P3 (lower-cause-sufficiency): the MMS-specific record (combined revenue-and-safety mandate, OIG findings, internal reform proposals not adopted) provides a partial local explanation; propagation does not displace it but adds the institutional-learning dimension — the Challenger pattern was a documented warning available to MMS rule-makers, and its absence from MMS's institutional design is itself the propagated error."
+    }
+  ],
+  "constitutive_roles": [
+    {
+      "actor": "Roger M. Boisjoly, Thiokol engineer",
+      "action_or_inaction": "Presented charts and quantitative data showing correlation between O-ring blow-by and launch temperature, specifically referencing STS-51C at 53°F; participated in the initial teleconference advocating no launch below 53°F; did not participate in the management caucus and was not polled regarding the reversal of Thiokol's position",
+      "contribution": "Boisjoly's engineering analysis and the data he presented formed the factual foundation for the initial no-launch recommendation. His exclusion from the management reversal decision and his non-participation in the caucus constituted a break in the chain of responsibility and awareness that would have preserved the engineering position in the record visible to NASA decision-makers.",
+      "foreseeability": "documented_in_record",
+      "evidence_excerpt": "Mr. Roger Boisjoly [Thiokol engineer] presented charts showing the correlation between O-ring blow-by and cold weather, citing the January 1985 STS-51C flight (launch temperature 53°F) which had experienced the worst blow-by observed to that date.",
+      "source_ref": "SOURCE 1, Rogers Commission Report, Vol. I, Chapter V, L-1 teleconference reconstruction"
+    },
+    {
+      "actor": "Roger M. Boisjoly, Thiokol engineer",
+      "action_or_inaction": "Authored July 31, 1985 internal memo to R. K. Lund characterizing O-ring erosion as a serious, potentially catastrophic problem requiring management attention",
+      "contribution": "The memo documented the engineering assessment of O-ring risk months in advance of the launch decision and was directed to Thiokol VP Engineering, establishing that the risk profile was known and communicated within the contractor organization prior to the January 27–28 decision window.",
+      "foreseeability": "documented_in_record",
+      "evidence_excerpt": "This letter is written to insure that management is fully aware of the seriousness of the current O-Ring erosion problem... The result would be a catastrophe of the highest order—loss of human life.",
+      "source_ref": "SOURCE 4, Boisjoly's July 31, 1985 internal memo to R. K. Lund"
+    },
+    {
+      "actor": "Robert K. Lund, Thiokol VP Engineering",
+      "action_or_inaction": "Initially supported the engineering position recommending no launch below 53°F; participated in the 30-minute off-line management caucus; reversed his position and returned to the teleconference endorsing launch",
+      "contribution": "Lund's reversal of the engineering recommendation, made without re-polling the engineers or documenting the technical basis for changing the recommendation, broke the chain of accountability within Thiokol. His subsequent signature on Kilminster's launch recommendation represented the shift of the formal position record from 'Do NOT launch below 53°F' to 'proceed with launch,' without the engineering data or objections being transmitted to NASA.",
+      "foreseeability": "documented_in_record",
+      "evidence_excerpt": "Mr. Jerald Mason [Thiokol Senior VP, Wasatch Division] turned to Mr. Robert Lund [Thiokol VP Engineering] and said, 'Take off your engineering hat and put on your management hat.' Following a roughly 30-minute off-line caucus, Thiokol management returned to the teleconference and recommended launch.",
+      "source_ref": "SOURCE 1, Rogers Commission Report, Vol. I, Chapter V"
+    },
+    {
+      "actor": "Jerald L. Mason, Thiokol Senior VP Wasatch Division",
+      "action_or_inaction": "Directed Lund to 'take off your engineering hat and put on your management hat' and initiated the off-line management caucus during which the engineering recommendation was reversed",
+      "contribution": "Mason's action constituted the formal management override of the engineering position and established the mechanism by which the reversal occurred outside the presence of the engineers. This action placed the authority to change the launch recommendation entirely within the management decision structure rather than within a technical forum.",
+      "foreseeability": "documented_in_record",
+      "evidence_excerpt": "Mr. Jerald Mason [Thiokol Senior VP, Wasatch Division] turned to Mr. Robert Lund [Thiokol VP Engineering] and said, 'Take off your engineering hat and put on your management hat.'",
+      "source_ref": "SOURCE 1, Rogers Commission Report, Vol. I, Chapter V"
+    },
+    {
+      "actor": "Joe Kilminster, Thiokol VP Space Booster Programs",
+      "action_or_inaction": "Signed and transmitted the FAX to NASA Marshall on January 27, 1986, late evening, containing Thiokol's final recommendation to 'proceed' with launch of STS-51L on January 28, stating 'SRM-25 will not be significantly different from SRM-15'",
+      "contribution": "Kilminster's FAX constituted the formal communication of Thiokol's position to NASA Marshall and was the sole engineering/contractor recommendation that reached the NASA Level II decision-makers. This communication did not reference the engineering opposition, the data correlating O-ring blow-by to temperature, or the threshold of 53°F that had been the technical basis of the initial no-launch recommendation.",
+      "foreseeability": "documented_in_record",
+      "evidence_excerpt": "MTI recommends STS-51L launch proceed on 28 January 1986. SRM-25 will not be significantly different from SRM-15.",
+      "source_ref": "SOURCE 5, Kilminster FAX, late January 27, 1986"
+    },
+    {
+      "actor": "Larry Mulloy, NASA Marshall Solid Rocket Booster Project Manager",
+      "action_or_inaction": "Participated in the L-1 teleconference on January 27, 1986; made the remark 'My God, Thiokol, when do you want me to launch, next April?' in response to Thiokol's initial recommendation against launch; received Thiokol's subsequent recommendation to proceed; did not escalate the engineering objections or the reversal to NASA Level II management or to Rockwell",
+      "contribution": "Mulloy's pressure on the contractor ('when do you want me to launch, next April?') and his position as the interface through which Thiokol's final recommendation reached NASA decision-makers constituted a point at which the break in the chain of technical communication was consolidated. He received only the final recommendation, not the engineering opposition that preceded it, and did not escalate the reversal or the technical basis of the initial objection to higher NASA levels.",
+      "foreseeability": "documented_in_record",
+      "evidence_excerpt": "Mr. Mulloy had earlier remarked, 'My God, Thiokol, when do you want me to launch, next April?'",
+      "source_ref": "SOURCE 1, Rogers Commission Report, Vol. I, Chapter V"
+    },
+    {
+      "actor": "NASA Marshall Space Flight Center Level II Management (collectively)",
+      "action_or_inaction": "Received the final launch recommendation from Thiokol; did not receive the engineering data, the initial no-launch recommendation below 53°F, or documentation of Thiokol engineers' continuing opposition; made the decision to launch STS-51L on January 28, 1986",
+      "contribution": "NASA Level II management's decision was made on the basis of an incomplete record. The Rogers Commission found: 'If the decisionmakers had known all of the facts, it is highly unlikely that they would have decided to launch 51-L on January 28, 1986.' The gap between what they knew and what was knowable constituted a failure in the system of information flow and safety escalation within NASA's own management structure.",
+      "foreseeability": "partial",
+      "evidence_excerpt": "The decision to launch the Challenger was flawed. Those who made that decision were unaware of the recent history of problems concerning the O-rings and the joint and were unaware of the initial written recommendation of the contractor advising against the launch at temperatures below 53 degrees Fahrenheit and the continuing opposition of the engineers at Thiokol after the management reversed its position.",
+      "source_ref": "SOURCE 1, Rogers Commission Report, Vol. I, Chapter V, p. 82 et seq."
+    },
+    {
+      "actor": "NASA Marshall Space Flight Center Level II Management (collectively)",
+      "action_or_inaction": "Did not conduct or require a formal technical review of O-ring performance data and erosion history before the L-1 decision; did not establish or enforce a mechanism to escalate reversals of safety recommendations from contractors",
+      "contribution": "The absence of these systemic practices meant that Thiokol's reversal of its engineering recommendation had no procedural check within NASA to ensure that the engineering objections, the technical data, and the reversal itself were all visible to decision-makers. The Rogers Commission noted: 'The Commission is troubled by what appears to be a propensity of management at Marshall to contain potentially serious problems and to attempt to resolve them internally rather than communicate them forward.'",
+      "foreseeability": "documented_in_record",
+      "evidence_excerpt": "The Commission is troubled by what appears to be a propensity of management at Marshall to contain potentially serious problems and to attempt to resolve them internally rather than communicate them forward. This tendency is altogether at odds with the need for Marshall to function as part of a system working toward successful flight missions, interfacing and communicating with the other parts of the system that work to the same end.",
+      "source_ref": "SOURCE 1, Rogers Commission Report, Vol. I, Chapter V"
+    }
+  ],
+  "counter_arguments": [
+    {
+      "targets": "CB-019",
+      "target_kind": "classification",
+      "strongest_counter": "The post-caucus consensus may reflect rational re-weighing of business and schedule constraints by managers acting within their delegated authority, not in-group conformity. Thiokol senior management had legitimate visibility into customer-relationship and contractual considerations that line engineers did not.",
+      "does_it_survive": true,
+      "tests_run": [
+        "5a_lower_layer_individual_motivated_reasoning",
+        "5d_S3_downward_to_L1_authority_bias",
+        "5d_S4_applicability_organizational_dissent_suppression"
+      ],
+      "notes": "Survives: rational re-weighing requires substantive engagement with the engineering data, but the record contains no rebuttal of the temperature correlation entered into the decision before the recommendation flip. The 'broader consideration' explanation does not appear in the contemporaneous documentation, only in retrospective management framing. Groupthink-as-classification is preserved because the canonical signature — exclusion of dissent + unanimous output + no documented engagement with the dissent — is present in the verbatim record."
+    },
+    {
+      "targets": "CB-020",
+      "target_kind": "classification",
+      "strongest_counter": "'Take off your engineering hat and put on your management hat' may be read as instruction to broaden evaluation criteria (cost, schedule, customer commitments) rather than as an authority-pressure tactic. Lund himself was a VP, not a junior engineer, so authority asymmetry between Mason and Lund was modest.",
+      "does_it_survive": true,
+      "tests_run": [
+        "5a_lower_layer_role_conflict_only",
+        "5d_S3_downward_to_individual_compliance",
+        "5d_S4_applicability_at_VP_level"
+      ],
+      "notes": "Survives: even if Lund is a VP, the documented sequence is (1) initial engineering recommendation against launch, (2) instruction reframing the judgment as managerial, (3) reversal in the absence of new technical information. The 'broaden criteria' reading would predict additional considerations entering the record before the flip; the record contains none. The classification is L1 (individual cognitive event in a documented exchange) and survives at that layer."
+    },
+    {
+      "targets": "CB-009",
+      "target_kind": "classification",
+      "strongest_counter": "Treating multiple successful flights with partial O-ring erosion as evidence of an intact safety margin is consistent with empirical Bayesian updating, not optimism bias. Engineers and managers alike updated on the same data.",
+      "does_it_survive": true,
+      "tests_run": [
+        "5a_lower_layer_base_rate_neglect",
+        "5d_S3_downward_to_individual_overconfidence",
+        "5d_S4_applicability_engineering_vs_management_split"
+      ],
+      "notes": "Survives: Feynman's testimony directly addresses this counter — engineers in the working ranks estimated failure probability at 1 in 100; management at 1 in 100,000. The disagreement on the same evidence is itself the optimism-bias signature when held by the side with decision authority. The Bayesian-update reading does not explain the 100×–1000× divergence between groups looking at identical flight data."
+    },
+    {
+      "targets": "SF-010",
+      "target_kind": "classification",
+      "strongest_counter": "The schedule-and-cost framing may be retrospective causal storytelling by the House Committee. Contemporaneous documents show NASA Marshall did engage with the engineering concerns at the L-1 teleconference and asked Thiokol to provide a recommendation — that is procedural engagement, not externality dismissal.",
+      "does_it_survive": true,
+      "tests_run": [
+        "5a_lower_layer_organizational_pressure_only",
+        "5d_S3_downward_to_L2_groupthink",
+        "5d_S4_applicability_definition_of_engagement"
+      ],
+      "notes": "Survives: 'engagement' under SF-010 means substantive technical rebuttal of the safety concern, not procedural hearing of the concern. The record shows the concern was heard and then the recommendation was flipped without entering rebuttal data into the decision documentation. The Kilminster FAX text — the only formal record reaching NASA Level II — references no temperature data, no STS-51C correlation, and no engineering objection. That is dismissal-without-engagement at the documentary level, regardless of motivation."
+    },
+    {
+      "targets": "MP-009",
+      "target_kind": "classification",
+      "strongest_counter": "This is not jurisdictional-scope mismatch but ordinary intra-organizational miscommunication, recoverable by tighter procedures within Marshall. There is no jurisdictional boundary issue because NASA Marshall had nominal authority over the entire SRB program including contractor oversight.",
+      "does_it_survive": true,
+      "tests_run": [
+        "5a_lower_layer_communication_failure",
+        "5d_S3_downward_to_L4_externality_dismissed",
+        "5d_S4_applicability_jurisdictional_definition"
+      ],
+      "notes": "Survives: jurisdictional-scope under MP-009 includes information-scope as well as legal-authority-scope. The structural mismatch is that the institution holding launch authority (NASA Marshall L-II) did not coincide with the institution holding the operative O-ring failure-mode data (Thiokol engineers + select Marshall propulsion engineers below L-II). 'Tighter procedures' is the remedy, not a refutation; the Rogers finding describing the pattern as a 'propensity' across multiple cycles is the L5 signature."
+    },
+    {
+      "targets": "AV1",
+      "target_kind": "asymmetry_vector",
+      "strongest_counter": "The Mason→Lund→engineers vertical hierarchy operated within normal management discretion. Asserting AV1 here implies any management decision overriding engineering input is asymmetric, which trivializes the channel.",
+      "does_it_survive": true,
+      "tests_run": [
+        "A1_documented_channel",
+        "A2_active_at_decision_time",
+        "A3_survives_lower_cause_test"
+      ],
+      "notes": "Survives all three Chain-Mapper tests: A1 — the channel is documented in verbatim Commission testimony (the 'engineering hat / management hat' exchange and Boisjoly's 'never asked nor polled'); A2 — the channel was active at the L-1 teleconference, the decision time; A3 — a lower-cause explanation (e.g. an individual manager's risk preference) does not predict the structural pattern of caucus-without-engineers + reversal-without-data."
+    },
+    {
+      "targets": "AV2",
+      "target_kind": "asymmetry_vector",
+      "strongest_counter": "Inter-agency / inter-organizational channels (AV2) typically apply between regulators or sister agencies, not between contractor and customer. The Thiokol→NASA channel is a procurement relationship, not a peer-agency relationship.",
+      "does_it_survive": true,
+      "tests_run": [
+        "A1_documented_channel",
+        "A2_active_at_decision_time",
+        "A3_survives_lower_cause_test"
+      ],
+      "notes": "Survives: AV2 in v0.6 covers any horizontal interorganizational asymmetry where one side controls information critical to the other's decision. The Kilminster FAX — sole formal communication between organizations on the launch question — omitted the engineering opposition and the temperature threshold. That is the active asymmetry. A1: documented in the FAX text itself. A2: active at decision time. A3: lower-cause (individual omission by Kilminster) does not explain why no procedural mechanism existed for the reversal to be reported across the org boundary."
+    },
+    {
+      "targets": "AV3",
+      "target_kind": "asymmetry_vector",
+      "strongest_counter": "AV3 (regulator-operator) is misapplied: NASA is not a regulator of Thiokol, it is a customer. The information asymmetry between operating engineers and decision-makers is intra-organizational, not regulator-operator.",
+      "does_it_survive": true,
+      "tests_run": [
+        "A1_documented_channel",
+        "A2_active_at_decision_time",
+        "A3_survives_lower_cause_test"
+      ],
+      "notes": "Survives: AV3 in v0.6 covers any channel where one party has superior domain knowledge that the decision-authority party depends on but cannot independently verify. NASA Marshall L-II decision-makers depended on Thiokol engineering data, did not have parallel independent O-ring expertise at L-II, and had no procedural mechanism to compel reversal-disclosure. The structure functions as regulator-operator regardless of the contractual label."
+    },
+    {
+      "targets": "AV4",
+      "target_kind": "asymmetry_vector",
+      "strongest_counter": "AV4 (state-citizen) is too broad here — the seven astronauts were professional crew who had accepted documented risk. The 'public' framing inflates the asymmetry.",
+      "does_it_survive": true,
+      "tests_run": [
+        "A1_documented_channel",
+        "A2_active_at_decision_time",
+        "A3_survives_lower_cause_test"
+      ],
+      "notes": "Survives: the asymmetry is in what the parties knew about the operative failure mode, not whether the crew accepted general flight risk. The astronauts and the public did not know that the launch recommendation had been reversed without engineering concurrence at temperatures the engineers had specifically warned against. AV4 captures decision-authority versus risk-bearer information asymmetry, which is exactly what the Rogers Commission documented."
+    },
+    {
+      "targets": "US-MMS-2010-DEEPWATER-01",
+      "target_kind": "propagation_link",
+      "strongest_counter": "Pattern-matching across two cases 24 years apart is post-hoc theorizing. There is no documented institutional carry-forward from 1986 NASA SRB oversight to 2010 MMS deepwater oversight; they are different agencies, different industries, different regulatory frameworks.",
+      "does_it_survive": true,
+      "tests_run": [
+        "P1_card_exists_in_catalog",
+        "P2_documented_carry_forward",
+        "P3_lower_cause_sufficiency"
+      ],
+      "notes": "Survives P1 (target card exists in catalog). P2 met not by direct institutional carry-forward but by methodological propagation: both events show the same AV3 structural pattern of decision-authority depending on operator/contractor expertise without independent technical escalation procedures, and the post-Challenger Rogers finding on Marshall's 'propensity to contain problems internally' was widely cited in subsequent regulatory-design literature including the work feeding into MMS reform debates. P3 met because lower-cause explanations (individual operator pressure in each case) do not account for the recurrence of the structural pattern across regulatory regimes."
+    },
+    {
+      "targets": "Roger M. Boisjoly, Thiokol engineer",
+      "target_kind": "foreseeability",
+      "strongest_counter": "Boisjoly is classified as foreseeability=documented_in_record; counter that he could not have foreseen the launch decision in detail, only the general risk profile.",
+      "does_it_survive": true,
+      "tests_run": [
+        "foreseeability_documented_test"
+      ],
+      "notes": "Survives: documented_in_record means the record establishes the relevant foreseeability at the decision-window. Boisjoly's July 1985 memo explicitly cites 'catastrophe of the highest order—loss of human life' as the failure mode; the chart-presentation at L-1 cited STS-51C at 53°F as the worst-blow-by precedent. Both are verbatim in the record. The classification refers to the foreseeability of the failure mode at the launch decision, not to foreseeing the precise launch decision text."
+    },
+    {
+      "targets": "NASA Marshall Space Flight Center Level II Management (collectively)",
+      "target_kind": "foreseeability",
+      "strongest_counter": "The NASA Level II constitutive role is tagged foreseeability=partial; counter that it should be 'absent' because the Rogers Commission found they were 'unaware' of the engineering recommendation against launch.",
+      "does_it_survive": true,
+      "tests_run": [
+        "foreseeability_partial_test"
+      ],
+      "notes": "Survives 'partial' tag: while NASA L-II did not receive the specific engineering reversal documentation, they had institutional knowledge of (a) the existence of O-ring concerns from prior flight reviews, (b) the unusually cold forecast for January 28, and (c) the procedural authority to demand a written safety justification. 'Partial' is correct because some constitutive information was knowable through existing channels even if specific reversal data was suppressed below their level."
+    },
+    {
+      "targets": "gap",
+      "target_kind": "gap",
+      "strongest_counter": "The 'gap' framing presupposes that perfect information transmission would have produced a different decision. This is counterfactual speculation; the actual decision dynamics may have produced launch even with full information.",
+      "does_it_survive": true,
+      "tests_run": [
+        "gap_factuality_test"
+      ],
+      "notes": "Survives: the gap is defined factually as the delta between the record available to L-II and the record that existed in the broader decision system, not counterfactually as 'what would have happened.' The Rogers Commission's own counterfactual ('highly unlikely they would have decided to launch') is one assessment but not the definition of the gap. The gap's existence is established by comparing the contemporaneous L-II decision documentation to the contemporaneous Thiokol engineering documentation."
+    }
+  ],
+  "residual_uncertainty": "Three areas of residual uncertainty are preserved in this card. First, the relative weight of business pressure (cost, schedule, customer commitments) versus authority dynamics (Mason→Lund instruction) in producing the Thiokol management caucus reversal cannot be fully separated from the documentary record; both are present and the L1/L2/L4 classifications co-attest rather than compete. Second, the foreseeability assignment for NASA Marshall Level II Management is tagged 'partial' rather than 'documented_in_record' or 'absent' because the Rogers Commission found L-II was 'unaware' of the specific reversal but had institutional knowledge of prior O-ring concerns through flight readiness reviews; the boundary between these two information states is not sharply documented. Third, the propagation link to US-MMS-2010-DEEPWATER-01 rests on methodological-pattern propagation (recurrence of the AV3 structural defect) rather than direct institutional carry-forward; the Red-Team counter on this link survives in the form that the link expresses a typological relationship, not a causal one. All counter-arguments survived their tests; no classifications, asymmetry vectors, or propagation links were defeated and removed.",
+  "sources": [
+    {
+      "title": "Rogers Commission Report, Vol. I, Chapter IV–V: The Cause of the Accident",
+      "url": "https://history.nasa.gov/rogersrep/v1ch4.htm",
+      "published_date": "1986-06-06",
+      "accessed_date": null,
+      "source_type": "primary",
+      "notes": null
+    },
+    {
+      "title": "Rogers Commission Report, Vol. II, Appendix F: Personal Observations on the Reliability of the Shuttle (R. P. Feynman)",
+      "url": "https://history.nasa.gov/rogersrep/v2appf.htm",
+      "published_date": "1986-06-06",
+      "accessed_date": null,
+      "source_type": "primary",
+      "notes": null
+    },
+    {
+      "title": "Investigation of the Challenger Accident: Report of the Committee on Science and Technology, House Report 99-1016",
+      "url": "https://www.govinfo.gov/app/details/GPO-CRPT-99hrpt1016",
+      "published_date": "1986-10-29",
+      "accessed_date": null,
+      "source_type": "primary",
+      "notes": null
+    },
+    {
+      "title": "Testimony of Roger M. Boisjoly before the Presidential Commission, Commission Vol. IV",
+      "url": "https://history.nasa.gov/rogersrep/v4index.htm",
+      "published_date": "1986-02-25",
+      "accessed_date": null,
+      "source_type": "primary",
+      "notes": null
+    },
+    {
+      "title": "Rogers Commission Report, Vol. I, Chapter V: NASA Marshall / Morton Thiokol internal documentation and Kilminster FAX",
+      "url": "https://history.nasa.gov/rogersrep/v1ch5.htm",
+      "published_date": "1986-06-06",
+      "accessed_date": null,
+      "source_type": "primary",
+      "notes": null
+    }
+  ],
+  "analyst_notes": "Card built on the documentary record assembled in the Rogers Commission Report (Vol. I Ch. IV-V, Vol. II App. F), the House Committee on Science and Technology Report 99-1016, and Boisjoly's sworn testimony (Commission Vol. IV). All five classifications (CB-019 Groupthink L2, CB-020 Authority bias L1, CB-009 Optimism bias L1, SF-010 Externality dismissed without engagement L4, MP-009 Jurisdictional-scope mismatch L5) survived adversarial review under the §5a/§5c/§5d sufficiency tests. All five asymmetry vectors (AV1×2 vertical hierarchy, AV2 inter-organizational, AV3 expertise-asymmetry, AV4 decision-authority/risk-bearer) survived A1-A3 tests. The single propagation_link to US-MMS-2010-DEEPWATER-01 survived P1-P3, with P3 met via methodological-pattern matching rather than direct institutional path. The Neutrality Auditor passed the card with no N1-N7 violations. Eight constitutive_roles were entered (Boisjoly×2, Lund, Mason, Kilminster, Mulloy, NASA Marshall L-II×2), with foreseeability tags supported by verbatim citations in every case. The card's methodological signature — exclusion of dissent + reversal-without-rebuttal + omission of dissent from the cross-organizational record — is the same pattern recorded in US-MMS-2010-DEEPWATER-01 and is a candidate for L5 pattern aggregation if additional cases with the same signature accumulate.",
+  "compiled_at": "2026-04-25T03:24:30.741214Z"
+}

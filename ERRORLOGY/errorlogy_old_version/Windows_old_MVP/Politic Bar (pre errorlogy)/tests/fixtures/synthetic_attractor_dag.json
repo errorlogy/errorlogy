@@ -1,0 +1,153 @@
+{
+  "_note": "Four-card synthetic DAG used as a fixture for §7b attractor-component detection. Not a real catalog entry. Each card shares MP-005 (L5c — common-pool / collective-action failure) and AV3 (regulator-operator asymmetry); foreseeability=documented_in_record across all roles. AT2 (count >=4 on shared subtype) and AT3 (foreseeability majority) hold; AT4 is intentionally absent so detect_attractor_component emits a candidate_attractor_flag rather than a published attractor.",
+  "cards": [
+    {
+      "id": "SYN-A-01",
+      "version": 1,
+      "country": "X",
+      "branch": "regulatory",
+      "level": "national",
+      "body": "Regulator-A",
+      "decision_date": "2020-01-01",
+      "event_type": "decision",
+      "summary": "Synthetic upstream regulator decision.",
+      "claimed": "...",
+      "known_or_knowable": "...",
+      "decision": "...",
+      "gap": "...",
+      "classifications": [
+        {"mode_id": "MP-005", "mode_name": "Common-pool / collective-action failure",
+         "layer": "L5", "subtype": "L5c",
+         "evidence_excerpt": "...", "source_ref": "...",
+         "confidence": "medium", "justification": "..."}
+      ],
+      "asymmetry_vectors": [
+        {"type": "AV3", "between": "Regulator-A / Operator-A",
+         "evidence_excerpt": "...", "source_ref": "..."}
+      ],
+      "propagated_from": [],
+      "propagates_to": [],
+      "constitutive_roles": [
+        {"actor": "Regulator-A", "action_or_inaction": "...",
+         "contribution": "...", "foreseeability": "documented_in_record",
+         "evidence_excerpt": "...", "source_ref": "..."}
+      ],
+      "counter_arguments": [],
+      "sources": []
+    },
+    {
+      "id": "SYN-B-01",
+      "version": 1,
+      "country": "X",
+      "branch": "regulatory",
+      "level": "national",
+      "body": "Regulator-B",
+      "decision_date": "2021-01-01",
+      "event_type": "decision",
+      "summary": "Synthetic mid-stream decision propagated from A.",
+      "claimed": "...",
+      "known_or_knowable": "...",
+      "decision": "...",
+      "gap": "...",
+      "classifications": [
+        {"mode_id": "MP-005", "mode_name": "Common-pool / collective-action failure",
+         "layer": "L5", "subtype": "L5c",
+         "evidence_excerpt": "...", "source_ref": "...",
+         "confidence": "medium", "justification": "..."}
+      ],
+      "asymmetry_vectors": [
+        {"type": "AV3", "between": "Regulator-B / Operator-B",
+         "evidence_excerpt": "...", "source_ref": "..."}
+      ],
+      "propagated_from": [
+        {"card_id": "SYN-A-01", "channel": "AV3",
+         "evidence_excerpt": "shared rule-class", "source_ref": "doc",
+         "justification": "Regulator-B inherits Regulator-A's framework."}
+      ],
+      "propagates_to": [],
+      "constitutive_roles": [
+        {"actor": "Regulator-B", "action_or_inaction": "...",
+         "contribution": "...", "foreseeability": "documented_in_record",
+         "evidence_excerpt": "...", "source_ref": "..."}
+      ],
+      "counter_arguments": [],
+      "sources": []
+    },
+    {
+      "id": "SYN-C-01",
+      "version": 1,
+      "country": "X",
+      "branch": "regulatory",
+      "level": "national",
+      "body": "Regulator-C",
+      "decision_date": "2022-01-01",
+      "event_type": "decision",
+      "summary": "Synthetic mid-stream decision propagated from B.",
+      "claimed": "...",
+      "known_or_knowable": "...",
+      "decision": "...",
+      "gap": "...",
+      "classifications": [
+        {"mode_id": "MP-005", "mode_name": "Common-pool / collective-action failure",
+         "layer": "L5", "subtype": "L5c",
+         "evidence_excerpt": "...", "source_ref": "...",
+         "confidence": "medium", "justification": "..."}
+      ],
+      "asymmetry_vectors": [
+        {"type": "AV3", "between": "Regulator-C / Operator-C",
+         "evidence_excerpt": "...", "source_ref": "..."}
+      ],
+      "propagated_from": [
+        {"card_id": "SYN-B-01", "channel": "AV3",
+         "evidence_excerpt": "framework cascade", "source_ref": "doc",
+         "justification": "..."}
+      ],
+      "propagates_to": [],
+      "constitutive_roles": [
+        {"actor": "Regulator-C", "action_or_inaction": "...",
+         "contribution": "...", "foreseeability": "documented_in_record",
+         "evidence_excerpt": "...", "source_ref": "..."}
+      ],
+      "counter_arguments": [],
+      "sources": []
+    },
+    {
+      "id": "SYN-D-01",
+      "version": 1,
+      "country": "X",
+      "branch": "regulatory",
+      "level": "national",
+      "body": "Regulator-D",
+      "decision_date": "2023-01-01",
+      "event_type": "decision",
+      "summary": "Synthetic terminal decision propagated from C — closes the chain.",
+      "claimed": "...",
+      "known_or_knowable": "...",
+      "decision": "...",
+      "gap": "...",
+      "classifications": [
+        {"mode_id": "MP-005", "mode_name": "Common-pool / collective-action failure",
+         "layer": "L5", "subtype": "L5c",
+         "evidence_excerpt": "...", "source_ref": "...",
+         "confidence": "medium", "justification": "..."}
+      ],
+      "asymmetry_vectors": [
+        {"type": "AV3", "between": "Regulator-D / Operator-D",
+         "evidence_excerpt": "...", "source_ref": "..."}
+      ],
+      "propagated_from": [
+        {"card_id": "SYN-C-01", "channel": "AV3",
+         "evidence_excerpt": "framework cascade", "source_ref": "doc",
+         "justification": "..."}
+      ],
+      "propagates_to": [],
+      "constitutive_roles": [
+        {"actor": "Regulator-D", "action_or_inaction": "...",
+         "contribution": "...", "foreseeability": "documented_in_record",
+         "evidence_excerpt": "...", "source_ref": "..."}
+      ],
+      "counter_arguments": [],
+      "sources": []
+    }
+  ]
+}

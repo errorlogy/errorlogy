@@ -1,0 +1,16 @@
+---
+description: Mark errorlogy_old_version as archive/sketch only; do not treat as production
+globs: ERRORLOGY/errorlogy_old_version/**
+alwaysApply: true
+---
+
+# Errorlogy archive (OLD SKETCH)
+
+Paths under `ERRORLOGY/errorlogy_old_version/` are **OLD SKETCH** artifacts for idea development, not the active product unless the user directs otherwise.
+
+- Do not extend old code by default; propose a new location for new work.
+- Do not treat AGIU `server.ts` or analytics demos as a full platform.
+- Politic Bar under `Windows_old_MVP/` is reference MVP, not production.
+- Unified taxonomy JSON files are draft ontology versions, not immutable API schemas.
+- Active MVP is `errorlogy-mas/` (see `.cursor/rules/errorlogy-mas-active.mdc`) — do not implement new features here.
+- See repo root `README.md`, `AGENTS.md`, and `ERRORLOGY_MVP_OBSIDIAN/Для AI-агентов.md`.

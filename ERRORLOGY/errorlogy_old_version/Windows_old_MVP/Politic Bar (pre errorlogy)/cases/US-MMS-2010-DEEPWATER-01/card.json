@@ -1,0 +1,156 @@
+{
+  "id": "US-MMS-2010-DEEPWATER-01",
+  "version": 4,
+  "country": "US",
+  "branch": "regulatory",
+  "level": "national",
+  "body": "United States Minerals Management Service (Department of the Interior)",
+  "decision_date": "2003-01-01/2010-04-20",
+  "summary": "In the period before the April 20 2010 Macondo well blowout, the Minerals Management Service — the agency with statutory responsibility both to collect royalties from offshore oil and gas leases and to regulate their safety — approved the drilling plan for the Macondo well and the well's BOP stack configuration, and operated an oversight regime in which inspection intensity, testing requirements, and technical review did not scale with the deepwater operating envelope. The National Commission on the BP Deepwater Horizon Oil Spill concluded that the agency's combined commercial-and-safety mandate produced a regulatory posture in which operator representations were treated as largely self-validating.",
+  "claimed": "MMS held that its regulatory regime was adequate to the class of operations under its jurisdiction; approvals for the Macondo well were issued on that basis.",
+  "known_or_knowable": "Within the executive-branch record available before the incident: (i) the MMS's own Inspector General reports (2008, 2010) documenting conflicts of interest and ethical concerns in the Lake Charles and Denver offices; (ii) GAO reports from 2007–2010 identifying gaps in MMS's inspection and enforcement capacity relative to the growth of deepwater operations; (iii) Department of the Interior internal reviews recommending structural separation of revenue and safety functions; (iv) industry-standard API recommended practices for deepwater BOPs that were not reflected in enforceable MMS rules.",
+  "decision": "MMS approved the Macondo well's drilling plans and the BOP stack configuration; did not require independent third-party testing of the BOP to the most-current industry standard; retained a combined revenue-safety organizational structure until after the April 20 2010 incident, at which point Secretary of the Interior Salazar ordered the agency split (DOI Secretarial Order 3299, May 19 2010).",
+  "gap": "The body stated a regulatory adequacy position while holding, in its own inspector-general and GAO records, documented findings of capacity and structural shortfalls specifically relevant to the class of operations it was regulating; the adequacy position was the basis on which approvals were issued.",
+  "classifications": [
+    {
+      "bias_id": "CB-011",
+      "bias_name": "Status quo bias",
+      "evidence_excerpt": "MMS's inspection and enforcement regime remained structurally unchanged during a period in which the operating envelope of the industry it regulated shifted materially into deepwater operations with higher accident-consequence characteristics.",
+      "source_ref": "National Commission on the BP Deepwater Horizon Oil Spill and Offshore Drilling, Deep Water: The Gulf Oil Disaster and the Future of Offshore Drilling (2011), Ch. 3",
+      "confidence": "high",
+      "justification": "C1 — the National Commission documents a regime that persisted unchanged against a shifting operational envelope. C2 — procedural explanation (legislative/regulatory lag) is part of the story but does not account for the agency's resistance to self-initiated structural change proposed in its own reviews. C3 — survives counter that regulatory reform is slow globally, because the specific claim is about the internally-proposed reforms that were not adopted.",
+      "mode_id": "CB-011",
+      "mode_name": "Status quo bias",
+      "layer": "L1"
+    },
+    {
+      "bias_id": "CB-181",
+      "bias_name": "Combined-function conflict absorption",
+      "evidence_excerpt": "Department of the Interior Inspector General investigations documented a pattern of employees in MMS's royalty-in-kind program accepting gifts and engaging in personal relationships with industry representatives; these findings were limited to particular offices but were representative of a broader institutional permeability between regulator and regulated.",
+      "source_ref": "DOI OIG, Investigative Report: OIG Investigation of MMS Oil Marketing Group — Lakewood, Colorado (September 2008)",
+      "confidence": "high",
+      "justification": "C1 — MMS held both a revenue-collection mandate (royalties, lease sales) and a safety-regulation mandate over the same industry. The operational cue (asymmetric intake of industry representations at a lighter evidentiary bar than independent technical signals) is documented in the National Commission report. C2 — a procedural explanation (under-resourcing) is part of the story but does not account for the directional asymmetry in which revenue-aligned evidence entered without friction. C3 — survives the counter that combined-function structures are a legitimate policy choice, because the claim is about the unacknowledged asymmetry in evidentiary intake, not about the structural choice itself.",
+      "mode_id": "CB-181",
+      "mode_name": "Combined-function conflict absorption",
+      "layer": "L1"
+    },
+    {
+      "bias_id": "CB-175",
+      "bias_name": "Procedural laundering",
+      "evidence_excerpt": "The approval of the Macondo well's drilling plans proceeded through the regulatory process in form; substantive technical review, including independent assessment of the BOP stack and the specific well-design decisions, did not match the form.",
+      "source_ref": "National Commission on the BP Deepwater Horizon Oil Spill, Chief Counsel's Report (2011), Ch. 3 & 4",
+      "confidence": "high",
+      "justification": "C1 — the Chief Counsel's report reconstructs the approval process and identifies specific steps that were procedurally checked but not substantively exercised. C2 — a procedural explanation (tight resourcing) is part of the story but does not explain the representation of the process as substantive. C3 — survives counter that procedural compliance is what a regulator is bound to provide, because the regulator's own rules required substantive technical review.",
+      "mode_id": "CB-175",
+      "mode_name": "Procedural laundering",
+      "layer": "L2"
+    },
+    {
+      "bias_id": "CB-117",
+      "bias_name": "Pro-innovation bias",
+      "evidence_excerpt": "MMS approvals for deepwater operations treated the industry's technological extension into deeper water as presumptively safe on the basis of the industry's own engineering representations, with the agency's independent technical evaluation not scaling to match.",
+      "source_ref": "National Commission Report, Ch. 3",
+      "confidence": "medium",
+      "justification": "C1 — documented pattern of approval scaling with industry representation rather than with independent review. C2 — procedural alternative (trust-but-verify with limited resources) does not explain the absence of the verify step scaling. C3 — survives counter at medium confidence; the classification is not about optimism toward technology generally but about the asymmetric intake of industry technological claims.",
+      "mode_id": "CB-117",
+      "mode_name": "Pro-innovation bias",
+      "layer": "L1"
+    },
+    {
+      "bias_id": "CB-154",
+      "bias_name": "Evidence discounting by source friction",
+      "evidence_excerpt": "Recommendations to structurally separate revenue and safety functions — including from internal DOI reviews — were not acted on until after a fatal incident, despite the analytic case for the separation pre-dating the incident.",
+      "source_ref": "DOI Secretarial Order 3299 and its accompanying background (May 19 2010)",
+      "confidence": "medium",
+      "justification": "C1 — the pre-incident existence of the separation proposal is in the DOI internal record. C2 — procedural explanation (organizational restructuring is hard) does not account for the post-incident execution of the same proposal within weeks. C3 — survives counter that crises trigger action in a way that analysis alone does not; the classification captures exactly that asymmetry.",
+      "mode_id": "CB-154",
+      "mode_name": "Evidence discounting by source friction",
+      "layer": "L1"
+    }
+  ],
+  "counter_arguments": [
+    {
+      "targets": "CB-011",
+      "strongest_counter": "Regulatory structures in the US adapt on legislative timescales; expecting faster adaptation is unrealistic.",
+      "does_it_survive": true,
+      "notes": "Retained. The classification specifically addresses agency-initiated reforms that were within the Secretary's administrative authority, not reforms requiring legislation."
+    },
+    {
+      "targets": "CB-181",
+      "strongest_counter": "The OIG findings concerned commercial (royalty-in-kind) functions specifically; extending them to safety approvals requires an independent evidentiary chain.",
+      "does_it_survive": true,
+      "notes": "Retained at high confidence. The independent chain is the National Commission's finding that industry representations were accepted at a lower bar than independent technical signals in safety approvals — the same asymmetry pattern the OIG documented on the commercial side."
+    },
+    {
+      "targets": "CB-175",
+      "strongest_counter": "Regulators are always under-resourced relative to the industries they regulate; procedural compliance is often the best available.",
+      "does_it_survive": true,
+      "notes": "Retained. The classification addresses the representation of the process as substantive when it was not, not the existence of resource constraints."
+    },
+    {
+      "targets": "CB-117",
+      "strongest_counter": "Trusting industry engineering representations is the only feasible regulatory model for rapidly evolving technology.",
+      "does_it_survive": true,
+      "notes": "Retained at medium confidence. The classification is specifically about the asymmetric intake — favorable representations entered the regulatory record at low evidentiary bar, unfavorable signals were not systematically solicited."
+    },
+    {
+      "targets": "CB-154",
+      "strongest_counter": "Post-crisis action is normal and adaptive; reading it as confirmation of pre-crisis bias overfits.",
+      "does_it_survive": true,
+      "notes": "Retained at medium confidence. The classification is retained because the pre-crisis analytic case was already specific and actionable, not because action happened after."
+    },
+    {
+      "targets": "gap",
+      "strongest_counter": "A regulator's statement of regulatory adequacy is inherently context-dependent and is not directly falsified by the existence of internal critical reviews; internal reviews are a feature of functioning agencies, not evidence of inadequacy.",
+      "does_it_survive": true,
+      "notes": "The gap is retained because the specific internal reviews identified the specific deficiencies (capacity, structural conflict) that the National Commission later identified as causal factors — the alignment between pre-incident internal signal and post-incident reconstruction is the basis of the gap."
+    }
+  ],
+  "residual_uncertainty": "The record does not fully resolve how much of the regulatory posture was a product of agency choice and how much was a product of appropriations constraints set by Congress; the National Commission addresses this but does not apportion the weights. The individual-level decision chain for the specific Macondo approvals is partially redacted in the Chief Counsel's Report.",
+  "sources": [
+    {
+      "title": "National Commission on the BP Deepwater Horizon Oil Spill and Offshore Drilling, Deep Water: The Gulf Oil Disaster and the Future of Offshore Drilling",
+      "url": "https://www.govinfo.gov/app/details/GPO-OILCOMMISSION",
+      "published_date": "2011-01-11",
+      "source_type": "primary",
+      "notes": "Presidentially-chartered commission; final report."
+    },
+    {
+      "title": "National Commission on the BP Deepwater Horizon Oil Spill and Offshore Drilling, Macondo: The Gulf Oil Disaster — Chief Counsel's Report",
+      "url": "https://www.govinfo.gov/content/pkg/GPO-OILCOMMISSION/pdf/GPO-OILCOMMISSION-CCR.pdf",
+      "published_date": "2011-02-17",
+      "source_type": "primary",
+      "notes": "Commission's technical companion report on the specific Macondo well failure."
+    },
+    {
+      "title": "DOI Office of Inspector General, Investigative Report: OIG Investigation of MMS Oil Marketing Group — Lakewood, Colorado",
+      "url": "https://www.doioig.gov/reports/audit-inspection-evaluation/investigative-report-oig-investigation-mms-oil-marketing-group",
+      "published_date": "2008-09-09",
+      "source_type": "primary",
+      "notes": "Establishes the institutional-ethics findings cited in the culture classification."
+    },
+    {
+      "title": "Department of the Interior Secretarial Order 3299",
+      "url": "https://www.doi.gov/sites/doi.gov/files/migrated/news/pressreleases/upload/Secretary-Salazar-Divides-MMS-s-Three-Conflicting-Missions.pdf",
+      "published_date": "2010-05-19",
+      "source_type": "primary",
+      "notes": "The post-incident structural separation — used to establish timing of the remedy relative to pre-incident analysis."
+    }
+  ],
+  "analyst_notes": "Seed-case analysis produced by hand-application of the methodology. Five classifications retained. CB-131 re-classified as CB-181 (combined-function conflict absorption) after the audit flagged the original label as a poor taxonomic fit — the phenomenon is institutional cognitive asymmetry within one body, not reciprocity with an external party. Zero classifications dropped post-red-team on this card; each counter-argument was substantively engaged and each classification survived on the specific narrowing noted. [v0.1/v0.2 → v0.6 schema migration 2026-04-26: event_type, asymmetry_vectors, propagated_from, propagates_to, constitutive_roles defaulted to empty; classifications got mode_id and inferred layer per cognitive_biases.json category. Schema-only: no new factual claims introduced. Prior version: 2.] [Edge added by analyst 2026-04-26: propagated_from += US-NASA-1986-CHALLENGER-V06-01 via AV3. Schema-only edit; evidence excerpt cited verbatim from source.]",
+  "compiled_at": "2026-04-23T00:00:00Z",
+  "dropped_after_redteam": [],
+  "propagates_to": [],
+  "event_type": "decision",
+  "asymmetry_vectors": [],
+  "propagated_from": [
+    {
+      "card_id": "US-NASA-1986-CHALLENGER-V06-01",
+      "channel": "AV3",
+      "evidence_excerpt": "The Commission is troubled by what appears to be a propensity of management at Marshall to contain potentially serious problems and to attempt to resolve them internally rather than communicate them forward. This tendency is altogether at odds with the need for Marshall to function as part of a system working toward successful flight missions, interfacing and communicating with the other parts of the system that work to the same end.",
+      "source_ref": "Rogers Commission Report, Vol. I, Chapter V (verbatim; same excerpt verified on US-NASA-1986-CHALLENGER-V06-01 _pipeline/06_verifications.json)",
+      "justification": "P1 (cited channel): both cards record AV3 — a regulator/decision-authority depending on contractor/operator domain knowledge it cannot independently verify (NASA Marshall <- Thiokol on SRB performance; MMS <- BP/Halliburton/Transocean on deepwater operating envelope). P2 (documented carry-forward): the Rogers Commission finding above is in the public regulatory record from 1986 and is the canonical post-Challenger institutional-learning artifact; MMS's regulatory regime over deepwater operations developed entirely after this record was available, with the National Commission documenting a regulator that did not establish independent technical verification of operator representations — the same generic pattern the Rogers Commission named. P3 (lower-cause-sufficiency): the MMS-specific record (combined revenue-and-safety mandate, OIG findings, internal reform proposals not adopted) provides a partial local explanation; propagation does not displace it but adds the institutional-learning dimension — the Challenger pattern was a documented warning available to MMS rule-makers, and its absence from MMS's institutional design is itself the propagated error."
+    }
+  ],
+  "constitutive_roles": []
+}
