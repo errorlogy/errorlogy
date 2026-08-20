@@ -151,6 +151,98 @@ def init_db() -> None:
         """)
         con.execute("CREATE INDEX IF NOT EXISTS idx_signals_iso ON signal_timeseries(iso3)")
         con.execute("CREATE INDEX IF NOT EXISTS idx_signals_time ON signal_timeseries(recorded_at)")
+        con.execute("""
+            CREATE TABLE IF NOT EXISTS cross_layer_events (
+                event_id     TEXT PRIMARY KEY,
+                story_id     TEXT NOT NULL,
+                event_type   TEXT NOT NULL,
+                epistemic_label TEXT NOT NULL,
+                envelope_json TEXT NOT NULL,
+                created_at   TEXT NOT NULL
+            )
+        """)
+        con.execute(
+            "CREATE INDEX IF NOT EXISTS idx_cle_story ON cross_layer_events(story_id)"
+        )
+        con.execute(
+            "CREATE INDEX IF NOT EXISTS idx_cle_created ON cross_layer_events(created_at)"
+        )
+
+
+def save_cross_layer_event(event_id: str, envelope: dict) -> dict:
+    """Persist a framed cross-layer envelope. INSTITUTIONAL_MODEL storage only."""
+    now = datetime.now(timezone.utc).isoformat()
+    with _conn() as con:
+        con.execute(
+            """
+            INSERT INTO cross_layer_events
+                (event_id, story_id, event_type, epistemic_label, envelope_json, created_at)
+            VALUES (?, ?, ?, ?, ?, ?)
+            """,
+            (
+                event_id,
+                envelope["story_id"],
+                envelope["event_type"],
+                envelope["epistemic_label"],
+                json.dumps(envelope, ensure_ascii=False),
+                now,
+            ),
+        )
+    return {"event_id": event_id, "created_at": now, **envelope}
+
+
+def list_cross_layer_events(
+    limit: int = 50,
+    story_id: str | None = None,
+    event_type: str | None = None,
+) -> list[dict]:
+    clauses: list[str] = []
+    params: list = []
+    if story_id:
+        clauses.append("story_id = ?")
+        params.append(story_id)
+    if event_type:
+        clauses.append("event_type = ?")
+        params.append(event_type)
+    where = f"WHERE {' AND '.join(clauses)}" if clauses else ""
+    params.append(max(1, min(limit, 500)))
+    with _conn() as con:
+        rows = con.execute(
+            f"""
+            SELECT event_id, story_id, event_type, epistemic_label, envelope_json, created_at
+            FROM cross_layer_events
+            {where}
+            ORDER BY created_at DESC
+            LIMIT ?
+            """,
+            params,
+        ).fetchall()
+    out: list[dict] = []
+    for row in rows:
+        env = json.loads(row["envelope_json"])
+        out.append(
+            {
+                "event_id": row["event_id"],
+                "created_at": row["created_at"],
+                **env,
+            }
+        )
+    return out
+
+
+def get_cross_layer_event(event_id: str) -> dict | None:
+    with _conn() as con:
+        row = con.execute(
+            """
+            SELECT event_id, envelope_json, created_at
+            FROM cross_layer_events WHERE event_id = ?
+            """,
+            (event_id,),
+        ).fetchone()
+    if not row:
+        return None
+    env = json.loads(row["envelope_json"])
+    return {"event_id": row["event_id"], "created_at": row["created_at"], **env}
 
 
 def country_to_iso3(country: str) -> str:

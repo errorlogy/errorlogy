@@ -1,0 +1,39 @@
+"""Cross-layer institutional event stub tests."""
+
+from mas.db import init_db, save_cross_layer_event, list_cross_layer_events, get_cross_layer_event
+from mas.institutional.activation import default_activated_layers, frame_cross_layer_event
+
+
+def test_default_layers_fin_crypto():
+    layers = default_activated_layers("fin_crypto_market_snapshot")
+    assert "institution:central-bank-analog" in layers
+    assert len(layers) >= 1
+
+
+def test_frame_fills_layers_and_label():
+    framed = frame_cross_layer_event(
+        {
+            "story_id": "test-story",
+            "event_type": "gov_legislative_document",
+            "extra_ignored": True,
+        }
+    )
+    assert "extra_ignored" not in framed
+    assert framed["epistemic_label"] == "INSTITUTIONAL_MODEL"
+    assert len(framed["activated_layers"]) >= 1
+    assert "institution:parliament" in framed["activated_layers"]
+
+
+def test_persist_cross_layer(tmp_path, monkeypatch):
+    monkeypatch.setattr("mas.db.DB_PATH", tmp_path / "cle.db")
+    init_db()
+    framed = frame_cross_layer_event(
+        {"story_id": "s1", "event_type": "fin_crypto_market_snapshot"}
+    )
+    stored = save_cross_layer_event("cle-test1", framed)
+    assert stored["event_id"] == "cle-test1"
+    listed = list_cross_layer_events(limit=10, story_id="s1")
+    assert len(listed) == 1
+    one = get_cross_layer_event("cle-test1")
+    assert one is not None
+    assert one["event_type"] == "fin_crypto_market_snapshot"

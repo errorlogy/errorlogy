@@ -18,6 +18,7 @@ from api.routers.metrics import router as metrics_router
 from api.routers.ingest import router as ingest_router
 from api.routers.signals import router as signals_router
 from api.routers.forecast import router as forecast_router
+from api.routers.cross_layer import router as cross_layer_router
 
 app = FastAPI(
     title="Errorlogy MAS API",
@@ -41,6 +42,7 @@ app.include_router(metrics_router)
 app.include_router(ingest_router)
 app.include_router(signals_router)
 app.include_router(forecast_router)
+app.include_router(cross_layer_router)
 
 
 @app.on_event("startup")
