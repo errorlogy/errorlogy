@@ -8,6 +8,7 @@ from __future__ import annotations
 import pathlib
 import sys
 import uuid
+from typing import Literal
 
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel, ConfigDict, Field
@@ -19,13 +20,17 @@ from mas.institutional.activation import frame_cross_layer_event
 
 router = APIRouter(prefix="/api/events", tags=["events"])
 
+ResolutionStatus = Literal[
+    "unresolved", "partially_resolved", "resolved", "not_applicable"
+]
+
 
 class TopologyIntersection(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
-    intersection: str
-    tension_type: str
-    resolution_status: str | None = None
+    intersection: str = Field(..., min_length=1)
+    tension_type: str = Field(..., min_length=1)
+    resolution_status: ResolutionStatus | None = None
 
 
 class CrossLayerEventIn(BaseModel):

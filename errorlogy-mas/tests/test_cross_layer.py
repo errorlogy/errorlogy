@@ -13,15 +13,30 @@ def test_default_layers_fin_crypto():
 def test_frame_fills_layers_and_label():
     framed = frame_cross_layer_event(
         {
-            "story_id": "test-story",
+            "story_id": "  test-story  ",
             "event_type": "gov_legislative_document",
             "extra_ignored": True,
         }
     )
     assert "extra_ignored" not in framed
+    assert framed["story_id"] == "test-story"
     assert framed["epistemic_label"] == "INSTITUTIONAL_MODEL"
     assert len(framed["activated_layers"]) >= 1
     assert "institution:parliament" in framed["activated_layers"]
+
+
+def test_frame_rejects_invalid_layer():
+    try:
+        frame_cross_layer_event(
+            {
+                "story_id": "s",
+                "event_type": "bilateral_summit",
+                "activated_layers": ["institution:not-a-real-layer"],
+            }
+        )
+        assert False, "expected ValueError"
+    except ValueError as exc:
+        assert "invalid activated_layers" in str(exc)
 
 
 def test_persist_cross_layer(tmp_path, monkeypatch):

@@ -12,7 +12,16 @@ from typing import Any
 LAYER_PARLIAMENT = "institution:parliament"
 LAYER_EXECUTIVE = "institution:executive"
 LAYER_JUDICIARY = "institution:judiciary"
+LAYER_INTERPOL = "institution:interpol-analog"
 LAYER_TRANSNATIONAL = "institution:transnational-ops"
+LAYER_AI_SPEAKER = "institution:ai-speaker"
+LAYER_PARTY = "institution:party-coalition"
+LAYER_AI_MINISTER = "institution:ai-minister"
+LAYER_AI_PM = "institution:ai-pm"
+LAYER_AUDIT = "institution:audit"
+LAYER_OMBUDSMAN = "institution:ombudsman"
+LAYER_CENTRAL_BANK = "institution:central-bank-analog"
+LAYER_REGULATORY = "institution:regulatory-agency"
 LAYER_EU_PARLIAMENT = "institution:eu-parliament"
 LAYER_EU_COMMISSION = "institution:eu-commission"
 LAYER_EU_COUNCIL = "institution:eu-council"
@@ -20,9 +29,31 @@ LAYER_EU_COURT = "institution:eu-court-of-justice"
 LAYER_EU_OPS = "institution:eu-transnational-ops"
 LAYER_NATIONAL = "institution:national-instance"
 LAYER_SYMBOLIC = "institution:symbolic-visual"
-LAYER_AI_PM = "institution:ai-pm"
-LAYER_CENTRAL_BANK = "institution:central-bank-analog"
-LAYER_REGULATORY = "institution:regulatory-agency"
+
+INSTITUTION_LAYER_IDS = frozenset(
+    {
+        LAYER_PARLIAMENT,
+        LAYER_EXECUTIVE,
+        LAYER_JUDICIARY,
+        LAYER_INTERPOL,
+        LAYER_TRANSNATIONAL,
+        LAYER_AI_SPEAKER,
+        LAYER_PARTY,
+        LAYER_AI_MINISTER,
+        LAYER_AI_PM,
+        LAYER_AUDIT,
+        LAYER_OMBUDSMAN,
+        LAYER_CENTRAL_BANK,
+        LAYER_REGULATORY,
+        LAYER_EU_PARLIAMENT,
+        LAYER_EU_COMMISSION,
+        LAYER_EU_COUNCIL,
+        LAYER_EU_COURT,
+        LAYER_EU_OPS,
+        LAYER_NATIONAL,
+        LAYER_SYMBOLIC,
+    }
+)
 
 EPISTEMIC_LABELS = frozenset(
     {
@@ -91,12 +122,20 @@ def frame_cross_layer_event(payload: dict[str, Any]) -> dict[str, Any]:
         raise ValueError("story_id is required")
     if not event_type:
         raise ValueError("event_type is required")
+    out["story_id"] = story_id
+    out["event_type"] = event_type
 
     layers = out.get("activated_layers")
     if not layers:
         out["activated_layers"] = default_activated_layers(event_type)
     elif not isinstance(layers, list) or len(layers) < 1:
         raise ValueError("activated_layers must be a non-empty array when provided")
+    else:
+        if not all(isinstance(x, str) and x for x in layers):
+            raise ValueError("activated_layers items must be non-empty strings")
+        bad = [x for x in layers if x not in INSTITUTION_LAYER_IDS]
+        if bad:
+            raise ValueError(f"invalid activated_layers: {bad}")
 
     label = out.get("epistemic_label") or "INSTITUTIONAL_MODEL"
     if label not in EPISTEMIC_LABELS:

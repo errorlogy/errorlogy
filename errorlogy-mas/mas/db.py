@@ -165,6 +165,9 @@ def init_db() -> None:
             "CREATE INDEX IF NOT EXISTS idx_cle_story ON cross_layer_events(story_id)"
         )
         con.execute(
+            "CREATE INDEX IF NOT EXISTS idx_cle_type ON cross_layer_events(event_type)"
+        )
+        con.execute(
             "CREATE INDEX IF NOT EXISTS idx_cle_created ON cross_layer_events(created_at)"
         )
 
