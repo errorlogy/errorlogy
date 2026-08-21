@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/errorlogy/ai-native-gov/schemas/institution-layer-id.json",
+  "title": "InstitutionLayerId",
+  "description": "Stable identifiers for AI Native Gov institutional modeling layers (vendored copy; prefer AI_NATIVE_GOV_SCHEMAS env)",
+  "type": "string",
+  "enum": [
+    "institution:parliament",
+    "institution:executive",
+    "institution:judiciary",
+    "institution:interpol-analog",
+    "institution:transnational-ops",
+    "institution:ai-speaker",
+    "institution:party-coalition",
+    "institution:ai-minister",
+    "institution:ai-pm",
+    "institution:audit",
+    "institution:ombudsman",
+    "institution:central-bank-analog",
+    "institution:regulatory-agency",
+    "institution:eu-parliament",
+    "institution:eu-commission",
+    "institution:eu-council",
+    "institution:eu-court-of-justice",
+    "institution:eu-transnational-ops",
+    "institution:national-instance",
+    "institution:symbolic-visual"
+  ],
+  "examples": [
+    "institution:executive",
+    "institution:parliament",
+    "institution:ai-speaker",
+    "institution:party-coalition",
+    "institution:transnational-ops",
+    "institution:eu-parliament",
+    "institution:eu-commission",
+    "institution:eu-council",
+    "institution:eu-court-of-justice",
+    "institution:eu-transnational-ops",
+    "institution:national-instance",
+    "institution:symbolic-visual"
+  ]
+}
