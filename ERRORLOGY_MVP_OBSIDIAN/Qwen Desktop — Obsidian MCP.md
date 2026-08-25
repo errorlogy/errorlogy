@@ -6,7 +6,7 @@
 
 | Параметр | Значение |
 |----------|----------|
-| Файл | `C:\Users\lawye\AppData\Roaming\Qwen\settings.json` |
+| Файл | `~/AppData/Roaming/Qwen/settings.json` (local — not in repo) |
 | Ключ | `mcp_config` (не `mcpServers` — это формат Qwen Code CLI) |
 | Транспорт HTTP | `transportType: "httpStream"` + поле `url` |
 
@@ -84,28 +84,28 @@ PM2: `obsidian-kimi-mcp`, `obsidian-cursor-mcp`, `obsidian-errorlogy-mcp` — on
 
 | Компонент | Путь |
 |-----------|------|
-| MCP-сервер | `C:\ai_models\obsidian-kimi-mcp\server.js` |
-| Реестр PM2 | `C:\ai_models\mcp-servers.json` |
-| Ecosystem | `C:\ai_models\mcp-ecosystem.config.cjs` |
-| Старт кластера | `C:\ai_models\obsidian-kimi-mcp\start-server.bat` |
+| MCP-сервер | `<local-path>/obsidian-kimi-mcp/server.js` |
+| Реестр PM2 | `<local-path>/mcp-servers.json` |
+| Ecosystem | `<local-path>/mcp-ecosystem.config.cjs` |
+| Старт кластера | `<local-path>/obsidian-kimi-mcp/start-server.bat` |
 
 Новый инстанс `obsidian-errorlogy-mcp` (порт 3005) добавлен в `mcp-servers.json`:
 
-- `OBSIDIAN_VAULT`: `C:\Users\Public\ERRORLOGY_MVP\ERRORLOGY_MVP_OBSIDIAN`
+- `OBSIDIAN_VAULT`: `<repo-root>/ERRORLOGY_MVP_OBSIDIAN`
 - `OBSIDIAN_DEFAULT_SUBFOLDER`: `Qwen/Generated`
 - `MCP_ENTITY`: `qwen`
 
 Запуск только ERRORLOGY-инстанса:
 
 ```bat
-cd C:\ai_models
+cd <local-mcp-dir>
 pm2 start mcp-ecosystem.config.cjs --only obsidian-errorlogy-mcp
 pm2 save
 ```
 
 ## Qwen Code CLI (отдельно)
 
-CLI использует другой файл: `C:\Users\lawye\.qwen\settings.json`, ключ `mcpServers`, поле `httpUrl`.
+CLI использует другой файл: `~/.qwen/settings.json`, ключ `mcpServers`, поле `httpUrl`.
 
 ```bash
 qwen mcp add --scope user --transport http obsidian-errorlogy http://localhost:3005/mcp

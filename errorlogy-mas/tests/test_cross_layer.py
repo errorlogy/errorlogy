@@ -1,7 +1,53 @@
 """Cross-layer institutional event stub tests."""
 
+import pytest
+from fastapi.testclient import TestClient
+
 from mas.db import init_db, save_cross_layer_event, list_cross_layer_events, get_cross_layer_event
-from mas.institutional.activation import default_activated_layers, frame_cross_layer_event
+from mas.institutional.activation import (
+    INSTITUTION_LAYER_IDS,
+    default_activated_layers,
+    frame_cross_layer_event,
+)
+
+
+@pytest.fixture
+def client(tmp_path, monkeypatch):
+    pytest.importorskip("itsdangerous")
+    pytest.importorskip("authlib")
+    monkeypatch.setattr("mas.db.DB_PATH", tmp_path / "cle_api.db")
+    init_db()
+    from api.main import app
+
+    return TestClient(app)
+
+
+def test_institution_layers_enum():
+    assert len(INSTITUTION_LAYER_IDS) >= 19
+    assert "institution:parliament" in INSTITUTION_LAYER_IDS
+
+
+def test_api_layers_endpoint(client):
+    resp = client.get("/api/events/cross-layer/layers")
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["count"] == len(INSTITUTION_LAYER_IDS)
+    assert set(body["layers"]) == INSTITUTION_LAYER_IDS
+
+
+def test_api_post_and_list_cross_layer(client):
+    resp = client.post(
+        "/api/events/cross-layer",
+        json={"story_id": "api-test", "event_type": "gov_legislative_document"},
+    )
+    assert resp.status_code == 200
+    event = resp.json()["event"]
+    assert event["story_id"] == "api-test"
+    assert event["epistemic_label"] == "INSTITUTIONAL_MODEL"
+
+    listed = client.get("/api/events/cross-layer", params={"story_id": "api-test"})
+    assert listed.status_code == 200
+    assert listed.json()["count"] >= 1
 
 
 def test_default_layers_fin_crypto():

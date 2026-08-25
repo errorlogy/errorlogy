@@ -16,7 +16,7 @@ from pydantic import BaseModel, ConfigDict, Field
 sys.path.insert(0, str(pathlib.Path(__file__).parent.parent.parent))
 
 from mas import db as case_db
-from mas.institutional.activation import frame_cross_layer_event
+from mas.institutional.activation import INSTITUTION_LAYER_IDS, frame_cross_layer_event
 
 router = APIRouter(prefix="/api/events", tags=["events"])
 
@@ -77,6 +77,12 @@ async def get_cross_layer_list(
         limit=limit, story_id=story_id, event_type=event_type
     )
     return {"count": len(events), "events": events}
+
+
+@router.get("/cross-layer/layers")
+async def get_institution_layers():
+    layers = sorted(INSTITUTION_LAYER_IDS)
+    return {"count": len(layers), "layers": layers}
 
 
 @router.get("/cross-layer/{event_id}")

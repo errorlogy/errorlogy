@@ -181,6 +181,22 @@ analysis = orchestrator.run_from_text(
 - `POST /api/ingest/fetch-exa` — Exa search + ingest + auto-analyze
 - `GET /api/ingest/status` — fetcher ON/OFF including `exa_preferred`, `exa_agent_mode`
 
+### Cross-layer institutional events (AI Native Gov)
+
+Runtime bridge to [ai-native-gov](https://github.com/errorlogy/ai-native-gov) contracts.
+Framing stub only — fills `activated_layers` from `event_type`, sets `epistemic_label`:
+`INSTITUTIONAL_MODEL`. Does **not** run analyze / μ pipeline.
+
+| Method | Path | Notes |
+|--------|------|-------|
+| `POST` | `/api/events/cross-layer` | Body: umbrella `cross-layer-event.json` subset |
+| `GET` | `/api/events/cross-layer` | List persisted events |
+| `GET` | `/api/events/cross-layer/layers` | Valid institution layer IDs |
+| `GET` | `/api/events/cross-layer/{event_id}` | Single event |
+
+Vendored schemas: `schemas/cross-layer-event.json`, `schemas/institution-layer-id.json`.
+Source of truth: umbrella `schemas/`. Tests: `tests/test_cross_layer.py`.
+
 ## Project structure
 
 ```

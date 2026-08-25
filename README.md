@@ -1,5 +1,36 @@
 # Errorlogy
 
+**https://errorlogy.com** — analytical platform for governance error patterns (non-accusatory framing).
+
+## English quick start
+
+| Component | Path | Role |
+|-----------|------|------|
+| **errorlogy-mas** | `errorlogy-mas/` | FastAPI backend — 14-agent pipeline, taxonomy v16 |
+| **errorlogy-gui-v2** | `errorlogy-gui-v2/` | Browser UI (forecast, streams) |
+| **Umbrella contracts** | [ai-native-gov](https://github.com/errorlogy/ai-native-gov) | Institutional topology & cross-layer schemas |
+
+```bash
+cd errorlogy-mas
+python -m venv .venv && .venv\Scripts\activate   # Windows
+pip install -r requirements.txt
+cp .env.example .env                             # add LLM keys locally — never commit
+python api/main.py                               # → http://127.0.0.1:8000/docs
+```
+
+**Cross-layer API (MVP iter 1)** — institutional activation stub (`INSTITUTIONAL_MODEL`, no μ/analyze):
+
+| Method | Path | Description |
+|--------|------|-------------|
+| `POST` | `/api/events/cross-layer` | Frame & persist cross-layer event |
+| `GET` | `/api/events/cross-layer` | List events (`?story_id=`, `?event_type=`, `?limit=`) |
+| `GET` | `/api/events/cross-layer/layers` | Valid `institution:*` layer enum |
+| `GET` | `/api/events/cross-layer/{event_id}` | Single event |
+
+Schemas vendored from umbrella: `errorlogy-mas/schemas/`. OpenAPI: `/docs`.
+
+---
+
 **https://errorlogy.com** — аналитическая платформа об ошибках государственного управления.
 
 > *Errors in governance as observable objects: the gap between what was declared, what was known, and what was decided.*

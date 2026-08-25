@@ -36,7 +36,8 @@
         "symbolic_rights_blocked",
         "symbolic_asset_registered",
         "symbolic_nft_mint_signal",
-        "symbolic_media_variant"
+        "symbolic_media_variant",
+        "symbolic_lore_source_linked"
       ]
     },
     "activated_layers": {

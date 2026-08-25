@@ -1,6 +1,7 @@
 # Secrets
 .env
 .env.*
+!.env.example
 *.pem
 **/anthropic_api_key.txt
 
