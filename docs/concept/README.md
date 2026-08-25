@@ -1,12 +1,12 @@
-# Errorlogy — концепция и архитектура
+# Errorlogy — concept and architecture
 
-Кураторский набор заметок из Obsidian (`OBSIDIAN2026/ERRORLOGY` и `ERRORLOGY_MVP_OBSIDIAN/`).
+Curated notes from Obsidian (`OBSIDIAN2026/ERRORLOGY` and `ERRORLOGY_MVP_OBSIDIAN/`).
 
-| Документ | Содержание |
+| Document | Contents |
 |----------|------------|
-| [status-analysis-2026-06-12.md](./status-analysis-2026-06-12.md) | Срез зрелости MVP: что работает, разрывы с ТЗ, технический долг |
-| [mas-gui-artifact.md](./mas-gui-artifact.md) | Архитектура MAS + GUI, 14 агентов, LLM-роутер |
-| [mas-orchestrator-metrics.md](./mas-orchestrator-metrics.md) | Метрики оркестратора (engine vs LLM, timing, tokens) |
-| [taxonomy-vs-engine-gap.md](./taxonomy-vs-engine-gap.md) | Разрыв между онтологией v16 и формальным engine v1 |
+| [status-analysis-2026-06-12.md](./status-analysis-2026-06-12.md) | MVP maturity snapshot: what works, spec gaps, technical debt |
+| [mas-gui-artifact.md](./mas-gui-artifact.md) | MAS + GUI architecture, 14 agents, LLM router |
+| [mas-orchestrator-metrics.md](./mas-orchestrator-metrics.md) | Orchestrator metrics (engine vs LLM, timing, tokens) |
+| [taxonomy-vs-engine-gap.md](./taxonomy-vs-engine-gap.md) | Gap between ontology v16 and formal engine v1 |
 
-Сайт: **https://errorlogy.com**
+Site: **https://errorlogy.com**

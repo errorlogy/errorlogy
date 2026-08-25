@@ -48,7 +48,7 @@ export function Dashboard() {
       <div>
         <h1 className="text-2xl font-bold text-white">Errorlogy MAS</h1>
         <p className="text-slate-400 mt-1 text-sm">
-          Гибридная аналитика: детерминированный engine v1-math + интерпретация LLM
+          Hybrid analytics: deterministic engine v1-math + LLM interpretation
         </p>
       </div>
 
@@ -64,7 +64,7 @@ export function Dashboard() {
           <p>{error}</p>
           {apiLogPath && (
             <p className="text-xs text-red-200/90">
-              Лог запуска API: <span className="font-mono break-all">{apiLogPath}</span>
+              API launch log: <span className="font-mono break-all">{apiLogPath}</span>
             </p>
           )}
           <p className="text-xs text-red-200/90">{common.backendOfflineLauncherHint}</p>
@@ -76,17 +76,17 @@ export function Dashboard() {
 
       {health && (
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
-          <Stat icon={<Activity size={18} />} label="Статус" value={health.status.toUpperCase()} accent="text-green-400" />
+          <Stat icon={<Activity size={18} />} label="Status" value={health.status.toUpperCase()} accent="text-green-400" />
           <Stat icon={<Calculator size={18} />} label="Engine" value={health.engine ?? 'v1-math'} accent="text-red-400" />
-          <Stat icon={<Layers size={18} />} label="Режимов таксономии" value={health.taxonomy_modes?.toString() ?? '—'} accent="text-blue-400" />
-          <Stat icon={<GitBranch size={18} />} label="Alpha рёбер" value={health.alpha_edges?.toString() ?? '—'} accent="text-purple-400" />
+          <Stat icon={<Layers size={18} />} label="Taxonomy modes" value={health.taxonomy_modes?.toString() ?? '—'} accent="text-blue-400" />
+          <Stat icon={<GitBranch size={18} />} label="Alpha edges" value={health.alpha_edges?.toString() ?? '—'} accent="text-purple-400" />
           <Stat icon={<Cpu size={18} />} label="LLM providers" value={health.providers?.length.toString() ?? '—'} accent="text-amber-400" />
         </div>
       )}
 
       {health?.providers && (
         <div className="bg-slate-800 rounded-xl p-4">
-          <p className="text-xs text-slate-500 uppercase tracking-widest mb-3">Активные LLM providers</p>
+          <p className="text-xs text-slate-500 uppercase tracking-widest mb-3">Active LLM providers</p>
           <div className="flex flex-wrap gap-2">
             {health.providers.map(p => (
               <span key={p} className="px-2.5 py-1 bg-slate-700 text-slate-200 rounded-full text-xs font-medium">{p}</span>
@@ -97,7 +97,7 @@ export function Dashboard() {
 
       <div className="bg-slate-800 rounded-xl p-4">
         <div className="flex items-center justify-between mb-4">
-          <p className="text-xs text-slate-500 uppercase tracking-widest">Pipeline анализа — 14 агентов</p>
+          <p className="text-xs text-slate-500 uppercase tracking-widest">Analysis pipeline — 14 agents</p>
           <div className="flex gap-3 text-[10px]">
             <span className="flex items-center gap-1 text-red-400"><span className="w-2 h-2 rounded bg-red-500/60" /> engine</span>
             <span className="flex items-center gap-1 text-amber-400"><span className="w-2 h-2 rounded bg-amber-500/60" /> LLM</span>
@@ -111,7 +111,7 @@ export function Dashboard() {
               }`}>
                 <div className="text-[10px] font-mono text-slate-500 mb-0.5">{String(i + 1).padStart(2, '0')}</div>
                 <div className="text-xs font-semibold text-slate-200">{step.label}</div>
-                <div className="text-[10px] text-slate-500 mt-0.5 leading-tight">{step.descRu}</div>
+                <div className="text-[10px] text-slate-500 mt-0.5 leading-tight">{step.desc}</div>
               </div>
               {i < PIPELINE_STEPS.length - 1 && (
                 <div className="hidden md:block absolute -right-1.5 top-1/2 -translate-y-1/2 text-slate-600 z-10">
@@ -128,7 +128,7 @@ export function Dashboard() {
       {showCases.length > 0 && (
         <div className="bg-slate-800 rounded-xl p-4">
           <p className="text-xs text-slate-500 uppercase tracking-widest mb-3 flex items-center gap-2">
-            <History size={14} /> Недавние кейсы
+            <History size={14} /> Recent cases
             {recentCases.length === 0 && localCases.length > 0 && (
               <span className="text-slate-600 normal-case">{common.local}</span>
             )}
@@ -159,35 +159,35 @@ export function Dashboard() {
           onClick={() => navigate('/analyze')}
           className="bg-red-600 hover:bg-red-500 text-white rounded-xl p-4 flex items-center justify-center gap-3 font-semibold transition-colors">
           <ScanSearch size={20} />
-          Анализ кейса
+          Case analysis
           <ArrowRight size={18} />
         </button>
         <button
           onClick={() => navigate('/forecast')}
           className="bg-blue-700 hover:bg-blue-600 text-white rounded-xl p-4 flex items-center justify-center gap-3 font-semibold transition-colors">
           <TrendingUp size={20} />
-          Прогноз
+          Forecast
           <ArrowRight size={18} />
         </button>
         <button
           onClick={() => navigate('/ingest')}
           className="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white rounded-xl p-4 flex items-center justify-center gap-3 font-semibold transition-colors">
           <Radio size={20} className="text-emerald-400" />
-          Поток данных
+          Data stream
           <ArrowRight size={18} />
         </button>
         <button
           onClick={() => navigate('/mas')}
           className="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white rounded-xl p-4 flex items-center justify-center gap-3 font-semibold transition-colors">
           <Activity size={20} className="text-red-400" />
-          Метрики MAS
+          MAS metrics
           <ArrowRight size={18} />
         </button>
         <button
           onClick={() => navigate('/globe')}
           className="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white rounded-xl p-4 flex items-center justify-center gap-3 font-semibold transition-colors">
           <Globe2 size={20} className="text-red-400" />
-          Глобус
+          Globe
           <ArrowRight size={18} />
         </button>
       </div>

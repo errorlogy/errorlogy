@@ -4,25 +4,24 @@ project: errorlogy
 status: active
 ---
 
-# Flow Index
+#FlowIndex
 
-Эта папка — “операционная память” проекта: гипотезы → эксперименты → выводы → обновления методики.
+This folder is the “operational memory” of the project: hypotheses → experiments → conclusions → method updates.
 
-## Как пользоваться
+## How to use
 
-1. Создавай гипотезу: `Flows/HYPO — <короткое имя>.md`
-2. Под гипотезу создавай эксперименты: `Flows/EXP — <короткое имя>.md`
-3. Если эксперимент меняет правила игры — фиксируй методику: `Flows/METH — <короткое имя>.md`
+1. Create a hypothesis: `Flows/HYPO - <short name>.md`
+2. Create experiments based on the hypothesis: `Flows/EXP - <short name>.md`
+3. If an experiment changes the rules of the game, record the methodology: `Flows/METH - <short name>.md`
 
-## Минимальный контракт (чтобы не терять смысл)
+## Minimum contract (so as not to lose meaning)
 
-- У **гипотезы** есть: *тезис*, *что будет считаться подтверждением*, *какой следующий шаг*.
-- У **эксперимента** есть: *входные данные*, *процедура*, *артефакты*, *метрики*, *результат*.
-- У **методики** есть: *правило*, *зачем*, *границы применимости*, *как проверять*.
+- A **hypothesis** has: *thesis*, *what will be considered confirmation*, *what is the next step*.
+- An **experiment** has: *input data*, *procedure*, *artifacts*, *metrics*, *result*.
+- The **methodology** has: *rule*, *why*, *limits of applicability*, *how to check*.
 
-## Связь с таксономией v16
+## Link to taxonomy v16
 
-Любой эксперимент должен явно указывать:
-- какие **слои** таксономии он задействует (минимум: `atomic_modes`, плюс хотя бы один из MAX: `WMS/ACC/FPD/LBI`),
-- какую метрику покрытия/качества улучшает (например: TPS/UA/ER).
-
+Any experiment must explicitly state:
+- which **layers** of the taxonomy it uses (minimum: `atomic_modes`, plus at least one of the MAX: `WMS/ACC/FPD/LBI`),
+- what coverage/quality metric does it improve (for example: TPS/UA/ER).

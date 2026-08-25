@@ -41,7 +41,7 @@ export function CaseForecastPage() {
       setResult(data)
       setCaseId(data.case_id)
     } catch {
-      setError(`Кейс «${id}» не найден`)
+      setError(`Case «${id}» not found`)
       setResult(null)
     } finally {
       setLoadingCase(false)
@@ -58,7 +58,7 @@ export function CaseForecastPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!rawText.trim()) {
-      setError('Введите текст кейса')
+      setError('Enter case text')
       return
     }
     setRunning(true)
@@ -80,7 +80,7 @@ export function CaseForecastPage() {
         : await api.analyze(params)
       setResult(data)
     } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : 'Ошибка анализа')
+      setError(err instanceof Error ? err.message : 'Analysis error')
     } finally {
       setRunning(false)
     }
@@ -97,8 +97,8 @@ export function CaseForecastPage() {
           {nav.case}
         </h1>
         <p className="text-slate-400 text-sm mt-1 max-w-2xl">
-          Запуск анализа кейса → FPD (μ_forecast, сценарии) и T4D (worldline).
-          По умолчанию engine_only для скорости.
+          Case analysis → FPD (μ_forecast, scenarios) and T4D (worldline).
+          engine_only by default for speed.
         </p>
       </div>
 
@@ -116,7 +116,7 @@ export function CaseForecastPage() {
             />
           </label>
           <label className="block">
-            <span className="text-xs text-slate-500">Страна</span>
+            <span className="text-xs text-slate-500">Country</span>
             <input
               value={country}
               onChange={e => setCountry(e.target.value)}
@@ -126,7 +126,7 @@ export function CaseForecastPage() {
           </label>
         </div>
         <label className="block">
-          <span className="text-xs text-slate-500">Заголовок (опционально)</span>
+          <span className="text-xs text-slate-500">Title (optional)</span>
           <input
             value={title}
             onChange={e => setTitle(e.target.value)}
@@ -134,13 +134,13 @@ export function CaseForecastPage() {
           />
         </label>
         <label className="block">
-          <span className="text-xs text-slate-500">Текст кейса *</span>
+          <span className="text-xs text-slate-500">Case text *</span>
           <textarea
             value={rawText}
             onChange={e => setRawText(e.target.value)}
             rows={6}
             className="mt-1 w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 font-mono"
-            placeholder="Описание governance-инцидента…"
+            placeholder="Governance incident description…"
           />
         </label>
         <div className="flex flex-wrap gap-4 text-sm">
@@ -151,7 +151,7 @@ export function CaseForecastPage() {
               onChange={e => setEngineOnly(e.target.checked)}
               className="rounded"
             />
-            Только engine (быстро)
+            Engine only (fast)
           </label>
           <label className="flex items-center gap-2 text-slate-300 cursor-pointer">
             <input
@@ -160,7 +160,7 @@ export function CaseForecastPage() {
               onChange={e => setUseStream(e.target.checked)}
               className="rounded"
             />
-            SSE-поток шагов
+            SSE step stream
           </label>
         </div>
         <button
@@ -169,7 +169,7 @@ export function CaseForecastPage() {
           className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white rounded-lg px-4 py-2 text-sm font-semibold"
         >
           {running ? <Loader2 size={16} className="animate-spin" /> : <Play size={16} />}
-          Запустить анализ
+          Run analysis
         </button>
       </form>
 
@@ -178,7 +178,7 @@ export function CaseForecastPage() {
       )}
 
       {running && steps.length > 0 && (
-        <Section title="Шаги pipeline" icon={<Cpu size={14} className="text-red-400" />}>
+        <Section title="Pipeline steps" icon={<Cpu size={14} className="text-red-400" />}>
           <div className="space-y-1">
             {steps.map((s, i) => (
               <div key={`${s.agent_id}-${i}`} className="flex items-center justify-between text-xs bg-slate-900 rounded px-2 py-1.5">
@@ -195,12 +195,12 @@ export function CaseForecastPage() {
 
       {loadingCase && (
         <div className="flex items-center gap-2 text-slate-500 text-sm">
-          <Loader2 size={16} className="animate-spin" /> Загрузка кейса…
+          <Loader2 size={16} className="animate-spin" /> Loading case…
         </div>
       )}
 
       {recentCases.length > 0 && !result && (
-        <Section title="Недавние кейсы" icon={<History size={14} />}>
+        <Section title="Recent cases" icon={<History size={14} />}>
           <div className="space-y-2">
             {recentCases.map(c => (
               <button
@@ -226,7 +226,7 @@ export function CaseForecastPage() {
           </div>
 
           {result.metadata?.pipeline_metrics && (
-            <Section title="Агенты pipeline" icon={<Bot size={14} className="text-purple-400" />}>
+            <Section title="Pipeline agents" icon={<Bot size={14} className="text-purple-400" />}>
               <div className="flex flex-wrap gap-2">
                 {result.metadata.pipeline_metrics.steps.map((s, i) => (
                   <span
@@ -245,7 +245,7 @@ export function CaseForecastPage() {
             </Section>
           )}
 
-          <Section title="Режимы таксономии (топ)" icon={<TrendingUp size={14} className="text-blue-400" />}>
+          <Section title="Top taxonomy modes" icon={<TrendingUp size={14} className="text-blue-400" />}>
             <div className="space-y-2">
               {result.top_modes.slice(0, 8).map(m => (
                 <div key={m.mode_id} className="flex justify-between text-xs bg-slate-900 rounded px-3 py-2">
@@ -259,10 +259,10 @@ export function CaseForecastPage() {
             </div>
           </Section>
 
-          <Section title="FPD — прогноз" icon={<TrendingUp size={14} className="text-cyan-400" />}>
+          <Section title="FPD — forecast" icon={<TrendingUp size={14} className="text-cyan-400" />}>
             <div className="mb-4 flex flex-wrap gap-4 text-sm">
               <div>
-                <span className="text-slate-500">Горизонт: </span>
+                <span className="text-slate-500">Horizon: </span>
                 <span className="text-white font-semibold">
                   {horizonLabels[result.fpd.horizon] ?? result.fpd.horizon}
                 </span>
@@ -280,7 +280,7 @@ export function CaseForecastPage() {
               <table className="w-full text-xs">
                 <thead>
                   <tr className="text-slate-500 text-left">
-                    <th className="pb-2 pr-3">Режим</th>
+                    <th className="pb-2 pr-3">Mode</th>
                     <th className="pb-2 pr-3">μ_forecast</th>
                     <th className="pb-2 pr-3">scenario_probability</th>
                     <th className="pb-2">grade</th>
@@ -306,12 +306,12 @@ export function CaseForecastPage() {
               </table>
             </div>
             <p className="text-[10px] text-slate-500 mt-2">
-              μ_forecast — нечёткая принадлежность; scenario_probability — вес сценария (отдельная величина).
+              μ_forecast — fuzzy membership; scenario_probability — scenario weight (separate value).
             </p>
 
             {result.fpd.early_warnings.length > 0 && (
               <div className="mt-4 space-y-2">
-                <p className="text-[10px] text-slate-500 uppercase">Ранние предупреждения</p>
+                <p className="text-[10px] text-slate-500 uppercase">Early warnings</p>
                 {result.fpd.early_warnings.map((w, i) => (
                   <div key={i} className="text-xs bg-slate-900 rounded px-3 py-2 flex gap-2">
                     <span className={cn('px-1.5 py-0.5 rounded text-[10px]', URGENCY_COLOR[w.urgency])}>
@@ -324,7 +324,7 @@ export function CaseForecastPage() {
             )}
           </Section>
 
-          <Section title="T4D — временная шкала" icon={<Clock size={14} className="text-amber-400" />}>
+          <Section title="T4D — timeline" icon={<Clock size={14} className="text-amber-400" />}>
             {result.t4d.worldline.length > 0 ? (
               <div className="space-y-3">
                 {result.t4d.worldline.map((pt, i) => (

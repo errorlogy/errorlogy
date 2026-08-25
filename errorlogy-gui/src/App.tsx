@@ -30,7 +30,7 @@ export default function App() {
               <Route
                 path="/globe"
                 element={
-                  <Suspense fallback={<div className="flex-1 flex items-center justify-center text-slate-400">Загрузка глобуса…</div>}>
+                  <Suspense fallback={<div className="flex-1 flex items-center justify-center text-slate-400">Loading globe…</div>}>
                     <GlobePage />
                   </Suspense>
                 }

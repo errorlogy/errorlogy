@@ -1,13 +1,13 @@
-# MAS — метрики оркестратора
+# MAS — orchestrator metrics
 
-> **Статус:** ACTIVE v0.2.2 · Backend + GUI
+> **Status:** ACTIVE v0.2.2 · Backend + GUI
 
-## Зачем
+## Why
 
-14-агентный пайплайн: engine vs LLM, timing, tokens, providers.
+14-agent pipeline: engine vs LLM, timing, tokens, providers.
 
-| Тип | Агенты |
-|-----|--------|
+| Type | Agents |
+|------|--------|
 | engine | wms, classifier, alpha, pno, acc, egd, t4d, cat, fpd |
 | LLM | scout, lbi, red_team, card_compiler, neutrality |
 
@@ -15,12 +15,12 @@
 
 - `errorlogy-mas/mas/metrics.py`
 - `GET /api/metrics`
-- `metadata.pipeline_metrics` в analyze response
-- In-memory (сессия uvicorn); v2 → SQLite/OTel
+- `metadata.pipeline_metrics` in analyze response
+- In-memory (uvicorn session); v2 → SQLite/OTel
 
 ## GUI
 
-- Маршрут: `/#/mas`
+- Route: `/#/mas`
 - KPI, step timeline, recent runs, agent registry
 - Auto-refresh 5s
 

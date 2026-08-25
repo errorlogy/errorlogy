@@ -1,6 +1,6 @@
-# Harness spec — один MAS-агент (шаблон)
-# Копировать: docs/reference/harness-engineering/templates/harness-spec.yaml
-# → errorlogy-mas/tests/evals/specs/<agent_id>.yaml (когда eval pilot начнётся)
+# Harness spec — MAS- ()
+# : docs/reference/harness-engineering/templates/harness-spec.yaml
+# → errorlogy-mas/tests/evals/specs/<agent_id>.yaml ( eval pilot )
 
 schema_version: "1.0"
 
@@ -12,7 +12,7 @@ agent:
 
 harness:
   description: |
-    Краткое описание роли агента в eval. Не путать с eval harness repo tools.
+eval. eval harness repo tools.
   inputs:
     - name: analysis_context
       from: orchestrator_state   # prior agent outputs

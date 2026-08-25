@@ -44,7 +44,7 @@ export function HealthBadge() {
           ? 'bg-emerald-900/30 text-emerald-300 border-emerald-800/50'
           : 'bg-red-900/30 text-red-300 border-red-800/50',
       )}
-      title={health ? `engine ${health.engine ?? '—'} · ${health.taxonomy_modes} режимов` : commonOffline}
+      title={health ? `engine ${health.engine ?? '—'} · ${health.taxonomy_modes} modes` : commonOffline}
     >
       <Activity size={12} />
       {ok ? 'API OK' : 'API offline'}
@@ -55,4 +55,4 @@ export function HealthBadge() {
   )
 }
 
-const commonOffline = 'Запустите: cd errorlogy-mas && python api/main.py'
+const commonOffline = 'Run: cd errorlogy-mas && python api/main.py'

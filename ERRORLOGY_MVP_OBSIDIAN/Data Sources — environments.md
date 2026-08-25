@@ -1,25 +1,25 @@
-# Data Sources — environments
+# Data Sources - environments
 
-> Маппинг внешних источников на WMS `source_environments` (taxonomy v16)
+> Mapping external sources to WMS `source_environments` (taxonomy v16)
 
 ## 12 WMS source environments
 
-Из `errorlogy-mas/data/errorlogy_unified_taxonomy_v16.json` → `source_environments`:
+From `errorlogy-mas/data/errorlogy_unified_taxonomy_v16.json` → `source_environments`:
 
-| ID | Label (кратко) |
+| ID | Label (briefly) |
 |----|----------------|
 | `parliamentary_inquiry` | Parliamentary / legislative inquiry |
 | `legal_judicial` | Courts, legal proceedings |
 | `audit_oversight` | Audit, IG, oversight bodies |
 | `regulatory_agency` | Regulatory agencies |
-| `executive_branch` | Executive / White House |
+| `executive_branch` | Executive/White House |
 | `media_investigation` | Investigative journalism |
 | `academic_research` | Academic / think tank |
 | `whistleblowers` | Whistleblower disclosures |
 | `international_body` | UN, EU bodies, etc. |
 | `corporate_disclosure` | Corporate filings |
 | `civil_society` | NGOs, advocacy |
-| `technical_literature` | Technical / engineering docs |
+| `technical_literature` | Technical/engineering docs |
 
 ## US gov fetcher mapping
 
@@ -38,18 +38,18 @@
 |------|---------------------|
 | BBC Politics | `media_investigation` |
 | gov.uk government feed | `executive_branch` / `regulatory_agency` |
-| Parliamentary / NAO-style | `parliamentary_inquiry` / `audit_oversight` |
+| Parliamentary/NAO-style | `parliamentary_inquiry` / `audit_oversight` |
 
 ## Hit schema (ingest)
 
-Каждый fetcher возвращает `normalize_hit` dict:
+Each fetcher returns a `normalize_hit` dict:
 
 - `source`, `source_type`, `url`, `title`, `text`, `country`, `doc_id`
-- опционально: `source_environment`, `agency`
+- optional: `source_environment`, `agency`
 
-Scout + engine используют текст; `source_environment` зарезервирован для будущего routing в WMS layers.
+Scout + engine use text; `source_environment` is reserved for future routing in WMS layers.
 
-## См. также
+## See also
 
-- [[Data Sources — обзор]]
-- [[Ingest — info stream layer]]
+- [[Data Sources - overview]]
+- [[Ingest - info stream layer]]

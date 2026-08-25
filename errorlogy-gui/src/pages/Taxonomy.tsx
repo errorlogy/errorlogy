@@ -92,7 +92,7 @@ export function Taxonomy() {
             <button onClick={() => setTab('graph')}
               className={cn('flex-1 text-xs py-1.5 rounded-lg font-semibold transition-colors flex items-center justify-center gap-1.5',
                 tab === 'graph' ? 'bg-red-600 text-white' : 'bg-slate-800 text-slate-400 hover:text-slate-200')}>
-              <Network size={12} /> Граф ({edges.length})
+              <Network size={12} /> Graph ({edges.length})
             </button>
           </div>
 
@@ -101,7 +101,7 @@ export function Taxonomy() {
               <div className="relative">
                 <Search size={13} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-500" />
                 <input value={query} onChange={e => setQuery(e.target.value)}
-                  placeholder="Поиск режимов…"
+                  placeholder="Search modes…"
                   className="w-full bg-slate-800 border border-slate-700 rounded-lg pl-8 pr-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-red-500" />
               </div>
               <div className="flex flex-wrap gap-1 max-h-24 overflow-y-auto">
@@ -124,7 +124,7 @@ export function Taxonomy() {
         {/* List */}
         <div className="flex-1 overflow-y-auto">
           {loading && (
-            <p className="text-xs text-slate-500 p-4 text-center">Загрузка таксономии…</p>
+            <p className="text-xs text-slate-500 p-4 text-center">Loading taxonomy…</p>
           )}
           {tab === 'modes' ? (
             <div className="divide-y divide-slate-800/50">
@@ -141,7 +141,7 @@ export function Taxonomy() {
                 </button>
               ))}
               {!loading && filtered.length === 0 && (
-                <p className="text-slate-500 text-xs p-4 text-center">Нет подходящих режимов.</p>
+                <p className="text-slate-500 text-xs p-4 text-center">No matching modes.</p>
               )}
             </div>
           ) : (
@@ -179,7 +179,7 @@ export function Taxonomy() {
         {selected ? (
           <div className="space-y-5 max-w-xl">
             {detailLoading && (
-              <p className="text-xs text-slate-500">Загрузка деталей режима…</p>
+              <p className="text-xs text-slate-500">Loading mode details…</p>
             )}
             <div>
               <span className={cn('text-xs font-mono px-2 py-1 rounded border', familyColor(selected.family))}>
@@ -187,29 +187,29 @@ export function Taxonomy() {
               </span>
               <h2 className="text-xl font-bold text-white mt-2">{selected.name}</h2>
               <div className="flex gap-3 mt-1 text-xs text-slate-500">
-                <span>Семейство: <span className="text-slate-400">{selected.family}</span></span>
-                {selected.layer && <span>Слой: <span className="text-slate-400">{selected.layer}</span></span>}
-                {selected.category && <span>Категория: <span className="text-slate-400">{selected.category}</span></span>}
+                <span>Family: <span className="text-slate-400">{selected.family}</span></span>
+                {selected.layer && <span>Layer: <span className="text-slate-400">{selected.layer}</span></span>}
+                {selected.category && <span>Category: <span className="text-slate-400">{selected.category}</span></span>}
               </div>
             </div>
 
             {selected.definition && (
               <div className="bg-slate-800 rounded-xl p-4">
-                <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">Определение</p>
+                <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">Definition</p>
                 <p className="text-sm text-slate-300 leading-relaxed">{selected.definition}</p>
               </div>
             )}
 
             {selected.operational_signal && (
               <div className="bg-slate-800 rounded-xl p-4">
-                <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">Операционный сигнал</p>
+                <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">Operational signal</p>
                 <p className="text-sm text-slate-300 leading-relaxed">{selected.operational_signal}</p>
               </div>
             )}
 
             {selected.meta_dimensions && selected.meta_dimensions.length > 0 && (
               <div className="bg-slate-800 rounded-xl p-4">
-                <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">Meta-измерения</p>
+                <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">Meta-dimensions</p>
                 <div className="flex gap-2 flex-wrap">
                   {selected.meta_dimensions.map(d => (
                     <span key={d} className="text-xs px-2 py-0.5 rounded bg-slate-700 text-slate-300 font-mono">{d}</span>
@@ -221,7 +221,7 @@ export function Taxonomy() {
             {connectedEdges.length > 0 && (
               <div className="bg-slate-800 rounded-xl p-4">
                 <p className="text-xs text-slate-500 uppercase tracking-widest mb-3">
-                  Alpha-связи ({connectedEdges.length})
+                  Alpha links ({connectedEdges.length})
                 </p>
                 <div className="space-y-1.5">
                   {connectedEdges.map((e, i) => {
@@ -256,8 +256,8 @@ export function Taxonomy() {
           <div className="h-full flex items-center justify-center">
             <div className="text-center text-slate-600 space-y-2">
               <Network size={40} className="mx-auto" />
-              <p className="text-sm">Выберите режим</p>
-              <p className="text-xs">{modes.length} режимов · {edges.length} alpha рёбер</p>
+              <p className="text-sm">Select a mode</p>
+              <p className="text-xs">{modes.length} modes · {edges.length} alpha edges</p>
             </div>
           </div>
         )}

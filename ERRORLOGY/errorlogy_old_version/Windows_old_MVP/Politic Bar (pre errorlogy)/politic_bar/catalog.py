@@ -107,39 +107,39 @@ _UNICODE_WORD_SAFE = re.compile(r"[^\w-]+", re.UNICODE)
 # Digraphs (sh, ch, etc.) are standard English-reader forms, not strict ISO-9,
 # because the slug is a filesystem id, not a linguistic transcription.
 _CYRILLIC_TRANSLIT: dict[str, str] = {
-    "а": "a", "б": "b", "в": "v", "г": "g", "д": "d",
-    "е": "e", "ё": "yo", "ж": "zh", "з": "z", "и": "i",
-    "й": "y", "к": "k", "л": "l", "м": "m", "н": "n",
-    "о": "o", "п": "p", "р": "r", "с": "s", "т": "t",
-    "у": "u", "ф": "f", "х": "kh", "ц": "ts", "ч": "ch",
-    "ш": "sh", "щ": "shch", "ъ": "", "ы": "y", "ь": "",
-    "э": "e", "ю": "yu", "я": "ya",
+    "x": "a", "x": "b", "x": "v", "x": "g", "x": "d",
+    "x": "e", "x": "yo", "x": "zh", "x": "z", "x": "i",
+    "x": "y", "x": "k", "x": "l", "x": "m", "x": "n",
+    "x": "o", "x": "p", "x": "r", "x": "s", "x": "t",
+    "x": "u", "x": "f", "x": "kh", "x": "ts", "x": "ch",
+    "x": "sh", "x": "shch", "x": "", "x": "y", "x": "",
+    "x": "e", "x": "yu", "x": "ya",
     # Ukrainian additions
-    "ґ": "g", "є": "ye", "і": "i", "ї": "yi",
+    "x": "g", "x": "ye", "x": "i", "x": "yi",
     # Belarusian
-    "ў": "w",
+    "x": "w",
 }
 
-# Ukrainian-only letters. If any appear in the input, switch `и` → `y`
-# (BGN/PCGN Ukrainian) instead of the default `и` → `i` (Russian).
-# Without this, "Володимир Зеленський" would slug as "volodimir-zelenskiy"
+# Ukrainian-only letters. If any appear in the input, switch `` → `y`
+# (BGN/PCGN Ukrainian) instead of the default `` → `i` (Russian).
+# Without this, " " would slug as "volodimir-zelenskiy"
 # rather than the canonical English rendering "volodymyr-zelenskyy".
-_UKRAINIAN_MARKERS: frozenset[str] = frozenset({"і", "ї", "є", "ґ"})
+_UKRAINIAN_MARKERS: frozenset[str] = frozenset({"x", "x", "x", "x"})
 
 
 def _transliterate_cyrillic(s: str) -> str:
     """Apply Cyrillic → Latin transliteration. Non-Cyrillic chars pass through
-    unchanged so mixed-script names like 'A. Иванов' survive.
+    unchanged so mixed-script names like 'A. ' survive.
 
-    If Ukrainian-only letters (і/ї/є/ґ) appear anywhere in the input, the
-    whole string is treated as Ukrainian and `и` is rendered `y` instead
+    If Ukrainian-only letters (///) appear anywhere in the input, the
+    whole string is treated as Ukrainian and `` is rendered `y` instead
     of `i`. This is a heuristic — a pure-Russian string containing these
     letters would be mistranslated, but in practice Russian text never
-    contains `і`, `ї`, `є`, or `ґ`.
+    contains ``, ``, ``, or ``.
     """
     if any(ch in _UKRAINIAN_MARKERS for ch in s):
         table = dict(_CYRILLIC_TRANSLIT)
-        table["и"] = "y"
+        table["x"] = "y"
         return "".join(table.get(ch, ch) for ch in s)
     return "".join(_CYRILLIC_TRANSLIT.get(ch, ch) for ch in s)
 

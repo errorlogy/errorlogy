@@ -39,10 +39,10 @@ candidates:
       engine_llm_fit: 4
       old_sketch_risk: 5
       total: null  # run research/score_candidate.py
-    notes_ru: |
-      Пример: durable workflows для длинных ingest/calibration job.
-      Риск: дублирует линейный orchestrator MAS; высокий coupling.
-      Альтернатива — cron + scripts/ (уже есть run_ingest_cron.py).
+    notes_en: |
+: durable workflows ingest/calibration job.
+: orchestrator MAS; coupling.
+— cron + scripts/ ( run_ingest_cron.py).
 
   - id: opentelemetry-python
     name: OpenTelemetry Python
@@ -63,9 +63,9 @@ candidates:
       engine_llm_fit: 5
       old_sketch_risk: 5
       total: null
-    notes_ru: |
-      Пример: трассировка FastAPI + per-agent latency для MasPage.
-      Не трогает engine/μ. Pilot — opt-in middleware, default off.
+    notes_en: |
+: FastAPI + per-agent latency MasPage.
+engine/μ. Pilot — opt-in middleware, default off.
 
   - id: openapi-typescript-codegen
     name: openapi-typescript-codegen
@@ -86,9 +86,9 @@ candidates:
       engine_llm_fit: 5
       old_sketch_risk: 5
       total: null
-    notes_ru: |
-      Пример: генерация типов из OpenAPI (http://127.0.0.1:8000/openapi.json)
-      для errorlogy-gui/src/lib/api.ts. Сверить с ручными типами; blast radius — весь API client.
+    notes_en: |
+: OpenAPI (http://127.0.0.1:8000/openapi.json)
+errorlogy-gui/src/lib/api.ts. ; blast radius — API client.
 
   - id: promptfoo
     name: promptfoo
@@ -109,10 +109,10 @@ candidates:
       engine_llm_fit: 4
       old_sketch_risk: 5
       total: null
-    notes_ru: |
-      Eval harness для Neutrality + Red Team (forbidden-substring graders, red-team cases).
+    notes_en: |
+Eval harness Neutrality + Red Team (forbidden-substring graders, red-team cases).
       Spec: errorlogy-mas/tests/evals/specs/neutrality.yaml, red_team.yaml.
-      CI default keyless; L4 live только EVAL_LIVE=1 / nightly.
+CI default keyless; L4 live EVAL_LIVE=1 / nightly.
 
   - id: pytest-agent-eval
     name: pytest-agent-eval
@@ -133,8 +133,8 @@ candidates:
       engine_llm_fit: 4
       old_sketch_risk: 5
       total: null
-    notes_ru: |
-      YAML/pytest eval runner для Scout GovernanceCase schema assertions.
+    notes_en: |
+YAML/pytest eval runner Scout GovernanceCase schema assertions.
       Spec: errorlogy-mas/tests/evals/specs/scout.yaml.
       Pilot P2 — deterministic fields in CI; LLM fields optional live.
 
@@ -160,13 +160,13 @@ candidates:
       engine_llm_fit: 5
       old_sketch_risk: 5
       total: 3.67
-    notes_ru: |
-      MIT, Python 3.10+. Installer/router для AI-агентов (Cursor/Claude Code): выбирает
-      и health-check'ает CLI-бэкенды (Jina Reader, twitter-cli, rdt-cli, yt-dlp, gh, feedparser,
-      Exa/mcporter, bili-cli, OpenCLI). Не серверный ingest-pipeline — агент вызывает shell напрямую.
-      Пересечение с MAS: Exa, RSS, URL уже в mas/ingest/fetchers/; US gov (CourtListener, FR, OIG)
-      Agent-Reach не покрывает. Gap: Twitter/Reddit/YouTube для social_media_layer и EGD weak signals.
-      Вердикт: maybe — не тянуть пакет agent-reach в production FastAPI; spike: cherry-pick
-      twitter-cli / Jina Reader как опциональные fetchers в ingest/ или dev-only Scout source gathering.
-      Риски: cookie-auth, datacenter 403 (Reddit), нестабильность бэкендов, CI без ключей/cookies.
-      Альтернатива: прямая интеграция upstream CLIs по списку channels/ из README, без meta-installer.
+    notes_en: |
+MIT, Python 3.10+. Installer/router AI- (Cursor/Claude Code):
+health-check' CLI- (Jina Reader, twitter-cli, rdt-cli, yt-dlp, gh, feedparser,
+Exa/mcporter, bili-cli, OpenCLI). ingest-pipeline — shell .
+MAS: Exa, RSS, URL mas/ingest/fetchers/; US gov (CourtListener, FR, OIG)
+Agent-Reach . Gap: Twitter/Reddit/YouTube social_media_layer EGD weak signals.
+: maybe — agent-reach production FastAPI; spike: cherry-pick
+twitter-cli / Jina Reader fetchers ingest/ dev-only Scout source gathering.
+: cookie-auth, datacenter 403 (Reddit), , CI /cookies.
+: upstream CLIs channels/ README, meta-installer.

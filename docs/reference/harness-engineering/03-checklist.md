@@ -1,84 +1,72 @@
-# Чеклист: новый агент или фича в MAS
+# Checklist: new agent or feature in MAS
 
-Использовать при PR, затрагивающем `mas/agents/`, `orchestrator.py`, `mas/engine/`, или API analyze.
-
----
-
-## Перед кодом
-
-- [ ] Фича в **ACTIVE** (`errorlogy-mas/`), не OLD SKETCH?
-- [ ] Числа остаются в `mas/engine/`, не в промпте?
-- [ ] Output types обновлены в `schemas/analysis.py` (если меняется contract)?
-- [ ] Заполнен или обновлён `templates/harness-spec.yaml` для затронутого агента?
+Use when PR touches `mas/agents/`, `orchestrator.py`, `mas/engine/`, or analyze API.
 
 ---
 
-## Детерминированный слой (обязательно)
+## Before code
 
-- [ ] Unit-тесты на новую engine-логику (`pytest tests/`)
-- [ ] `engine_only=True` путь не сломан
-- [ ] `python examples/run_challenger.py --engine-only` — green локально
-- [ ] μ не описан как probability в коде, тестах, docstrings
-- [ ] Weak-evidence cap (0.65) учтён, если затронут fuzzy/guards
+- [ ] Feature in **ACTIVE** (`errorlogy-mas/`), not OLD SKETCH?
+- [ ] Numbers stay in `mas/engine/`, not in prompt?
+- [ ] Output types updated in `schemas/analysis.py` (if contract changes)?
+- [ ] Filled or updated `templates/harness-spec.yaml` for affected agent?
+
+---
+
+## Deterministic layer (required)
+
+- [ ] Unit tests for new engine logic (`pytest tests/`)
+- [ ] `engine_only=True` path not broken
+- [ ] `python examples/run_challenger.py --engine-only` — green locally
+- [ ] μ not described as probability in code, tests, docstrings
+- [ ] Weak-evidence cap (0.65) respected if fuzzy/guards touched
 
 ---
 
 ## Agent harness
 
-- [ ] `LANGUAGE_RULES` в `agents/base.py` не ослаблены
-- [ ] Новый промпт — versioned (комментарий или константа), не «магический» inline без следа
-- [ ] Orchestrator step зарегистрирован; порядок пайплайна документирован
-- [ ] Red Team получает engine warnings, если агент их производит
+- [ ] `LANGUAGE_RULES` in `agents/base.py` not weakened
+- [ ] New prompt — versioned (comment or constant), not magic inline without trace
+- [ ] Orchestrator step registered; pipeline order documented
+- [ ] Red Team receives engine warnings if agent produces them
 
 ---
 
-## Eval harness (по мере зрелости)
+## Eval harness (as maturity allows)
 
-- [ ] Seed case или fixture для минимального regression (хотя бы 1)
-- [ ] Детерминированные assertions: schema, required fields, numeric bounds
-- [ ] LLM-judge evals — отдельный marker (`llm_eval` / `EVAL_LIVE=1`), не default CI
-- [ ] Dual-run: если меняется stochastic path — проверить `test_dual_run.py`
+- [ ] Seed case or fixture for minimal regression (at least 1)
+- [ ] Deterministic assertions: schema, required fields, numeric bounds
+- [ ] LLM-judge evals — separate marker (`llm_eval` / `EVAL_LIVE=1`), not default CI
+- [ ] Dual-run: if stochastic path changes — check `test_dual_run.py`
 
 ---
 
 ## Neutrality & public output
 
-- [ ] Card Compiler / Neutrality path затронут? → rubric на запрещённые формулировки
-- [ ] Нет legal accusations без evidence layer
-- [ ] Public card diff reviewable (не только «выглядит ок»)
+- [ ] Card Compiler / Neutrality path touched? → rubric on forbidden phrasing
+- [ ] No legal accusations without evidence layer
+- [ ] Public card diff reviewable (not only "looks ok")
 
 ---
 
 ## GUI / API
 
 - [ ] `errorlogy-gui` build green (`npm run build`)
-- [ ] Breaking change в API? → обновить `api.ts` / OpenAPI
-- [ ] SSE steps отражают новый агент (если visible)
+- [ ] Breaking API change? → update `api.ts` / OpenAPI
+- [ ] SSE steps reflect new agent (if visible)
 
 ---
 
 ## OSS / dependencies
 
-- [ ] Новая зависимость прошла Screen по [`oss-integration-funnel.md`](../../oss-integration-funnel.md)
-- [ ] Нет AGPL без legal review (desktop GUI)
-- [ ] `.env` / keys не в коммите
+- [ ] New dependency passed Screen per [`oss-integration-funnel.md`](../../oss-integration-funnel.md)
+- [ ] No AGPL without legal review (desktop GUI)
+- [ ] `.env` / keys not in commit
 
 ---
 
-## Перед merge
+## Before merge
 
 - [ ] CI green: pytest + engine-only challenger + GUI build
-- [ ] Blast radius оценён (1 агент vs весь pipeline)
-- [ ] RESEARCH code (`trn-sim`) не смешан в PR без bridge task
-
----
-
-## Быстрая классификация изменения
-
-| Тип изменения | Минимальный eval |
-|---------------|------------------|
-| Только `mas/engine/` | pytest + engine_only |
-| Один agent prompt | + harness-spec update + optional live spot-check |
-| Orchestrator order | full regression + dual-run review |
-| Schema break | pytest + API contract + GUI build |
-| New OSS eval tool | Spike branch, не прямой merge |
+- [ ] Blast radius assessed (1 agent vs whole pipeline)
+- [ ] RESEARCH code (`trn-sim`) not mixed in PR without bridge task

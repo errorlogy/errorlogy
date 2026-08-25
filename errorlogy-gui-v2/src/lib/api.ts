@@ -73,7 +73,7 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
       },
     })
   } catch {
-    throw new ApiError('Сеть недоступна — запущен ли FastAPI на :8000?', 0, 'network')
+    throw new ApiError('Network unavailable — is FastAPI running on :8000?', 0, 'network')
   }
 
   if (!res.ok) {
@@ -143,14 +143,14 @@ export const api = {
         body: JSON.stringify(body),
       })
     } catch {
-      throw new ApiError('Сеть недоступна — запущен ли FastAPI на :8000?', 0, 'network')
+      throw new ApiError('Network unavailable — is FastAPI running on :8000?', 0, 'network')
     }
 
     if (!res.ok) {
       const detail = await parseErrorBody(res)
       throw new ApiError(`POST /api/analyze/stream → ${res.status}: ${detail}`, res.status, classifyError(res.status))
     }
-    if (!res.body) throw new ApiError('Пустой ответ от analyze stream', 0, 'network')
+    if (!res.body) throw new ApiError('Empty response from analyze stream', 0, 'network')
 
     const reader = res.body.getReader()
     const decoder = new TextDecoder()
@@ -168,7 +168,7 @@ export const api = {
       const parsed = JSON.parse(data)
       if (event === 'step') onStep(parsed)
       else if (event === 'done') result = parsed as CaseAnalysis
-      else if (event === 'error') throw new Error(parsed.detail ?? 'Анализ не удался')
+      else if (event === 'error') throw new Error(parsed.detail ?? 'Analysis failed')
     }
 
     while (true) {
@@ -184,7 +184,7 @@ export const api = {
     }
     if (buffer && !buffer.startsWith(':')) handleBlock(buffer)
 
-    if (!result) throw new Error('Поток завершился без результата')
+    if (!result) throw new Error('Stream ended without result')
     return result
   },
 

@@ -106,13 +106,13 @@ export function MasPage() {
 
           <p className="text-slate-500 text-xs mt-1">
 
-            Метрики агентов — engine vs LLM · время · токены · история сессии
+            Agent metrics — engine vs LLM · time · tokens · session history
 
           </p>
 
         </div>
 
-        <button onClick={load} className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800" title="Обновить">
+        <button onClick={load} className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800" title="Refresh">
 
           <RefreshCw size={16} className={loading ? 'animate-spin' : ''} />
 
@@ -138,13 +138,13 @@ export function MasPage() {
 
             <Kpi label="Engine" value={data.engine_version} icon={<Cpu size={16} />} accent="text-red-400" />
 
-            <Kpi label="Запусков (сессия)" value={String(data.runs_in_session)} icon={<Zap size={16} />} accent="text-amber-400" />
+            <Kpi label="Runs (session)" value={String(data.runs_in_session)} icon={<Zap size={16} />} accent="text-amber-400" />
 
-            <Kpi label="LLM вызовов" value={String(data.total_llm_calls)} icon={<Bot size={16} />} accent="text-blue-400" />
+            <Kpi label="LLM calls" value={String(data.total_llm_calls)} icon={<Bot size={16} />} accent="text-blue-400" />
 
-            <Kpi label="Engine шагов" value={String(data.total_engine_calls)} icon={<Cpu size={16} />} accent="text-purple-400" />
+            <Kpi label="Engine steps" value={String(data.total_engine_calls)} icon={<Cpu size={16} />} accent="text-purple-400" />
 
-            <Kpi label="Токены in/out" value={`${data.total_input_tokens}/${data.total_output_tokens}`} icon={<Activity size={16} />} accent="text-green-400" />
+            <Kpi label="Tokens in/out" value={`${data.total_input_tokens}/${data.total_output_tokens}`} icon={<Activity size={16} />} accent="text-green-400" />
 
           </div>
 
@@ -156,7 +156,7 @@ export function MasPage() {
 
               <p className="text-xs text-slate-500 uppercase tracking-widest mb-3">
 
-                Последний запуск pipeline {displayRun ? `· ${displayRun.case_id}` : ''}
+                Last pipeline run {displayRun ? `· ${displayRun.case_id}` : ''}
 
               </p>
 
@@ -166,7 +166,7 @@ export function MasPage() {
 
               ) : (
 
-                <p className="text-slate-500 text-sm">Запусков пока нет — используйте «Анализ».</p>
+                <p className="text-slate-500 text-sm">No runs yet — use Analyze.</p>
 
               )}
 
@@ -176,7 +176,7 @@ export function MasPage() {
 
             <div className="bg-slate-800 rounded-xl p-4">
 
-              <p className="text-xs text-slate-500 uppercase tracking-widest mb-3">Реестр агентов (14)</p>
+              <p className="text-xs text-slate-500 uppercase tracking-widest mb-3">Agent registry (14)</p>
 
               <div className="space-y-1.5">
 
@@ -210,7 +210,7 @@ export function MasPage() {
 
             <div className="bg-slate-800 rounded-xl p-4">
 
-              <p className="text-xs text-slate-500 uppercase tracking-widest mb-3">Недавние запуски</p>
+              <p className="text-xs text-slate-500 uppercase tracking-widest mb-3">Recent runs</p>
 
               <div className="overflow-x-auto">
 
@@ -220,17 +220,17 @@ export function MasPage() {
 
                     <tr className="text-slate-500 text-left">
 
-                      <th className="pb-2 pr-4">Кейс</th>
+                      <th className="pb-2 pr-4">Case</th>
 
-                      <th className="pb-2 pr-4">Режим</th>
+                      <th className="pb-2 pr-4">Mode</th>
 
-                      <th className="pb-2 pr-4">Длительность</th>
+                      <th className="pb-2 pr-4">Duration</th>
 
                       <th className="pb-2 pr-4">Engine</th>
 
                       <th className="pb-2 pr-4">LLM</th>
 
-                      <th className="pb-2">Токены</th>
+                      <th className="pb-2">Tokens</th>
 
                     </tr>
 
@@ -308,13 +308,13 @@ function StepTimeline({ run }: { run: PipelineRunMetric }) {
 
       <div className="flex gap-4 text-[10px] text-slate-500">
 
-        <span>Всего {(t.total_duration_ms / 1000).toFixed(2)}s</span>
+        <span>Total {(t.total_duration_ms / 1000).toFixed(2)}s</span>
 
         <span className="text-red-400">engine {(t.engine_duration_ms / 1000).toFixed(2)}s</span>
 
         <span className="text-amber-400">LLM {(t.llm_duration_ms / 1000).toFixed(2)}s</span>
 
-        {t.input_tokens > 0 && <span>токены {t.input_tokens}→{t.output_tokens}</span>}
+        {t.input_tokens > 0 && <span>tokens {t.input_tokens}→{t.output_tokens}</span>}
 
       </div>
 

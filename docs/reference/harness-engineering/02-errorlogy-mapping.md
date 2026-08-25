@@ -1,4 +1,4 @@
-# Маппинг harness engineering → Errorlogy
+# Harness engineering → Errorlogy mapping
 
 ---
 
@@ -6,110 +6,77 @@
 
 ### Agent harness (production)
 
-| Компонент | Путь | Harness-роль |
+| Component | Path | Harness role |
 |-----------|------|----------------|
-| Orchestrator | `mas/orchestrator.py` | Цикл 14 агентов, `engine_only`, `structure_only`, dual-run |
-| Engine | `mas/engine/*` | Детерминированный слой — **ядро**, не LLM |
-| Agents | `mas/agents/*` | Промпты, LANGUAGE_RULES, narrative после engine |
+| Orchestrator | `mas/orchestrator.py` | 14-agent loop, `engine_only`, `structure_only`, dual-run |
+| Engine | `mas/engine/*` | Deterministic layer — **core**, not LLM |
+| Agents | `mas/agents/*` | Prompts, LANGUAGE_RULES, narrative after engine |
 | Guards | `mas/engine/guards.py` | Weak-evidence μ cap, warnings → Red Team |
-| Schemas | `mas/schemas/analysis.py` | Contract для graders |
-| Dual-run | `tests/test_dual_run.py`, orchestrator flags | Детекция drift между прогонами |
-| Neutrality | `agents/neutrality*.py` | Language compliance — кандидат на LLM-rubric eval |
+| Schemas | `mas/schemas/analysis.py` | Contract for graders |
+| Dual-run | `tests/test_dual_run.py`, orchestrator flags | Drift detection between runs |
+| Neutrality | `agents/neutrality*.py` | Language compliance — LLM-rubric eval candidate |
 
-### Eval harness (сегодня)
+### Eval harness (today)
 
-| Артефакт | Тип | CI |
+| Artifact | Type | CI |
 |----------|-----|-----|
-| `pytest tests/` | L1 unit + integration | ✅ каждый PR |
-| `run_challenger.py --engine-only` | L2 smoke eval | ✅ каждый PR |
-| `run_challenger.py` (full) | L4 live E2E | локально, нужны keys |
-| `examples/run_challenger.py` кейс Challenger | Golden seed case | фиксированный текст STS-51L |
+| `pytest tests/` | L1 unit + integration | ✅ every PR |
+| `run_challenger.py --engine-only` | L2 smoke eval | ✅ every PR |
+| `run_challenger.py` (full) | L4 live E2E | local, keys required |
+| `examples/run_challenger.py` Challenger case | Golden seed case | fixed STS-51L text |
 
-### Пробелы (целевые для harness spec)
+### Gaps (targets for harness spec)
 
 - Per-agent eval YAML (Scout extraction, Neutrality violations)
-- Recorded outputs / cassettes для regression без live LLM
-- API-level eval (`POST /analyze`) с schema assertions
-- Метрики latency per agent step (SSE уже в GUI — источник для eval)
+- Recorded outputs / cassettes for regression without live LLM
+- API-level eval (`POST /analyze`) with schema assertions
+- Per-agent step latency metrics (SSE in GUI — source for eval)
 
 ---
 
 ## errorlogy-gui / errorlogy-gui-v2 (ACTIVE)
 
-| Зона | Harness-связь |
+| Zone | Harness link |
 |------|----------------|
-| `errorlogy-gui` Analyze | UI для full / `engine_only` / LightweightScout / dual-run |
-| `src/lib/api.ts` | Contract client — eval на breaking API changes |
-| `errorlogy-gui-v2` | Browser UI прогноза — smoke `npm run build` в CI |
-| SSE step progress | Observability surface для manual + future automated trace compare |
+| `errorlogy-gui` Analyze | UI for full / `engine_only` / LightweightScout / dual-run |
+| `src/lib/api.ts` | Contract client — eval on breaking API changes |
+| `errorlogy-gui-v2` | Browser forecast UI — smoke `npm run build` in CI |
+| SSE step progress | Observability surface for manual + future automated trace compare |
 
-GUI evals — **contract + build**, не LLM quality (quality — на MAS).
+GUI evals — **contract + build**, not LLM quality (quality — on MAS).
 
 ---
 
 ## errorlogy-trn-sim (RESEARCH)
 
-| Правило | Деталь |
+| Rule | Detail |
 |---------|--------|
-| Отдельный harness | `run_experiments.py`, CSV outputs, `validate_outputs.py` |
-| Bridge | `bridge/egd_stub.py` — единственная точка соприкосновения с MAS engine |
-| Eval focus | Polarization / anticonsensus метрики, не 14-agent narrative |
+| Separate harness | `run_experiments.py`, CSV outputs, `validate_outputs.py` |
+| Bridge | `bridge/egd_stub.py` — only MAS engine touchpoint |
+| Eval focus | Polarization / anticonsensus metrics, not 14-agent narrative |
 
-Не переносить trn-sim eval patterns в `mas/agents/` без explicit migration.
+Do not move trn-sim eval patterns into `mas/agents/` without explicit migration.
 
 ---
 
 ## OSS integration funnel
 
-| Стадия | Harness-активность |
+| Stage | Harness activity |
 |--------|-------------------|
-| Discover | Запись eval-tool в `research/oss-candidates.yaml`, `target_area: mas` или `infra` |
-| Screen | Оси `test_safety`, `engine_llm_fit` — критичны для harness tools |
-| Spike | POC: один агент + `templates/harness-spec.yaml` |
-| Pilot | Opt-in flag, default off; CI green обязателен |
-| Adopt | Документация в этом handbook, тесты в `errorlogy-mas/tests/` |
+| Discover | Record eval-tool in `research/oss-candidates.yaml`, `target_area: mas` or `infra` |
+| Screen | Axes `test_safety`, `engine_llm_fit` — critical for harness tools |
+| Spike | POC: one agent + `templates/harness-spec.yaml` |
+| Pilot | Opt-in flag, default off; CI green required |
+| Adopt | Documentation in this handbook, tests in `errorlogy-mas/tests/` |
 
-См. [05-next-steps.md](05-next-steps.md) для конкретных кандидатов.
+See [05-next-steps.md](05-next-steps.md) for specific candidates.
 
 ---
 
-## CI pipeline (текущий = минимальный eval harness)
+## CI pipeline (current = minimal eval harness)
 
 ```text
 push/PR → pytest (MAS) → run_challenger --engine-only → npm run build (GUI)
 ```
 
-Это **quality gate** уровня Pilot→Adopt из [`oss-integration-funnel.md`](../../oss-integration-funnel.md).
-
----
-
-## Диаграмма: где что живёт
-
-```mermaid
-flowchart TB
-  subgraph eval [Eval Harness]
-    PY[pytest L1]
-    CH[run_challenger engine_only L2]
-    LIVE[Live LLM evals L4]
-  end
-
-  subgraph agent [Agent Harness MAS]
-    ORCH[Orchestrator]
-    ENG[mas/engine]
-    AG[14 agents]
-    GR[guards + neutrality]
-  end
-
-  PY --> ENG
-  CH --> ORCH
-  ORCH --> ENG
-  ORCH --> AG
-  AG --> GR
-  LIVE --> ORCH
-
-  subgraph research [RESEARCH]
-    TRN[errorlogy-trn-sim]
-  end
-
-  TRN -.->|bridge only| ENG
-```
+This is the **quality gate** for Pilot→Adopt from [`oss-integration-funnel.md`](../../oss-integration-funnel.md).

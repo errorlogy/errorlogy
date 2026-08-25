@@ -1,52 +1,52 @@
-# Теория TRN: синтетическая исследовательская рамка
+# TRN theory: synthetic research framework
 
-TRN (Trans-Reactive Network) в этом пакете — **абстрактный класс** информационных сред, не модель конкретной платформы. Формальный аппарат: [MATHEMATICAL_MODEL.md](MATHEMATICAL_MODEL.md). Фазовая диаграмма: [PHASE_DIAGRAM.md](PHASE_DIAGRAM.md).
-
----
-
-## 1. Определение
-
-TRN — транс-реактивная информационная среда, которая:
-
-1. **наблюдает** состояние синтетических агентов \(\mathbf{x}(t)\);
-2. **формирует** локальное нарративное поле \(P_i(t)\);
-3. **воздействует** на динамику мнений через coupling \(I_i(t)\);
-4. **получает обратную связь** через метрики \(C,\mathrm{Pol},\mathrm{Ext},H,R_{\mathrm{TRN}}\).
-
-Замкнутый контур «среда ↔ агенты» изучается в режимах консенсуса, мягкой поляризации, кластеризации и антиконсенсуса.
+TRN (Trans-Reactive Network) in this package — **abstract class** , not a model of a specific platform. Formal apparatus: [MATHEMATICAL_MODEL.md](MATHEMATICAL_MODEL.md). Phase diagram: [PHASE_DIAGRAM.md](PHASE_DIAGRAM.md).
 
 ---
 
-## 2. Объект моделирования
+## 1. Definition
 
-Популяция \(N\) агентов на графе \(G\) с матрицей влияния \(W\). Каждый агент несёт мнение \(b_i\in[-1,1]\), эмоцию \(e_i\), параметры фильтрации \(q_i\), устойчивости \(r_i\), восприимчивости \(m_i\).
+TRN — - , :
 
-**Два источника изменения мнения:**
+1. **observes** \(\mathbf{x}(t)\);
+2. **forms** \(P_i(t)\);
+3. **acts on** coupling \(I_i(t)\);
+4. **receives feedback** \(C,\mathrm{Pol},\mathrm{Ext},H,R_{\mathrm{TRN}}\).
 
-- **социальный** \(S_i\) — bounded confidence (локальный консенсус);
-- **TRN** \(I_i\) — притяжение к нарративному полюсу \(P_i\).
-
-Без \(\lambda=0\) среда пассивна; при \(\lambda>0\) включается trans-reactive coupling.
+Closed loop « ↔ » studied in regimes of , , .
 
 ---
 
-## 3. Типология агентов L1–L5 (без AGI/ASI)
+## 2. Modeling object
 
-Уровни — **распределения параметров**, не онтологические типы:
+Population \(N\) agents on graph \(G\) \(W\). Each agent carries opinion \(b_i\in[-1,1]\), \(e_i\), \(q_i\), \(r_i\), \(m_i\).
 
-| Уровень | Название | Параметры | Поведение в модели |
+**Two sources of opinion change:**
+
+- **social** \(S_i\) — bounded confidence ( );
+- **TRN** \(I_i\) — attraction to narrative pole \(P_i\).
+
+Without \(\lambda=0\) environment is passive; \(\lambda>0\) trans-reactive coupling activates.
+
+---
+
+## 3. Agent typology L1–L5 ( AGI/ASI)
+
+Levels — **parameter distributions**, not ontological types:
+
+| | Name | | Behavior in model |
 |---:|---|---|---|
-| L1 | Reactive | \(e_i\); `rho`, `delta` | Эмоция растёт от конфликта \(|P_i-b_i|\); через \(\beta_1\) повышает внимание \(A_i\) |
-| L2 | Mimetic | \(m_i\), \(\alpha_i\) | \(m_i\) масштабирует TRN; \(\alpha_i\) — скорость подражания соседям |
-| L3 | Narrative | режим \(P_i\), \(\chi\) | Чувствительность к локальному/глобальному нарративу |
-| L4 | Reflective | \(q_i\) | Множитель \((1-q_i)\) подавляет TRN |
-| L5 | Strategic | \(r_i\) | Множитель \((1-r_i)\) подавляет TRN |
+| L1 | Reactive | \(e_i\); `rho`, `delta` | Emotion grows from conflict \(|P_i-b_i|\); \(\beta_1\) increases attention \(A_i\) |
+| L2 | Mimetic | \(m_i\), \(\alpha_i\) | \(m_i\) scales TRN; \(\alpha_i\) — imitation rate of neighbors |
+| L3 | Narrative | \(P_i\), \(\chi\) | Sensitivity to local/global narrative |
+| L4 | Reflective | \(q_i\) | Multiplier \((1-q_i)\) suppresses TRN |
+| L5 | Strategic | \(r_i\) | Multiplier \((1-r_i)\) suppresses TRN |
 
-**Пример stress-профиля** (`stress_config.json`): низкие \(\bar q,\bar r\) (L4–L5 ослаблены), высокое \(\bar m\) (L2 усилен) → высокая \(\bar\phi=\bar m(1-\bar r)(1-\bar q)\).
+**Example stress profile** (`stress_config.json`): \(\bar q,\bar r\) (L4–L5 weakened), \(\bar m\) (L2 strengthened) → \(\bar\phi=\bar m(1-\bar r)(1-\bar q)\).
 
 ---
 
-## 4. Режимы системы
+## 4. System regimes
 
 ```mermaid
 stateDiagram-v2
@@ -57,110 +57,110 @@ stateDiagram-v2
     Consensus --> EchoClustering: echo mode, chi high
 ```
 
-| Режим | Признаки | Типичные параметры |
+| | | |
 |---|---|---|
-| Консенсус | \(C\gtrsim 0.9\), \(\mathrm{Ext}\approx 0\) | \(\lambda=0\) или echo + высокие \(q,r\) |
-| Мягкая поляризация | \(0.3<\mathrm{Pol}<0.55\), \(\mathrm{Ext}<0.35\) | \(\lambda\approx 0.2\) (stress) |
-| Антиконсенсус (формальный) | \(\mathcal{A}=1\) | см. §5 |
-| Bipolar lock-in | \(\mathrm{Ext}\to 1\), два кластера у \(\pm 1\) | bipolar + \(\lambda\ge 0.4\) |
+| | \(C\gtrsim 0.9\), \(\mathrm{Ext}\approx 0\) | \(\lambda=0\) echo + \(q,r\) |
+| | \(0.3<\mathrm{Pol}<0.55\), \(\mathrm{Ext}<0.35\) | \(\lambda\approx 0.2\) (stress) |
+| () | \(\mathcal{A}=1\) | . §5 |
+| Bipolar lock-in | \(\mathrm{Ext}\to 1\), \(\pm 1\) | bipolar + \(\lambda\ge 0.4\) |
 
 ---
 
-## 5. Антиконсенсус: определение и пороги
+## 5. :
 
-Антиконсенсус — **не** просто «мнения разошлись». Это устойчивый режим одновременно:
+— **** « ». :
 
-1. низкий общий консенсус;
-2. высокая дисперсия мнений;
-3. высокая доля **крайних** позиций;
-4. (концептуально) слабое межкластерное взаимодействие — пока не формализовано в коде.
+1. low ;
+2. ;
+3. **** ;
+4. () — .
 
-**Операционное определение** (`metrics.py`):
+** ** (`metrics.py`):
 
 \[
 \mathcal{A}=1 \iff C<0.45,\ \mathrm{Pol}>0.44,\ \mathrm{Ext}>0.35,
 \]
 
-где \(\mathrm{Ext}\) считает долю агентов с \(|b_i|>0.65\).
+\(\mathrm{Ext}\) \(|b_i|>0.65\).
 
-**Связь с \(R_{\mathrm{TRN}}\):**
+**Link to \(R_{\mathrm{TRN}}\):**
 
 \[
 R_{\mathrm{TRN}}=\frac{\lambda\bar m(1-\bar r)(1-\bar q)\chi}{\bar h+\varepsilon}.
 \]
 
-Индекс агрегирует «давление среды» в числитель (усиление поля) и нормирует на \(\bar h\) (социальная связность). В stress-сценарии переход к \(\mathcal{A}=1\) совпадает с \(R_{\mathrm{TRN}}\approx 1.2\).
+« » (strengthened ) \(\bar h\) ( ). stress- \(\mathcal{A}=1\) \(R_{\mathrm{TRN}}\approx 1.2\).
 
-**Пороги 0.45 / 0.44 / 0.35** — эмпирическая калибровка под bipolar stress, не физические константы. Условие \(\mathrm{Pol}>0.44\) избыточно при \(C=1-\mathrm{Pol}\) (см. MATHEMATICAL_MODEL §6.5).
+** 0.45 / 0.44 / 0.35** — bipolar stress, . \(\mathrm{Pol}>0.44\) \(C=1-\mathrm{Pol}\) (. MATHEMATICAL_MODEL §6.5).
 
 ---
 
-## 6. Главная исследовательская гипотеза
+## 6.
 
-Вероятность антиконсенсуса (доля запусков с \(\mathcal{A}=1\)) **не убывает** при:
+( \(\mathcal{A}=1\)) ** ** :
 
 \[
 \lambda\uparrow,\quad \bar m\uparrow,\quad \bar q\downarrow,\quad \bar r\downarrow,\quad \chi\uparrow\ (\text{echo}),\quad \bar h\downarrow.
 \]
 
-**Частично подтверждено** sweep по \(\lambda\) (`outputs/stress/lambda_sweep.csv`): \(\mathcal{A}\)-rate с 0 → 1 между \(\lambda=0.2\) и \(0.4\).
+** ** sweep \(\lambda\) (`outputs/stress/lambda_sweep.csv`): \(\mathcal{A}\)-rate 0 → 1 \(\lambda=0.2\) \(0.4\).
 
-**Ограничение:** при \(\lambda=0\) параметры \(q,r,\chi\) **не влияют** на траекторию — гипотеза о \(q,r,\chi\) проверяется только при \(\lambda>0\).
+**:** \(\lambda=0\) \(q,r,\chi\) ** ** — \(q,r,\chi\) \(\lambda>0\).
 
 ---
 
-## 7. Фазовый переход
+## 7.
 
-При фиксированном bipolar stress-профиле наблюдается **резкий** (не обязательно дискретный в термодинамическом смысле) переход:
+bipolar stress- observes **** ( ) :
 
 \[
 \lambda_{\mathrm{crit}}^{\mathrm{emp}}\approx 0.35\pm 0.05.
 \]
 
-Mean-field оценка \(\lambda_{\mathrm{crit}}^{\mathrm{MF}}\approx 0.49\) — тот же порядок (см. MATHEMATICAL_MODEL §7.3).
+Mean-field \(\lambda_{\mathrm{crit}}^{\mathrm{MF}}\approx 0.49\) — (. MATHEMATICAL_MODEL §7.3).
 
-**Ключевой механизм:** при \(\lambda<\lambda_{\mathrm{crit}}\) социальный член \(S_i\) сглаживает мнения к центру; при \(\lambda>\lambda_{\mathrm{crit}}\) TRN переводит агентов к назначенным полюсам \(\pm 1\) быстрее, чем соседи успевают компенсировать → рост \(\mathrm{Ext}\) и срабатывание \(\mathcal{A}\).
+** :** \(\lambda<\lambda_{\mathrm{crit}}\) social \(S_i\) ; \(\lambda>\lambda_{\mathrm{crit}}\) TRN \(\pm 1\) , → \(\mathrm{Ext}\) \(\mathcal{A}\).
 
 ---
 
-## 8. Связь с Errorlogy
+## 8. Link to Errorlogy
 
-| Errorlogy (MAS) | TRN-симуляция |
+| Errorlogy (MAS) | TRN- |
 |---|---|
-| EGD `echo_room_pressure` | \(\lambda\), \(\chi\) (эвристика в `egd_stub.py`) |
-| EGD `hidden_signal_prior` | \(\bar h\) (узкое окно доверия) |
-| Таксономия v16, \(\mu\) | **не** отождествлять с \(R_{\mathrm{TRN}}\) или \(\mathcal{A}\) |
-| 14-agent pipeline | **не** интегрирован; RESEARCH-слой |
+| EGD `echo_room_pressure` | \(\lambda\), \(\chi\) ( `egd_stub.py`) |
+| EGD `hidden_signal_prior` | \(\bar h\) ( ) |
+| v16, \(\mu\) | **** \(R_{\mathrm{TRN}}\) \(\mathcal{A}\) |
+| 14-agent pipeline | **** ; RESEARCH- |
 
-TRN-симуляция **усиливает теорию** (динамика поля, пороги), не заменяет анализ кейсов в MAS.
+TRN- ** ** ( , ), MAS.
 
 ---
 
-## 9. Протокол и воспроизводимость
+## 9.
 
 - Stress: `python run_experiments.py --config configs/stress_config.json --out outputs/stress --sweep`
 - Echo baseline: `configs/sweep_config.json`
-- Валидация CSV: `scripts/validate_outputs.py outputs --recursive`
+- CSV: `scripts/validate_outputs.py outputs --recursive`
 
-Подробности: [EXPERIMENT_PROTOCOL.md](EXPERIMENT_PROTOCOL.md).
-
----
-
-## 10. Ограничения модели
-
-1. Одномерное мнение \(b_i\); нет тематических осей.
-2. \(q,r\) не фильтруют социальное влияние — только TRN.
-3. Bipolar \(z_i\) фиксированы — нет эндогенной смены «лагеря».
-4. Явный Эйлер + clip; нет доказательства глобальной устойчивости при всех \(\theta\).
-5. Пороги антиконсенсуса не калиброваны на эмпирических социальных данных.
+: [EXPERIMENT_PROTOCOL.md](EXPERIMENT_PROTOCOL.md).
 
 ---
 
-## 11. Открытые вопросы
+## 10.
 
-1. Универсален ли \(R_{\mathrm{TRN}}\gtrsim 1\) как предиктор \(\mathcal{A}\) вне stress-профиля?
-2. Какова форма \(\lambda_{\mathrm{crit}}(\bar q,\bar r)\) при фиксированном \(\lambda\)?
-3. Нужна ли метрика \(K_{\mathrm{clusters}}\) для отличия антиконсенсуса от bipolar lock-in?
-4. Как калибровать `egd_stub` без подмены \(\mu\) вероятностью?
+1. \(b_i\); .
+2. \(q,r\) — TRN.
+3. Bipolar \(z_i\) — «».
+4. + clip; \(\theta\).
+5. .
 
-Фalsifiable план экспериментов — MATHEMATICAL_MODEL §12.
+---
+
+## 11.
+
+1. \(R_{\mathrm{TRN}}\gtrsim 1\) \(\mathcal{A}\) stress-?
+2. \(\lambda_{\mathrm{crit}}(\bar q,\bar r)\) \(\lambda\)?
+3. \(K_{\mathrm{clusters}}\) bipolar lock-in?
+4. `egd_stub` \(\mu\) ?
+
+alsifiable — MATHEMATICAL_MODEL §12.

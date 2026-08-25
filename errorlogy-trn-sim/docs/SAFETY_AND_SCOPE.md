@@ -1,29 +1,29 @@
 # Safety and Scope
 
-## Назначение
+## Purpose
 
-Этот пакет предназначен для **синтетического агентного моделирования** информационных сред. Он не содержит инструментов для реального сбора данных, реального таргетинга, реальной персонализации сообщений или практического влияния на людей.
+This package is for **synthetic agent modeling** of information environments. It contains no tools for real data collection, real targeting, real message personalization, or practical influence on people.
 
-## Разрешённые режимы
+## Allowed modes
 
-Разрешено:
+Allowed:
 
-1. Использовать только синтетических агентов.
-2. Использовать только искусственно созданные графы связей.
-3. Исследовать устойчивость системы к внешним информационным полям.
-4. Строить метрики риска поляризации, фрагментации и антиконсенсуса.
-5. Использовать результаты для защитной аналитики, образовательных целей и теоретических исследований.
+1. Use synthetic agents only.
+2. Use artificially created connection graphs only.
+3. Study system resilience to external information fields.
+4. Build polarization, fragmentation, and anticonsensus risk metrics.
+5. Use results for defensive analytics, education, and theoretical research.
 
-## Запрещённые режимы
+## Prohibited modes
 
-Запрещено:
+Prohibited:
 
-1. Подключать реальные соцсети, SDK, рекламные кабинеты, банковские данные, CRM или платформенные API.
-2. Использовать реальные персональные данные.
-3. Использовать реальные политические, этнические, религиозные, медицинские или иные чувствительные группы как объекты моделирования.
-4. Генерировать инструкции для практического когнитивного воздействия.
-5. Оптимизировать реальные сообщения для манипуляции людьми.
+1. Connect real social networks, SDKs, ad accounts, banking data, CRM, or platform APIs.
+2. Use real personal data.
+3. Use real political, ethnic, religious, medical, or other sensitive groups as modeling targets.
+4. Generate instructions for practical cognitive influence.
+5. Optimize real messages to manipulate people.
 
-## Формулировка для агента
+## Agent guidance
 
-Если другой агент интерпретирует TRN как инструмент нападения или манипуляции, он должен остановиться и вернуть задачу в рамки синтетической, защитной, диагностической симуляции.
+If another agent interprets TRN as an attack or manipulation tool, it must stop and return the task to synthetic, defensive, diagnostic simulation scope.

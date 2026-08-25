@@ -1,24 +1,24 @@
 # Roadmap — MAS & Math Development TZ
 
-> **Статус:** ACTIVE · **Дата:** 2026-06-13  
-> **Область:** `errorlogy-mas/`, `errorlogy-gui/`, таксономия v16  
-> **Связи:** [[Таксономия vs Engine — formalization gap]] · [[Roadmap — implementation log]] · [[errorlogy-mas — активный MVP (Claude)]] · [[Ingest — info stream layer]] · [[MAS — метрики оркестратора]]
+> **Status:** ACTIVE · **:** 2026-06-13
+> **:** `errorlogy-mas/`, `errorlogy-gui/`, v16
+> **:** [[Taxonomy vs Engine — formalization gap]] · [[Roadmap — implementation log]] · [[errorlogy-mas — active MVP (Claude)]] · [[Ingest — info stream layer]] · [[MAS — orchestrator metrics]]
 
 ---
 
 ## Executive summary
 
-Errorlogy MVP — это **AI MAS из 14 LLM/engine-агентов**, а не симуляция человеческих правительств. Числа (μ, MSI, CEP, PNO, ACC, CAT, FPD) считаются детерминированно в `mas/engine/`; LLM извлекает структуру кейса, пишет narrative и проходит guards (μ ≠ вероятность, без юридических обвинений). Baseline v1-math реализован: pytest green, SQLite persistence, ingest layer с US gov fetchers (порт democracy-monitor), dual-run, embeddings, калибровка fuzzy на 5 seed-кейсах.
+Errorlogy MVP — **AI MAS 14 LLM/engine-**, . (μ, MSI, CEP, PNO, ACC, CAT, FPD) `mas/engine/`; LLM , narrative guards (μ ≠ , ). Baseline v1-math : pytest green, SQLite persistence, ingest layer US gov fetchers ( democracy-monitor), dual-run, embeddings, fuzzy 5 seed-.
 
-**Главный разрыв:** онтология v16 (381 mode, HM/GT/LAC/LCC/METHODS) опережает engine (~10–20% формализации). Scout использует ad-hoc vocabulary для weak signals вместо WMS-001..020; CEP на seed-кейсах почти константен; cross-gov Homo-MAS (MAS1/MAS2, meta X, PNO-007 anticonsensus) — концепт, не код.
+** :** v16 (381 mode, HM/GT/LAC/LCC/METHODS) engine (~10–20% ). Scout ad-hoc vocabulary weak signals WMS-001..020; CEP seed- ; cross-gov Homo-MAS (MAS1/MAS2, meta X, PNO-007 anticonsensus) — , .
 
-**Стратегия на 18 месяцев:** три горизонта без over-engineering — (H1) инженерная зрелость и corpus 20→200; (H2) Weak Signal Layer с таксономией + time series; (H3) Homo-MAS dynamics как отдельный simulation module, не подмена AI pipeline. Внешние best practices: verifier/supervisor MAS (Smurfs, MAESTRO), evidence hierarchy fusion (Bayesian MAP, weighted D-S), Hawkes для CEP persistence, FJ opinion dynamics для HM/PNO-007, rule-based CAT (уже есть) + critical transitions literature.
+** 18 :** over-engineering — (H1) corpus 20→200; (H2) Weak Signal Layer + time series; (H3) Homo-MAS dynamics simulation module, AI pipeline. best practices: verifier/supervisor MAS (Smurfs, MAESTRO), evidence hierarchy fusion (Bayesian MAP, weighted D-S), Hawkes CEP persistence, FJ opinion dynamics HM/PNO-007, rule-based CAT ( ) + critical transitions literature.
 
 ---
 
-## Текущая baseline (что есть)
+## baseline ( )
 
-### AI MAS pipeline (14 агентов)
+### AI MAS pipeline (14 )
 
 ```text
 Scout → WMS → Classifier → Alpha → PNO → ACC → EGD → T4D → CAT → FPD → LBI
@@ -26,237 +26,237 @@ Scout → WMS → Classifier → Alpha → PNO → ACC → EGD → T4D → CAT �
          └──────────── engine (deterministic) ──────────────┘
 ```
 
-| Компонент | Путь | Статус |
+| Component | Path | Status |
 |-----------|------|--------|
-| Оркестратор | `errorlogy-mas/mas/orchestrator.py` | ✅ full + `engine_only` + `structure_only` |
-| Engine v1-math | `errorlogy-mas/mas/engine/` (9 модулей + guards) | ✅ детерминизм, unit tests |
-| Схемы выхода | `errorlogy-mas/mas/schemas/analysis.py` | ✅ единый контракт |
-| Онтология | `errorlogy-mas/data/errorlogy_unified_taxonomy_v16.json` | ✅ 381 mode, 217 atomic, α-edges |
-| Multi-LLM router | `errorlogy-mas/mas/providers/` | ✅ fallback по ролям |
+| | `errorlogy-mas/mas/orchestrator.py` | ✅ full + `engine_only` + `structure_only` |
+| Engine v1-math | `errorlogy-mas/mas/engine/` (9 + guards) | ✅ , unit tests |
+| | `errorlogy-mas/mas/schemas/analysis.py` | ✅ |
+| | `errorlogy-mas/data/errorlogy_unified_taxonomy_v16.json` | ✅ 381 mode, 217 atomic, α-edges |
+| Multi-LLM router | `errorlogy-mas/mas/providers/` | ✅ fallback |
 | Dual-run | `errorlogy-mas/mas/dual_run.py` | ✅ Jaccard + PNO/CAT diff |
-| Метрики | `errorlogy-mas/mas/metrics.py` + persist в SQLite | ✅ |
+| | `errorlogy-mas/mas/metrics.py` + persist SQLite | ✅ |
 | DB | `errorlogy-mas/mas/db.py` | ✅ cases, pipeline_runs, signal_timeseries |
-| Seed corpus | `errorlogy-mas/scripts/seed_corpus.py` | ⚠️ **5 кейсов** (не 200 из ТЗ) |
+| Seed corpus | `errorlogy-mas/scripts/seed_corpus.py` | ⚠️ **5 ** ( 200 ) |
 | Ingest | `errorlogy-mas/mas/ingest/` | ✅ RSS, URL, US gov APIs, web search |
-| US gov fetchers | `federal_register`, `courtlistener`, `govinfo`, `oig`, `legiscan` | ✅ порт [democracy-monitor](https://github.com/agile-explorations/democracy-monitor) |
+| US gov fetchers | `federal_register`, `courtlistener`, `govinfo`, `oig`, `legiscan` | ✅ [democracy-monitor](https://github.com/agile-explorations/democracy-monitor) |
 | Embeddings | `errorlogy-mas/mas/engine/embeddings.py` | ✅ MiniLM + TF-IDF fallback |
-| Калибровка μ | `scripts/calibrate_fuzzy.py`, `data/fuzzy_weights.json` | ✅ на 5 targets |
+| μ | `scripts/calibrate_fuzzy.py`, `data/fuzzy_weights.json` | ✅ 5 targets |
 | GUI | `errorlogy-gui/` Electron 0.2.x | ✅ Analyze, Globe, MAS metrics, Info Stream |
 | FastAPI | `errorlogy-mas/api/main.py` | ✅ analyze, ingest, metrics, stats |
 
-### Что в taxonomy заявлено, но не в engine
+### taxonomy , engine
 
-См. [[Таксономия vs Engine — formalization gap]]: METHODS (42), LCC, LAC (Shapley), GT/HM/GT_EXT, LCJ, LΩ, SOCIAL_MEDIA — **0–5% кодирования**. Meta-dimension X (anticonsensus) и PNO-007 описаны в JSON, но не моделируются как динамика агентов.
+See [[Taxonomy vs Engine — formalization gap]]: METHODS (42), LCC, LAC (Shapley), GT/HM/GT_EXT, LCJ, LΩ, SOCIAL_MEDIA — **0–5% **. Meta-dimension X (anticonsensus) PNO-007 JSON, .
 
-### Homo-MAS vs AI MAS (важное различие)
+### Homo-MAS vs AI MAS ( )
 
-| | AI MAS (реализовано) | Homo-MAS (онтология) |
+| | AI MAS () | Homo-MAS () |
 |--|----------------------|----------------------|
-| Агенты | Scout, WMS, Classifier… | govA, govB, homo-agents, ACC clusters как **люди/институции** |
-| Назначение | Анализ текста governance-события | Модель cross-gov consensus / anticonsensus (HM-001..020, PNO-007) |
-| Где в коде | `mas/agents/`, `mas/engine/` | Только JSON + Obsidian [[Таксономия/Расширенные/HM — Homo-MAS pathologies]] |
+| | Scout, WMS, Classifier… | govA, govB, homo-agents, ACC clusters **/** |
+| Purpose | governance- | cross-gov consensus / anticonsensus (HM-001..020, PNO-007) |
+| | `mas/agents/`, `mas/engine/` | JSON + Obsidian [[//HM — Homo-MAS pathologies]] |
 | Horizon | H1–H2 | H3 |
 
 ---
 
-## Принципы развития (AI MAS vs Homo-MAS, μ≠probability, no legal accusations)
+## (AI MAS vs Homo-MAS, μ≠probability, no legal accusations)
 
-1. **Engine-first:** любая новая числовая логика — в `mas/engine/`, pytest, без LLM-арифметики (`errorlogy-mas/AGENTS.md`).
-2. **μ — степень принадлежности режиму, не P(guilt), не evidence grade.** Отдельно: `confidence`, `evidence_grade`, `scenario_probability` (`mas/engine/guards.py` cap μ≤0.65 при weak evidence).
-3. **Язык публичной карточки:** analytical contribution, early-warning hypothesis — никогда guilty/criminal/corrupt без legal layer (LCJ — будущий модуль).
-4. **AI MAS ≠ Homo-MAS:** AI pipeline анализирует **документы и сигналы**; Homo-MAS — **simulation layer** для institutional dynamics (H3), не замена Scout.
-5. **Не over-engineer:** не переносить LangGraph/THP целиком; заимствовать **паттерны** (verifier, state, traces), не framework migration на H1.
-6. **Таксономия — LΩ candidate, не frozen API:** изменения modes → proposal + migration script.
-7. **Ingest ≠ analytics:** OpenClaw/cron — оркестрация сбора; math остаётся в engine (`[[Ingest — info stream layer]]`).
-8. **Dual-run as gate:** расхождение engine vs full MAS → human review queue, не silent overwrite weights.
+1. **Engine-first:** — `mas/engine/`, pytest, LLM- (`errorlogy-mas/AGENTS.md`).
+2. **μ — , P(guilt), evidence grade.** : `confidence`, `evidence_grade`, `scenario_probability` (`mas/engine/guards.py` cap μ≤0.65 weak evidence).
+3. ** :** analytical contribution, early-warning hypothesis — guilty/criminal/corrupt legal layer (LCJ — ).
+4. **AI MAS ≠ Homo-MAS:** AI pipeline ** **; Homo-MAS — **simulation layer** institutional dynamics (H3), Scout.
+5. ** over-engineer:** LangGraph/THP ; **** (verifier, state, traces), framework migration H1.
+6. ** — LΩ candidate, frozen API:** modes → proposal + migration script.
+7. **Ingest ≠ analytics:** OpenClaw/cron — ; math engine (`[[Ingest — info stream layer]]`).
+8. **Dual-run as gate:** engine vs full MAS → human review queue, silent overwrite weights.
 
 ---
 
-## Horizon 1 (0–2 мес) — engineering TZ
+## Horizon 1 (0–2 ) — engineering TZ
 
-**Цель:** production-ready MVP loop: ingest → analyze → persist → GUI; corpus и Scout-WMS alignment; observability.
+**:** production-ready MVP loop: ingest → analyze → persist → GUI; corpus Scout-WMS alignment; observability.
 
 ### TZ-H1-01: Corpus expansion 5 → 20
 
-| Поле | Значение |
+| | |
 |------|----------|
-| Файлы | `scripts/seed_corpus.py`, `data/calibration_targets.json`, OLD SKETCH `cases/` |
-| Задача | Импорт 15 labeled кейсов (USA, UK, EU, RUS, global disasters + gov failures) |
-| Критерии приёмки | ≥20 записей в `cases`; `calibrate_fuzzy.py` сходится; top-5 μ differs across ≥80% pairs; pytest green |
-| Не делать | 200 кейсов (отложить на H2) |
+| | `scripts/seed_corpus.py`, `data/calibration_targets.json`, OLD SKETCH `cases/` |
+| | 15 labeled (USA, UK, EU, RUS, global disasters + gov failures) |
+| | ≥20 `cases`; `calibrate_fuzzy.py` ; top-5 μ differs across ≥80% pairs; pytest green |
+| | 200 ( H2) |
 
 ### TZ-H1-02: Scout → WMS taxonomy binding
 
-| Поле | Значение |
+| | |
 |------|----------|
-| Файлы | `mas/agents/scout.py`, `mas/schemas/case.py`, `mas/engine/wms.py`, taxonomy WMS block |
-| Задача | `WeakSignal.signal_type` ∈ {WMS-001..020}; validation + fallback heuristic с mapping table |
-| Критерии | 100% signals в ingest/analyze имеют typed ID или explicit `WMS-UNK`; CEP variance на 20 seed > 0.05 std |
-| Тест | `tests/test_wms.py` + новый `test_scout_wms_ids.py` |
+| | `mas/agents/scout.py`, `mas/schemas/case.py`, `mas/engine/wms.py`, taxonomy WMS block |
+| | `WeakSignal.signal_type` ∈ {WMS-001..020}; validation + fallback heuristic mapping table |
+| | 100% signals ingest/analyze typed ID explicit `WMS-UNK`; CEP variance 20 seed > 0.05 std |
+| | `tests/test_wms.py` + `test_scout_wms_ids.py` |
 
 ### TZ-H1-03: Ingest scheduler
 
-| Поле | Значение |
+| | |
 |------|----------|
-| Файлы | `scripts/fetch_gov_media.py`, `api/routers/ingest.py`, optional `scripts/cron_ingest.ps1` |
-| Задача | Документированный cron (6h/24h); idempotent fetch; alert on new `signal_timeseries` |
-| Критерии | 7-day run log; duplicate docs < 1%; `GET /api/ingest/status` shows last_run |
+| | `scripts/fetch_gov_media.py`, `api/routers/ingest.py`, optional `scripts/cron_ingest.ps1` |
+| | cron (6h/24h); idempotent fetch; alert on new `signal_timeseries` |
+| | 7-day run log; duplicate docs < 1%; `GET /api/ingest/status` shows last_run |
 
 ### TZ-H1-04: SSE live progress
 
-| Поле | Значение |
+| | |
 |------|----------|
-| Файлы | `api/routers/analysis.py`, `mas/orchestrator.py`, `errorlogy-gui/` Analyze page |
-| Задача | `GET /api/analyze/stream` или SSE endpoint; шаги из `track_engine` / agent_id |
-| Критерии | GUI показывает real step names (не fake timer); reconnect on disconnect |
+| | `api/routers/analysis.py`, `mas/orchestrator.py`, `errorlogy-gui/` Analyze page |
+| | `GET /api/analyze/stream` SSE endpoint; `track_engine` / agent_id |
+| | GUI real step names ( fake timer); reconnect on disconnect |
 
 ### TZ-H1-05: PNO/GT naming debt
 
-| Поле | Значение |
+| | |
 |------|----------|
-| Файлы | `mas/engine/pno.py`, taxonomy `composite_patterns.PNO` |
-| Задача | Единый ID schema PNO-1 vs PNO-001; удалить мёртвый код; document mapping |
-| Критерии | Zero alias bugs in API `/api/taxonomy/mode/` |
+| | `mas/engine/pno.py`, taxonomy `composite_patterns.PNO` |
+| | ID schema PNO-1 vs PNO-001; ; document mapping |
+| | Zero alias bugs in API `/api/taxonomy/mode/` |
 
 ### TZ-H1-06: Red Team ← dual_run integration
 
-| Поле | Значение |
+| | |
 |------|----------|
-| Файлы | `mas/dual_run.py`, `mas/agents/red_team.py`, `POST /api/analyze?dual_run=true` |
-| Задача | Red Team получает `dual_run_diff.flags` автоматически |
-| Критерии | Challenger dual-run → flags in `red_team_review`; `needs_human_review` surfaced in GUI |
+| | `mas/dual_run.py`, `mas/agents/red_team.py`, `POST /api/analyze?dual_run=true` |
+| | Red Team `dual_run_diff.flags` automatically |
+| | Challenger dual-run → flags in `red_team_review`; `needs_human_review` surfaced in GUI |
 
 ### TZ-H1-07: OpenTelemetry export (optional)
 
-| Поле | Значение |
+| | |
 |------|----------|
-| Файлы | `mas/metrics.py`, `requirements-math-optional.txt` |
-| Задача | OTLP exporter для engine/LLM spans (совместимость с OpenClaw diagnostics) |
-| Критерии | Grafana/Jaeger видит 14 agent spans per run |
+| | `mas/metrics.py`, `requirements-math-optional.txt` |
+| | OTLP exporter engine/LLM spans ( OpenClaw diagnostics) |
+| | Grafana/Jaeger 14 agent spans per run |
 
-**H1 Definition of Done (горизонт):** pytest ≥40 tests; 20 seed cases; WMS typed; cron ingest 7d; SSE в GUI; dual-run → Red Team; документ обновлён в [[Roadmap — implementation log]].
+**H1 Definition of Done ():** pytest ≥40 tests; 20 seed cases; WMS typed; cron ingest 7d; SSE GUI; dual-run → Red Team; [[Roadmap — implementation log]].
 
 ---
 
-## Horizon 2 (2–6 мес) — Weak Signal Layer TZ
+## Horizon 2 (2–6 ) — Weak Signal Layer TZ
 
-**Цель:** превратить WMS из «MSI на ad-hoc signals» в **persisted early-warning layer** с multisource fusion и time series.
+**:** WMS «MSI ad-hoc signals» **persisted early-warning layer** multisource fusion time series.
 
 ### TZ-H2-01: Signal time series engine
 
-| Поле | Значение |
+| | |
 |------|----------|
-| Файлы | `mas/db.py` (`signal_timeseries`), `mas/engine/wms.py`, новый `mas/engine/cep_series.py` |
-| Математика | CEP(t) = decay·CEP(t-1) + MSI(t); опционально **discrete Hawkes** intensity λ(t) для burst detection |
-| Источник | [Bayesian spatiotemporal Hawkes for conflict](https://arxiv.org/html/2408.14940v1); [social unrest cascades](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0128879) |
-| Критерии | Globe `last_signal_at` обновляется из ingest; anomaly flag when λ > threshold |
+| | `mas/db.py` (`signal_timeseries`), `mas/engine/wms.py`, `mas/engine/cep_series.py` |
+| | CEP(t) = decay·CEP(t-1) + MSI(t); **discrete Hawkes** intensity λ(t) burst detection |
+| | [Bayesian spatiotemporal Hawkes for conflict](https://arxiv.org/html/2408.14940v1); [social unrest cascades](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0128879) |
+| | Globe `last_signal_at` ingest; anomaly flag when λ > threshold |
 
 ### TZ-H2-02: Evidence fusion for weak signals
 
-| Поле | Значение |
+| | |
 |------|----------|
-| Файлы | новый `mas/engine/fusion.py`; интеграция в `wms.py` |
-| Математика | **Tier A:** weighted Bayesian MAP (direct/indirect/contextual evidence) — [OSINT sensor fusion](https://arxiv.org/html/2605.22259). **Tier B (optional):** improved D-S with conflict weighting — не default |
-| Критерии | Fusion повышает MSI stability на synthetic conflicting sources; unit tests; μ still capped by guards |
-| Anti-pattern | Full D-S на 20 weak sources → counter-intuitive; использовать distance-weighted fusion |
+| | `mas/engine/fusion.py`; `wms.py` |
+| | **Tier A:** weighted Bayesian MAP (direct/indirect/contextual evidence) — [OSINT sensor fusion](https://arxiv.org/html/2605.22259). **Tier B (optional):** improved D-S with conflict weighting — default |
+| | Fusion MSI stability synthetic conflicting sources; unit tests; μ still capped by guards |
+| Anti-pattern | Full D-S 20 weak sources → counter-intuitive; distance-weighted fusion |
 
 ### TZ-H2-03: Multisource ingest enrichment
 
-| Поле | Значение |
+| | |
 |------|----------|
-| Файлы | `data/ingest_sources_us.json`, `data/ingest_feeds.json`, fetchers |
-| Задача | EU/UK analogues (NAO, EUR-Lex RSS); environment tags per WMS source_environment |
-| Референс | [democracy-monitor](https://github.com/agile-explorations/democracy-monitor) data collection patterns (без их AI assessment pipeline) |
-| Критерии | ≥3 environments per active country stream |
+| | `data/ingest_sources_us.json`, `data/ingest_feeds.json`, fetchers |
+| | EU/UK analogues (NAO, EUR-Lex RSS); environment tags per WMS source_environment |
+| | [democracy-monitor](https://github.com/agile-explorations/democracy-monitor) data collection patterns ( AI assessment pipeline) |
+| | ≥3 environments per active country stream |
 
 ### TZ-H2-04: Corpus 20 → 100 (calibration L3)
 
-| Поле | Значение |
+| | |
 |------|----------|
-| Файлы | `scripts/calibrate_fuzzy.py`, `mas/engine/embeddings.py`, `data/calibration_targets.json` |
-| Математика | Embedding cosine + optimized fuzzy weights (scipy L-BFGS-B) |
-| Критерии | Formalization L3 ([[Таксономия vs Engine — formalization gap]]); hold-out 20% macro-F1 on mode labels |
+| | `scripts/calibrate_fuzzy.py`, `mas/engine/embeddings.py`, `data/calibration_targets.json` |
+| | Embedding cosine + optimized fuzzy weights (scipy L-BFGS-B) |
+| | Formalization L3 ([[Taxonomy vs Engine — formalization gap]]); hold-out 20% macro-F1 on mode labels |
 
 ### TZ-H2-05: TIBlender-style cross-validation (lightweight)
 
-| Поле | Значение |
+| | |
 |------|----------|
-| Файлы | `mas/agents/scout.py`, optional `mas/ingest/fetchers/` |
-| Паттерн | Independent extractor + verifier pass (Smurfs Verifier Agent) — [Smurfs arxiv](https://arxiv.org/html/2405.05955v2) |
-| Критерии | Scout+Verifier disagree → `evidence_grade=weak` auto; не full TIBlender clone |
+| | `mas/agents/scout.py`, optional `mas/ingest/fetchers/` |
+| | Independent extractor + verifier pass (Smurfs Verifier Agent) — [Smurfs arxiv](https://arxiv.org/html/2405.05955v2) |
+| | Scout+Verifier disagree → `evidence_grade=weak` auto; full TIBlender clone |
 
 ### TZ-H2-06: METHODS plugin scaffold
 
-| Поле | Значение |
+| | |
 |------|----------|
-| Файлы | новый `mas/engine/methods/`; registry в taxonomy METHODS IDs |
-| Задача | 2 plugins: WMS-M (fusion), ACC-M (cluster re-score) — stub interface |
-| Критерии | `run_engine_from_case(..., methods=["WMS-M"])` extensible without orchestrator rewrite |
+| | `mas/engine/methods/`; registry taxonomy METHODS IDs |
+| | 2 plugins: WMS-M (fusion), ACC-M (cluster re-score) — stub interface |
+| | `run_engine_from_case(..., methods=["WMS-M"])` extensible without orchestrator rewrite |
 
-**H2 Definition of Done:** CEP time series на ingest; fusion module tested; 100 labeled cases; ≥2 METHODS plugins; Globe live signals.
+**H2 Definition of Done:** CEP time series ingest; fusion module tested; 100 labeled cases; ≥2 METHODS plugins; Globe live signals.
 
 ---
 
-## Horizon 3 (6–18 мес) — Homo-MAS consensus dynamics TZ
+## Horizon 3 (6–18 ) — Homo-MAS consensus dynamics TZ
 
-**Цель:** кодировать **institutional interaction** (не AI agents) для cross-gov anticonsensus, HM pathologies, GT checks — как **simulation/annotation layer** поверх ACC/PNO.
+**:** **institutional interaction** ( AI agents) cross-gov anticonsensus, HM pathologies, GT checks — **simulation/annotation layer** ACC/PNO.
 
 ### TZ-H3-01: Homo-MAS graph model
 
-| Поле | Значение |
+| | |
 |------|----------|
-| Файлы | новый `mas/engine/homo_mas.py`; taxonomy `homo_mas_interaction_pathologies` |
-| Математика | **Friedkin-Johnsen** на signed graph: x(t+1) = S W x(t) + (I-S)s — [FJ boundary-value](https://arxiv.org/html/2602.08704v1), [signed FJ polarization](https://arxiv.org/pdf/2407.10680) |
+| | `mas/engine/homo_mas.py`; taxonomy `homo_mas_interaction_pathologies` |
+| | **Friedkin-Johnsen** signed graph: x(t+1) = S W x(t) + (I-S)s — [FJ boundary-value](https://arxiv.org/html/2602.08704v1), [signed FJ polarization](https://arxiv.org/pdf/2407.10680) |
 | Mapping | govA/govB = boundary stubborn agents; ACC clusters = interior nodes; HM-012 bifurcation ↔ PNO-007 |
-| Критерии | Steady-state polarization metric exported in `CaseAnalysis.metadata.homo_mas` |
+| | Steady-state polarization metric exported in `CaseAnalysis.metadata.homo_mas` |
 
 ### TZ-H3-02: Anti-consensus / meta X detector
 
-| Поле | Значение |
+| | |
 |------|----------|
-| Файлы | `mas/engine/pno.py`, taxonomy meta_dimensions X |
-| Задача | PNO-007 score boost when synthetic consensus (HM-020) + low FJ convergence |
-| Критерии | Labeled scenarios: staged consensus vs genuine agreement separable AUC > 0.7 |
+| | `mas/engine/pno.py`, taxonomy meta_dimensions X |
+| | PNO-007 score boost when synthetic consensus (HM-020) + low FJ convergence |
+| | Labeled scenarios: staged consensus vs genuine agreement separable AUC > 0.7 |
 
 ### TZ-H3-03: GT pattern checker (narrative, not full game solver)
 
-| Поле | Значение |
+| | |
 |------|----------|
-| Файлы | новый `mas/engine/gt.py`; taxonomy GT-001..015 |
-| Математика | Template matching + payoff inequality checks (Principal-Agent, Stag Hunt) — не full Nash solver |
-| Критерии | Top-3 GT patterns with explanation strings; no legal claims |
+| | `mas/engine/gt.py`; taxonomy GT-001..015 |
+| | Template matching + payoff inequality checks (Principal-Agent, Stag Hunt) — full Nash solver |
+| | Top-3 GT patterns with explanation strings; no legal claims |
 
 ### TZ-H3-04: LAC Shapley-lite contribution
 
-| Поле | Значение |
+| | |
 |------|----------|
-| Файлы | `mas/engine/lac.py`; замена части LBI numeric hints |
-| Математика | Monte Carlo Shapley on mode subsets (n≤15 active modes) |
-| Критерии | `contributing_signals` ranked with Shapley values; LLM LBI uses as input only |
+| | `mas/engine/lac.py`; LBI numeric hints |
+| | Monte Carlo Shapley on mode subsets (n≤15 active modes) |
+| | `contributing_signals` ranked with Shapley values; LLM LBI uses as input only |
 
 ### TZ-H3-05: Cross-gov scenario API
 
-| Поле | Значение |
+| | |
 |------|----------|
-| Файлы | `api/routers/analysis.py`, schemas |
-| Задача | `POST /api/simulate/homo-mas` — MAS1 vs MAS2 parameter sweep (stubbornness, media pressure) |
-| Критерии | GUI optional panel; outputs labeled **simulation**, not empirical fact |
+| | `api/routers/analysis.py`, schemas |
+| | `POST /api/simulate/homo-mas` — MAS1 vs MAS2 parameter sweep (stubbornness, media pressure) |
+| | GUI optional panel; outputs labeled **simulation**, not empirical fact |
 
 ### TZ-H3-06: Corpus 100 → 200 + L5 validation
 
-| Поле | Значение |
+| | |
 |------|----------|
-| Источник | OLD SKETCH cases + politic.bar methodology |
-| Математика | Multi-arch validation: engine vs full MAS vs ensemble — [MAESTRO](https://arxiv.org/pdf/2601.00481) metrics |
-| Критерии | Formalization L5; published calibration report in Obsidian |
+| | OLD SKETCH cases + politic.bar methodology |
+| | Multi-arch validation: engine vs full MAS vs ensemble — [MAESTRO](https://arxiv.org/pdf/2601.00481) metrics |
+| | Formalization L5; published calibration report in Obsidian |
 
 **H3 Definition of Done:** homo_mas module + GT checker + LAC; cross-gov API; 200 cases; documented limitations.
 
 ---
 
-## Математические модули
+##
 
-| Модуль | Формула / метод | Источник (arxiv / github) | Файл в Errorlogy | Приоритет |
+| | / | (arxiv / github) | Errorlogy | |
 |--------|-----------------|---------------------------|------------------|-----------|
 | Fuzzy μ | μ = Σ wᵢ·featureᵢ; embedding cosine | Internal TZ §9.3 | `mas/engine/fuzzy.py`, `embeddings.py` | P0 ✅ |
 | α-propagation | μ' = propagate(μ, G_α, w×confidence) | NetworkX TZ §9.4 | `mas/engine/alpha.py` | P0 ✅ |
@@ -273,20 +273,20 @@ Scout → WMS → Classifier → Alpha → PNO → ACC → EGD → T4D → CAT �
 | DeGroot consensus | x(t+1) = W x(t) | Classic | reference only | P4 |
 | Friedkin-Johnsen | x(t+1) = S W x(t) + (I-S)s | [2602.08704](https://arxiv.org/html/2602.08704v1) | `mas/engine/homo_mas.py` (H3) | P2 |
 | Shapley (LAC) | φᵢ = average marginal contribution | Cooperative game theory | `mas/engine/lac.py` (H3) | P3 |
-| GT template checks | Inequality templates for GT-001..015 | [GT taxonomy](ERRORLOGY_MVP_OBSIDIAN/Таксономия/Композиты%20и%20игровая%20теория.md) | `mas/engine/gt.py` (H3) | P3 |
+| GT template checks | Inequality templates for GT-001..015 | [GT taxonomy](ERRORLOGY_MVP_OBSIDIAN//Composites%20%20%20.md) | `mas/engine/gt.py` (H3) | P3 |
 | Dual-run Jaccard | \|A∩B\|/\|A∪B\| on top-5 modes | Internal | `mas/dual_run.py` | P0 ✅ |
 
-**Over-engineering (не делать в MVP):** full Transformer Hawkes ([2211.14114](https://arxiv.org/abs/2211.14114)); cryptographic agent binding ([2603.14332](https://arxiv.org/abs/2603.14332v2)); AUTOINT military fusion ([2509.17087](https://arxiv.org/pdf/2509.17087)); migration на LangGraph.
+**Over-engineering ( MVP):** full Transformer Hawkes ([2211.14114](https://arxiv.org/abs/2211.14114)); cryptographic agent binding ([2603.14332](https://arxiv.org/abs/2603.14332v2)); AUTOINT military fusion ([2509.17087](https://arxiv.org/pdf/2509.17087)); migration LangGraph.
 
 ---
 
 ## AI MAS best practices (orchestration, dual-run, guards, neutrality)
 
-### Orchestration (текущий + целевой)
+### Orchestration ( + )
 
-Errorlogy уже использует **linear pipeline с engine sandwich** — правильный паттерн для auditability (MAESTRO: architecture > model choice).
+Errorlogy **linear pipeline engine sandwich** — auditability (MAESTRO: architecture > model choice).
 
-| Practice | Реализация | Референс |
+| Practice | | |
 |----------|------------|----------|
 | Deterministic numerics | `engine_only=True` | Internal AGENTS.md |
 | Specialized roles | 14 agents, no μ in LLM | [Smurfs verifier](https://arxiv.org/html/2405.05955v2) |
@@ -295,7 +295,7 @@ Errorlogy уже использует **linear pipeline с engine sandwich** —
 | Human-in-the-loop | Red Team + `needs_human_review` | LangGraph checkpoint pattern (concept) |
 | Ingest orchestration | cron → fetch → analyze | democracy-monitor collection only |
 
-**Не мигрировать на LangGraph на H1.** Заимствовать: explicit state schema (`CaseAnalysis`), step traces, optional checkpointer for long runs. См. [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph), [langgraph-supervisor-py](https://github.com/langchain-ai/langgraph-supervisor-py).
+** LangGraph H1.** : explicit state schema (`CaseAnalysis`), step traces, optional checkpointer for long runs. See [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph), [langgraph-supervisor-py](https://github.com/langchain-ai/langgraph-supervisor-py).
 
 ### Dual-run workflow
 
@@ -323,7 +323,7 @@ Adopt AEMA-style **process-aware eval**: plan → execute → aggregate with aud
 
 ---
 
-## Референсы (arxiv links, github repos)
+## (arxiv links, github repos)
 
 ### Multi-agent AI (analysis, not chatbots)
 
@@ -370,16 +370,16 @@ Adopt AEMA-style **process-aware eval**: plan → execute → aggregate with aud
 
 ### Internal docs
 
-- Formalization gap: [[Таксономия vs Engine — formalization gap]]
+- Formalization gap: [[Taxonomy vs Engine — formalization gap]]
 - Pipeline TZ (OLD SKETCH spec): `ERRORLOGY/errorlogy_old_version/Cursor_Project/TZ_Cursor_Errorlogy_politicbar_FULL.md`
 
 ---
 
-## Риски и anti-patterns
+## anti-patterns
 
-| Риск | Последствие | Мitigation |
+| | | itigation |
 |------|-------------|------------|
-| LLM считает μ/MSI | Non-reproducible analytics | Engine-only tests; code review on agents |
+| LLM μ/MSI | Non-reproducible analytics | Engine-only tests; code review on agents |
 | μ → legal accusation | Reputational / legal harm | guards + Neutrality + no LCJ without layer |
 | Scout ad-hoc WMS | CEP constant, false calm | TZ-H1-02 taxonomy binding |
 | Over-fit 5 cases | Challenger-specific weights | Expand corpus before production weights |
@@ -408,7 +408,7 @@ Optional plugin (`mas/plugins/dm_concern.py`): attach DM-style concern labels as
 
 ---
 
-## 10 конкретных эпиков с DoD
+## 10 DoD
 
 ### Epic 1: WMS Taxonomy Binding
 **Scope:** Scout + engine validate WMS-001..020.  
@@ -462,8 +462,8 @@ Optional plugin (`mas/plugins/dm_concern.py`): attach DM-style concern labels as
 
 ---
 
-## Теги
+##
 
 #roadmap #tz #mas #math #wms #homo-mas #errorlogy-mas #v2 #formalization
 
-→ [[Roadmap — implementation log]] · [[00 — Главная]] · [[Для AI-агентов]]
+→ [[Roadmap — implementation log]] · [[00 — Home]] · [[For AI agents]]

@@ -29,26 +29,26 @@ SCORE_KEYS = (
 
 STAGE_CHECKLIST = {
     "discover": [
-        "Запись в oss-candidates.yaml с repo_url и target_area",
-        "Проверка границ ACTIVE / RESEARCH / OLD SKETCH (AGENTS.md)",
-        "Отметить example: true если решение не принято",
+        "Entry in oss-candidates.yaml with repo_url and target_area",
+        "Check ACTIVE / RESEARCH / OLD SKETCH boundaries (AGENTS.md)",
+        "Mark example: true if decision not made",
     ],
     "screen": [
-        "Заполнить все оси score (1–5)",
-        "Проверить veto: LLM-числа, OLD SKETCH merge, лицензия GUI",
+        "Fill all score axes (1–5)",
+        "Check veto: LLM numbers, OLD SKETCH merge, GUI license",
         f"weighted total >= screen_threshold → spike",
     ],
     "spike": [
-        "Ветка spike/<name>, POC вне main",
-        "Для mas/engine — engine_only smoke обязателен",
-        "Заметки в notes_ru",
+        "Branch spike/<name>, POC outside main",
+        "For mas/engine — engine_only smoke required",
+        "Notes in notes_en",
     ],
     "pilot": [
-        "Узкий PR, CI: pytest + challenger --engine-only + gui build",
-        "Без ослабления LANGUAGE_RULES / μ guards",
+        "Narrow PR, CI: pytest + challenger --engine-only + gui build",
+        "Without weakening LANGUAGE_RULES / μ guards",
     ],
-    "adopt": ["decision: adopt, обновить docs при необходимости"],
-    "reject": ["decision: reject, причина в notes_ru"],
+    "adopt": ["decision: adopt, update docs if needed"],
+    "reject": ["decision: reject, reason in notes_en"],
     "defer": ["decision: defer, review_after: YYYY-QN"],
 }
 
@@ -67,16 +67,16 @@ def weighted_total(score: dict, weights: dict) -> float:
 
 def veto_flags(candidate: dict) -> list[str]:
     flags: list[str] = []
-    notes = (candidate.get("notes_ru") or "").lower()
+    notes = (candidate.get("notes_en") or "").lower()
     area = candidate.get("target_area", "")
     if candidate.get("score", {}).get("engine_llm_fit", 5) <= 2:
-        flags.append("engine_llm_fit <= 2 — риск LLM в числовых путях")
+        flags.append("engine_llm_fit <= 2 — LLM-in-numbers risk")
     if candidate.get("score", {}).get("old_sketch_risk", 5) <= 2:
-        flags.append("old_sketch_risk <= 2 — риск контаминации OLD SKETCH")
+        flags.append("old_sketch_risk <= 2 — OLD SKETCH contamination risk")
     if "old sketch" in notes and "migration" not in notes:
-        flags.append("notes упоминают OLD SKETCH без migration task")
+        flags.append("notes mention OLD SKETCH without migration task")
     if area == "mas" and "replace orchestrator" in notes:
-        flags.append("замена orchestrator — типичный anti-pattern")
+        flags.append("orchestrator replacement — typical anti-pattern")
     return flags
 
 
@@ -119,9 +119,9 @@ def print_candidate(c: dict, weights: dict, threshold: float) -> None:
     else:
         print("\n=> Screen FAIL: score below threshold — reject or defer")
 
-    if c.get("notes_ru"):
-        print("\nnotes_ru:")
-        for line in str(c["notes_ru"]).strip().splitlines():
+    if c.get("notes_en"):
+        print("\nnotes_en:")
+        for line in str(c["notes_en"]).strip().splitlines():
             print(f"  {line}")
 
 

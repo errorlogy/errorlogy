@@ -21,7 +21,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               Errorlogy <span className="text-cyan-400 font-normal text-sm">v2</span>
             </span>
             <span className="text-xs text-slate-500 hidden sm:inline truncate">
-              Прогноз · Потоки · Методология
+              Forecast · Streams · Methodology
             </span>
           </div>
           <HealthBadge />

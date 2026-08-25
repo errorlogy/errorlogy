@@ -61,7 +61,7 @@ Override with the `ERRORLOGY_MAS_DIR` environment variable (system or user env, 
 
 **Python:** Electron spawns `uvicorn` via a Python 3.10+ install that has `pip install -r requirements.txt` applied in `errorlogy-mas/`. Discovery order: `ERRORLOGY_PYTHON` → `py -3` → `python` → `%LOCALAPPDATA%\Programs\Python\Python3xx\python.exe`.
 
-**Manual fallback** (if the shortcut shows “Backend недоступен”):
+**Manual fallback** (if the shortcut shows "Backend unavailable"):
 
 ```powershell
 cd C:\Users\Public\ERRORLOGY_MVP\errorlogy-mas
@@ -69,7 +69,7 @@ pip install -r requirements.txt
 python -m uvicorn api.main:app --host 127.0.0.1 --port 8000
 ```
 
-Then relaunch Errorlogy or click **Обновить** on Прогноз потока.
+Then relaunch Errorlogy or click **Refresh** on Stream Forecast.
 
 ```powershell
 cd errorlogy-gui

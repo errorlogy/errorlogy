@@ -40,7 +40,7 @@ export function Forecast() {
           return
         } catch {
           if (cancelled) return
-          setLoadError(`Кейс «${caseId}» не найден на сервере`)
+          setLoadError(`Case «${caseId}» not found on server`)
         } finally {
           if (!cancelled) setLoading(false)
         }
@@ -51,7 +51,7 @@ export function Forecast() {
         const parsed = JSON.parse(raw) as CaseAnalysis
         setAnalysis(parsed)
         if (caseId && parsed.case_id !== caseId) {
-          setLoadError(`Кейс «${caseId}» не найден — показан последний результат сессии`)
+          setLoadError(`Case «${caseId}» not found — showing last session result`)
         }
       }
     }
@@ -63,7 +63,7 @@ export function Forecast() {
   if (loading) {
     return (
       <div className="flex-1 flex items-center justify-center text-slate-500 gap-2">
-        <Loader2 size={18} className="animate-spin" /> Загрузка прогноза…
+        <Loader2 size={18} className="animate-spin" /> Loading forecast…
       </div>
     )
   }
@@ -74,11 +74,11 @@ export function Forecast() {
         <div>
           <h1 className="text-xl font-bold text-white flex items-center gap-2">
             <TrendingUp size={22} className="text-blue-400" />
-            Прогноз (FPD)
+            Forecast (FPD)
           </h1>
           <p className="text-slate-400 text-sm mt-2 max-w-2xl leading-relaxed">
-            Здесь показываются прогнозные сценарии, даты из временной шкалы T4D, модели pipeline
-            и вклад модулей Errorlogy (таксономия, агенты, engine). Сначала запустите анализ кейса.
+            Forecast scenarios, T4D timeline dates, pipeline models
+            and Errorlogy module contributions (taxonomy, agents, engine). Run case analysis first.
           </p>
           <Link
             to="/forecast/stream"
@@ -90,7 +90,7 @@ export function Forecast() {
 
         <div className="bg-slate-800 rounded-xl p-6 text-center space-y-4">
           <Clock size={40} className="mx-auto text-slate-600" />
-          <p className="text-slate-400">Анализ не загружен</p>
+          <p className="text-slate-400">Analysis not loaded</p>
           <button
             onClick={() => navigate('/analyze')}
             className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white rounded-xl px-5 py-2.5 font-semibold"
@@ -102,7 +102,7 @@ export function Forecast() {
         {recentCases.length > 0 && (
           <div className="bg-slate-800 rounded-xl p-4">
             <p className="text-xs text-slate-500 uppercase tracking-widest mb-3 flex items-center gap-2">
-              <History size={14} /> Недавние кейсы
+              <History size={14} /> Recent cases
             </p>
             <div className="space-y-2">
               {recentCases.map(c => (
@@ -169,7 +169,7 @@ export function Forecast() {
         <div className="flex-1">
           <h1 className="text-xl font-bold text-white flex items-center gap-2">
             <TrendingUp size={22} className="text-blue-400" />
-            Прогноз — {analysis.case_id}
+            Forecast — {analysis.case_id}
           </h1>
           <p className="text-slate-400 text-xs mt-1 flex flex-wrap items-center gap-2">
             {pipelineLabel}
@@ -179,7 +179,7 @@ export function Forecast() {
               </span>
             )}
             <Link to={`/result/${encodeURIComponent(analysis.case_id)}`} className="text-red-400 hover:text-red-300">
-              Полный результат →
+              Full result →
             </Link>
           </p>
         </div>
@@ -190,30 +190,30 @@ export function Forecast() {
       </p>
 
       {/* Dates */}
-      <Section title="Даты и горизонт" icon={<Calendar size={14} className="text-blue-400" />}>
+      <Section title="Dates and horizon" icon={<Calendar size={14} className="text-blue-400" />}>
         <div className="grid md:grid-cols-2 gap-4">
           <div className="bg-slate-900 rounded-lg p-4 space-y-3">
             <div>
-              <div className="text-[10px] text-slate-500 uppercase tracking-widest">Горизонт FPD</div>
+              <div className="text-[10px] text-slate-500 uppercase tracking-widest">Horizon FPD</div>
               <div className="text-lg font-bold text-blue-400 mt-1">
                 {horizonLabels[analysis.fpd.horizon] ?? analysis.fpd.horizon}
                 <span className="text-slate-500 text-sm font-normal ml-2">({analysis.fpd.horizon})</span>
               </div>
               <p className="text-xs text-slate-500 mt-1">
-                Категория горизонта из engine FPD — абсолютные календарные даты прогноза pipeline не возвращает.
+                Horizon category from engine FPD — pipeline does not return absolute calendar forecast dates.
               </p>
             </div>
             <div>
-              <div className="text-[10px] text-slate-500 uppercase tracking-widest">Уверенность прогноза FPD</div>
+              <div className="text-[10px] text-slate-500 uppercase tracking-widest">FPD forecast confidence</div>
               <div className="text-lg font-bold text-slate-200 mt-1">
                 {(analysis.fpd.confidence * 100).toFixed(0)}%
-                <span className="text-slate-500 text-xs font-normal ml-2">(confidence — не μ)</span>
+                <span className="text-slate-500 text-xs font-normal ml-2">(confidence — not μ)</span>
               </div>
             </div>
           </div>
 
           <div className="bg-slate-900 rounded-lg p-4 space-y-3">
-            <div className="text-[10px] text-slate-500 uppercase tracking-widest">T4D — метки времени worldline</div>
+            <div className="text-[10px] text-slate-500 uppercase tracking-widest">T4D — worldline timestamps</div>
             {t4dDates.length > 0 ? (
               <div className="flex flex-wrap gap-2">
                 {analysis.t4d.worldline.map((pt, i) => (
@@ -227,11 +227,11 @@ export function Forecast() {
               <p className="text-sm text-slate-500">{common.pipelineNoData}</p>
             )}
 
-            <div className="text-[10px] text-slate-500 uppercase tracking-widest pt-2">Запуск pipeline</div>
+            <div className="text-[10px] text-slate-500 uppercase tracking-widest pt-2">Pipeline run</div>
             {runStarted ? (
               <p className="text-xs font-mono text-slate-300">
-                {new Date(runStarted).toLocaleString('ru-RU')}
-                {runFinished && ` → ${new Date(runFinished).toLocaleString('ru-RU')}`}
+                {new Date(runStarted).toLocaleString('en-US')}
+                {runFinished && ` → ${new Date(runFinished).toLocaleString('en-US')}`}
               </p>
             ) : (
               <p className="text-sm text-slate-500">{common.noData}</p>
@@ -241,10 +241,10 @@ export function Forecast() {
       </Section>
 
       {/* Predicted events */}
-      <Section title="Прогнозируемые сценарии и события" icon={<TrendingUp size={14} className="text-blue-400" />}>
+      <Section title="Forecast scenarios and events" icon={<TrendingUp size={14} className="text-blue-400" />}>
         {analysis.fpd.pno_transition_forecast && (
           <div className="bg-slate-900 rounded-lg p-3 mb-4">
-            <div className="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Переход PNO</div>
+            <div className="text-[10px] text-slate-500 uppercase tracking-widest mb-1">PNO transition</div>
             <p className="text-sm text-slate-300 leading-relaxed">{analysis.fpd.pno_transition_forecast}</p>
           </div>
         )}
@@ -255,7 +255,7 @@ export function Forecast() {
               <thead>
                 <tr className="text-slate-500 text-left">
                   <th className="pb-2 pr-3">mode_id</th>
-                  <th className="pb-2 pr-3">Режим</th>
+                  <th className="pb-2 pr-3">Mode</th>
                   <th className="pb-2 pr-3">μ_forecast</th>
                   <th className="pb-2 pr-3">scenario_probability</th>
                   <th className="pb-2 pr-3">confidence</th>
@@ -279,7 +279,7 @@ export function Forecast() {
               </tbody>
             </table>
             <p className="text-[10px] text-slate-500 mt-2">
-              μ_forecast — нечёткая принадлежность прогнозируемого режима. scenario_probability — отдельная метрика сценария.
+              μ_forecast — fuzzy membership of forecast mode. scenario_probability — separate scenario metric.
             </p>
           </div>
         ) : (
@@ -288,7 +288,7 @@ export function Forecast() {
 
         {analysis.fpd.early_warnings.length > 0 && (
           <div className="space-y-2">
-            <div className="text-[10px] text-slate-500 uppercase tracking-widest">Ранние предупреждения FPD</div>
+            <div className="text-[10px] text-slate-500 uppercase tracking-widest">FPD early warnings</div>
             {analysis.fpd.early_warnings.map((w, i) => (
               <div key={i} className={cn('flex items-start gap-2.5 rounded-lg px-3 py-2', URGENCY_COLOR[w.urgency])}>
                 <span className="text-xs font-semibold uppercase tracking-wide shrink-0 mt-0.5">
@@ -305,7 +305,7 @@ export function Forecast() {
 
         {analysis.t4d.worldline.length > 0 && (
           <div className="mt-4 pt-4 border-t border-slate-700">
-            <div className="text-[10px] text-slate-500 uppercase tracking-widest mb-2">T4D — прогнозные этапы worldline</div>
+            <div className="text-[10px] text-slate-500 uppercase tracking-widest mb-2">T4D — forecast worldline stages</div>
             <div className="space-y-2">
               {analysis.t4d.worldline.map((pt, i) => (
                 <div key={i} className="bg-slate-900 rounded-lg px-3 py-2 text-xs">
@@ -329,7 +329,7 @@ export function Forecast() {
       </Section>
 
       {/* Models used */}
-      <Section title="Модели и pipeline" icon={<Cpu size={14} className="text-red-400" />}>
+      <Section title="Models and pipeline" icon={<Cpu size={14} className="text-red-400" />}>
         <div className="grid md:grid-cols-3 gap-3 mb-4">
           <div className="bg-slate-900 rounded-lg p-3">
             <div className="text-[10px] text-slate-500 uppercase">Engine</div>
@@ -338,13 +338,13 @@ export function Forecast() {
             </div>
           </div>
           <div className="bg-slate-900 rounded-lg p-3">
-            <div className="text-[10px] text-slate-500 uppercase">Режим запуска</div>
+            <div className="text-[10px] text-slate-500 uppercase">Run mode</div>
             <div className="text-sm font-bold text-slate-200 mt-1">{pipelineLabel}</div>
           </div>
           <div className="bg-slate-900 rounded-lg p-3">
             <div className="text-[10px] text-slate-500 uppercase">LLM providers</div>
             <div className="text-sm text-amber-300 mt-1">
-              {llmProviders.length > 0 ? llmProviders.join(', ') : (analysis.metadata?.engine_only ? 'не использовались' : common.noData)}
+              {llmProviders.length > 0 ? llmProviders.join(', ') : (analysis.metadata?.engine_only ? 'not used' : common.noData)}
             </div>
           </div>
         </div>
@@ -371,10 +371,10 @@ export function Forecast() {
       </Section>
 
       {/* Errorlogy aspects */}
-      <Section title="Аспекты Errorlogy в прогнозе" icon={<Layers size={14} className="text-purple-400" />}>
+      <Section title="Errorlogy aspects in forecast" icon={<Layers size={14} className="text-purple-400" />}>
         <div className="space-y-4">
           <div>
-            <div className="text-[10px] text-slate-500 uppercase tracking-widest mb-2">Таксономия — top_modes (μ после α)</div>
+            <div className="text-[10px] text-slate-500 uppercase tracking-widest mb-2">Taxonomy — top_modes (μ after α)</div>
             {analysis.top_modes.length > 0 ? (
               <div className="flex flex-wrap gap-2">
                 {analysis.top_modes.slice(0, 8).map(m => (
@@ -391,7 +391,7 @@ export function Forecast() {
           </div>
 
           <div>
-            <div className="text-[10px] text-slate-500 uppercase tracking-widest mb-2">Агенты pipeline (14 шагов)</div>
+            <div className="text-[10px] text-slate-500 uppercase tracking-widest mb-2">Pipeline agents (14 steps)</div>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-2">
               {PIPELINE_STEPS.map(step => {
                 const ran = stepStatus(step.id)
@@ -406,7 +406,7 @@ export function Forecast() {
                     )}
                   >
                     <div className="font-semibold text-slate-200">{step.label}</div>
-                    <div className="text-[10px] text-slate-500 mt-0.5 leading-tight">{step.descRu}</div>
+                    <div className="text-[10px] text-slate-500 mt-0.5 leading-tight">{step.desc}</div>
                     <div className="text-[10px] mt-1 font-mono">
                       {ran ? (
                         <span className="text-green-400">{ran.status}</span>
@@ -421,7 +421,7 @@ export function Forecast() {
           </div>
 
           <div>
-            <div className="text-[10px] text-slate-500 uppercase tracking-widest mb-2">Engine-модули (TZ §9)</div>
+            <div className="text-[10px] text-slate-500 uppercase tracking-widest mb-2">Engine modules (spec §9)</div>
             <div className="grid md:grid-cols-2 gap-2">
               {engineModules.map(mod => {
                 const contrib = getModuleContribution(analysis, mod.id)
@@ -441,7 +441,7 @@ export function Forecast() {
 
           {analysis.cat.catastrophe_hypothesis && (
             <div className="bg-purple-900/20 border border-purple-700/30 rounded-lg p-3">
-              <div className="text-[10px] text-slate-500 uppercase tracking-widest mb-1">CAT — гипотеза катастрофы</div>
+              <div className="text-[10px] text-slate-500 uppercase tracking-widest mb-1">CAT — catastrophe hypothesis</div>
               <p className="text-sm text-purple-300 font-mono">{analysis.cat.catastrophe_hypothesis}</p>
               <p className="text-xs text-slate-400 mt-1">{analysis.cat.explanation}</p>
             </div>
@@ -451,7 +451,7 @@ export function Forecast() {
 
       {analysis.metadata?.engine_warnings && analysis.metadata.engine_warnings.length > 0 && (
         <div className="bg-amber-900/20 border border-amber-700/40 rounded-xl p-4 space-y-1.5">
-          <p className="text-xs text-amber-400 uppercase tracking-widest">Предупреждения engine</p>
+          <p className="text-xs text-amber-400 uppercase tracking-widest">Engine warnings</p>
           {analysis.metadata.engine_warnings.map((w, i) => (
             <p key={i} className="text-xs text-amber-200 flex gap-2">
               <AlertTriangle size={12} className="shrink-0 mt-0.5" />{w}
@@ -468,21 +468,21 @@ function getModuleContribution(analysis: CaseAnalysis, moduleId: string): string
     case 'wms':
       return `MSI ${analysis.wms.msi.toFixed(2)}, CEP ${analysis.wms.cep.toFixed(2)}`
     case 'pno':
-      return `Домinant: ${analysis.pno.dominant_pno}`
+      return `Dominant: ${analysis.pno.dominant_pno}`
     case 'acc':
       return analysis.acc.max_contribution_cluster.name
     case 'egd':
       return `Echo pressure ${analysis.egd.echo_room_pressure.toFixed(2)}`
     case 't4d':
-      return `${analysis.t4d.worldline.length} точек worldline`
+      return `${analysis.t4d.worldline.length} worldline points`
     case 'cat':
       return analysis.cat.catastrophe_hypothesis
     case 'fpd':
-      return `Horizon ${analysis.fpd.horizon}, ${analysis.fpd.mode_forecasts.length} прогнозов режимов`
+      return `Horizon ${analysis.fpd.horizon}, ${analysis.fpd.mode_forecasts.length} mode forecasts`
     case 'lbi':
-      return `${analysis.lbi.alternatives.length} альтернатив улучшения`
+      return `${analysis.lbi.alternatives.length} improvement alternatives`
     case 'alpha':
-      return `${analysis.alpha.activated_edges.length} активированных рёбер`
+      return `${analysis.alpha.activated_edges.length} activated edges`
     case 'classifier':
       return `${analysis.top_modes.length} top_modes`
     default:

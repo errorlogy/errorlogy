@@ -1,123 +1,123 @@
-# errorlogy-gui — desktop app v0.2
+# errorlogy-gui - desktop app v0.2
 
-> **Статус:** ACTIVE · **Версия:** 0.2.1 · **Продукт:** politic.bar desktop UI  
-> **Backend:** [[errorlogy-mas — активный MVP (Claude)]] (FastAPI `:8000`)
+> **Status:** ACTIVE · **Version:** 0.2.1 · **Product:** politic.bar desktop UI  
+> **Backend:** [[errorlogy-mas - active MVP (Claude)]] (FastAPI `:8000`)
 
-Desktop-приложение Errorlogy MAS: анализ governance-кейсов, визуализация результатов, 3D-глобус со статистикой по странам.
+Desktop application Errorlogy MAS: analysis of governance cases, visualization of results, 3D globe with statistics by country.
 
-## Что это
+## What is this
 
-| Параметр | Значение |
+| Parameter | Value |
 |----------|----------|
-| Путь в репо | `errorlogy-gui/` |
-| Стек | Electron 42 + Vite 8 + React 19 + Tailwind 4 |
+| Path to repo | `errorlogy-gui/` |
+| Stack | Electron 42 + Vite 8 + React 19 + Tailwind 4 |
 | 3D | `react-globe.gl` + Three.js |
-| Графики | Recharts (Result page) |
-| Установка (Windows) | NSIS → `%LOCALAPPDATA%\Programs\errorlogy-gui\` |
-| Ярлык Пуск | `Errorlogy.lnk` → `Errorlogy.exe` |
+| Charts | Recharts (Result page) |
+| Installation (Windows) | NSIS → `%LOCALAPPDATA%\Programs\errorlogy-gui\` |
+| Start Shortcut | `Errorlogy.lnk` → `Errorlogy.exe` |
 
-## Страницы (HashRouter)
+## Pages (HashRouter)
 
-| Маршрут | Экран | Назначение |
-|---------|-------|------------|
-| `/` | Dashboard | health, engine v1-math, LLM providers, пайплайн 14 агентов |
-| `/globe` | Globe | **3D Земной шар** — choropleth + extrusion по странам |
-| `/analyze` | Analyze | ввод кейса, full MAS или `engine_only` |
+| Route | Screen | Purpose |
+|---------|-------|-----------|
+| `/` | Dashboard | health, engine v1-math, LLM providers, pipeline 14 agents |
+| `/globe` | Globe | **3D Globe** – choropleth + extrusion by country |
+| `/analyze` | Analyze | case input, full MAS or `engine_only` |
 | `/result` | Result | KPI, charts, worldline, public card |
-| `/taxonomy` | Taxonomy | browse режимов v16 + alpha edges |
+| `/taxonomy` | Taxonomy | browse modes v16 + alpha edges |
 
-## Связь с backend
+## Communication with backend
 
-Electron при старте поднимает uvicorn из `errorlogy-mas/` (`api.main:app`, порт 8000).
+At startup, Electron picks up uvicorn from `errorlogy-mas/` (`api.main:app`, port 8000).
 
-| API | Использование в GUI |
+| API | Use in GUI |
 |-----|---------------------|
 | `GET /api/health` | Dashboard (status, engine, providers, taxonomy) |
-| `POST /api/analyze?engine_only=true` | Analyze (опционально без LLM) |
-| `GET /api/stats/countries` | Globe — seed-статистика по 15 странам |
+| `POST /api/analyze?engine_only=true` | Analyze (optional without LLM) |
+| `GET /api/stats/countries` | Globe - seed statistics for 15 countries |
 | `GET /api/taxonomy/modes` | Taxonomy |
-| `GET /api/taxonomy/edges` | Taxonomy (вкладка Graph — список) |
+| `GET /api/taxonomy/edges` | Taxonomy (Graph tab - list) |
 
-Клиент: `errorlogy-gui/src/lib/api.ts` → `http://127.0.0.1:8000`
+Client: `errorlogy-gui/src/lib/api.ts` → `http://127.0.0.1:8000`
 
-## Analytics Engine v1 в UI
+## Analytics Engine v1 in UI
 
-- Dashboard: бейдж **Engine v1-math**, легенда **engine** (красный) vs **LLM** (янтарный) в пайплайне
-- Analyze: чекбокс **Engine only** — детерминированная аналитика без Scout/Card/Red Team
-- Result: метка `engine_only` / `metadata.engine` из ответа MAS
-- Числа μ, MSI, PNO, ACC, CAT, FPD считает `mas/engine/`, не LLM
+- Dashboard: **Engine v1-math** badge, **engine** legend (red) vs **LLM** (amber) in pipeline
+- Analyze: checkbox **Engine only** - deterministic analytics without Scout/Card/Red Team
+- Result: label `engine_only` / `metadata.engine` from MAS response
+- Numbers μ, MSI, PNO, ACC, CAT, FPD are counted by `mas/engine/`, not LLM
 
-## 3D Globe — наполнение статистикой
+## 3D Globe - filling with statistics
 
-**Источники данных (мерж на клиенте):**
+**Data sources (merge on client):**
 
-1. **Seed** — `errorlogy-mas/data/country_stats_seed.json` → `GET /api/stats/countries`  
-   USA (Challenger), JPN (Fukushima), RUS (Kursk), GBR (Hillsborough) и др. (15 стран)
-2. **Локальные анализы** — `localStorage` (`errorlogy_case_history`) после Run Analyze с полем **Country**
+1. **Seed** - `errorlogy-mas/data/country_stats_seed.json` → `GET /api/stats/countries`  
+   USA (Challenger), JPN (Fukushima), RUS (Kursk), GBR (Hillsborough), etc. (15 countries)
+2. **Local analyses** - `localStorage` (`errorlogy_case_history`) after Run Analyze with the **Country** field
 
-**Визуализация:**
+**Visualization:**
 
-- цвет полигона — плотность кейсов (красный choropleth)
-- высота extrusion — число кейсов
-- клик → панель: cases, avg μ, CEP, echo pressure, PNO, families, recent cases
+- polygon color - density of cases (red choropleth)
+- extrusion height - number of cases
+- click → panel: cases, avg μ, CEP, echo pressure, PNO, families, recent cases
 - hover → HTML tooltip
 
-- GeoJSON **встроен** в пакет: `public/geo/countries-110m.geojson`
-- Текстуры Earth — `https://cdn.jsdelivr.net/...` (нужен интернет)
+- GeoJSON **embedded** in package: `public/geo/countries-110m.geojson`
+- Earth textures - `https://cdn.jsdelivr.net/...` (internet required)
 
-**v0.2.1 fix:** в Electron `file://` ломались URL `//cdn...` — глобус был пустым. Исправлено на `https://` + локальный GeoJSON.
+**v0.2.1 fix:** in Electron `file://` URL `//cdn...` was broken - the globe was empty. Corrected to `https://` + local GeoJSON.
 
-Код: `src/components/ErrorlogyGlobe.tsx`, `src/pages/GlobePage.tsx`, `src/lib/countryStats.ts`
+Code: `src/components/ErrorlogyGlobe.tsx`, `src/pages/GlobePage.tsx`, `src/lib/countryStats.ts`
 
-## Установка и обновление (важно)
+## Installation and update (important)
 
-Ярлык **Пуск** запускает **упакованный** `.exe`, а не исходники из репо.
+The **Start** shortcut launches the **packaged** `.exe`, rather than the sources from the repo.
 
-После изменений в GUI нужен **rebuild + reinstall**:
+After changes to the GUI you need **rebuild + reinstall**:
 
 ```powershell
 cd C:\Users\Public\ERRORLOGY_MVP\errorlogy-gui
 powershell -ExecutionPolicy Bypass -File scripts\reinstall.ps1
 ```
 
-Скрипт:
-1. закрывает `Errorlogy.exe`
-2. `Uninstall Errorlogy.exe /S` (старая копия в Programs)
-3. ставит `dist-electron\Errorlogy Setup 0.2.0.exe /S`
+Script:
+1. closes `Errorlogy.exe`
+2. `Uninstall Errorlogy.exe /S` (old copy in Programs)
+3. installs `dist-electron\Errorlogy Setup 0.2.0.exe /S`
 
-**Путь установки:** `C:\Users\<user>\AppData\Local\Programs\errorlogy-gui\Errorlogy.exe`
+**Installation path:** `C:\Users\<user>\AppData\Local\Programs\errorlogy-gui\Errorlogy.exe`
 
-`npm run dev` — для разработки (Vite `:5173` + Electron, живой hot reload).
+`npm run dev` - for development (Vite `:5173` + Electron, live hot reload).
 
-## Разработка
+## Development
 
 ```bash
 cd errorlogy-gui
 npm install
-npm run dev              # dev mode
-npm run build            # только frontend dist/
-npm run electron:build   # NSIS installer в dist-electron/
+npm run dev #dev mode
+npm run build # frontend only dist/
+npm run electron:build # NSIS installer to dist-electron/
 ```
 
-## Что не сделано
+## What hasn't been done
 
-- SSE / реальный прогресс агентов с backend (сейчас таймер в Analyze)
-- Полный каталог кейсов politic.bar
-- Offline-кэш GeoJSON / текстур глобуса
-- Auth UI (OAuth есть в API, GUI не использует JWT)
-- CI для electron:build
+- SSE / real progress of agents with backend (now timer in Analyze)
+- Full catalog of cases politic.bar
+- Offline cache of GeoJSON/globe textures
+- Auth UI (OAuth is in the API, GUI does not use JWT)
+- CI for electron:build
 
-## Связи
+## Connections
 
-| Ресурс | Роль |
+| Resource | Role |
 |--------|------|
-| [[errorlogy-mas — активный MVP (Claude)]] | backend, engine, API |
-| [[Карта артефактов]] | структура репо |
-| `errorlogy-gui/README.md` | техдок на английском |
-| `errorlogy-gui/scripts/reinstall.ps1` | чистая переустановка Windows |
+| [[errorlogy-mas - active MVP (Claude)]] | backend, engine, API |
+| [[Artifact map]] | repo structure |
+| `errorlogy-gui/README.md` | technical doc in English |
+| `errorlogy-gui/scripts/reinstall.ps1` | clean reinstallation of Windows |
 
-## Теги
+## Tags
 
-#active #errorlogy-gui #electron #globe #politic-bar #mvp #v0.2
+#active #errorlogy-gui #electron #globe #political-bar #mvp #v0.2
 
-→ [[00 — Главная]] · [[Карта артефактов]] · [[errorlogy-mas — активный MVP (Claude)]]
+→ [[00 - Home]] · [[Artifact map]] · [[errorlogy-mas - active MVP (Claude)]]

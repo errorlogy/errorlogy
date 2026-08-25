@@ -12,27 +12,26 @@ tags:
   - method
 ---
 
-# METH — <короткое имя>
+# METH - <short name>
 
-## Правило (коротко)
+## Rule (short)
 
-<одно правило: “всегда делаем X / никогда не делаем Y / делаем Z при условии …”>
+<one rule: “always do X/never do Y/do Z provided…”>
 
-## Зачем (на какой риск/ошибку отвечает)
+## Why (what risk/error is addressed)
 
-<1–3 пункта>
+<1–3 points>
 
-## Границы применимости
+## Limits of applicability
 
-- Применимо когда: …
-- Не применимо когда: …
+- Applicable when: ...
+- Not applicable when: ...
 
-## Как проверять (минимальный чек)
+## How to check (minimum check)
 
-- …
+-...
 
-## Откуда это взялось
+## Where did this come from
 
-- Эксперименты: `[[EXP — …]]`
-- Решение/обсуждение: …
-
+- Experiments: `[[EXP - ...]]`
+- Decision/discussion: ...

@@ -33,10 +33,10 @@ export function Sidebar() {
   }, [])
 
   const apiTitle = apiOnline
-    ? 'MAS API онлайн'
+    ? 'MAS API online'
     : apiOnline === false
-      ? 'MAS API офлайн'
-      : 'Проверка API…'
+      ? 'MAS API offline'
+      : 'Checking API…'
 
   return (
     <div className="w-14 flex flex-col items-center py-4 gap-1 bg-slate-950 border-r border-slate-800 shrink-0">

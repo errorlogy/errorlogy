@@ -1,16 +1,16 @@
 """
-LLM Router — выбирает провайдера для каждого агента.
-Стратегия:
-  1. Попробовать предпочтительный провайдер агента
-  2. При ошибке — пройти по fallback-цепочке
-  3. Логировать провайдер и токены каждого вызова
+LLM Router — selects provider for each agent.
+Strategy:
+  1. Try agent's preferred provider
+  2. On error — walk fallback chain
+  3. Log provider and tokens for each call
 """
 import logging
 from .base import BaseProvider, LLMResponse
 
 logger = logging.getLogger("errorlogy.router")
 
-# Роли агентов → предпочтительные провайдеры (по умолчанию)
+# Agent roles → preferred providers (default)
 AGENT_PREFERENCES: dict[str, list[str]] = {
     "scout":        ["openai", "deepseek", "groq", "openrouter", "anthropic", "google"],
     "wms":          ["openai", "deepseek", "groq", "openrouter", "anthropic"],
@@ -28,7 +28,7 @@ AGENT_PREFERENCES: dict[str, list[str]] = {
     "default":      ["openai", "deepseek", "groq", "google", "kimi", "openrouter", "anthropic"],
 }
 
-# Модели для openrouter по роли (чтобы использовать разные модели для разных задач)
+# OpenRouter models by role (different models for different tasks)
 OPENROUTER_MODEL_MAP: dict[str, str] = {
     "classifier":    "anthropic/claude-sonnet-4-6",
     "red_team":      "openai/gpt-4o",

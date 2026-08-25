@@ -2,12 +2,12 @@
 
 > **STATUS: OLD SKETCH** — reference only. Not the active product codebase.
 
-Сюда сведены ранние артефакты развития идеи Errorlogy / politic.bar. Новый код по умолчанию **не** добавлять сюда без явного указания пользователя.
+Early artifacts for the Errorlogy / politic.bar idea are collected here. Do **not** add new code here by default without explicit user direction.
 
-| Подпапка | Содержимое |
+| Subfolder | Contents |
 |----------|------------|
-| `Windows_old_MVP/` | MVP politic.bar: методология, кейсы, Python pipeline |
-| `AGIU/` | Заготовка платформы (Node Hono + Python analytics demo) |
-| `Cursor_Project/` | ТЗ для Cursor и копии taxonomy JSON |
+| `Windows_old_MVP/` | politic.bar MVP: methodology, cases, Python pipeline |
+| `AGIU/` | Platform stub (Node Hono + Python analytics demo) |
+| `Cursor_Project/` | Cursor spec and taxonomy JSON copies |
 
-Документация проекта: `../../ERRORLOGY_MVP_OBSIDIAN/`
+Project documentation: `../../ERRORLOGY_MVP_OBSIDIAN/`

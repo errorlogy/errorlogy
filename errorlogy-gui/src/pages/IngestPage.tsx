@@ -38,7 +38,7 @@ export function IngestPage() {
       setDocuments(docRes.documents)
       setError('')
     } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : 'Не удалось загрузить статус ingest')
+      setError(e instanceof Error ? e.message : 'Failed to load ingest status')
     } finally {
       setLoading(false)
     }
@@ -55,7 +55,7 @@ export function IngestPage() {
     try {
       setDocModal(await api.ingestDocumentById(docId))
     } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : 'Не удалось загрузить документ')
+      setError(e instanceof Error ? e.message : 'Failed to load document')
     } finally {
       setDocModalLoading(false)
     }
@@ -68,7 +68,7 @@ export function IngestPage() {
       await fn()
       await load()
     } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : 'Ошибка fetch')
+      setError(e instanceof Error ? e.message : 'Fetch error')
     } finally {
       setFetching(false)
     }
@@ -81,7 +81,7 @@ export function IngestPage() {
       await api.ingestProcessPending(10, true)
       await load()
     } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : 'Ошибка обработки pending')
+      setError(e instanceof Error ? e.message : 'Pending processing error')
     } finally {
       setProcessing(false)
     }
@@ -104,7 +104,7 @@ export function IngestPage() {
       setManualText('')
       await load()
     } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : 'Ошибка ingest')
+      setError(e instanceof Error ? e.message : 'Ingest error')
     } finally {
       setIngesting(false)
     }
@@ -130,7 +130,7 @@ export function IngestPage() {
       setBatchText('')
       await load()
     } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : 'Ошибка batch ingest')
+      setError(e instanceof Error ? e.message : 'Batch ingest error')
     } finally {
       setIngesting(false)
     }
@@ -145,7 +145,7 @@ export function IngestPage() {
       setManualUrl('')
       await load()
     } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : 'Ошибка ingest URL')
+      setError(e instanceof Error ? e.message : 'Ingest error URL')
     } finally {
       setIngesting(false)
     }
@@ -154,7 +154,7 @@ export function IngestPage() {
   if (loading && !status) {
     return (
       <div className="flex-1 flex items-center justify-center text-slate-500">
-        <Loader2 className="animate-spin mr-2" size={18} /> Загрузка монитора потока…
+        <Loader2 className="animate-spin mr-2" size={18} /> Loading stream monitor…
       </div>
     )
   }
@@ -172,7 +172,7 @@ export function IngestPage() {
         <div>
           <h1 className="text-xl font-bold text-white flex items-center gap-2">
             <Radio size={22} className="text-emerald-400" />
-            Монитор потока данных
+            Data stream monitor
           </h1>
           <p className="text-xs text-slate-500 mt-1">
             RSS + US gov API + URL + web search → Scout → engine → signals
@@ -186,7 +186,7 @@ export function IngestPage() {
               className="flex items-center gap-2 bg-amber-700 hover:bg-amber-600 disabled:opacity-40 text-white rounded-xl px-3 py-2 text-sm font-medium"
             >
               {processing ? <Loader2 size={14} className="animate-spin" /> : <Play size={14} />}
-              Обработать pending ({s.documents_pending})
+              Process pending ({s.documents_pending})
             </button>
           )}
           <button onClick={load} className="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800">
@@ -201,11 +201,11 @@ export function IngestPage() {
 
       <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
         {[
-          { label: 'Документы', value: s.documents_total },
-          { label: 'Проанализировано', value: s.documents_analyzed },
-          { label: 'В очереди', value: s.documents_pending },
-          { label: 'Сигналы', value: s.signals_total },
-          { label: 'Алерты', value: s.active_alerts_count ?? alerts.length },
+          { label: 'Documents', value: s.documents_total },
+          { label: 'Analyzed', value: s.documents_analyzed },
+          { label: 'Queued', value: s.documents_pending },
+          { label: 'Signals', value: s.signals_total },
+          { label: 'Alerts', value: s.active_alerts_count ?? alerts.length },
           { label: 'Web', value: webProvider || '—' },
         ].map(k => (
           <div key={k.label} className="bg-slate-800 rounded-xl p-3">
@@ -232,7 +232,7 @@ export function IngestPage() {
           className="flex items-center gap-2 bg-emerald-700 hover:bg-emerald-600 disabled:opacity-40 text-white rounded-xl px-4 py-2 text-sm font-medium"
         >
           {fetching ? <Loader2 size={16} className="animate-spin" /> : <Zap size={16} />}
-          Загрузить всё (RSS + US gov + web)
+          Fetch all (RSS + US gov + web)
         </button>
         <button
           onClick={() => runAction(() => api.ingestFetchUsGov({ limit_per_source: 3, auto_analyze: true }))}
@@ -277,24 +277,24 @@ export function IngestPage() {
 
       {!webReady && (
         <p className="text-xs text-amber-400">
-          Web search использует OpenRouter или Gemini. Exa опционален.
+          Web search uses OpenRouter or Gemini. Exa optional.
         </p>
       )}
 
       {Object.keys(s.sources).length > 0 && (
         <div className="text-xs text-slate-400">
-          Источники: {Object.entries(s.sources).map(([k, v]) => `${k}=${v}`).join(', ')}
+          Sources: {Object.entries(s.sources).map(([k, v]) => `${k}=${v}`).join(', ')}
         </div>
       )}
 
       <div className="grid md:grid-cols-2 gap-6">
         <section className="bg-slate-800 rounded-xl p-4">
           <h2 className="text-xs text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">
-            <AlertTriangle size={14} className="text-amber-400" /> CEP ранние предупреждения (≥0.5)
+            <AlertTriangle size={14} className="text-amber-400" /> CEP early warnings (≥0.5)
           </h2>
           <div className="space-y-2 max-h-64 overflow-y-auto">
             {alerts.length === 0 ? (
-              <p className="text-sm text-slate-500">Нет активных CEP-алертов</p>
+              <p className="text-sm text-slate-500">No active CEP alerts</p>
             ) : (
               alerts.map(a => (
                 <div key={`${a.iso3}-${a.doc_id}`} className="flex flex-col gap-0.5 text-sm bg-slate-900 rounded-lg px-3 py-2">
@@ -324,11 +324,11 @@ export function IngestPage() {
 
         <section className="bg-slate-800 rounded-xl p-4">
           <h2 className="text-xs text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">
-            <Rss size={14} /> Потоки сигналов по странам
+            <Rss size={14} /> Signal streams by country
           </h2>
           <div className="space-y-2 max-h-64 overflow-y-auto">
             {s.signal_streams.length === 0 ? (
-              <p className="text-sm text-slate-500">Сигналов пока нет — запустите fetch или ручной ingest</p>
+              <p className="text-sm text-slate-500">No signals yet — run fetch or manual ingest</p>
             ) : (
               s.signal_streams.map(st => (
                 <div key={st.iso3} className="flex justify-between text-sm bg-slate-900 rounded-lg px-3 py-2">
@@ -343,11 +343,11 @@ export function IngestPage() {
 
         <section className="md:col-span-2 bg-slate-800 rounded-xl p-4">
           <h2 className="text-xs text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">
-            <FileText size={14} /> Документы
+            <FileText size={14} /> Documents
           </h2>
           <div className="space-y-2 max-h-72 overflow-y-auto">
             {docList.length === 0 ? (
-              <p className="text-sm text-slate-500">Документов пока нет</p>
+              <p className="text-sm text-slate-500">No documents yet</p>
             ) : (
               docList.map(d => (
                 <div key={d.doc_id} className="bg-slate-900 rounded-lg px-3 py-2 text-xs">
@@ -383,7 +383,7 @@ export function IngestPage() {
 
       <section className="bg-slate-800 rounded-xl p-4 space-y-3">
         <h2 className="text-xs text-slate-400 uppercase tracking-widest flex items-center gap-2">
-          <Link2 size={14} /> Ingest по URL
+          <Link2 size={14} /> Ingest by URL
         </h2>
         <div className="flex gap-3">
           <input value={manualUrl} onChange={e => setManualUrl(e.target.value)} placeholder="https://..."
@@ -398,27 +398,27 @@ export function IngestPage() {
 
       <section className="bg-slate-800 rounded-xl p-4 space-y-3">
         <h2 className="text-xs text-slate-400 uppercase tracking-widest flex items-center gap-2">
-          <Upload size={14} /> Ручной ingest (в т.ч. MCP paste)
+          <Upload size={14} /> Manual ingest (incl. MCP paste)
         </h2>
         <div className="grid md:grid-cols-2 gap-3">
-          <input value={manualTitle} onChange={e => setManualTitle(e.target.value)} placeholder="Название"
+          <input value={manualTitle} onChange={e => setManualTitle(e.target.value)} placeholder="Title"
             className="bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm" />
-          <input value={manualCountry} onChange={e => setManualCountry(e.target.value)} placeholder="Страна (USA)"
+          <input value={manualCountry} onChange={e => setManualCountry(e.target.value)} placeholder="Country (USA)"
             className="bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm" />
         </div>
         <textarea value={manualText} onChange={e => setManualText(e.target.value)} rows={5}
-          placeholder="Вставьте статью, отчёт или результат Exa MCP…"
+          placeholder="Paste article, report, or Exa MCP result…"
           className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm font-mono" />
         <button onClick={submitManual} disabled={ingesting}
           className="bg-red-600 hover:bg-red-500 disabled:opacity-50 text-white rounded-lg px-4 py-2 text-sm font-medium flex items-center gap-2">
           {ingesting ? <Loader2 size={16} className="animate-spin" /> : <Upload size={16} />}
-          Ingest + анализ
+          Ingest + analyze
         </button>
       </section>
 
       <section className="bg-slate-800 rounded-xl p-4 space-y-3">
         <h2 className="text-xs text-slate-400 uppercase tracking-widest flex items-center gap-2">
-          <Layers size={14} /> Batch ingest (разделитель <code className="text-slate-500">---</code> на отдельной строке)
+          <Layers size={14} /> Batch ingest (separator <code className="text-slate-500">---</code> on its own line)
         </h2>
         <textarea value={batchText} onChange={e => setBatchText(e.target.value)} rows={6}
           placeholder={'First document text...\n---\nSecond document text...'}
@@ -426,7 +426,7 @@ export function IngestPage() {
         <button onClick={submitBatch} disabled={ingesting || !batchText.trim()}
           className="bg-slate-600 hover:bg-slate-500 disabled:opacity-50 text-white rounded-lg px-4 py-2 text-sm font-medium flex items-center gap-2">
           {ingesting ? <Loader2 size={16} className="animate-spin" /> : <Layers size={16} />}
-          Batch ingest + анализ
+          Batch ingest + analyze
         </button>
       </section>
 
@@ -439,7 +439,7 @@ export function IngestPage() {
             <div className="flex items-center justify-between px-4 py-3 border-b border-slate-800">
               <div className="min-w-0">
                 <h3 className="text-sm font-semibold text-white truncate">
-                  {docModal?.title || docModal?.doc_id || 'Документ'}
+                  {docModal?.title || docModal?.doc_id || 'Document'}
                 </h3>
                 {docModal && (
                   <p className="text-[10px] text-slate-500 font-mono mt-0.5">

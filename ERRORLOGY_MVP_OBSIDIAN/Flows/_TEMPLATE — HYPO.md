@@ -7,33 +7,32 @@ updated: ""
 owner: ""
 tags:
   - flow
-  - hypothesis
+  -
 links:
   experiments: []
   methods: []
 ---
 
-# HYPO — <короткое имя>
+# HYPO - <short name>
 
-## Тезис
+## Thesis
 
-<одна фраза: что предполагаем>
+<one phrase: what we assume>
 
-## Зачем это важно сейчас
+## Why is this important now
 
-<какую боль MVP закрывает / какой риск снимает>
+<what pain does MVP cover/what risk does it remove>
 
-## Что будет считаться подтверждением / опровержением
+## What will be considered confirmation/denial
 
-- Подтверждение: …
-- Опровержение: …
+- Confirmation: ...
+- Rebuttal: ...
 
-## Минимальный эксперимент
+## Minimal experiment
 
-См. `[[EXP — …]]`
+See `[[EXP - …]]`
 
-## Связь с таксономией v16 (обязательное)
+## Link to taxonomy v16 (required)
 
-- Слои: `atomic_modes`, `WMS`, `ACC`, `FPD`, `LBI` (указать фактически задействуемые)
-- Какую метрику улучшаем: TPS / UA / ER (указать)
-
+- Layers: `atomic_modes`, `WMS`, `ACC`, `FPD`, `LBI` (specify those actually used)
+- What metric are we improving: TPS / UA / ER (specify)

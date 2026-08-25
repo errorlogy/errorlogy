@@ -52,16 +52,16 @@ export function Analyze() {
       saveCase(result, { title: CHALLENGER_PRESET.title, country: CHALLENGER_PRESET.country, year: 1986 })
       navigate(`/result/${encodeURIComponent(result.case_id)}`)
     } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : 'Не удалось загрузить демо')
+      setError(e instanceof Error ? e.message : 'Failed to load demo')
     } finally {
       setLoadingDemo(false)
     }
   }
 
   async function run() {
-    if (!text.trim()) { setError('Сначала вставьте исходный текст'); return }
+    if (!text.trim()) { setError('Paste source text first'); return }
     if (dualRun && (engineOnly || structureOnly)) {
-      setError('Dual-run запускает engine + full MAS — отключите другие режимы')
+      setError('Dual-run runs engine + full MAS — disable other modes')
       return
     }
     setError('')
@@ -108,7 +108,7 @@ export function Analyze() {
       if (country) saveCase(result, { title, country, year: year ? parseInt(year) : undefined })
       navigate(`/result/${encodeURIComponent(result.case_id)}`)
     } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : 'Анализ не удался')
+      setError(e instanceof Error ? e.message : 'Analysis failed')
     } finally {
       setRunning(false)
     }
@@ -126,10 +126,10 @@ export function Analyze() {
     <div className="flex-1 overflow-y-auto p-6 space-y-5">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h1 className="text-xl font-bold text-white">Анализ governance-кейса</h1>
+          <h1 className="text-xl font-bold text-white">Governance case analysis</h1>
           <p className="text-slate-400 text-sm mt-2 max-w-2xl leading-relaxed">
-            Pipeline Errorlogy (TZ) возвращает: режимы таксономии с μ, WMS/CEP, PNO, ACC, EGD, временную шкалу T4D,
-            гипотезу CAT, прогноз FPD и публичную карточку. Результат — на страницах «Результат» и «Прогноз».
+            Errorlogy pipeline (spec) returns: taxonomy modes with μ, WMS/CEP, PNO, ACC, EGD, T4D timeline,
+            CAT hypothesis, FPD forecast, and public card. Results on Result and Forecast pages.
           </p>
         </div>
         <div className="flex items-center gap-2 shrink-0">
@@ -137,18 +137,18 @@ export function Analyze() {
             <button onClick={loadDemoResult} disabled={loadingDemo}
               className="text-xs text-slate-300 hover:text-white border border-slate-600 rounded-lg px-3 py-1.5 flex items-center gap-1.5">
               {loadingDemo ? <Loader2 size={12} className="animate-spin" /> : <BookOpen size={12} />}
-              Демо Challenger (офлайн)
+              Challenger demo (offline)
             </button>
           )}
           <button onClick={loadChallenger} className="text-xs text-slate-400 hover:text-red-400 border border-slate-700 rounded-lg px-3 py-1.5">
-            Загрузить Challenger
+            Load Challenger
           </button>
         </div>
       </div>
 
       {apiOnline === false && (
         <div className="bg-amber-900/20 border border-amber-700/50 rounded-lg p-3 text-amber-200 text-sm">
-          Backend офлайн — запустите FastAPI на :8000 или используйте демо Challenger для просмотра UI.
+          Backend offline — start FastAPI on :8000 or use Challenger demo to preview UI.
         </div>
       )}
 
@@ -157,9 +157,9 @@ export function Analyze() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         {[
           { label: 'case_id', value: caseId, set: setCaseId, placeholder: 'US-NASA-1986-CHALLENGER-01' },
-          { label: 'Название', value: title, set: setTitle, placeholder: 'Название события' },
-          { label: 'Страна', value: country, set: setCountry, placeholder: 'USA (для карты)' },
-          { label: 'Год', value: year, set: setYear, placeholder: '1986' },
+          { label: 'Title', value: title, set: setTitle, placeholder: 'Event title' },
+          { label: 'Country', value: country, set: setCountry, placeholder: 'USA (for map)' },
+          { label: 'Year', value: year, set: setYear, placeholder: '1986' },
         ].map(f => (
           <div key={f.label}>
             <label className="text-xs text-slate-500 uppercase tracking-widest block mb-1">{f.label}</label>
@@ -176,8 +176,8 @@ export function Analyze() {
             className="rounded border-slate-600 text-red-600 focus:ring-red-500" />
           <Calculator size={16} className="text-red-400" />
           <div>
-            <div className="text-sm text-slate-200 font-medium">Только engine</div>
-            <div className="text-[10px] text-slate-500">Эвристика, без LLM</div>
+            <div className="text-sm text-slate-200 font-medium">Engine only</div>
+            <div className="text-[10px] text-slate-500">Heuristic, no LLM</div>
           </div>
         </label>
 
@@ -199,15 +199,15 @@ export function Analyze() {
           <GitCompare size={16} className="text-purple-400" />
           <div>
             <div className="text-sm text-slate-200 font-medium">Dual-run</div>
-            <div className="text-[10px] text-slate-500">Сравнение engine vs full MAS</div>
+            <div className="text-[10px] text-slate-500">Compare engine vs full MAS</div>
           </div>
         </label>
       </div>
 
       <div>
-        <label className="text-xs text-slate-500 uppercase tracking-widest block mb-1">Исходный текст</label>
+        <label className="text-xs text-slate-500 uppercase tracking-widest block mb-1">Source text</label>
         <textarea value={text} onChange={e => setText(e.target.value)}
-          rows={12} placeholder="Вставьте описание governance-события…"
+          rows={12} placeholder="Paste governance event description…"
           className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-red-500 resize-none font-mono leading-relaxed" />
       </div>
 
@@ -220,7 +220,7 @@ export function Analyze() {
       {running && (
         <div className="bg-slate-800 rounded-xl p-4">
           <p className="text-xs text-slate-500 uppercase tracking-widest mb-3">
-            {modeLabel} — ожидание API…
+            {modeLabel} — waiting for API…
           </p>
           {liveSteps.length > 0 ? (
             <div className="space-y-1.5">
@@ -239,7 +239,7 @@ export function Analyze() {
           ) : (
             <div className="flex items-center gap-2 text-slate-400 text-sm">
               <Loader2 size={16} className="animate-spin" />
-              Pipeline выполняется (full MAS может занять 1–2 мин)…
+              Pipeline running (full MAS may take 1–2 min)…
             </div>
           )}
         </div>
@@ -248,7 +248,7 @@ export function Analyze() {
       <button onClick={run} disabled={running}
         className="flex items-center gap-2 bg-red-600 hover:bg-red-500 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-xl px-6 py-3 font-semibold transition-colors">
         {running ? <Loader2 size={18} className="animate-spin" /> : <Play size={18} />}
-        {running ? 'Анализ…' : `Запуск — ${modeLabel}`}
+        {running ? 'Analyzing…' : `Run — ${modeLabel}`}
       </button>
     </div>
   )

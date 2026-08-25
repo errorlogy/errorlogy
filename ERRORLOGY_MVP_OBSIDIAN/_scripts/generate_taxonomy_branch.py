@@ -16,7 +16,7 @@ JSON_PATH = (
     / "AGIU"
     / "errorlogy_unified_taxonomy_v16_max_catastrophe_2.json"
 )
-OUT = Path(__file__).resolve().parents[1] / "Таксономия"
+OUT = Path(__file__).resolve().parents[1] / ""
 POLITIC_CB = (
     REPO
     / "ERRORLOGY"
@@ -57,7 +57,7 @@ def write(path: Path, content: str) -> None:
 
 
 def table_header() -> str:
-    return "| ID | Название | Определение (кратко) |\n|----|----------|----------------------|\n"
+    return "| ID | Name | Definition (brief) |\n|----|----------|----------------------|\n"
 
 
 def extract_modes_list(obj, keys=("modes", "patterns", "error_types", "signal_types", "cluster_archetypes")):
@@ -78,75 +78,75 @@ def main() -> None:
 
     # --- Index ---
     LAYER_NOTE: dict[str, str] = {
-        "L1": "Слои/L1 — Individual cognitive",
-        "L2": "Слои/L2 — Group dynamic",
-        "L3": "Слои/L3 — Informational environment",
-        "L4": "Слои/L4 — Strategic incentive",
-        "L5": "Слои/L5 — Mechanism aggregation",
-        "L6": "Композиты и игровая теория",
-        "GT": "Композиты и игровая теория",
-        "MP_EXT": "Расширенные/MP_EXT — Механизмы расширенные",
-        "GT_EXT": "Расширенные/GT_EXT — Игровая теория расширенная",
-        "HM": "Расширенные/HM — Homo-MAS pathologies",
-        "METHODS": "Слои MAX/METHODS — Methods - Inference",
-        "LΩ": "Слои MAX/LΩ — Generative Topology",
-        "SOCIAL_MEDIA": "Слои MAX/SOCIAL_MEDIA — Social Media Environment",
-        "LCJ": "Слои MAX/LCJ — Legal - Juridical Contour",
-        "LBI": "Слои MAX/LBI — Betterment - Improvement",
-        "LAC": "Слои MAX/LAC — Agent Strategy Contribution",
-        "LCC": "Слои MAX/LCC — Cognitive Competence Capacity",
-        "MAX_UNIVERSE": "MAX mode universe — сводка",
-        "WMS": "Слои MAX/WMS — Weak Multisource Signals",
-        "ACC": "Слои MAX/ACC — Agent Contour Clusters",
-        "EGD": "Слои MAX/EGD — Echo-room - Small-group",
-        "FPD": "Слои MAX/FPD — Fuzzy Predictive Dynamics",
-        "T4D": "Слои MAX/T4D — Temporal-Spatial Topology",
-        "CAT": "Слои MAX/CAT — Catastrophe - Bifurcation",
+"L1": "/L1 — Individual cognitive",
+"L2": "/L2 — Group dynamic",
+"L3": "/L3 — Informational environment",
+"L4": "/L4 — Strategic incentive",
+"L5": "/L5 — Mechanism aggregation",
+"L6": "Composites game theory",
+"GT": "Composites game theory",
+"MP_EXT": "/MP_EXT — ",
+"GT_EXT": "/GT_EXT — ",
+"HM": "/HM — Homo-MAS pathologies",
+"METHODS": " MAX/METHODS — Methods - Inference",
+"LΩ": " MAX/LΩ — Generative Topology",
+"SOCIAL_MEDIA": " MAX/SOCIAL_MEDIA — Social Media Environment",
+"LCJ": " MAX/LCJ — Legal - Juridical Contour",
+"LBI": " MAX/LBI — Betterment - Improvement",
+"LAC": " MAX/LAC — Agent Strategy Contribution",
+"LCC": " MAX/LCC — Cognitive Competence Capacity",
+"MAX_UNIVERSE": "MAX mode universe — ",
+"WMS": " MAX/WMS — Weak Multisource Signals",
+"ACC": " MAX/ACC — Agent Contour Clusters",
+"EGD": " MAX/EGD — Echo-room - Small-group",
+"FPD": " MAX/FPD — Fuzzy Predictive Dynamics",
+"T4D": " MAX/T4D — Temporal-Spatial Topology",
+"CAT": " MAX/CAT — Catastrophe - Bifurcation",
     }
     layer_links = "\n".join(
-        f"- [[{LAYER_NOTE.get(k, 'Слои — обзор')}|{k}]] — {v}"
+f"- [[{LAYER_NOTE.get(k, ' — ')}|{k}]] — {v}"
         for k, v in layers.items()
     )
     write(
-        OUT / "00 — Индекс таксономии.md",
-        f"""# Индекс таксономии Errorlogy
+        OUT / "00 — Taxonomy index.md",
+        f"""# Taxonomy index Errorlogy
 
-> **Источник:** unified JSON v16 (OLD SKETCH).  
-> Файл: `ERRORLOGY/errorlogy_old_version/AGIU/errorlogy_unified_taxonomy_v16_max_catastrophe_2.json`
+> **Source:** unified JSON v16 (OLD SKETCH).  
+> : `ERRORLOGY/errorlogy_old_version/AGIU/errorlogy_unified_taxonomy_v16_max_catastrophe_2.json`
 
-**Версия:** `{data.get("version", "")}`  
-**Онтология:** {data.get("ontology", "")}
+**Version:** `{data.get("version", "")}`  
+**Ontology:** {data.get("ontology", "")}
 
-## Навигация по ветке
+## Branch navigation
 
-- [[Источники и версии]]
-- [[Мета-измерения]]
-- [[Слои — обзор]]
-- [[Атомарные режимы — сводка]]
-- [[Композиты и игровая теория]]
-- [[Расширенные слои MAX]]
-- [[MAX mode universe — сводка]]
-- [[Связь с politic.bar v0.6]]
+- [[Sources and versions]]
+- [[Meta-dimensions]]
+- [[Layers — overview]]
+- [[Atomic modes — summary]]
+- [[Composites and game theory]]
+- [[Extended MAX layers]]
+- [[MAX mode universe — summary]]
+- [[Link to politic.bar v0.6]]
 
-## Слои (24 ключа в JSON)
+## Layers (24 keys in JSON)
 
 {layer_links}
 
-## Счётчики (из JSON)
+## Counters (from JSON)
 
-| Ключ | Число |
+| Key | Count |
 |------|-------|
 """
         + "\n".join(f"| `{k}` | {v} |" for k, v in counts.items())
         + """
 
-## Формула анализа (из ТЗ)
+## Analysis formula (from spec)
 
 ```text
 DATA → WMS → μ → α → ACC → PNO → FPD → LBI → public card
 ```
 
-→ [[../00 — Главная|Главная Obsidian]] · [[../Карта артефактов]]
+→ [[../00 — |Obsidian home]] · [[../ ]]
 
 #taxonomy #errorlogy #v16
 """,
@@ -154,32 +154,32 @@ DATA → WMS → μ → α → ACC → PNO → FPD → LBI → public card
 
     # --- Sources ---
     write(
-        OUT / "Источники и версии.md",
-        f"""# Источники и версии
+OUT / " .md",
+f"""#
 
-## Unified taxonomy v16 (эта ветка)
+## Unified taxonomy v16 (this branch)
 
 | | |
 |---|---|
-| Версия | `{data.get("version")}` |
-| Путь в репо | `AGIU/errorlogy_unified_taxonomy_v16_max_catastrophe_2.json` |
-| Статус | **OLD SKETCH** — черновик онтологии |
+| Version | `{data.get("version")}` |
+| Path in repo | `AGIU/errorlogy_unified_taxonomy_v16_max_catastrophe_2.json` |
+| Status | **OLD SKETCH** — ontology draft |
 
 {data.get("description", "")[:1200]}…
 
-### Исходные файлы (atomic L1–L5)
+### Source files (atomic L1–L5)
 
-| Файл | Роль |
+| File | Role |
 |------|------|
-| `cognitive_biases.json` | CB, слои L1–L3 |
+| `cognitive_biases.json` | CB, layers L1–L3 |
 | `strategic_failure_modes.json` | SF, L4 |
 | `mechanism_pathologies.json` | MP, L5 |
 
-## politic.bar pipeline (параллельный мир)
+## politic.bar pipeline (parallel world)
 
-Три отдельных JSON в `Windows_old_MVP/.../taxonomy/` — **v0.6**, используются пайплайном `politic_bar/`, не merged с v16 автоматически.
+JSON `Windows_old_MVP/.../taxonomy/` — **v0.6**, used by pipeline `politic_bar/`, not merged v16 automatically.
 
-→ [[Связь с politic.bar v0.6]] · [[00 — Индекс таксономии]]
+→ [[Link to politic.bar v0.6]] · [[00 — Taxonomy index]]
 """,
     )
 
@@ -188,65 +188,65 @@ DATA → WMS → μ → α → ACC → PNO → FPD → LBI → public card
         f"| `{k}` | {md_escape(v)} |" for k, v in meta.items()
     )
     write(
-        OUT / "Мета-измерения.md",
-        f"""# Мета-измерения (R, O, A, C, T, X)
+        OUT / "Meta-dimensions.md",
+        f"""# Meta-dimensions (R, O, A, C, T, X)
 
-Поперечные оси, по которым режимы ошибок могут быть размечены в `atomic_modes.meta_dimensions`.
+Cross-cutting axes, by which error modes `atomic_modes.meta_dimensions`.
 
-| Код | Смысл |
+| | Meaning |
 |-----|--------|
 {rows}
 
-→ [[00 — Индекс таксономии]] · [[Атомарные режимы — сводка]]
+→ [[00 — Taxonomy index]] · [[Atomic modes — summary]]
 """,
     )
 
     # --- Layers overview ---
     write(
-        OUT / "Слои — обзор.md",
-        """# Слои — обзор
+OUT / " — .md",
+"""# —
 
-Таксономия Errorlogy v16 организована в **слои** — от атомарных когнитивных режимов до прогноза и катастроф.
+Errorlogy v16 **layers** — .
 
-## Группы
+##
 
-### Атомарный фундамент (L1–L5)
-| Слой | Фокус |
+### (L1–L5)
+| | |
 |------|--------|
-| [[Слои/L1 — Individual cognitive|L1]] | Индивидуальные когнитивные искажения (166) |
-| [[Слои/L2 — Group dynamic|L2]] | Групповая динамика (17) |
-| [[Слои/L3 — Informational environment|L3]] | Информационная среда (6) |
-| [[Слои/L4 — Strategic incentive|L4]] | Стратегические / incentive сбои (14) |
-| [[Слои/L5 — Mechanism aggregation|L5]] | Патологии агрегации (14) |
+| [[Layers/L1 — Individual cognitive|L1]] | (166) |
+| [[Layers/L2 — Group dynamic|L2]] | (17) |
+| [[Layers/L3 — Informational environment|L3]] | (6) |
+| [[Layers/L4 — Strategic incentive|L4]] | / incentive (14) |
+| [[Layers/L5 — Mechanism aggregation|L5]] | (14) |
 
-### Композиты и взаимодействие
-- **L6 / PNO** — устойчивая неоптимальность → [[Композиты и игровая теория]]
-- **GT** — игровые паттерны → [[Композиты и игровая теория]]
+### Composites
+- **L6 / PNO** — → [[Composites and game theory]]
+- **GT** — → [[Composites and game theory]]
 
-### Контуры и улучшение
-- **LCJ** — правовой контур
-- **LBI** — counterfactual / «как лучше»
-- **LAC** — вклад агентов и стратегий
-- **LCC** — когнитивная ёмкость системы
+###
+- **LCJ** —
+- **LBI** — counterfactual / « »
+- **LAC** —
+- **LCC** —
 
-### Среда и MAS
-- **SOCIAL_MEDIA**, **HM** — соцсети и Homo-MAS
-- **MP_EXT**, **GT_EXT** — расширенные механизмы и игры
+### MAS
+- **SOCIAL_MEDIA**, **HM** — Homo-MAS
+- **MP_EXT**, **GT_EXT** —
 
-### Сигналы, прогноз, топология
-- **WMS** — слабые мультисредные сигналы
-- **ACC** — кластеры вклада
-- **EGD** — эхо-комнаты малых групп
-- **FPD** — fuzzy-прогноз
-- **T4D** — время + пространство (3D+1D)
-- **CAT** — теория катастроф / бифуркации
+### , ,
+- **WMS** —
+- **ACC** —
+- **EGD** — -
+- **FPD** — fuzzy-
+- **T4D** — + (3D+1D)
+- **CAT** — /
 
-### Мета-слои
-- **METHODS** — детекция, майнинг, валидация
-- **LΩ** — генеративная топология (новые режимы)
-- **MAX_UNIVERSE** — сводная вселенная режимов (381)
+### -layers
+- **METHODS** — , ,
+- **LΩ** — ( )
+- **MAX_UNIVERSE** — (381)
 
-→ [[00 — Индекс таксономии]]
+→ [[00 — Taxonomy index]]
 """,
     )
 
@@ -268,16 +268,16 @@ DATA → WMS → μ → α → ACC → PNO → FPD → LBI → public card
         title = layer_titles.get(layer_id, layer_id)
         desc = layers.get(layer_id, "")
         write(
-            OUT / "Слои" / file_name(layer_id, title),
+OUT / "" / file_name(layer_id, title),
             f"""# {layer_id} — {title}
 
 {desc}
 
-**Режимов в v16:** {len(modes)} (семейства: CB / SF / MP по `family`)
+**Modes in v16:** {len(modes)} (: CB / SF / MP `family`)
 
 {table_header()}{rows}
 
-→ [[../Слои — обзор]] · [[../00 — Индекс таксономии]]
+→ [[../Layers — overview]] · [[../00 — Taxonomy index]]
 """,
         )
 
@@ -286,20 +286,20 @@ DATA → WMS → μ → α → ACC → PNO → FPD → LBI → public card
     for m in data.get("atomic_modes", []):
         fam[m.get("family", "?")] += 1
     write(
-        OUT / "Атомарные режимы — сводка.md",
-        f"""# Атомарные режимы — сводка
+OUT / " — .md",
+f"""# —
 
-Всего **{len(data.get("atomic_modes", []))}** записей в `atomic_modes` (целевой atomic_total: {counts.get("atomic_total")}).
+**{len(data.get("atomic_modes", []))}** `atomic_modes` ( atomic_total: {counts.get("atomic_total")}).
 
-| Слой | Число | Заметка |
+| | | Note |
 |------|-------|---------|
-| L1 | {len(by_layer["L1"])} | [[Слои/L1 — Individual cognitive]] |
-| L2 | {len(by_layer["L2"])} | [[Слои/L2 — Group dynamic]] |
-| L3 | {len(by_layer["L3"])} | [[Слои/L3 — Informational environment]] |
-| L4 | {len(by_layer["L4"])} | [[Слои/L4 — Strategic incentive]] |
-| L5 | {len(by_layer["L5"])} | [[Слои/L5 — Mechanism aggregation]] |
+| L1 | {len(by_layer["L1"])} | [[Layers/L1 — Individual cognitive]] |
+| L2 | {len(by_layer["L2"])} | [[Layers/L2 — Group dynamic]] |
+| L3 | {len(by_layer["L3"])} | [[Layers/L3 — Informational environment]] |
+| L4 | {len(by_layer["L4"])} | [[Layers/L4 — Strategic incentive]] |
+| L5 | {len(by_layer["L5"])} | [[Layers/L5 — Mechanism aggregation]] |
 
-### По семейству
+###
 
 | family | count |
 |--------|-------|
@@ -307,7 +307,7 @@ DATA → WMS → μ → α → ACC → PNO → FPD → LBI → public card
         + "\n".join(f"| `{k}` | {v} |" for k, v in sorted(fam.items()))
         + """
 
-→ [[Мета-измерения]]
+→ [[Meta-dimensions]]
 """,
     )
 
@@ -325,29 +325,29 @@ DATA → WMS → μ → α → ACC → PNO → FPD → LBI → public card
             for m in pno
         )
     write(
-        OUT / "Композиты и игровая теория.md",
-        f"""# Композиты и игровая теория
+OUT / "Composites game theory.md",
+f"""# Composites game theory
 
 ## PNO — Persistent Non-Optimality (L6)
 
-Счётчик JSON: **{counts.get("PNO", 7)}** композитных паттернов.
+JSON: **{counts.get("PNO", 7)}** .
 
-{table_header()}{pno_rows or "_См. composite_patterns.PNO в JSON._"}
+{table_header()}{pno_rows or "_See composite_patterns.PNO JSON._"}
 
 ## Game theory patterns (GT)
 
-**{len(data.get("game_theory_patterns", []))}** паттернов.
+**{len(data.get("game_theory_patterns", []))}** .
 
 {table_header()}{gt_rows}
 
-→ [[00 — Индекс таксономии]]
+→ [[00 — Taxonomy index]]
 """,
     )
 
     # --- Extended layers ---
     sections = [
-        ("mechanism_pathologies_extended", "MP_EXT", "Механизмы расширенные"),
-        ("game_theory_patterns_extended", "GT_EXT", "Игровая теория расширенная"),
+("mechanism_pathologies_extended", "MP_EXT", " "),
+("game_theory_patterns_extended", "GT_EXT", " "),
         ("homo_mas_interaction_pathologies", "HM", "Homo-MAS pathologies"),
     ]
     ext_parts = []
@@ -355,20 +355,20 @@ DATA → WMS → μ → α → ACC → PNO → FPD → LBI → public card
         items = data.get(json_key, [])
         rows = "\n".join(mode_row(m) for m in items)
         write(
-            OUT / "Расширенные" / file_name(layer_key, title),
+OUT / "" / file_name(layer_key, title),
             f"""# {layer_key} — {title}
 
-**{len(items)}** режимов · JSON: `{json_key}`
+**{len(items)}** · JSON: `{json_key}`
 
 {layers.get(layer_key, "")}
 
 {table_header()}{rows}
 
-→ [[../Расширенные слои MAX]]
+→ [[../Extended layers MAX]]
 """,
         )
         ext_parts.append(
-            f"- [[Расширенные/{file_name(layer_key, title)[:-3]}|{layer_key}]] ({len(items)})"
+            f"- [[Extended/{file_name(layer_key, title)[:-3]}|{layer_key}]] ({len(items)})"
         )
 
     # Rich layer objects
@@ -409,7 +409,7 @@ DATA → WMS → μ → α → ACC → PNO → FPD → LBI → public card
                 for m in methods[:20]
             )
             if len(methods) > 20:
-                method_lines += f"\n- _…ещё {len(methods) - 20} в JSON_"
+method_lines += f"\n- _… {len(methods) - 20} JSON_"
 
         modules = section.get("modules", [])
         mod_lines = ""
@@ -425,37 +425,37 @@ DATA → WMS → μ → α → ACC → PNO → FPD → LBI → public card
 
 {layers.get(layer_key, section.get("name", ""))}
 
-## Принцип
+##
 
-{principle or "_см. JSON_"}
+{principle or "_. JSON_"}
 
-**Статус в JSON:** {section.get("status", "—")}
+** JSON:** {section.get("status", "—")}
 """
         if modes:
-            body += f"\n## Режимы / типы ({len(modes)})\n\n{table_header()}{rows}\n"
+body += f"\n## / ({len(modes)})\n\n{table_header()}{rows}\n"
         body += method_lines + mod_lines
-        body += "\n\n→ [[../Расширенные слои MAX]] · [[../00 — Индекс таксономии]]\n"
-        write(OUT / "Слои MAX" / file_name(layer_key, title), body)
+        body += "\n\n→ [[../Extended layers MAX]] · [[../00 — Taxonomy index]]\n"
+write(OUT / " MAX" / file_name(layer_key, title), body)
         rich_parts.append(
-            f"- [[Слои MAX/{file_name(layer_key, title)[:-3]}|{layer_key}]]"
+            f"- [[Layers MAX/{file_name(layer_key, title)[:-3]}|{layer_key}]]"
             + (f" — {len(modes)} modes" if modes else "")
         )
 
     write(
-        OUT / "Расширенные слои MAX.md",
-        f"""# Расширенные слои MAX
+        OUT / "Extended layers MAX.md",
+        f"""# Extended layers MAX
 
-Слои v16 beyond atomic L1–L5: сигналы, кластеры, прогноз, топология, катастрофы, право, улучшение, методы.
+v16 beyond atomic L1–L5: , , , , , , , .
 
-## Расширенные списки (array в корне JSON)
+## (array JSON)
 
 {chr(10).join(ext_parts)}
 
-## Объектные слои (nested JSON)
+## layers (nested JSON)
 
 {chr(10).join(rich_parts)}
 
-→ [[00 — Индекс таксономии]]
+→ [[00 — Taxonomy index]]
 """,
     )
 
@@ -477,26 +477,26 @@ DATA → WMS → μ → α → ACC → PNO → FPD → LBI → public card
         if isinstance(m, dict)
     )
     write(
-        OUT / "MAX mode universe — сводка.md",
-        f"""# MAX mode universe — сводка
+OUT / "MAX mode universe — .md",
+f"""# MAX mode universe —
 
-Консолидированная вселенная режимов: **{len(universe)}** записей (`max_mode_universe`).
+: **{len(universe)}** (`max_mode_universe`).
 
-### По полю layer / source_layer
+### layer / source_layer
 
 | layer | count |
 |-------|-------|
 {u_summary}
 
-## Полный каталог ID
+## ID
 
-| ID | Название | layer |
+| ID | Name | layer |
 |----|----------|-------|
 {u_rows}
 
-> Полные определения — только в JSON (файл ~16k строк).
+> — JSON ( ~16k ).
 
-→ [[00 — Индекс таксономии]]
+→ [[00 — Taxonomy index]]
 """,
     )
 
@@ -521,21 +521,21 @@ DATA → WMS → μ → α → ACC → PNO → FPD → LBI → public card
                     pb_counts[Path(fname).stem] = len(items)
 
     write(
-        OUT / "Связь с politic.bar v0.6.md",
-        f"""# Связь с politic.bar v0.6
+        OUT / "Link to politic.bar v0.6.md",
+        f"""# Link to politic.bar v0.6
 
-Два представления одной идеи:
+:
 
-| | politic.bar v0.6 | Unified v16 (эта ветка) |
+| | politic.bar v0.6 | Unified v16 (this branch) |
 |---|------------------|-------------------------|
-| Файлы | 3× `taxonomy/*.json` | 1× `errorlogy_unified_taxonomy_v16_*.json` |
-| Пайплайн | `politic_bar/pipeline.py` | AGIU `TaxonomyLoader` |
-| Слои в прод-скетче | L1–L5 (+ методология L6, GT в docs) | L1–CAT, METHODS, MAX_UNIVERSE |
-| Записей (pipeline) | CB ~{pb_counts.get("cognitive_biases", "?")}, SF/MP отдельно | atomic 217 + universe 381 |
+| | 3× `taxonomy/*.json` | 1× `errorlogy_unified_taxonomy_v16_*.json` |
+| | `politic_bar/pipeline.py` | AGIU `TaxonomyLoader` |
+| -sketch | L1–L5 (+ methodology L6, GT docs) | L1–CAT, METHODS, MAX_UNIVERSE |
+| (pipeline) | CB ~{pb_counts.get("cognitive_biases", "?")}, SF/MP | atomic 217 + universe 381 |
 
-**Не мержить автоматически.** ID режимов (CB-xxx, SF-xxx, MP-xxx) должны совпадать в atomic части, но v16 добавляет слои без поддержки в старом Classifier.
+** automatically.** ID (CB-xxx, SF-xxx, MP-xxx) atomic , v16 layers Classifier.
 
-→ [[Источники и версии]] · [[../politic.bar — скетч MVP]]
+→ [[Sources and versions]] · [[../politic.bar — sketch MVP]]
 """,
     )
 

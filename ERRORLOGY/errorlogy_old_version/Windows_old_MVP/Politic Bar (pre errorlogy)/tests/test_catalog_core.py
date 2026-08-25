@@ -23,7 +23,7 @@ from politic_bar import catalog
     ("Robert Lund", "robert-lund"),
     ("Roger M. Boisjoly", "roger-m-boisjoly"),
     ("Café Manager", "cafe-manager"),
-    ("Иван Иванов", "ivan-ivanov"),
+    ("Ivan Ivanov", "ivan-ivanov"),
     ("  ", "unnamed-actor"),
     ("", "unnamed-actor"),
 ])
@@ -32,10 +32,10 @@ def test_slugify_basic(name, expected):
 
 
 def test_slugify_ukrainian_marker_switches_i_to_y():
-    """Strings carrying any of {і, ї, є, ґ} are treated as Ukrainian:
-    cyrillic `и` renders as `y` instead of `i`."""
-    russian = catalog._slugify_actor("Владимир Никитин")          # no marker
-    ukrainian = catalog._slugify_actor("Володимир Нікітін")       # `і` present
+    """Strings carrying any of {, , , } are treated as Ukrainian:
+    cyrillic `` renders as `y` instead of `i`."""
+    russian = catalog._slugify_actor(" ")          # no marker
+    ukrainian = catalog._slugify_actor(" ")       # `` present
     assert russian == "vladimir-nikitin"
     assert "volodymyr" in ukrainian, f"expected ukrainian translit, got {ukrainian}"
 

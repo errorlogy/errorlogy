@@ -1,67 +1,67 @@
-# Принципы harness engineering (для Errorlogy)
+# Harness engineering principles (for Errorlogy)
 
-Синтез из Anthropic/OpenAI eval guidance, pytest-native agent testing (2025–2026) и паттернов CI для non-deterministic LLM outputs.
+Synthesis from Anthropic/OpenAI eval guidance, pytest-native agent testing (2025–2026), and CI patterns for non-deterministic LLM outputs.
 
 ---
 
-## 1. Оценивайте harness + model, не модель в вакууме
+## 1. Evaluate harness + model, not model in isolation
 
-Eval «агента» всегда измеряет связку **orchestrator + prompts + tools + model**. В Errorlogy: `Orchestrator.run_from_text()` — это harness; смена промпта Scout без смены `fuzzy.py` — harness change, требующий регрессионного прогона.
+Agent eval always measures **orchestrator + prompts + tools + model**. In Errorlogy: `Orchestrator.run_from_text()` is the harness; changing Scout prompt without changing `fuzzy.py` is a harness change requiring regression run.
 
-## 2. Разделяйте agent harness и eval harness
+## 2. Separate agent harness and eval harness
 
-| Слой | Что это в Errorlogy |
+| Layer | In Errorlogy |
 |------|---------------------|
 | **Agent harness** | `orchestrator.py`, agents, engine, guards, dual-run |
-| **Eval harness** | pytest, `run_challenger.py`, будущие YAML evals, CI gates |
+| **Eval harness** | pytest, `run_challenger.py`, future YAML evals, CI gates |
 
-Eval harness **не должен** подменять production orchestrator — он его **оборачивает** фикстурами и graders.
+Eval harness **must not** replace production orchestrator — it **wraps** it with fixtures and graders.
 
-## 3. Детерминированные проверки — первый рубеж
+## 3. Deterministic checks — first gate
 
-Схемы (`schemas/analysis.py`), числа engine (`μ`, MSI, PNO), routing tool calls, caps в `guards.py` — проверяются **без LLM**. Быстро, дёшево, на каждый commit. LLM-as-judge — только когда детерминизм исчерпан (narrative quality, neutrality tone).
+Schemas (`schemas/analysis.py`), engine numbers (`μ`, MSI, PNO), tool-call routing, caps in `guards.py` — checked **without LLM**. Fast, cheap, every commit. LLM-as-judge — only when determinism is exhausted (narrative quality, neutrality tone).
 
 ## 4. `engine_only` — CI-safe smoke eval
 
-`orchestrator.run_from_text(..., engine_only=True)` и `run_challenger.py --engine-only` — эталонный паттерн: полный числовой путь без API keys. Любой новый OSS eval-tool обязан уважать этот режим (ось `test_safety` в OSS funnel).
+`orchestrator.run_from_text(..., engine_only=True)` and `run_challenger.py --engine-only` — reference pattern: full numeric path without API keys. Any new OSS eval tool must respect this mode (`test_safety` axis in OSS funnel).
 
-## 5. Слоистая пирамида тестов
+## 5. Layered test pyramid
 
 ```text
 L4  Live LLM evals (PR merge / nightly) — neutrality, narrative, dual-run drift
-L3  Recorded cassettes / golden outputs — regression на фиксированных кейсах
+L3  Recorded cassettes / golden outputs — regression on fixed cases
 L2  Integration smoke — run_challenger, API contract
 L1  Unit pytest — engine/, guards, schema validation
 ```
 
-Не поднимать L4 на каждый push — cost и flakiness.
+Do not run L4 on every push — cost and flakiness.
 
 ## 6. Non-determinism: threshold + repeated runs
 
-Для LLM-выходов: N прогонов, pass если ≥ threshold% успешны; усреднение scores по 3+ runs. Паттерн из `pytest-agent-eval`, Braintrust, industry CI guides.
+For LLM outputs: N runs, pass if ≥ threshold% succeed; average scores over 3+ runs. Pattern from `pytest-agent-eval`, Braintrust, industry CI guides.
 
-## 7. Трассировка шагов 14-агентного пайплайна
+## 7. Trace 14-agent pipeline steps
 
-Eval harness должен записывать: какой агент, latency, warnings, `red_team_notes`, engine flags. Без trace невозможно локализовать регрессию (Scout vs Neutrality). Связь с будущим OpenTelemetry pilot из OSS funnel.
+Eval harness must record: which agent, latency, warnings, `red_team_notes`, engine flags. Without trace, regression localization is impossible (Scout vs Neutrality). Links to future OpenTelemetry pilot from OSS funnel.
 
 ## 8. Grader design: μ ≠ probability
 
-Любой автоматический scorer **не должен** интерпретировать `μ` как вероятность вины или доказанность. Rubrics для Neutrality/Card Compiler — language compliance; для engine — numeric tolerance и schema, не semantic similarity к «ожидаемой вине».
+Any automatic scorer **must not** interpret `μ` as probability of guilt or proof. Rubrics for Neutrality/Card Compiler — language compliance; for engine — numeric tolerance and schema, not semantic similarity to "expected guilt".
 
-## 9. Версионируйте eval datasets в git
+## 9. Version eval datasets in git
 
-Seed-кейсы (Challenger, seed calibration) — часть harness. Изменение кейса = изменение eval contract. YAML/JSON рядом с тестами, code review на dataset diffs.
+Seed cases (Challenger, seed calibration) are part of harness. Changing a case = changing eval contract. YAML/JSON next to tests, code review on dataset diffs.
 
-## 10. Harness evolution — осознанно, не auto-merge
+## 10. Harness evolution — deliberate, not auto-merge
 
-Исследования (Meta-Harness, AHE) показывают auto-evolution harness. Для MVP Errorlogy: **ручной** цикл (edit → pytest green → engine_only → optional live eval). Auto-evolution — defer до стабильного baseline и observability.
+Research (Meta-Harness, AHE) shows auto-evolution of harness. For Errorlogy MVP: **manual** cycle (edit → pytest green → engine_only → optional live eval). Auto-evolution — defer until stable baseline and observability.
 
 ---
 
-## Анти-паттерны (специфичные для Errorlogy)
+## Anti-patterns (Errorlogy-specific)
 
-- LLM считает μ/MSI/PNO в eval или production
-- Один «E2E с GPT-4» без engine_only gate
-- Копирование eval harness из OLD SKETCH politic.bar без migration
-- Смешение trn-sim метрик с MAS pipeline evals
-- Commit API keys в eval configs
+- LLM computes μ/MSI/PNO in eval or production
+- Single "E2E with GPT-4" without engine_only gate
+- Copying eval harness from OLD SKETCH politic.bar without migration
+- Mixing trn-sim metrics with MAS pipeline evals
+- Commit API keys in eval configs

@@ -1,19 +1,19 @@
 # errorlogy-gui-v2
 
-Упрощённый браузерный UI для **прогнозирования** Errorlogy MAS — фокус на потоковом и кейсовом прогнозе, потоках данных и прозрачной методологии.
+Simplified browser UI for **Errorlogy MAS forecasting** — focus on stream and case forecast, data streams, and transparent methodology.
 
-Полный desktop UI остаётся в [`errorlogy-gui/`](../errorlogy-gui/) (v0.2.x, Electron).
+Full desktop UI remains in [`errorlogy-gui/`](../errorlogy-gui/) (v0.2.x, Electron).
 
-## Запуск рядом с v1
+## Run alongside v1
 
-**Терминал 1 — API** (общий для обоих UI):
+**Terminal 1 — API** (shared by both UIs):
 
 ```bash
 cd errorlogy-mas
 python api/main.py
 ```
 
-**Терминал 2 — v2** (порт **5174**):
+**Terminal 2 — v2** (port **5174**):
 
 ```bash
 cd errorlogy-gui-v2
@@ -21,39 +21,39 @@ npm install
 npm run dev
 ```
 
-Откройте http://localhost:5174
+Open http://localhost:5174
 
-**Терминал 3 (опционально) — v1** (порт 5173):
+**Terminal 3 (optional) — v1** (port 5173):
 
 ```bash
 cd errorlogy-gui
 npm run dev:vite
 ```
 
-Vite проксирует `/api` → `http://127.0.0.1:8000`.
+Vite proxies `/api` → `http://127.0.0.1:8000`.
 
-## Страницы
+## Pages
 
-| Путь | Назначение |
-|------|------------|
-| `/` | Обзор: health, кейсовый vs потоковый прогноз, методология |
-| `/stream` | Прогноз потока — `GET /api/forecast/stream` |
-| `/case` | Прогноз по кейсу — `POST /api/analyze` (SSE или sync) |
-| `/data` | Потоки данных — ingest, RSS, ручной ввод |
+| Path | Purpose |
+|------|---------|
+| `/` | Overview: health, case vs stream forecast, methodology |
+| `/stream` | Stream forecast — `GET /api/forecast/stream` |
+| `/case` | Case forecast — `POST /api/analyze` (SSE or sync) |
+| `/data` | Data streams — ingest, RSS, manual input |
 
-## Сборка
+## Build
 
 ```bash
 npm run build
 ```
 
-## Отличия от v1
+## Differences from v1
 
-- 4 страницы вместо 10+ (нет глобуса, полной таксономии, MAS-метрик, Electron)
-- Горизонтальная навигация, русский UI по умолчанию
-- Акцент на μ ≠ probability и пояснения methodology_ru из API
-- Браузер-only (без OAuth, без упаковки)
+- 4 pages instead of 10+ (no globe, full taxonomy, MAS metrics, Electron)
+- Horizontal navigation, English UI by default
+- Emphasis on μ ≠ probability and `methodology` field from API
+- Browser-only (no OAuth, no packaging)
 
-## Переменные
+## Variables
 
-- `VITE_API_BASE` — если API не на localhost:8000 (production)
+- `VITE_API_BASE` — if API is not on localhost:8000 (production)

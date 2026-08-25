@@ -1,9 +1,9 @@
-# AGIU
+# AGIU (OLD SKETCH)
 
-> **STATUS: OLD SKETCH** — incomplete platform prototype, not production.
+> **STATUS: OLD SKETCH** — platform stub, not active product.
 
-- `src/server.ts` — только `/health`
-- `src/analytics/` — FastAPI: taxonomy loader + demo FPD/ACC endpoints
-- `errorlogy_unified_taxonomy_v16_max_catastrophe_2.json` — черновик онтологии v16
+- `src/server.ts` — `/health` endpoint
+- `errorlogy_unified_taxonomy_v16_max_catastrophe_2.json` — extended taxonomy v16 copy
+- Analytics demo: `npm run analytics:dev` (requires Python venv in `.venv`)
 
-Запуск analytics: `npm run analytics:dev` (нужен Python venv в `.venv`).
+See `../../ERRORLOGY_MVP_OBSIDIAN/` for current architecture.

@@ -1,24 +1,24 @@
-# Анализ статуса ERRORLOGY_MVP — срез 2026-06-12
+# ERRORLOGY_MVP status analysis — snapshot 2026-06-12
 
-> Источник: анализ Cursor IDE по живому дереву проекта
+> Source: Cursor IDE analysis of the live project tree
 
 ---
 
-## 1. Зрелость: где мы на карте
+## 1. Maturity: where we are on the map
 
-| Зона | Статус | Зрелость |
+| Zone | Status | Maturity |
 |------|--------|----------|
-| `errorlogy-mas/` | ACTIVE | ~MVP backend: пайплайн собран, есть дemo Challenger, API |
-| `errorlogy-gui/` | ACTIVE | ~alpha UI: Electron + React, подключён к API, без каталога/истории |
-| `ERRORLOGY/errorlogy_old_version/` | OLD SKETCH | Референс методологии v0.6, seed-кейсы, ТЗ |
-| `ERRORLOGY_MVP_OBSIDIAN/` | Документация | Хорошая навигация; GUI описан устаревше |
-| Тесты / CI / deploy | — | Отсутствуют в active-части |
+| `errorlogy-mas/` | ACTIVE | ~MVP backend: pipeline built, Challenger demo, API |
+| `errorlogy-gui/` | ACTIVE | ~alpha UI: Electron + React, API-connected, no catalog/history |
+| `ERRORLOGY/errorlogy_old_version/` | OLD SKETCH | Methodology v0.6 reference, seed cases, spec |
+| `ERRORLOGY_MVP_OBSIDIAN/` | Documentation | Good navigation; GUI description outdated |
+| Tests / CI / deploy | — | Missing in active part |
 
-**Итог:** это исследовательский MVP с одним end-to-end сценарием (текст → 14 шагов → JSON + карточка), а не публичный politic.bar.
+**Summary:** a research MVP with one end-to-end scenario (text → 14 steps → JSON + card), not public politic.bar.
 
 ---
 
-## 2. Архитектура (как сейчас)
+## 2. Architecture (current)
 
 ```
 errorlogy-gui Electron
@@ -32,17 +32,17 @@ errorlogy-gui Electron
                      └─ errorlogy_unified_taxonomy_v16.json
 
 LLM Router (fallback): Anthropic → OpenAI → DeepSeek → Groq → Google → Kimi → OpenRouter
-Единственный не-LLM шаг: AlphaPropagationAgent — чистая математика по рёбрам графа
+Only non-LLM step: AlphaPropagationAgent — pure math on graph edges
 ```
 
 ---
 
-## Приоритеты для следующего шага
+## Priorities for next step
 
-1. **Persistence** — SQLite или JSON-файлы для истории кейсов
-2. **Classifier coverage** — GT, HM, EGD и др. в промпте
-3. **Реальный streaming прогресса** — SSE или WebSocket
-4. **Corpus seed-кейсов** — импорт 5 кейсов из OLD SKETCH
-5. **JWT в GUI** — OAuth login flow в Electron
+1. **Persistence** — SQLite or JSON files for case history
+2. **Classifier coverage** — GT, HM, EGD, etc. in prompt
+3. **Real progress streaming** — SSE or WebSocket
+4. **Seed case corpus** — import 5 cases from OLD SKETCH
+5. **JWT in GUI** — OAuth login flow in Electron
 
-Полная версия: см. исходник в Obsidian или `ERRORLOGY_MVP_OBSIDIAN/`.
+Full version: see Obsidian source or `ERRORLOGY_MVP_OBSIDIAN/`.

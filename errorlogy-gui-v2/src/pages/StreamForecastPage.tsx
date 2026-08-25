@@ -35,7 +35,7 @@ export function StreamForecastPage() {
       if (isNetworkError(e)) {
         setOffline(true)
       } else {
-        setError(e instanceof Error ? e.message : 'Не удалось загрузить прогноз потока')
+        setError(e instanceof Error ? e.message : 'Failed to load stream forecast')
       }
       setData(null)
     } finally {
@@ -65,7 +65,7 @@ export function StreamForecastPage() {
             {nav.stream}
           </h1>
           <p className="text-slate-400 text-sm mt-1 max-w-2xl">
-            Агрегат Horizon 2: ingest → сигналы → engine → тренды и алерты.
+            Horizon 2 aggregate: ingest → signals → engine → trends and alerts.
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -75,7 +75,7 @@ export function StreamForecastPage() {
             className="bg-slate-800 border border-slate-700 rounded-lg px-2 py-1.5 text-xs text-slate-300"
           >
             {[7, 14, 30, 60].map(d => (
-              <option key={d} value={d}>{d} дн.</option>
+              <option key={d} value={d}>{d} days</option>
             ))}
           </select>
           <button
@@ -105,10 +105,10 @@ export function StreamForecastPage() {
         <>
           <DataFlowDiagram
             steps={[
-              { id: 'ingest', label: 'Ingest', desc: `${data.ingest.documents_total} док.` },
-              { id: 'signals', label: 'Signals', desc: `${data.ingest.signals_total} сигн.` },
+              { id: 'ingest', label: 'Ingest', desc: `${data.ingest.documents_total} docs` },
+              { id: 'signals', label: 'Signals', desc: `${data.ingest.signals_total} sigs` },
               { id: 'engine', label: 'Engine', desc: data.engine.version, highlight: true },
-              { id: 'trends', label: 'Trends/Alerts', desc: `${data.alerts.length} алертов` },
+              { id: 'trends', label: 'Trends/Alerts', desc: `${data.alerts.length} alerts` },
             ]}
           />
 
@@ -118,21 +118,21 @@ export function StreamForecastPage() {
             <p className="text-sm text-slate-300 leading-relaxed">{data.methodology}</p>
             <p className="text-xs text-slate-500">{data.horizon_note}</p>
             <p className="text-[10px] text-slate-600 font-mono">
-              {new Date(data.generated_at).toLocaleString('ru-RU')}
-              {' · '}окно {data.window_days} дн.
+              {new Date(data.generated_at).toLocaleString('en-US')}
+              {' · '}window {data.window_days} days
             </p>
           </div>
 
           <Section title="Ingest" icon={<Radio size={14} className="text-green-400" />}>
             <div className="grid md:grid-cols-4 gap-3 mb-4">
-              <Stat label="Документов" value={data.ingest.documents_total} />
-              <Stat label="Ожидают" value={data.ingest.pending} />
-              <Stat label="Проанализировано" value={data.ingest.analyzed} />
-              <Stat label="Сигналов" value={data.ingest.signals_total} />
+              <Stat label="Documents" value={data.ingest.documents_total} />
+              <Stat label="Pending" value={data.ingest.pending} />
+              <Stat label="Analyzed" value={data.ingest.analyzed} />
+              <Stat label="Signals" value={data.ingest.signals_total} />
             </div>
             {data.ingest.last_ingest_at && (
               <p className="text-xs text-slate-500 mb-3">
-                Последний ingest: {new Date(data.ingest.last_ingest_at).toLocaleString('ru-RU')}
+                Last ingest: {new Date(data.ingest.last_ingest_at).toLocaleString('en-US')}
               </p>
             )}
             <div className="flex flex-wrap gap-2">
@@ -144,15 +144,15 @@ export function StreamForecastPage() {
               ))}
             </div>
             <Link to="/data" className="inline-block mt-3 text-xs text-cyan-400 hover:text-cyan-300">
-              Управление потоками →
+              Manage streams →
             </Link>
           </Section>
 
-          <Section title="Таксономия" icon={<BookOpen size={14} className="text-purple-400" />}>
+          <Section title="Taxonomy" icon={<BookOpen size={14} className="text-purple-400" />}>
             <div className="grid md:grid-cols-3 gap-3 mb-4">
-              <Stat label="Версия" value={data.taxonomy.version ?? common.noData} mono />
-              <Stat label="Режимов" value={data.taxonomy.mode_count} />
-              <Stat label="α-рёбер" value={data.taxonomy.alpha_edges} />
+              <Stat label="Version" value={data.taxonomy.version ?? common.noData} mono />
+              <Stat label="Modes" value={data.taxonomy.mode_count} />
+              <Stat label="α-edges" value={data.taxonomy.alpha_edges} />
             </div>
             <div className="flex flex-wrap gap-2">
               {data.taxonomy.dominant_modes.map(m => (
@@ -165,18 +165,18 @@ export function StreamForecastPage() {
             </div>
           </Section>
 
-          <Section title="Модули engine" icon={<Cpu size={14} className="text-red-400" />}>
+          <Section title="Engine modules" icon={<Cpu size={14} className="text-red-400" />}>
             <div className="grid md:grid-cols-2 gap-2">
               {data.engine_modules_used.map(mod => (
                 <div key={mod} className="bg-slate-900 rounded-lg px-3 py-2 text-xs">
                   <span className="font-semibold text-slate-200 uppercase">{mod}</span>
-                  <p className="text-slate-400 mt-0.5">{streamEngineModules[mod] ?? 'Модуль engine'}</p>
+                  <p className="text-slate-400 mt-0.5">{streamEngineModules[mod] ?? 'Engine module'}</p>
                 </div>
               ))}
             </div>
           </Section>
 
-          <Section title="Алерты CEP" icon={<AlertTriangle size={14} className="text-amber-400" />}>
+          <Section title="Alerts CEP" icon={<AlertTriangle size={14} className="text-amber-400" />}>
             {data.alerts.length > 0 ? (
               <div className="space-y-2">
                 {data.alerts.map(a => (
@@ -189,7 +189,7 @@ export function StreamForecastPage() {
                       <span className="font-mono text-slate-500 ml-2">{a.iso3}</span>
                       {a.case_id && (
                         <Link to={`/case?id=${encodeURIComponent(a.case_id)}`} className="ml-2 text-cyan-400">
-                          кейс →
+                          case →
                         </Link>
                       )}
                     </div>
@@ -198,21 +198,21 @@ export function StreamForecastPage() {
                 ))}
               </div>
             ) : (
-              <p className="text-sm text-slate-500">Нет алертов за окно {data.window_days} дн.</p>
+<p className="text-sm text-slate-500"> alerts window {data.window_days} days</p>
             )}
           </Section>
 
-          <Section title="Тренды" icon={<TrendingUp size={14} className="text-blue-400" />}>
+          <Section title="Trends" icon={<TrendingUp size={14} className="text-blue-400" />}>
             {data.trends.length > 0 ? (
               <div className="overflow-x-auto">
                 <table className="w-full text-xs">
                   <thead>
                     <tr className="text-slate-500 text-left">
-                      <th className="pb-2 pr-3">Страна</th>
+                      <th className="pb-2 pr-3">Country</th>
                       <th className="pb-2 pr-3">CEP max</th>
                       <th className="pb-2 pr-3">CEP latest</th>
                       <th className="pb-2 pr-3">Δ</th>
-                      <th className="pb-2">Сигналов</th>
+                      <th className="pb-2">Signals</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -235,18 +235,18 @@ export function StreamForecastPage() {
             )}
           </Section>
 
-          <Section title="Страны" icon={<Globe2 size={14} className="text-emerald-400" />}>
+          <Section title="Countries" icon={<Globe2 size={14} className="text-emerald-400" />}>
             <div className="space-y-2">
               {data.countries.slice(0, 10).map(c => (
                 <div key={c.iso3} className="flex justify-between bg-slate-900 rounded-lg px-3 py-2 text-xs">
                   <span className="text-slate-200">{c.name} <span className="font-mono text-slate-500">{c.iso3}</span></span>
-                  <span className="text-slate-400">{c.cases} кейс. · CEP {c.max_cep.toFixed(2)}</span>
+                  <span className="text-slate-400">{c.cases} cases · CEP {c.max_cep.toFixed(2)}</span>
                 </div>
               ))}
             </div>
           </Section>
 
-          <Section title="Недавние кейсы" icon={<History size={14} className="text-blue-400" />}>
+          <Section title="Recent cases" icon={<History size={14} className="text-blue-400" />}>
             {data.recent_cases.length > 0 ? (
               <div className="space-y-2">
                 {data.recent_cases.map(c => (

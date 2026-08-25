@@ -86,4 +86,4 @@ See [05-next-steps.md](05-next-steps.md) for queue and adopt criteria.
 | **P1** | Card Compiler eval; pipeline cassettes; Red Team live eval |
 | **P2** | OpenTelemetry spans; nightly full challenger; promptfoo adopt |
 
-Obsidian copy: `ERRORLOGY_MVP_OBSIDIAN/Отчёт — harness gap и планы 2026-06-16.md`
+Obsidian copy: `ERRORLOGY_MVP_OBSIDIAN/ — harness gap 2026-06-16.md`

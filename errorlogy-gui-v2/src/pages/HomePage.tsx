@@ -25,7 +25,7 @@ const cards = [
     to: '/data',
     icon: Radio,
     title: nav.data,
-    desc: 'Статус ingest, загрузка RSS, ручной ввод — что входит в поток сигналов.',
+    desc: 'Ingest status, RSS fetch, manual input — what enters the signal stream.',
     color: 'green',
   },
 ] as const
@@ -57,11 +57,11 @@ export function HomePage() {
       {health && (
         <div className="grid sm:grid-cols-3 gap-3 text-sm">
           <div className="bg-slate-800 rounded-lg px-4 py-3">
-            <div className="text-slate-500 text-xs">Режимов таксономии</div>
+            <div className="text-slate-500 text-xs">Taxonomy modes</div>
             <div className="text-white font-bold text-lg">{health.taxonomy_modes}</div>
           </div>
           <div className="bg-slate-800 rounded-lg px-4 py-3">
-            <div className="text-slate-500 text-xs">α-рёбер</div>
+            <div className="text-slate-500 text-xs">α-edges</div>
             <div className="text-white font-bold text-lg">{health.alpha_edges}</div>
           </div>
           <div className="bg-slate-800 rounded-lg px-4 py-3">
@@ -104,10 +104,10 @@ export function HomePage() {
         <div className="mt-4">
           <DataFlowDiagram
             steps={[
-              { id: 'ingest', label: 'Ingest', desc: 'RSS, gov, ручной ввод' },
-              { id: 'signals', label: 'Signals', desc: 'MSI, CEP по странам' },
+              { id: 'ingest', label: 'Ingest', desc: 'RSS, gov, manual input' },
+              { id: 'signals', label: 'Signals', desc: 'MSI, CEP by country' },
               { id: 'engine', label: 'Engine', desc: 'WMS, Classifier, FPD', highlight: true },
-              { id: 'out', label: 'Прогноз', desc: 'Тренды, алерты, μ' },
+              { id: 'out', label: 'Forecast', desc: 'Trends, alerts, μ' },
             ]}
           />
         </div>
@@ -124,7 +124,7 @@ export function HomePage() {
             <h3 className="font-semibold text-white">{title}</h3>
             <p className="text-xs text-slate-400 mt-1 leading-relaxed line-clamp-3">{desc}</p>
             <span className="inline-flex items-center gap-1 text-xs text-cyan-400 mt-3 group-hover:gap-2 transition-all">
-              Открыть <ArrowRight size={14} />
+              Open <ArrowRight size={14} />
             </span>
           </Link>
         ))}

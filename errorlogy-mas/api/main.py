@@ -1,6 +1,6 @@
 """
 Errorlogy MAS — FastAPI application
-Запуск: python api/main.py  (или uvicorn api.main:app --reload)
+Run: python api/main.py  (or uvicorn api.main:app --reload)
 """
 import sys
 from pathlib import Path

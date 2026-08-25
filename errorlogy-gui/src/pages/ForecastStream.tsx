@@ -50,7 +50,7 @@ export function ForecastStream() {
       if (isNetworkError(e)) {
         setOffline(true)
       } else {
-        setError(e instanceof Error ? e.message : 'Не удалось загрузить прогноз потока')
+        setError(e instanceof Error ? e.message : 'Failed to load stream forecast')
       }
       setData(null)
     } finally {
@@ -71,7 +71,7 @@ export function ForecastStream() {
         </div>
         {starting && (
           <p className="text-xs text-slate-600 max-w-sm text-center">
-            Electron запускает FastAPI на :8000 — первая загрузка может занять до минуты.
+            Electron starts FastAPI on :8000 — first load may take up to a minute.
           </p>
         )}
       </div>
@@ -94,8 +94,8 @@ export function ForecastStream() {
             {nav.streamForecast}
           </h1>
           <p className="text-slate-400 text-sm mt-1 max-w-3xl leading-relaxed">
-            Агрегат Horizon 2: ingest, CEP-тренды, страны и связь с кейсовым FPD.
-            Абсолютные календарные даты здесь не вычисляются.
+            Horizon 2 aggregate: ingest, CEP trends, countries, and link to case FPD.
+            Absolute calendar dates are not computed here.
           </p>
         </div>
         <div className="flex items-center gap-2 shrink-0">
@@ -105,7 +105,7 @@ export function ForecastStream() {
             className="bg-slate-800 border border-slate-700 rounded-lg px-2 py-1.5 text-xs text-slate-300"
           >
             {[7, 14, 30, 60].map(d => (
-              <option key={d} value={d}>{d} дн.</option>
+              <option key={d} value={d}>{d} days</option>
             ))}
           </select>
           <button
@@ -124,12 +124,12 @@ export function ForecastStream() {
           <p>{common.backendOffline}</p>
           {apiLogPath && (
             <p className="text-xs text-red-300/90">
-              Лог запуска API: <span className="font-mono break-all">{apiLogPath}</span>
+              API launch log: <span className="font-mono break-all">{apiLogPath}</span>
             </p>
           )}
           <p className="text-xs text-red-300/90">{common.backendOfflineLauncherHint}</p>
           <div className="text-xs text-red-300/90">
-            <p>Или запустите backend вручную в PowerShell:</p>
+            <p>Or start backend manually in PowerShell:</p>
             <pre className="mt-1 p-2 bg-red-950/40 rounded border border-red-800/40 font-mono text-[11px] whitespace-pre-wrap">
               {common.backendOfflineManualCmd}
             </pre>
@@ -152,24 +152,24 @@ export function ForecastStream() {
             <p className="text-sm text-slate-300 leading-relaxed">{data.methodology}</p>
             <p className="text-xs text-slate-500">{data.horizon_note}</p>
             <p className="text-[10px] text-slate-600 font-mono">
-              generated_at: {new Date(data.generated_at).toLocaleString('ru-RU')}
+              generated_at: {new Date(data.generated_at).toLocaleString('en-US')}
               {' · '}engine {data.engine.version}
-              {' · '}окно {data.window_days} дн.
+              {' · '}window {data.window_days} days
             </p>
           </div>
 
-          <Section title="Источники данных (ingest)" icon={<Radio size={14} className="text-green-400" />}>
+          <Section title="Data sources (ingest)" icon={<Radio size={14} className="text-green-400" />}>
             <div className="grid md:grid-cols-4 gap-3 mb-4">
-              <Stat label="Документов" value={data.ingest.documents_total} />
-              <Stat label="Ожидают" value={data.ingest.pending} />
-              <Stat label="Проанализировано" value={data.ingest.analyzed} />
-              <Stat label="Сигналов" value={data.ingest.signals_total} />
+              <Stat label="Documents" value={data.ingest.documents_total} />
+              <Stat label="Pending" value={data.ingest.pending} />
+              <Stat label="Analyzed" value={data.ingest.analyzed} />
+              <Stat label="Signals" value={data.ingest.signals_total} />
             </div>
             {data.ingest.last_ingest_at && (
               <p className="text-xs text-slate-500 mb-3">
-                Последний ingest:{' '}
+                Last ingest:{' '}
                 <span className="font-mono text-slate-400">
-                  {new Date(data.ingest.last_ingest_at).toLocaleString('ru-RU')}
+                  {new Date(data.ingest.last_ingest_at).toLocaleString('en-US')}
                 </span>
               </p>
             )}
@@ -186,27 +186,27 @@ export function ForecastStream() {
               <p className="text-sm text-slate-500">{common.noData}</p>
             )}
             <Link to="/ingest" className="inline-block mt-3 text-xs text-cyan-400 hover:text-cyan-300">
-              Управление ingest →
+              Manage ingest →
             </Link>
           </Section>
 
-          <Section title="Таксономия" icon={<BookOpen size={14} className="text-purple-400" />}>
+          <Section title="Taxonomy" icon={<BookOpen size={14} className="text-purple-400" />}>
             <div className="grid md:grid-cols-3 gap-3 mb-4">
-              <Stat label="Версия" value={data.taxonomy.version ?? common.noData} mono />
-              <Stat label="Режимов" value={data.taxonomy.mode_count} />
-              <Stat label="α-рёбер" value={data.taxonomy.alpha_edges} />
+              <Stat label="Version" value={data.taxonomy.version ?? common.noData} mono />
+              <Stat label="Modes" value={data.taxonomy.mode_count} />
+              <Stat label="α-edges" value={data.taxonomy.alpha_edges} />
             </div>
             {data.taxonomy.dominant_modes.length > 0 ? (
               <>
                 <p className="text-[10px] text-slate-500 uppercase tracking-widest mb-2">
-                  Домinant режимы (из недавних кейсов)
+                  Dominant modes (from recent cases)
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {data.taxonomy.dominant_modes.map(m => (
                     <div key={m.mode_id} className="bg-slate-900 rounded-lg px-2.5 py-1.5 text-xs border border-slate-700">
                       <span className="font-mono text-slate-400">{m.mode_id}</span>
                       <span className="text-slate-300 ml-2">{m.name}</span>
-                      <span className="text-slate-500 ml-2">μ≈{m.avg_mu.toFixed(2)} · {m.case_hits} кейс.</span>
+                      <span className="text-slate-500 ml-2">μ≈{m.avg_mu.toFixed(2)} · {m.case_hits} cases</span>
                     </div>
                   ))}
                 </div>
@@ -216,7 +216,7 @@ export function ForecastStream() {
             )}
           </Section>
 
-          <Section title="Движки (engine)" icon={<Cpu size={14} className="text-red-400" />}>
+          <Section title="Engines" icon={<Cpu size={14} className="text-red-400" />}>
             <div className="flex flex-wrap gap-2 mb-4">
               {data.engine_modules_used.map(mod => (
                 <span
@@ -232,14 +232,14 @@ export function ForecastStream() {
                 <div key={mod} className="bg-slate-900 rounded-lg px-3 py-2 text-xs">
                   <span className="font-semibold text-slate-200 uppercase">{mod}</span>
                   <p className="text-slate-400 mt-0.5 leading-relaxed">
-                    {streamEngineModules[mod] ?? 'Модуль engine v1-math'}
+                    {streamEngineModules[mod] ?? 'Engine v1-math module'}
                   </p>
                 </div>
               ))}
             </div>
           </Section>
 
-          <Section title="Алерты эскалации (CEP)" icon={<AlertTriangle size={14} className="text-amber-400" />}>
+          <Section title="Escalation alerts (CEP)" icon={<AlertTriangle size={14} className="text-amber-400" />}>
             {data.alerts.length > 0 ? (
               <div className="space-y-2">
                 {data.alerts.map(a => (
@@ -255,7 +255,7 @@ export function ForecastStream() {
                           to={`/forecast/${encodeURIComponent(a.case_id)}`}
                           className="ml-2 text-cyan-400 hover:text-cyan-300"
                         >
-                          кейс →
+                          case →
                         </Link>
                       )}
                     </div>
@@ -267,21 +267,21 @@ export function ForecastStream() {
                 ))}
               </div>
             ) : (
-              <p className="text-sm text-slate-500">Нет алертов выше порога CEP за окно {data.window_days} дн.</p>
+              <p className="text-sm text-slate-500">No alerts above CEP threshold for window {data.window_days} days</p>
             )}
           </Section>
 
-          <Section title="Тренды" icon={<TrendingUp size={14} className="text-blue-400" />}>
+          <Section title="Trends" icon={<TrendingUp size={14} className="text-blue-400" />}>
             {data.trends.length > 0 ? (
               <div className="overflow-x-auto">
                 <table className="w-full text-xs">
                   <thead>
                     <tr className="text-slate-500 text-left">
-                      <th className="pb-2 pr-3">Страна</th>
+                      <th className="pb-2 pr-3">Country</th>
                       <th className="pb-2 pr-3">CEP max</th>
                       <th className="pb-2 pr-3">CEP latest</th>
-                      <th className="pb-2 pr-3">Δ окно</th>
-                      <th className="pb-2">Сигналов</th>
+                      <th className="pb-2 pr-3">Δ window</th>
+                      <th className="pb-2">Signals</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -302,7 +302,7 @@ export function ForecastStream() {
                   </tbody>
                 </table>
                 <p className="text-[10px] text-slate-500 mt-2">
-                  CEP — накопленное давление ошибки, не вероятность. Δ — изменение за выбранное окно.
+                  CEP — accumulated error pressure, not probability. Δ — change over selected window.
                 </p>
               </div>
             ) : (
@@ -310,7 +310,7 @@ export function ForecastStream() {
             )}
           </Section>
 
-          <Section title="Страны" icon={<Globe2 size={14} className="text-emerald-400" />}>
+          <Section title="Countries" icon={<Globe2 size={14} className="text-emerald-400" />}>
             {data.countries.length > 0 ? (
               <div className="space-y-2">
                 {data.countries.slice(0, 12).map(c => (
@@ -320,23 +320,23 @@ export function ForecastStream() {
                       <span className="font-mono text-slate-500 ml-2">{c.iso3}</span>
                     </div>
                     <div className="text-slate-400">
-                      {c.cases} кейс. · CEP max {c.max_cep.toFixed(2)}
+                      {c.cases} cases · CEP max {c.max_cep.toFixed(2)}
                       {c.dominant_pno && <span className="ml-2 text-slate-500">{c.dominant_pno}</span>}
                     </div>
                   </div>
                 ))}
                 <Link to="/globe" className="inline-block text-xs text-emerald-400 hover:text-emerald-300">
-                  Открыть глобус →
+                  Open globe →
                 </Link>
               </div>
             ) : (
               <p className="text-sm text-slate-500">
-                {common.noData} — запустите анализ кейсов или ingest для наполнения статистики.
+                {common.noData} — run case analysis or ingest to populate statistics.
               </p>
             )}
           </Section>
 
-          <Section title="Связь с кейсовым прогнозом" icon={<History size={14} className="text-blue-400" />}>
+          <Section title="Link to case forecast" icon={<History size={14} className="text-blue-400" />}>
             {data.recent_cases.length > 0 ? (
               <div className="space-y-2">
                 {data.recent_cases.map(c => (
@@ -364,12 +364,12 @@ export function ForecastStream() {
                   </button>
                 ))}
                 <p className="text-xs text-slate-500 pt-1">
-                  Кейсовый FPD возвращает μ_forecast и horizon — откройте кейс для детального прогноза.
+                  Case FPD returns μ_forecast and horizon — open case for detailed forecast.
                 </p>
               </div>
             ) : (
               <p className="text-sm text-slate-500">
-                Нет проанализированных кейсов.{' '}
+                No analyzed cases.{' '}
                 <Link to="/analyze" className="text-red-400 hover:text-red-300">{common.goAnalyze}</Link>
               </p>
             )}

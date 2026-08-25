@@ -1,19 +1,19 @@
-# Фазовая диаграмма TRN (stress-сценарий)
+# TRN (stress-)
 
-Эмпирическая карта режимов для `configs/stress_config.json`:
+`configs/stress_config.json`:
 
 - `narrative_mode=bipolar`
 - \(\bar q=\bar r=0.25\), \(\bar m=0.75\), \(\bar h=0.35\), \(\chi=2.5\)
-- \(N=300\), \(T=200\), \(\Delta t=0.08\), \(R=3\) повтора
+- \(N=300\), \(T=200\), \(\Delta t=0.08\), \(R=3\)
 
-Источник: `outputs/stress/lambda_sweep.csv` (пересчитано 2026-06-13).
+: `outputs/stress/lambda_sweep.csv` ( 2026-06-13).
 
 ---
 
-## 1. Ось управления: \(\lambda\) (интенсивность TRN)
+## 1. : \(\lambda\) ( TRN)
 
 ```
-  C (консенсус)
+C ()
   1.0 |*
       |
   0.8 |
@@ -28,18 +28,18 @@
       +--+--+--+--+--+--+--+--→ λ
          0  .2  .4  .6  .8  1.0  1.2  2.0
 
-  Ext (доля |b|>0.65)
+Ext ( |b|>0.65)
   1.0 |            *********
       |
   0.5 |
       |
-  0.35| - - - - - - порог - - -
+0.35| - - - - - - - - -
       |  *
   0.0 |*
       +--+--+--+--+--+--+--+--→ λ
          0  .2  .4  ...
 
-  A-rate (антиконсенсус)
+A-rate ()
   1.0 |      ***************
       |
   0.0 |***
@@ -49,19 +49,19 @@
 
 ---
 
-## 2. Таблица режимов
+## 2.
 
-| Зона | \(\lambda\) | \(C\) | \(\mathrm{Pol}\) | \(\mathrm{Ext}\) | \(\mathcal{A}\) | Интерпретация |
+| Zone | \(\lambda\) | \(C\) | \(\mathrm{Pol}\) | \(\mathrm{Ext}\) | \(\mathcal{A}\) | |
 |---|---:|---:|---:|---:|---:|---|
-| I | 0 | 0.97 | 0.03 | 0.00 | 0 | Социальный консенсус |
-| II | 0.2 | 0.65 | 0.35 | 0.02 | 0 | Поляризация без крайностей |
+| I | 0 | 0.97 | 0.03 | 0.00 | 0 | |
+| II | 0.2 | 0.65 | 0.35 | 0.02 | 0 | |
 | III | ≥ 0.4 | ≤ 0.22 | ≥ 0.78 | ≥ 0.92 | 1 | Bipolar anticonsensus |
 
 ---
 
-## 3. Связь \(R_{\mathrm{TRN}}\) и \(\lambda\)
+## 3. \(R_{\mathrm{TRN}}\) \(\lambda\)
 
-Stress-профиль: \(\bar\phi=0.75^3=0.422\), \(\chi=2.5\), \(\bar h=0.35\).
+Stress-: \(\bar\phi=0.75^3=0.422\), \(\chi=2.5\), \(\bar h=0.35\).
 
 \[
 R_{\mathrm{TRN}}(\lambda)=\lambda\cdot\frac{0.422\cdot 2.5}{0.35}\approx 3.01\,\lambda.
@@ -73,35 +73,35 @@ R_{\mathrm{TRN}}(\lambda)=\lambda\cdot\frac{0.422\cdot 2.5}{0.35}\approx 3.01\,\
 | 0.4 | 1.21 | 1.0 |
 | 1.0 | 3.01 | 1.0 |
 
-**Эвристика stress-сценария:** \(R_{\mathrm{TRN}}\gtrsim 1 \Leftrightarrow\) антиконсенсус при данных \(\bar q,\bar r,\bar m,\bar h\).
+** stress-:** \(R_{\mathrm{TRN}}\gtrsim 1 \Leftrightarrow\) \(\bar q,\bar r,\bar m,\bar h\).
 
 ---
 
-## 4. Неактивные оси в stress-sweep
+## 4. stress-sweep
 
-### 4.1. Grid \(q\times r\) при \(\lambda=0\)
+### 4.1. Grid \(q\times r\) \(\lambda=0\)
 
-Все 16 ячеек: \(C\approx 0.978\), \(\mathcal{A}=0\). Ось \(q,r\) **не видна** без включённого TRN.
+16 : \(C\approx 0.978\), \(\mathcal{A}=0\). \(q,r\) ** ** TRN.
 
-**Рекомендация:** повторить grid при \(\lambda\in\{0.5,0.8\}\).
+**:** grid \(\lambda\in\{0.5,0.8\}\).
 
-### 4.2. Sweep \(\chi\times h\) при `bipolar`
+### 4.2. Sweep \(\chi\times h\) `bipolar`
 
-\(\chi\) не входит в \(P_i\); кривые идентичны для всех \(\chi\). Влияет только \(\bar h\) через \(S_i\):
+\(\chi\) \(P_i\); \(\chi\). \(\bar h\) \(S_i\):
 
-| \(\bar h\) | \(C\) (любой \(\chi\)) |
+| \(\bar h\) | \(C\) ( \(\chi\)) |
 |---:|---:|
 | 0.15 | 0.912 |
 | 0.35 | 0.979 |
 | 0.80 | 0.979 |
 
-При bipolar + \(\lambda=0\) узкое \(h\) слегка снижает консенсус; антиконсенсус не достигается.
+bipolar + \(\lambda=0\) \(h\) ; .
 
-**Рекомендация:** sweep \(\chi\times h\) с `narrative_mode='echo'` и \(\lambda>0\).
+**:** sweep \(\chi\times h\) `narrative_mode='echo'` \(\lambda>0\).
 
 ---
 
-## 5. Конtrast: echo-режим (`outputs/lambda_sweep.csv`)
+## 5. trast: echo- (`outputs/lambda_sweep.csv`)
 
 `narrative_mode=echo`, \(\bar q=\bar r=0.45\), \(\bar m=0.55\):
 
@@ -110,17 +110,17 @@ R_{\mathrm{TRN}}(\lambda)=\lambda\cdot\frac{0.422\cdot 2.5}{0.35}\approx 3.01\,\
 | 0 | 0.96 | 0 |
 | 1.2 | 0.90 | 0 |
 
-Echo + умеренные \(q,r\) **стабилизируют** систему: переход по \(\lambda\) не наблюдается до \(\lambda=1.2\).
+Echo + \(q,r\) **** : \(\lambda\) observes \(\lambda=1.2\).
 
 ---
 
-## 6. Сводная фазовая карта (качественная)
+## 6. ()
 
 ```
-                    λ (интенсивность TRN)
+λ ( TRN)
                  low              high
               ┌─────────────┬──────────────┐
-    high      │  CONSENSUS  │  (нет данных)│
+    high      │  CONSENSUS  │  (no data)│
     q,r       │  echo mode  │              │
               ├─────────────┼──────────────┤
     low       │ SOFT POL    │ ANTICONSENS  │
@@ -131,4 +131,4 @@ Echo + умеренные \(q,r\) **стабилизируют** систему:
               λ_crit ≈ 0.35
 ```
 
-Полная карта требует 2D-sweep \((\lambda,\bar q)\) или \((\lambda,\bar\phi)\).
+2D-sweep \((\lambda,\bar q)\) \((\lambda,\bar\phi)\).

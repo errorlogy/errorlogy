@@ -220,13 +220,13 @@ def build_candidate(item: dict[str, Any], profile: dict[str, str], discovered_at
     pushed_at = item.get("pushed_at") or ""
 
     notes_lines = [
-        f"Автообнаружение GitHub ({profile['query']}).",
-        f"Звёзды: {stars}; последний push: {pushed_at or '—'}.",
+f" GitHub ({profile['query']}).",
+f": {stars}; push: {pushed_at or '—'}.",
     ]
     if license_spdx:
-        notes_lines.append(f"Лицензия (API): {license_spdx}.")
+notes_lines.append(f" (API): {license_spdx}.")
     if description:
-        notes_lines.append(f"Описание: {description}")
+notes_lines.append(f": {description}")
 
     return {
         "id": slug_id(full_name),
@@ -242,7 +242,7 @@ def build_candidate(item: dict[str, Any], profile: dict[str, str], discovered_at
         "decision": "pending",
         "review_after": None,
         "score": dict(EMPTY_SCORE),
-        "notes_ru": "\n".join(notes_lines) + "\n",
+        "notes_en": "\n".join(notes_lines) + "\n",
     }
 
 

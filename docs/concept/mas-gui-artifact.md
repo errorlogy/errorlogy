@@ -1,48 +1,48 @@
-# Errorlogy MAS + GUI — Артефакт локальной разработки
+# Errorlogy MAS + GUI — local development artifact
 
-> Создан: 2026-06-12 · Статус: установлен и готов к запуску
+> Created: 2026-06-12 · Status: installed and ready to run
 
-## Компоненты
+## Components
 
-| Компонент | Путь | Назначение |
-|-----------|------|------------|
-| **MAS Backend** | `errorlogy-mas/` | FastAPI + 14 агентов, Python 3.12 |
+| Component | Path | Role |
+|-----------|------|------|
+| **MAS Backend** | `errorlogy-mas/` | FastAPI + 14 agents, Python 3.12 |
 | **Electron GUI** | `errorlogy-gui/` | Desktop Electron + React + Tailwind |
-| **Таксономия** | `errorlogy-mas/data/errorlogy_unified_taxonomy_v16.json` | 381 режим, 89 α-рёбер |
+| **Taxonomy** | `errorlogy-mas/data/errorlogy_unified_taxonomy_v16.json` | 381 modes, 89 α-edges |
 
-## 14 агентов — пайплайн анализа
+## 14 agents — analysis pipeline
 
 ```
 DATA (raw_text)
-  ├─ 01 Scout           — извлечение структуры кейса
-  ├─ 02 WMS             — слабые мультисредные сигналы (MSI, CEP)
-  ├─ 03 FuzzyClassifier — fuzzy μ-скоринг режимов
-  ├─ 04 AlphaPropagation — граф-распространение (89 рёбер)
-  ├─ 05 PNO             — системный режим PNO-1..7
-  ├─ 06 ACC             — кластеры максимального вклада
-  ├─ 07 EGD             — эхо-камерная динамика
-  ├─ 08 T4D             — темпоральная топология (3D+1D)
-  ├─ 09 CAT             — гипотеза катастрофы
-  ├─ 10 FPD             — нечёткий прогноз
-  ├─ 11 LBI             — альтернативы улучшения
+  ├─ 01 Scout           — case structure extraction
+  ├─ 02 WMS             — weak multisource signals (MSI, CEP)
+  ├─ 03 FuzzyClassifier — fuzzy μ mode scoring
+  ├─ 04 AlphaPropagation — graph propagation (89 edges)
+  ├─ 05 PNO             — system regime PNO-1..7
+  ├─ 06 ACC             — maximum contribution clusters
+  ├─ 07 EGD             — echo-room dynamics
+  ├─ 08 T4D             — temporal topology (3D+1D)
+  ├─ 09 CAT             — catastrophe hypothesis
+  ├─ 10 FPD             — fuzzy forecast
+  ├─ 11 LBI             — improvement alternatives
   ├─ 12 RedTeam         — adversarial review
-  ├─ 13 CardCompiler    — публичная карточка
-  └─ 14 NeutralityAudit — аудит языка (anti-overclaim)
+  ├─ 13 CardCompiler    — public card
+  └─ 14 NeutralityAudit — language audit (anti-overclaim)
 ```
 
-## LLM-роутер — 7 провайдеров
+## LLM router — 7 providers
 
 OpenAI → DeepSeek → Groq → Google Gemini → Kimi → OpenRouter → Anthropic Claude
 
-Ключи: `errorlogy-mas/.env` (не коммитить).
+Keys: `errorlogy-mas/.env` (do not commit).
 
-## GUI — экраны
+## GUI — screens
 
-| Экран | Роут | Описание |
-|-------|------|----------|
-| Dashboard | `/` | Статус системы, провайдеры, пайплайн |
-| Analyze | `/analyze` | Форма ввода кейса + прогресс агентов |
-| Result | `/result` | μ-гистограмма, PNO, T4D, ACC, CAT, FPD, LBI, Public Card |
-| Taxonomy | `/taxonomy` | Поиск/фильтр режимов, α-связи |
+| Screen | Route | Description |
+|--------|-------|-------------|
+| Dashboard | `/` | System status, providers, pipeline |
+| Analyze | `/analyze` | Case input form + agent progress |
+| Result | `/result` | μ histogram, PNO, T4D, ACC, CAT, FPD, LBI, Public Card |
+| Taxonomy | `/taxonomy` | Mode search/filter, α links |
 
-Стек: Electron + React + Vite + Tailwind + Recharts
+Stack: Electron + React + Vite + Tailwind + Recharts
