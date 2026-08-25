@@ -4,7 +4,7 @@ import { Play, Loader2, AlertTriangle, Calculator, Sparkles, GitCompare, BookOpe
 import { api, checkApiHealth, isNetworkError } from '../lib/api'
 import { saveCase } from '../lib/caseStore'
 import { AGENT_LABELS } from '../lib/pipeline'
-import { analyzeModes, muNote } from '../lib/ru'
+import { analyzeModes, muNote } from '../lib/en'
 import type { CaseAnalysis, AgentStepMetric } from '../lib/types'
 
 const CHALLENGER_PRESET = {

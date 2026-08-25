@@ -26,8 +26,8 @@ def test_stream_forecast_empty_db(client):
     assert data["ingest"]["documents_total"] == 0
     assert data["alerts"] == []
     assert data["horizon_note"]
-    assert "μ" in data["methodology_ru"] or "нечёт" in data["methodology_ru"]
-    assert data["methodology_ru"]
+    assert "μ" in data["methodology"] or "fuzzy" in data["methodology"].lower()
+    assert data["methodology"]
 
 
 def test_stream_forecast_with_signals(client):

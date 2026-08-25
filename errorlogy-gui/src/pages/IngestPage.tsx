@@ -5,7 +5,7 @@ import {
   AlertTriangle, FileText, X, Play, Layers,
 } from 'lucide-react'
 import { api } from '../lib/api'
-import { common } from '../lib/ru'
+import { common } from '../lib/en'
 import type { CepAlert, IngestDocumentDetail, IngestDocumentSummary, IngestStatus } from '../lib/types'
 
 export function IngestPage() {

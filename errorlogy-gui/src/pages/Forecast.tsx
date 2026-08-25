@@ -9,7 +9,7 @@ import { PIPELINE_STEPS } from '../lib/pipeline'
 import {
   common, horizonLabels, stageLabels, urgencyLabels, evidenceGradeLabels,
   muNote, engineModules, pipelineModeLabels, nav,
-} from '../lib/ru'
+} from '../lib/en'
 import { cn, muColor, URGENCY_COLOR } from '../lib/utils'
 import type { CaseAnalysis, CaseListItem, AgentStepMetric } from '../lib/types'
 

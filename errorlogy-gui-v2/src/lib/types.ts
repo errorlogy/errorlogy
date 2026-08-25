@@ -216,5 +216,5 @@ export interface StreamForecastResponse {
   countries: CountryStats[]
   recent_cases: StreamForecastCaseSummary[]
   horizon_note: string
-  methodology_ru: string
+  methodology: string
 }

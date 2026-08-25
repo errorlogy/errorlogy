@@ -10,16 +10,16 @@ from .engine import ENGINE_VERSION
 from .engine.cep_alerts import list_cep_alerts, signal_trends
 from .ingest.service import fetcher_status
 
-HORIZON_NOTE_RU = (
-    "Прогноз потока не вычисляет абсолютные календарные даты — только направление "
-    "давления CEP/MSI по окну наблюдения и агрегаты по странам/кейсам."
+HORIZON_NOTE = (
+    "Stream forecast does not compute absolute calendar dates — only the direction "
+    "of CEP/MSI pressure over the observation window and aggregates by country/case."
 )
 
-METHODOLOGY_RU = (
-    "Прогноз потока (Horizon 2) агрегирует сигналы ingest и CEP-тренды по странам. "
-    "Кейсовый прогноз FPD (Horizon 1) строится отдельно для каждого GovernanceCase "
-    "модулем FPD/T4D и возвращает μ_forecast по режимам — μ это степень нечёткой "
-    "принадлежности, не вероятность."
+METHODOLOGY = (
+    "Stream forecast (Horizon 2) aggregates ingest signals and CEP trends by country. "
+    "Case forecast FPD (Horizon 1) is built separately for each GovernanceCase "
+    "by the FPD/T4D module and returns μ_forecast by mode — μ is fuzzy "
+    "membership degree, not probability."
 )
 
 STREAM_ENGINE_MODULES = [
@@ -190,6 +190,6 @@ def build_stream_forecast(
         "trends": trends,
         "countries": countries,
         "recent_cases": recent_cases,
-        "horizon_note": HORIZON_NOTE_RU,
-        "methodology_ru": METHODOLOGY_RU,
+        "horizon_note": HORIZON_NOTE,
+        "methodology": METHODOLOGY,
     }

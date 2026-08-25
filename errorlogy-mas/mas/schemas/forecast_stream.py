@@ -45,4 +45,4 @@ class StreamForecastResponse(BaseModel):
     countries: list[dict[str, Any]]
     recent_cases: list[dict[str, Any]]
     horizon_note: str
-    methodology_ru: str
+    methodology: str

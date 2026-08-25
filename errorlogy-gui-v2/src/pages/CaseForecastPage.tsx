@@ -6,7 +6,7 @@ import {
 import { api } from '../lib/api'
 import {
   common, horizonLabels, stageLabels, urgencyLabels, muNote, nav,
-} from '../lib/ru'
+} from '../lib/en'
 import { cn, muColor, URGENCY_COLOR } from '../lib/utils'
 import type { AgentStepMetric, CaseAnalysis, CaseListItem } from '../lib/types'
 import { Section } from '../components/Section'

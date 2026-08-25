@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { LayoutDashboard, ScanSearch, BookOpen, Activity, Globe2, Radio, FileBarChart, TrendingUp, Waves } from 'lucide-react'
 import { cn } from '../lib/utils'
 import { checkApiHealth } from '../lib/api'
-import { nav } from '../lib/ru'
+import { nav } from '../lib/en'
 
 const links = [
   { to: '/',         icon: LayoutDashboard, label: nav.dashboard },

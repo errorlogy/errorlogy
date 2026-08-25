@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Waves, FileSearch, Radio, BookOpen, ArrowRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { api } from '../lib/api'
-import { home, muNote, nav } from '../lib/ru'
+import { home, muNote, nav } from '../lib/en'
 import type { HealthInfo } from '../lib/types'
 import { DataFlowDiagram } from '../components/DataFlowDiagram'
 

@@ -8,7 +8,7 @@
 | **RESEARCH** | `errorlogy-trn-sim/` | TRN synthetic simulation — not in 14-agent pipeline |
 | **OLD SKETCH** | `ERRORLOGY/errorlogy_old_version/` | Historical sketches — reference only |
 
-Human-readable docs: `ERRORLOGY_MVP_OBSIDIAN/` (see `errorlogy-mas — активный MVP (Claude).md`).
+Human-readable docs: `ERRORLOGY_MVP_OBSIDIAN/` (see `errorlogy-mas — active MVP (Claude).md`).
 
 ## Active: errorlogy-mas
 
@@ -74,9 +74,9 @@ Design, discover, audit, or adapt **bounded repeatable workflows** (explicit tri
 
 Example prompts:
 
-- «Проанализируй `errorlogy-mas/` и предложи loop для повторяющихся задач разработки»
-- «Найди published loop для CI smoke-тестов и адаптируй под этот репозиторий»
-- «Проверь этот loop на слабые проверки и неограниченное повторение»
+- "Analyze `errorlogy-mas/` and propose a loop for recurring development tasks"
+- "Find a published loop for CI smoke tests and adapt it to this repository"
+- "Audit this loop for weak verification and unbounded repetition"
 
 Install/update: `npx skills add Forward-Future/loop-library --skill loop-library -g`
 

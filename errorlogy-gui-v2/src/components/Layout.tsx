@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { Home, Waves, FileSearch, Radio } from 'lucide-react'
-import { nav } from '../lib/ru'
+import { nav } from '../lib/en'
 import { cn } from '../lib/utils'
 import { HealthBadge } from './HealthBadge'
 

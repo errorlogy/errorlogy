@@ -8,7 +8,7 @@ import {
 } from 'recharts'
 import { AlertTriangle, TrendingUp, Clock, ArrowLeft, ChevronDown, ChevronUp, Radio, Network, Eye } from 'lucide-react'
 import { cn, STAGE_COLORS, URGENCY_COLOR, muColor } from '../lib/utils'
-import { common, horizonLabels, pipelineModeLabels, stageLabels, urgencyLabels, evidenceGradeLabels } from '../lib/ru'
+import { common, horizonLabels, pipelineModeLabels, stageLabels, urgencyLabels, evidenceGradeLabels } from '../lib/en'
 import { ModeBadge } from '../components/ModeBadge'
 import type { CaseAnalysis } from '../lib/types'
 

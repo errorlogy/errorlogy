@@ -4,7 +4,7 @@ import {
   RefreshCw, Rss, Upload, Loader2, Radio, Play, FileText,
 } from 'lucide-react'
 import { api } from '../lib/api'
-import { common, dataStreams, nav } from '../lib/ru'
+import { common, dataStreams, nav } from '../lib/en'
 import type { IngestDocumentSummary, IngestSignalPoint, IngestStatus } from '../lib/types'
 import { DataFlowDiagram } from '../components/DataFlowDiagram'
 import { Section, Stat } from '../components/Section'

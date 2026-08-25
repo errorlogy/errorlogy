@@ -5,7 +5,7 @@ import {
   Globe2, History, Waves, ArrowLeft,
 } from 'lucide-react'
 import { api, isNetworkError, waitForApiHealth } from '../lib/api'
-import { common, muNote, nav, streamEngineModules } from '../lib/ru'
+import { common, muNote, nav, streamEngineModules } from '../lib/en'
 import { cn } from '../lib/utils'
 import type { StreamForecastResponse } from '../lib/types'
 
@@ -149,7 +149,7 @@ export function ForecastStream() {
           </p>
 
           <div className="bg-slate-800/60 border border-slate-700/50 rounded-xl p-4 space-y-2">
-            <p className="text-sm text-slate-300 leading-relaxed">{data.methodology_ru}</p>
+            <p className="text-sm text-slate-300 leading-relaxed">{data.methodology}</p>
             <p className="text-xs text-slate-500">{data.horizon_note}</p>
             <p className="text-[10px] text-slate-600 font-mono">
               generated_at: {new Date(data.generated_at).toLocaleString('ru-RU')}

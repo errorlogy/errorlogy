@@ -6,7 +6,7 @@ import { Activity, Bot, Cpu, RefreshCw, Zap } from 'lucide-react'
 
 import { api } from '../lib/api'
 
-import { common } from '../lib/ru'
+import { common } from '../lib/en'
 
 import type { MasMetricsSummary, PipelineRunMetric } from '../lib/types'
 

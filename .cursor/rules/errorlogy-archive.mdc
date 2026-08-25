@@ -13,4 +13,4 @@ Paths under `ERRORLOGY/errorlogy_old_version/` are **OLD SKETCH** artifacts for 
 - Politic Bar under `Windows_old_MVP/` is reference MVP, not production.
 - Unified taxonomy JSON files are draft ontology versions, not immutable API schemas.
 - Active MVP is `errorlogy-mas/` (see `.cursor/rules/errorlogy-mas-active.mdc`) — do not implement new features here.
-- See repo root `README.md`, `AGENTS.md`, and `ERRORLOGY_MVP_OBSIDIAN/Для AI-агентов.md`.
+- See repo root `README.md`, `AGENTS.md`, and `ERRORLOGY_MVP_OBSIDIAN/For AI agents.md`.

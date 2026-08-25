@@ -4,7 +4,7 @@ import { Activity, Layers, GitBranch, Cpu, ArrowRight, Circle, Globe2, Calculato
 import { api, waitForApiHealth } from '../lib/api'
 import { loadStoredCases } from '../lib/caseStore'
 import { PIPELINE_STEPS } from '../lib/pipeline'
-import { common, muNote } from '../lib/ru'
+import { common, muNote } from '../lib/en'
 import type { HealthInfo, CaseListItem } from '../lib/types'
 
 export function Dashboard() {
