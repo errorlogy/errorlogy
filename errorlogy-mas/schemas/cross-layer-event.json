@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/errorlogy/ai-native-gov/schemas/cross-layer-event.json",
   "title": "CrossLayerEvent",
-  "description": "Event envelope with institutional layer activation (vendored copy; prefer AI_NATIVE_GOV_SCHEMAS env)",
+  "description": "Event envelope with institutional layer activation for AI Native Gov integration",
   "type": "object",
   "required": ["story_id", "event_type", "activated_layers", "epistemic_label"],
   "properties": {

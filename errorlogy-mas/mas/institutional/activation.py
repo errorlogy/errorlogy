@@ -9,6 +9,7 @@ from copy import deepcopy
 from typing import Any
 
 # Valid institution-layer-id enum values (umbrella schemas/institution-layer-id.json)
+LAYER_CHARTER = "institution:charter"
 LAYER_PARLIAMENT = "institution:parliament"
 LAYER_EXECUTIVE = "institution:executive"
 LAYER_JUDICIARY = "institution:judiciary"
@@ -18,10 +19,18 @@ LAYER_AI_SPEAKER = "institution:ai-speaker"
 LAYER_PARTY = "institution:party-coalition"
 LAYER_AI_MINISTER = "institution:ai-minister"
 LAYER_AI_PM = "institution:ai-pm"
+LAYER_CABINET_MAS = "institution:cabinet-mas"
 LAYER_AUDIT = "institution:audit"
 LAYER_OMBUDSMAN = "institution:ombudsman"
 LAYER_CENTRAL_BANK = "institution:central-bank-analog"
+LAYER_TREASURY = "institution:treasury-analog"
 LAYER_REGULATORY = "institution:regulatory-agency"
+LAYER_AGENTIC_ECONOMICS = "institution:agentic-economics"
+LAYER_MINISTER_FINANCE = "institution:minister-finance"
+LAYER_MINISTER_JUSTICE = "institution:minister-justice"
+LAYER_MINISTER_INTERIOR = "institution:minister-interior"
+LAYER_MINISTER_FOREIGN = "institution:minister-foreign-affairs"
+LAYER_MINISTER_SCIENCE = "institution:minister-science-tech"
 LAYER_EU_PARLIAMENT = "institution:eu-parliament"
 LAYER_EU_COMMISSION = "institution:eu-commission"
 LAYER_EU_COUNCIL = "institution:eu-council"
@@ -32,6 +41,7 @@ LAYER_SYMBOLIC = "institution:symbolic-visual"
 
 INSTITUTION_LAYER_IDS = frozenset(
     {
+        LAYER_CHARTER,
         LAYER_PARLIAMENT,
         LAYER_EXECUTIVE,
         LAYER_JUDICIARY,
@@ -41,10 +51,18 @@ INSTITUTION_LAYER_IDS = frozenset(
         LAYER_PARTY,
         LAYER_AI_MINISTER,
         LAYER_AI_PM,
+        LAYER_CABINET_MAS,
         LAYER_AUDIT,
         LAYER_OMBUDSMAN,
         LAYER_CENTRAL_BANK,
+        LAYER_TREASURY,
         LAYER_REGULATORY,
+        LAYER_AGENTIC_ECONOMICS,
+        LAYER_MINISTER_FINANCE,
+        LAYER_MINISTER_JUSTICE,
+        LAYER_MINISTER_INTERIOR,
+        LAYER_MINISTER_FOREIGN,
+        LAYER_MINISTER_SCIENCE,
         LAYER_EU_PARLIAMENT,
         LAYER_EU_COMMISSION,
         LAYER_EU_COUNCIL,
@@ -81,7 +99,10 @@ _PREFIX: list[tuple[str, list[str]]] = [
         "fin_crypto_",
         [
             LAYER_CENTRAL_BANK,
+            LAYER_TREASURY,
             LAYER_REGULATORY,
+            LAYER_AGENTIC_ECONOMICS,
+            LAYER_MINISTER_FINANCE,
             LAYER_EU_COMMISSION,
             LAYER_EXECUTIVE,
         ],

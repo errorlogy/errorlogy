@@ -23,7 +23,7 @@ def client(tmp_path, monkeypatch):
 
 
 def test_institution_layers_enum():
-    assert len(INSTITUTION_LAYER_IDS) >= 19
+    assert len(INSTITUTION_LAYER_IDS) >= 29
     assert "institution:parliament" in INSTITUTION_LAYER_IDS
 
 
