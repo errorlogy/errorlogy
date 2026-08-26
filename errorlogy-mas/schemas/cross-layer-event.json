@@ -37,7 +37,13 @@
         "symbolic_asset_registered",
         "symbolic_nft_mint_signal",
         "symbolic_media_variant",
-        "symbolic_lore_source_linked"
+        "symbolic_lore_source_linked",
+        "memetic_propagation_snapshot",
+        "discourse_fork_detected",
+        "narrative_lineage_update",
+        "signal_noise_half_life_update",
+        "memetic_market_coupling_snapshot",
+        "social_contour_state_update"
       ]
     },
     "activated_layers": {

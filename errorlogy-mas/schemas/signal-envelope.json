@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/errorlogy/ai-native-gov/schemas/signal-envelope.json",
+  "title": "SignalEnvelope",
+  "description": "Graded stream item for politic.bar / weak-signal ingress with memetic half-life metrics (Phase A contract)",
+  "type": "object",
+  "required": [
+    "stream_item_id",
+    "story_id",
+    "source_type",
+    "evidence_grade",
+    "epistemic_label"
+  ],
+  "properties": {
+    "stream_item_id": {
+      "type": "string",
+      "description": "Stable identifier for this stream item within the ingest store"
+    },
+    "story_id": {
+      "type": "string",
+      "description": "Stable story anchor (politic.bar stream ID or cross-layer story_id)"
+    },
+    "source_type": {
+      "type": "string",
+      "enum": ["primary", "commentary", "speculation", "social"],
+      "description": "Provenance class for evidence grading"
+    },
+    "evidence_grade": {
+      "type": "string",
+      "enum": ["weak", "medium", "strong"],
+      "description": "Adapter-mapped evidence strength — not a legal or moral verdict"
+    },
+    "memetic_metrics": {
+      "type": "object",
+      "description": "Optional propagation / decay metrics for narrative velocity modeling",
+      "properties": {
+        "first_seen": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO8601 timestamp when the item first entered the stream index"
+        },
+        "peak_velocity": {
+          "type": ["number", "null"],
+          "description": "Estimated peak repost/share rate (items per hour) at observation time"
+        },
+        "decay_tau_hours": {
+          "type": ["number", "null"],
+          "description": "Estimated exponential decay time constant in hours"
+        },
+        "variant_of": {
+          "type": ["string", "null"],
+          "description": "Parent stream_item_id when this item is a narrative or media variant"
+        },
+        "platform_contour": {
+          "type": ["string", "null"],
+          "description": "SOCIAL_MEDIA platform slug or contour label (taxonomy reference only — no new mode IDs)"
+        }
+      },
+      "additionalProperties": false
+    },
+    "epistemic_label": {
+      "type": "string",
+      "enum": [
+        "INSTITUTIONAL_MODEL",
+        "OPERATIONAL",
+        "COMPUTATIONAL_EVIDENCE",
+        "PHILOSOPHICAL_INFERENCE"
+      ],
+      "description": "Default OPERATIONAL for adapter-derived stream items"
+    },
+    "stream_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Optional upstream record IDs (Exa, RSS, adapter records)"
+    },
+    "jurisdiction_set": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "ISO 3166-1 alpha-2 or institutional slugs"
+    }
+  },
+  "additionalProperties": false
+}

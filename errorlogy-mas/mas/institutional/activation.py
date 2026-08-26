@@ -96,6 +96,30 @@ _EXACT: dict[str, list[str]] = {
 
 _PREFIX: list[tuple[str, list[str]]] = [
     (
+        "memetic_market_",
+        [LAYER_CENTRAL_BANK, LAYER_PARLIAMENT, LAYER_REGULATORY],
+    ),
+    (
+        "memetic_",
+        [LAYER_PARLIAMENT, LAYER_PARTY, LAYER_EXECUTIVE],
+    ),
+    (
+        "discourse_",
+        [LAYER_PARLIAMENT, LAYER_PARTY, LAYER_JUDICIARY],
+    ),
+    (
+        "narrative_",
+        [LAYER_PARLIAMENT, LAYER_PARTY, LAYER_JUDICIARY],
+    ),
+    (
+        "signal_noise_",
+        [LAYER_PARLIAMENT, LAYER_EXECUTIVE, LAYER_NATIONAL],
+    ),
+    (
+        "social_contour_",
+        [LAYER_PARLIAMENT, LAYER_PARTY, LAYER_SYMBOLIC],
+    ),
+    (
         "fin_crypto_",
         [
             LAYER_CENTRAL_BANK,

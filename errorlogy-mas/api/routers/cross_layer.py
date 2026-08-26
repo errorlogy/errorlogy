@@ -16,6 +16,7 @@ from pydantic import BaseModel, ConfigDict, Field
 sys.path.insert(0, str(pathlib.Path(__file__).parent.parent.parent))
 
 from mas import db as case_db
+from mas.adapters.fin_crypto_ccxt import persist_fin_crypto_snapshot
 from mas.institutional.activation import INSTITUTION_LAYER_IDS, frame_cross_layer_event
 
 router = APIRouter(prefix="/api/events", tags=["events"])
@@ -91,3 +92,29 @@ async def get_cross_layer_one(event_id: str):
     if not event:
         raise HTTPException(status_code=404, detail="event not found")
     return event
+
+
+@router.post("/fin-crypto/snapshot")
+async def post_fin_crypto_snapshot(
+    symbol: str = Query("BTC/USDT", min_length=3),
+    exchange: str = Query("binance", min_length=2),
+    story_id: str | None = Query(None),
+    jurisdiction: list[str] | None = Query(None),
+):
+    """Public CCXT ticker → FIN_CRYPTO record → framed cross-layer event (OPERATIONAL)."""
+    try:
+        result = persist_fin_crypto_snapshot(
+            symbol=symbol,
+            exchange_id=exchange,
+            story_id=story_id,
+            jurisdiction_set=jurisdiction,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+    return {
+        "status": result["status"],
+        "note": "FIN_CRYPTO CCXT adapter — market-data only; no trading surface",
+        "adapter_record": result["adapter_record"],
+        "event": result["event"],
+    }

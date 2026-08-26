@@ -85,6 +85,11 @@ def test_frame_rejects_invalid_layer():
         assert "invalid activated_layers" in str(exc)
 
 
+def test_default_layers_memetic():
+    layers = default_activated_layers("discourse_fork_detected")
+    assert "institution:judiciary" in layers
+
+
 def test_persist_cross_layer(tmp_path, monkeypatch):
     monkeypatch.setattr("mas.db.DB_PATH", tmp_path / "cle.db")
     init_db()
