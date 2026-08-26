@@ -4,6 +4,7 @@ import { HomePage } from './pages/HomePage'
 import { StreamForecastPage } from './pages/StreamForecastPage'
 import { CaseForecastPage } from './pages/CaseForecastPage'
 import { DataStreamsPage } from './pages/DataStreamsPage'
+import { LayersPage } from './pages/LayersPage'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
           <Route path="/stream" element={<StreamForecastPage />} />
           <Route path="/case" element={<CaseForecastPage />} />
           <Route path="/data" element={<DataStreamsPage />} />
+          <Route path="/layers" element={<LayersPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>

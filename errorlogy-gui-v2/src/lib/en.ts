@@ -5,6 +5,7 @@ export const nav = {
   stream: 'Stream Forecast',
   case: 'Case Forecast',
   data: 'Data Streams',
+  layers: 'Institutional Layers',
 } as const
 
 export const common = {
@@ -69,6 +70,27 @@ export const home = {
     'Stream: signal aggregation by country, CEP thresholds, trends over N-day window',
     'μ ≠ probability; scenario_probability is a separate scenario value',
   ],
+} as const
+
+export const layersPage = {
+  title: 'Institutional layers',
+  subtitle:
+    'EU supranational topology and live cross-layer event feed. ' +
+    'Institutional model only — not a legal verdict.',
+  topologyTitle: 'EU / national topology',
+  layersTitle: 'Institution layer registry',
+  eventsTitle: 'Cross-layer events',
+  eventsSubtitle: 'GET /api/events/cross-layer — polled every 12s',
+  noEvents: 'No cross-layer events yet.',
+  selectEvent: 'Select an event to highlight activated layers on the map.',
+  sampleEvent: 'Activate sample event',
+  samplePosting: 'Posting sample…',
+  epistemicNote:
+    'Outputs carry epistemic_label (INSTITUTIONAL_MODEL, OPERATIONAL, …). ' +
+    'Activated layers are framing signals, not sovereignty claims.',
+  aboutLink: 'AI Native Gov — institutional topology contracts',
+  aboutUrl: 'https://github.com/errorlogy/ai-native-gov',
+  nationalStates: 'Sample member states (×27 modeled)',
 } as const
 
 export const dataStreams = {

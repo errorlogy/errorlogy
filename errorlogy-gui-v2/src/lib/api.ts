@@ -1,6 +1,7 @@
 import type {
   CaseAnalysis, HealthInfo, IngestDocumentSummary, IngestSignalPoint,
   IngestStatus, AgentStepMetric, StreamForecastResponse, CaseListItem,
+  CrossLayerListResponse, CrossLayerLayersResponse, CrossLayerPostResponse,
 } from './types'
 
 export const API_BASE =
@@ -244,6 +245,27 @@ export const api = {
     post<{ processed: unknown[] }>(
       `/api/ingest/process-pending?limit=${limit}&structure_only=${structureOnly}`,
     ),
+
+  crossLayerList: (params?: { limit?: number; story_id?: string; event_type?: string }) => {
+    const qs = new URLSearchParams()
+    if (params?.limit != null) qs.set('limit', String(params.limit))
+    if (params?.story_id) qs.set('story_id', params.story_id)
+    if (params?.event_type) qs.set('event_type', params.event_type)
+    const q = qs.toString() ? `?${qs}` : ''
+    return get<CrossLayerListResponse>(`/api/events/cross-layer${q}`)
+  },
+
+  crossLayerLayers: () =>
+    get<CrossLayerLayersResponse>('/api/events/cross-layer/layers'),
+
+  crossLayerPost: (body: {
+    story_id: string
+    event_type: string
+    activated_layers?: string[]
+    jurisdiction_set?: string[]
+    coordination_forum?: string
+    epistemic_label?: string
+  }) => post<CrossLayerPostResponse>('/api/events/cross-layer', body),
 }
 
 export async function checkApiHealth(): Promise<HealthInfo | null> {

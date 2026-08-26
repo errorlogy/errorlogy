@@ -183,6 +183,38 @@ export interface StreamForecastCaseSummary extends CaseListItem {
   top_modes: Array<{ mode_id: string; name: string; mu: number }>
 }
 
+export interface CrossLayerEvent {
+  event_id?: string
+  story_id: string
+  event_type: string
+  activated_layers: string[]
+  epistemic_label: string
+  created_at?: string
+  jurisdiction_set?: string[]
+  coordination_forum?: string
+  topology_intersections?: Array<{
+    intersection: string
+    tension_type: string
+    resolution_status?: string
+  }>
+}
+
+export interface CrossLayerListResponse {
+  count: number
+  events: CrossLayerEvent[]
+}
+
+export interface CrossLayerLayersResponse {
+  count: number
+  layers: string[]
+}
+
+export interface CrossLayerPostResponse {
+  status: string
+  note: string
+  event: CrossLayerEvent
+}
+
 export interface StreamForecastResponse {
   generated_at: string
   window_days: number

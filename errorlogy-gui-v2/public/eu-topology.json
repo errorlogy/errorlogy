@@ -1,0 +1,42 @@
+{
+  "epistemic_label": "INSTITUTIONAL_MODEL",
+  "supranational": [
+    { "id": "institution:eu-parliament", "label": "EU Parliament", "role": "Deliberation across delegated national positions" },
+    { "id": "institution:eu-commission", "label": "EU Commission", "role": "Supranational executive; treaty guardian" },
+    { "id": "institution:eu-council", "label": "EU Council", "role": "National ministers; QMV co-decision" },
+    { "id": "institution:eu-court-of-justice", "label": "EU Court of Justice", "role": "Treaty interpretation; procedural constraint" },
+    { "id": "institution:eu-transnational-ops", "label": "EU Transnational Ops", "role": "Cross-border coordination (Europol/Frontex analog)" }
+  ],
+  "national_template": [
+    { "id": "institution:parliament", "label": "Parliament", "scope": "national" },
+    { "id": "institution:executive", "label": "Executive", "scope": "national" },
+    { "id": "institution:judiciary", "label": "Judiciary", "scope": "national" },
+    { "id": "institution:national-instance", "label": "National instance", "scope": "national" },
+    { "id": "institution:central-bank-analog", "label": "Central bank analog", "scope": "national" },
+    { "id": "institution:regulatory-agency", "label": "Regulatory agency", "scope": "national" }
+  ],
+  "sample_states": [
+    { "iso2": "DE", "name": "Germany" },
+    { "iso2": "FR", "name": "France" },
+    { "iso2": "IT", "name": "Italy" },
+    { "iso2": "ES", "name": "Spain" },
+    { "iso2": "PL", "name": "Poland" },
+    { "iso2": "NL", "name": "Netherlands" },
+    { "iso2": "BE", "name": "Belgium" },
+    { "iso2": "SE", "name": "Sweden" },
+    { "iso2": "DK", "name": "Denmark" },
+    { "iso2": "EE", "name": "Estonia" },
+    { "iso2": "HU", "name": "Hungary" }
+  ],
+  "other_layers": [
+    { "id": "institution:interpol-analog", "label": "Interpol analog" },
+    { "id": "institution:transnational-ops", "label": "Transnational ops" },
+    { "id": "institution:ai-speaker", "label": "AI speaker" },
+    { "id": "institution:party-coalition", "label": "Party coalition" },
+    { "id": "institution:ai-minister", "label": "AI minister" },
+    { "id": "institution:ai-pm", "label": "AI PM" },
+    { "id": "institution:audit", "label": "Audit" },
+    { "id": "institution:ombudsman", "label": "Ombudsman" },
+    { "id": "institution:symbolic-visual", "label": "Symbolic visual" }
+  ]
+}
