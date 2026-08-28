@@ -2,6 +2,7 @@ import type {
   CaseAnalysis, HealthInfo, IngestDocumentSummary, IngestSignalPoint,
   IngestStatus, AgentStepMetric, StreamForecastResponse, CaseListItem,
   CrossLayerListResponse, CrossLayerLayersResponse, CrossLayerPostResponse,
+  MemeticLineageResponse,
 } from './types'
 
 export const API_BASE =
@@ -266,6 +267,11 @@ export const api = {
     coordination_forum?: string
     epistemic_label?: string
   }) => post<CrossLayerPostResponse>('/api/events/cross-layer', body),
+
+  memeticLineage: (storyId: string) =>
+    get<MemeticLineageResponse>(
+      `/api/events/memetic/lineage/${encodeURIComponent(storyId)}`,
+    ),
 }
 
 export async function checkApiHealth(): Promise<HealthInfo | null> {

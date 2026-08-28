@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { Home, Waves, FileSearch, Radio, Layers } from 'lucide-react'
+import { Home, Waves, FileSearch, Radio, Layers, GitFork } from 'lucide-react'
 import { nav } from '../lib/en'
 import { cn } from '../lib/utils'
 import { HealthBadge } from './HealthBadge'
@@ -10,6 +10,7 @@ const links: Array<{ to: string; icon: typeof Home; label: string; end?: boolean
   { to: '/case', icon: FileSearch, label: nav.case },
   { to: '/data', icon: Radio, label: nav.data },
   { to: '/layers', icon: Layers, label: nav.layers },
+  { to: '/discourse', icon: GitFork, label: nav.discourse },
 ]
 
 export function Layout({ children }: { children: React.ReactNode }) {

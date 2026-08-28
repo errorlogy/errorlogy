@@ -5,6 +5,7 @@ import { StreamForecastPage } from './pages/StreamForecastPage'
 import { CaseForecastPage } from './pages/CaseForecastPage'
 import { DataStreamsPage } from './pages/DataStreamsPage'
 import { LayersPage } from './pages/LayersPage'
+import { DiscoursePage } from './pages/DiscoursePage'
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="/case" element={<CaseForecastPage />} />
           <Route path="/data" element={<DataStreamsPage />} />
           <Route path="/layers" element={<LayersPage />} />
+          <Route path="/discourse" element={<DiscoursePage />} />
         </Routes>
       </Layout>
     </BrowserRouter>

@@ -215,6 +215,26 @@ export interface CrossLayerPostResponse {
   event: CrossLayerEvent
 }
 
+export interface MemeticGraphEdge {
+  parent: string
+  child: string
+  edge_type?: string
+  carrier?: string
+  [key: string]: unknown
+}
+
+export interface MemeticLineageResponse {
+  story_id: string
+  lineage: string[]
+  descendants: string[]
+  graph: {
+    node_count: number
+    edge_count: number
+    nodes: string[]
+    edges: MemeticGraphEdge[]
+  }
+}
+
 export interface StreamForecastResponse {
   generated_at: string
   window_days: number

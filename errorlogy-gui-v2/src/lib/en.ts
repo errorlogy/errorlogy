@@ -6,6 +6,7 @@ export const nav = {
   case: 'Case Forecast',
   data: 'Data Streams',
   layers: 'Institutional Layers',
+  discourse: 'Narrative Forks',
 } as const
 
 export const common = {
@@ -91,6 +92,28 @@ export const layersPage = {
   aboutLink: 'AI Native Gov — institutional topology contracts',
   aboutUrl: 'https://github.com/errorlogy/ai-native-gov',
   nationalStates: 'Sample member states (×27 modeled)',
+} as const
+
+export const discoursePage = {
+  title: 'Narrative fork lineage',
+  subtitle:
+    'Read-only discourse graph view: story lineage and fork edges from the memetic runtime API.',
+  storyIdLabel: 'Story ID',
+  storyIdPlaceholder: 'e.g. mvp-discourse-sample',
+  loadLineage: 'Load lineage',
+  loadingLineage: 'Loading…',
+  lineageTitle: 'Root-to-node lineage',
+  forksTitle: 'Descendant forks',
+  edgesTitle: 'Graph edges',
+  narrativeForks: 'Narrative forks',
+  symbolicVariants: 'Symbolic variant edges',
+  root: 'root',
+  leaf: 'selected',
+  noLineage: 'No lineage path found for this story ID.',
+  noForks: 'No descendant forks registered.',
+  noData: 'Enter a story ID to load lineage.',
+  epistemicNote:
+    'Discourse graph outputs are INSTITUTIONAL_MODEL framing — analytical lineage, not a legal verdict.',
 } as const
 
 export const dataStreams = {
