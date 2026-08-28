@@ -18,6 +18,11 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent.parent.parent))
 from mas import db as case_db
 from mas.adapters.fin_crypto_ccxt import persist_fin_crypto_snapshot
 from mas.institutional.activation import INSTITUTION_LAYER_IDS, frame_cross_layer_event
+from mas.memetic.discourse_graph import (
+    build_discourse_fork_detected_event,
+    build_narrative_lineage_update_event,
+    get_discourse_graph,
+)
 
 router = APIRouter(prefix="/api/events", tags=["events"])
 
@@ -117,4 +122,59 @@ async def post_fin_crypto_snapshot(
         "note": "FIN_CRYPTO CCXT adapter — market-data only; no trading surface",
         "adapter_record": result["adapter_record"],
         "event": result["event"],
+    }
+
+
+class MemeticForkIn(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    parent_id: str = Field(..., min_length=1)
+    child_id: str = Field(..., min_length=1)
+    edge_type: str = Field("narrative_fork", min_length=1)
+    persist_events: bool = Field(True, description="Persist fork + lineage cross-layer events")
+
+
+@router.post("/memetic/fork")
+async def post_memetic_fork(body: MemeticForkIn):
+    """Register a narrative fork in the discourse graph (INSTITUTIONAL_MODEL)."""
+    graph = get_discourse_graph()
+    try:
+        graph.add_fork_edge(body.parent_id, body.child_id, edge_type=body.edge_type)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+    lineage = graph.get_lineage(body.child_id)
+    fork_event = build_discourse_fork_detected_event(
+        body.child_id, parent_id=body.parent_id
+    )
+    lineage_event = build_narrative_lineage_update_event(body.child_id, lineage)
+
+    stored_fork = stored_lineage = None
+    if body.persist_events:
+        fork_id = f"cle-{uuid.uuid4().hex[:12]}"
+        lineage_id = f"cle-{uuid.uuid4().hex[:12]}"
+        stored_fork = case_db.save_cross_layer_event(fork_id, fork_event)
+        stored_lineage = case_db.save_cross_layer_event(lineage_id, lineage_event)
+
+    return {
+        "status": "registered",
+        "note": "INSTITUTIONAL_MODEL discourse graph scaffold — no μ/α run",
+        "lineage": lineage,
+        "fork_event": stored_fork or fork_event,
+        "lineage_event": stored_lineage or lineage_event,
+        "graph": graph.to_dict(),
+    }
+
+
+@router.get("/memetic/lineage/{story_id}")
+async def get_memetic_lineage(story_id: str):
+    """Return root-to-node lineage for a story_id."""
+    graph = get_discourse_graph()
+    lineage = graph.get_lineage(story_id)
+    descendants = graph.descendants(story_id)
+    return {
+        "story_id": story_id,
+        "lineage": lineage,
+        "descendants": sorted(descendants),
+        "graph": graph.to_dict(),
     }
