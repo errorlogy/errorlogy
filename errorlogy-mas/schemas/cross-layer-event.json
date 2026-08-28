@@ -96,6 +96,11 @@
       "type": "string",
       "description": "Optional NAMM certificate.json URI"
     },
+    "testament_clause_ref": {
+      "type": "string",
+      "pattern": "^POSLEDNIY_ZAVET:(I|II|III|IV|V|VI|VII|VIII|IX|X)$",
+      "description": "Optional POSLEDNIY_ZAVET clause sidecar (I–X). Routing hint only — INSTITUTIONAL_MODEL."
+    },
     "epistemic_label": {
       "type": "string",
       "enum": [

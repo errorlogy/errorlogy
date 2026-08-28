@@ -77,6 +77,11 @@
       "type": "array",
       "items": { "type": "string" },
       "description": "ISO 3166-1 alpha-2 or institutional slugs"
+    },
+    "testament_clause_ref": {
+      "type": "string",
+      "pattern": "^POSLEDNIY_ZAVET:(I|II|III|IV|V|VI|VII|VIII|IX|X)$",
+      "description": "Optional POSLEDNIY_ZAVET clause sidecar (I–X). Propagates to half-life cross-layer metadata."
     }
   },
   "additionalProperties": false

@@ -23,6 +23,7 @@ from mas.memetic.discourse_graph import (
     build_narrative_lineage_update_event,
     get_discourse_graph,
 )
+from mas.memetic.testament_clauses import clause_fork_metadata, parse_testament_clause_ref
 
 router = APIRouter(prefix="/api/events", tags=["events"])
 
@@ -54,6 +55,7 @@ class CrossLayerEventIn(BaseModel):
     stream_refs: list[str] | None = None
     precedent_refs: list[str] | None = None
     certificate_ref: str | None = None
+    testament_clause_ref: str | None = None
     epistemic_label: str | None = None
 
 
@@ -131,6 +133,10 @@ class MemeticForkIn(BaseModel):
     parent_id: str = Field(..., min_length=1)
     child_id: str = Field(..., min_length=1)
     edge_type: str = Field("narrative_fork", min_length=1)
+    testament_clause_ref: str | None = Field(
+        None,
+        description="Optional POSLEDNIY_ZAVET clause sidecar (POSLEDNIY_ZAVET:I..:X)",
+    )
     persist_events: bool = Field(True, description="Persist fork + lineage cross-layer events")
 
 
@@ -138,16 +144,53 @@ class MemeticForkIn(BaseModel):
 async def post_memetic_fork(body: MemeticForkIn):
     """Register a narrative fork in the discourse graph (INSTITUTIONAL_MODEL)."""
     graph = get_discourse_graph()
+    clause_meta: dict | None = None
+    if body.testament_clause_ref:
+        try:
+            parse_testament_clause_ref(body.testament_clause_ref)
+            clause_meta = clause_fork_metadata(body.testament_clause_ref)
+        except ValueError as exc:
+            raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+    edge_attrs: dict = {}
+    if clause_meta:
+        edge_attrs["testament_clause_ref"] = clause_meta["testament_clause_ref"]
+        edge_attrs["testament_clause_id"] = clause_meta["testament_clause_id"]
+        edge_attrs["testament_clause_label"] = clause_meta["testament_clause_label"]
+
     try:
-        graph.add_fork_edge(body.parent_id, body.child_id, edge_type=body.edge_type)
+        graph.add_fork_edge(
+            body.parent_id,
+            body.child_id,
+            edge_type=body.edge_type,
+            **edge_attrs,
+        )
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
 
     lineage = graph.get_lineage(body.child_id)
-    fork_event = build_discourse_fork_detected_event(
-        body.child_id, parent_id=body.parent_id
+    fork_kwargs: dict = {"parent_id": body.parent_id}
+    lineage_kwargs: dict = {}
+    if clause_meta:
+        fork_kwargs.update(
+            {
+                "activated_layers": clause_meta["activated_layers"],
+                "politifi_assets": clause_meta["politifi_assets"],
+                "testament_clause_ref": clause_meta["testament_clause_ref"],
+            }
+        )
+        lineage_kwargs.update(
+            {
+                "activated_layers": clause_meta["activated_layers"],
+                "politifi_assets": clause_meta["politifi_assets"],
+                "testament_clause_ref": clause_meta["testament_clause_ref"],
+            }
+        )
+
+    fork_event = build_discourse_fork_detected_event(body.child_id, **fork_kwargs)
+    lineage_event = build_narrative_lineage_update_event(
+        body.child_id, lineage, **lineage_kwargs
     )
-    lineage_event = build_narrative_lineage_update_event(body.child_id, lineage)
 
     stored_fork = stored_lineage = None
     if body.persist_events:

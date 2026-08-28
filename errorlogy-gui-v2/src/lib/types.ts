@@ -220,6 +220,9 @@ export interface MemeticGraphEdge {
   child: string
   edge_type?: string
   carrier?: string
+  testament_clause_ref?: string
+  testament_clause_id?: string
+  testament_clause_label?: string
   [key: string]: unknown
 }
 

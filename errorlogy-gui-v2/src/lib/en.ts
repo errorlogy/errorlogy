@@ -114,6 +114,7 @@ export const discoursePage = {
   noData: 'Enter a story ID to load lineage.',
   epistemicNote:
     'Discourse graph outputs are INSTITUTIONAL_MODEL framing — analytical lineage, not a legal verdict.',
+  clauseBadge: 'POSLEDNIY_ZAVET',
 } as const
 
 export const dataStreams = {

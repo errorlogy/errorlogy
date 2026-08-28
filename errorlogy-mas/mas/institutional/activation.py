@@ -199,6 +199,7 @@ def frame_cross_layer_event(payload: dict[str, Any]) -> dict[str, Any]:
         "stream_refs",
         "precedent_refs",
         "certificate_ref",
+        "testament_clause_ref",
         "epistemic_label",
     }
     return {k: v for k, v in out.items() if k in allowed and v is not None}
