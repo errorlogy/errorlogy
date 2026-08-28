@@ -27,6 +27,29 @@ def test_add_story_node_and_fork_edge():
     assert g.get_lineage("story-b") == ["story-a", "story-b"]
 
 
+def test_symbolic_variant_edge():
+    """symbolic_variant tracks media-carrier forks; API accepts edge_type on POST /memetic/fork."""
+    g = DiscourseGraph()
+    g.add_story_node("carrier-root", carrier="broadcast")
+    g.add_fork_edge(
+        "carrier-root",
+        "carrier-tv",
+        edge_type="symbolic_variant",
+        carrier="television",
+    )
+    g.add_fork_edge(
+        "carrier-root",
+        "carrier-social",
+        edge_type="symbolic_variant",
+        carrier="social_media",
+    )
+    assert g.get_lineage("carrier-tv") == ["carrier-root", "carrier-tv"]
+    edges = g.to_dict()["edges"]
+    symbolic = [e for e in edges if e.get("edge_type") == "symbolic_variant"]
+    assert len(symbolic) == 2
+    assert symbolic[0]["carrier"] in ("television", "social_media")
+
+
 def test_detect_fork():
     g = DiscourseGraph()
     g.add_story_node("parent")
@@ -73,3 +96,19 @@ def test_api_memetic_endpoints(client):
     resp2 = client.get("/api/events/memetic/lineage/c1")
     assert resp2.status_code == 200
     assert resp2.json()["lineage"] == ["p1", "c1"]
+
+    resp3 = client.post(
+        "/api/events/memetic/fork",
+        json={
+            "parent_id": "p1",
+            "child_id": "c2",
+            "edge_type": "symbolic_variant",
+            "persist_events": False,
+        },
+    )
+    assert resp3.status_code == 200
+    graph_edges = resp3.json()["graph"]["edges"]
+    assert any(
+        e["child"] == "c2" and e.get("edge_type") == "symbolic_variant"
+        for e in graph_edges
+    )

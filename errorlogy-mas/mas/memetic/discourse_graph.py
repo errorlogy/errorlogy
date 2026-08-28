@@ -39,6 +39,12 @@ class DiscourseGraph:
         edge_type: str = "narrative_fork",
         **attrs: Any,
     ) -> None:
+        """Register a directed fork edge between story nodes.
+
+        Supported ``edge_type`` values:
+        - ``narrative_fork`` — default discourse fork (content divergence)
+        - ``symbolic_variant`` — media-carrier fork (same narrative, different symbolic channel)
+        """
         parent = parent_id.strip()
         child = child_id.strip()
         if not parent or not child:
