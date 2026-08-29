@@ -115,6 +115,11 @@ export const discoursePage = {
   epistemicNote:
     'Discourse graph outputs are INSTITUTIONAL_MODEL framing — analytical lineage, not a legal verdict.',
   clauseBadge: 'POSLEDNIY_ZAVET',
+  couplingTitle: 'Market coupling events',
+  couplingEmpty: 'No memetic_market_coupling_snapshot events for this story.',
+  couplingLoading: 'Loading coupling events…',
+  peakVelocity: 'peak velocity',
+  decayTau: 'decay τ (h)',
 } as const
 
 export const dataStreams = {

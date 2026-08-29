@@ -10,7 +10,7 @@ import { api } from '../lib/api'
 
 import { common, discoursePage } from '../lib/en'
 
-import type { MemeticLineageResponse } from '../lib/types'
+import type { CrossLayerListResponse, MemeticLineageResponse } from '../lib/types'
 
 import { Section } from '../components/Section'
 
@@ -164,7 +164,11 @@ export function DiscoursePage() {
 
   const [data, setData] = useState<MemeticLineageResponse | null>(null)
 
+  const [couplingEvents, setCouplingEvents] = useState<CrossLayerListResponse | null>(null)
+
   const [loading, setLoading] = useState(false)
+
+  const [couplingLoading, setCouplingLoading] = useState(false)
 
   const [error, setError] = useState('')
 
@@ -178,13 +182,31 @@ export function DiscoursePage() {
 
     setLoading(true)
 
+    setCouplingLoading(true)
+
     setError('')
 
     try {
 
-      const res = await api.memeticLineage(trimmed)
+      const [res, coupling] = await Promise.all([
+
+        api.memeticLineage(trimmed),
+
+        api.crossLayerList({
+
+          limit: 20,
+
+          story_id: trimmed,
+
+          event_type: 'memetic_market_coupling_snapshot',
+
+        }),
+
+      ])
 
       setData(res)
+
+      setCouplingEvents(coupling)
 
       setQueryId(trimmed)
 
@@ -192,11 +214,15 @@ export function DiscoursePage() {
 
       setData(null)
 
+      setCouplingEvents(null)
+
       setError(e instanceof Error ? e.message : 'Failed to load lineage')
 
     } finally {
 
       setLoading(false)
+
+      setCouplingLoading(false)
 
     }
 
@@ -513,6 +539,34 @@ export function DiscoursePage() {
         </Section>
 
       )}
+
+      <Section title={discoursePage.couplingTitle} icon={<GitFork size={14} className="text-emerald-400" />}>
+        <p className="text-[10px] text-slate-500 mb-3">
+          GET /api/events/cross-layer?event_type=memetic_market_coupling_snapshot
+        </p>
+        {couplingLoading ? (
+          <p className="text-sm text-slate-500">{discoursePage.couplingLoading}</p>
+        ) : couplingEvents && couplingEvents.events.length > 0 ? (
+          <ul className="space-y-2">
+            {couplingEvents.events.map(ev => (
+              <li
+                key={ev.event_id}
+                className="text-xs font-mono border border-slate-800 rounded-lg px-3 py-2 text-slate-300"
+              >
+                <span className="text-emerald-400">{ev.event_type}</span>
+                <span className="text-slate-600 ml-2">{ev.event_id}</span>
+                {ev.stream_refs && ev.stream_refs.length > 0 && (
+                  <p className="text-[10px] text-slate-500 mt-1 truncate">
+                    refs: {ev.stream_refs.join(', ')}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-sm text-slate-500">{discoursePage.couplingEmpty}</p>
+        )}
+      </Section>
 
     </div>
 

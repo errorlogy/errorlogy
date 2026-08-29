@@ -192,6 +192,7 @@ export interface CrossLayerEvent {
   created_at?: string
   jurisdiction_set?: string[]
   coordination_forum?: string
+  stream_refs?: string[]
   topology_intersections?: Array<{
     intersection: string
     tension_type: string
