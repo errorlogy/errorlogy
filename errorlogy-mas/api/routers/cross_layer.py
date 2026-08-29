@@ -24,6 +24,7 @@ from mas.memetic.discourse_graph import (
     get_discourse_graph,
 )
 from mas.memetic.market_coupling import persist_memetic_market_coupling
+from mas.memetic.sociome_sidecar import attach_sociome_sidecar, parse_persona_cohort_id
 from mas.memetic.testament_clauses import clause_fork_metadata, parse_testament_clause_ref
 
 router = APIRouter(prefix="/api/events", tags=["events"])
@@ -57,13 +58,23 @@ class CrossLayerEventIn(BaseModel):
     precedent_refs: list[str] | None = None
     certificate_ref: str | None = None
     testament_clause_ref: str | None = None
+    persona_cohort_id: str | None = Field(
+        None,
+        description="Optional MatrAIx persona cohort slug (sidecar only — INSTITUTIONAL_MODEL)",
+    )
     epistemic_label: str | None = None
 
 
 @router.post("/cross-layer")
 async def post_cross_layer(body: CrossLayerEventIn):
+    payload = body.model_dump(exclude_none=True)
+    if body.persona_cohort_id:
+        try:
+            payload = attach_sociome_sidecar(payload, body.persona_cohort_id)
+        except ValueError as exc:
+            raise HTTPException(status_code=422, detail=str(exc)) from exc
     try:
-        framed = frame_cross_layer_event(body.model_dump(exclude_none=True))
+        framed = frame_cross_layer_event(payload)
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
 
@@ -138,6 +149,10 @@ class MemeticForkIn(BaseModel):
         None,
         description="Optional POSLEDNIY_ZAVET clause sidecar (POSLEDNIY_ZAVET:I..:X)",
     )
+    persona_cohort_id: str | None = Field(
+        None,
+        description="Optional MatrAIx persona cohort slug (sidecar only)",
+    )
     persist_events: bool = Field(True, description="Persist fork + lineage cross-layer events")
 
 
@@ -153,11 +168,21 @@ async def post_memetic_fork(body: MemeticForkIn):
         except ValueError as exc:
             raise HTTPException(status_code=422, detail=str(exc)) from exc
 
+    sociome_meta: dict | None = None
+    if body.persona_cohort_id:
+        try:
+            parse_persona_cohort_id(body.persona_cohort_id)
+            sociome_meta = attach_sociome_sidecar({}, body.persona_cohort_id)
+        except ValueError as exc:
+            raise HTTPException(status_code=422, detail=str(exc)) from exc
+
     edge_attrs: dict = {}
     if clause_meta:
         edge_attrs["testament_clause_ref"] = clause_meta["testament_clause_ref"]
         edge_attrs["testament_clause_id"] = clause_meta["testament_clause_id"]
         edge_attrs["testament_clause_label"] = clause_meta["testament_clause_label"]
+    if sociome_meta:
+        edge_attrs["persona_cohort_id"] = sociome_meta["persona_cohort_id"]
 
     try:
         graph.add_fork_edge(
@@ -187,6 +212,9 @@ async def post_memetic_fork(body: MemeticForkIn):
                 "testament_clause_ref": clause_meta["testament_clause_ref"],
             }
         )
+    if sociome_meta:
+        fork_kwargs["persona_cohort_id"] = sociome_meta["persona_cohort_id"]
+        lineage_kwargs["persona_cohort_id"] = sociome_meta["persona_cohort_id"]
 
     fork_event = build_discourse_fork_detected_event(body.child_id, **fork_kwargs)
     lineage_event = build_narrative_lineage_update_event(
@@ -238,6 +266,10 @@ class MemeticMarketCouplingIn(BaseModel):
     first_seen: str | None = None
     variant_of: str | None = None
     platform_contour: str | None = None
+    persona_cohort_id: str | None = Field(
+        None,
+        description="Optional MatrAIx persona cohort slug (sidecar only)",
+    )
     jurisdiction_set: list[str] | None = None
     market_record: dict | None = Field(
         None,
@@ -261,6 +293,13 @@ async def post_memetic_market_coupling(body: MemeticMarketCouplingIn):
         if body.stream_item_id:
             memetic_metrics["stream_item_id"] = body.stream_item_id
 
+    persona_cohort_id: str | None = None
+    if body.persona_cohort_id:
+        try:
+            persona_cohort_id = parse_persona_cohort_id(body.persona_cohort_id)
+        except ValueError as exc:
+            raise HTTPException(status_code=422, detail=str(exc)) from exc
+
     try:
         result = persist_memetic_market_coupling(
             symbol=body.symbol,
@@ -270,6 +309,7 @@ async def post_memetic_market_coupling(body: MemeticMarketCouplingIn):
             stream_item_id=body.stream_item_id,
             market_record=body.market_record,
             jurisdiction_set=body.jurisdiction_set,
+            persona_cohort_id=persona_cohort_id,
         )
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc

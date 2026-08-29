@@ -12,6 +12,11 @@ from mas.memetic.market_coupling import (
     ingest_memetic_market_coupling,
     persist_memetic_market_coupling,
 )
+from mas.memetic.sociome_sidecar import (
+    attach_sociome_sidecar,
+    parse_persona_cohort_id,
+    sociome_sidecar_metadata,
+)
 from mas.memetic.testament_clauses import (
     CLAUSE_REGISTRY,
     clause_fork_metadata,
@@ -22,6 +27,7 @@ from mas.memetic.testament_clauses import (
 __all__ = [
     "CLAUSE_REGISTRY",
     "DiscourseGraph",
+    "attach_sociome_sidecar",
     "build_discourse_fork_detected_event",
     "build_memetic_market_coupling",
     "build_narrative_lineage_update_event",
@@ -29,7 +35,9 @@ __all__ = [
     "egd_to_memetic_propagation_snapshot",
     "get_discourse_graph",
     "ingest_memetic_market_coupling",
+    "parse_persona_cohort_id",
     "parse_testament_clause_ref",
     "persist_memetic_market_coupling",
     "resolve_testament_clause_ref",
+    "sociome_sidecar_metadata",
 ]

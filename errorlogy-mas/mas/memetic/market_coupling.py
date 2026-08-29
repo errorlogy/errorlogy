@@ -99,11 +99,12 @@ def build_coupling_record(
     join_key_type: JoinKeyType,
     join_key_value: str,
     story_id: str,
+    persona_cohort_id: str | None = None,
 ) -> dict[str, Any]:
     """Full coupling join record (returned alongside cross-layer envelope)."""
     observed = _now_iso()
     market_rid = market_record.get("record_id") or "unknown"
-    return {
+    record = {
         "coupling_id": _coupling_record_id(story_id, market_rid, observed),
         "event_type": _COUPLING_EVENT_TYPE,
         "observed_at": observed,
@@ -114,6 +115,9 @@ def build_coupling_record(
         "epistemic_label": _DEFAULT_EPISTEMIC,
         "quality_flags": _coupling_quality_flags(market_record, memetic_sidecar),
     }
+    if persona_cohort_id:
+        record["persona_cohort_id"] = persona_cohort_id
+    return record
 
 
 def _coupling_quality_flags(
@@ -134,6 +138,7 @@ def coupling_to_cross_layer_ingress(
     coupling_record: dict[str, Any],
     *,
     jurisdiction_set: list[str] | None = None,
+    persona_cohort_id: str | None = None,
 ) -> dict[str, Any]:
     """Map coupling join → partial cross-layer ingress (stub fills layers)."""
     stream_refs: list[str] = []
@@ -153,6 +158,9 @@ def coupling_to_cross_layer_ingress(
         payload["stream_refs"] = stream_refs
     if jurisdiction_set:
         payload["jurisdiction_set"] = jurisdiction_set
+    cohort = persona_cohort_id or coupling_record.get("persona_cohort_id")
+    if cohort:
+        payload["persona_cohort_id"] = cohort
     return payload
 
 
@@ -164,6 +172,7 @@ def build_memetic_market_coupling(
     symbol: str | None = None,
     stream_item_id: str | None = None,
     jurisdiction_set: list[str] | None = None,
+    persona_cohort_id: str | None = None,
 ) -> dict[str, Any]:
     """Join market record with memetic sidecar; return coupling + framed envelope."""
     sid, join_type, join_value = resolve_join_key(
@@ -185,9 +194,12 @@ def build_memetic_market_coupling(
         join_key_type=join_type,
         join_key_value=join_value,
         story_id=sid,
+        persona_cohort_id=persona_cohort_id,
     )
     ingress = coupling_to_cross_layer_ingress(
-        coupling_record, jurisdiction_set=jurisdiction_set
+        coupling_record,
+        jurisdiction_set=jurisdiction_set,
+        persona_cohort_id=persona_cohort_id,
     )
     framed = frame_cross_layer_event(ingress)
     return {
@@ -208,6 +220,7 @@ def ingest_memetic_market_coupling(
     stream_item_id: str | None = None,
     market_record: dict[str, Any] | None = None,
     jurisdiction_set: list[str] | None = None,
+    persona_cohort_id: str | None = None,
 ) -> dict[str, Any]:
     """Fetch or accept market record, join memetic sidecar, frame coupling envelope."""
     record = market_record or fetch_market_snapshot(
@@ -220,6 +233,7 @@ def ingest_memetic_market_coupling(
         symbol=symbol if not story_id and not record.get("story_id") else None,
         stream_item_id=stream_item_id,
         jurisdiction_set=jurisdiction_set,
+        persona_cohort_id=persona_cohort_id,
     )
 
 
@@ -232,6 +246,7 @@ def persist_memetic_market_coupling(
     stream_item_id: str | None = None,
     market_record: dict[str, Any] | None = None,
     jurisdiction_set: list[str] | None = None,
+    persona_cohort_id: str | None = None,
 ) -> dict[str, Any]:
     """Join, frame, persist coupling cross-layer event to SQLite."""
     from mas import db as case_db
@@ -244,6 +259,7 @@ def persist_memetic_market_coupling(
         stream_item_id=stream_item_id,
         market_record=market_record,
         jurisdiction_set=jurisdiction_set,
+        persona_cohort_id=persona_cohort_id,
     )
     event_id = f"cle-{uuid.uuid4().hex[:12]}"
     stored = case_db.save_cross_layer_event(event_id, result["cross_layer_event"])

@@ -120,6 +120,7 @@ export const discoursePage = {
   couplingLoading: 'Loading coupling events…',
   peakVelocity: 'peak velocity',
   decayTau: 'decay τ (h)',
+  cohortBadge: 'cohort',
 } as const
 
 export const dataStreams = {

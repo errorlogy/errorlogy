@@ -123,6 +123,7 @@ def build_discourse_fork_detected_event(
     activated_layers: list[str] | None = None,
     politifi_assets: list[str] | None = None,
     testament_clause_ref: str | None = None,
+    persona_cohort_id: str | None = None,
     epistemic_label: str = _DEFAULT_EPISTEMIC,
 ) -> dict[str, Any]:
     """Build framed cross-layer envelope for discourse_fork_detected."""
@@ -137,6 +138,8 @@ def build_discourse_fork_detected_event(
         payload["politifi_assets"] = politifi_assets
     if testament_clause_ref:
         payload["testament_clause_ref"] = testament_clause_ref
+    if persona_cohort_id:
+        payload["persona_cohort_id"] = persona_cohort_id
     framed = frame_cross_layer_event(payload)
     framed["fork"] = {
         "parent_id": parent_id,
@@ -153,6 +156,7 @@ def build_narrative_lineage_update_event(
     activated_layers: list[str] | None = None,
     politifi_assets: list[str] | None = None,
     testament_clause_ref: str | None = None,
+    persona_cohort_id: str | None = None,
     epistemic_label: str = _DEFAULT_EPISTEMIC,
 ) -> dict[str, Any]:
     """Build framed cross-layer envelope for narrative_lineage_update."""
@@ -167,6 +171,8 @@ def build_narrative_lineage_update_event(
         payload["politifi_assets"] = politifi_assets
     if testament_clause_ref:
         payload["testament_clause_ref"] = testament_clause_ref
+    if persona_cohort_id:
+        payload["persona_cohort_id"] = persona_cohort_id
     framed = frame_cross_layer_event(payload)
     if not activated_layers:
         framed["activated_layers"] = default_activated_layers("narrative_lineage_update")

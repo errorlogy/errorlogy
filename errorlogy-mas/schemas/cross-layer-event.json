@@ -101,6 +101,11 @@
       "pattern": "^POSLEDNIY_ZAVET:(I|II|III|IV|V|VI|VII|VIII|IX|X)$",
       "description": "Optional POSLEDNIY_ZAVET clause sidecar (I–X). Routing hint only — INSTITUTIONAL_MODEL."
     },
+    "persona_cohort_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{2,63}$",
+      "description": "Optional MatrAIx persona cohort slug (sidecar only). Simulation instrument tag — not a citizen identity or electoral mandate. See MATRAIX_PERSONA.md."
+    },
     "epistemic_label": {
       "type": "string",
       "enum": [

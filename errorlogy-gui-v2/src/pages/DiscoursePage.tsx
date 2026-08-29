@@ -34,6 +34,19 @@ function EpistemicBadge() {
 
 
 
+function PersonaCohortBadge({ cohortId }: { cohortId: string }) {
+  return (
+    <span
+      className="text-[10px] font-mono px-1.5 py-0.5 rounded border bg-cyan-950/50 text-cyan-200 border-cyan-700/60"
+      title="MatrAIx persona cohort sidecar — INSTITUTIONAL_MODEL simulation tag, not a citizen identity"
+    >
+      {discoursePage.cohortBadge}:{cohortId}
+    </span>
+  )
+}
+
+
+
 function TestamentClauseBadge({
 
   clauseRef,
@@ -494,6 +507,12 @@ export function DiscoursePage() {
 
                       )}
 
+                      {e.persona_cohort_id && (
+
+                        <PersonaCohortBadge cohortId={e.persona_cohort_id} />
+
+                      )}
+
                     </div>
 
                   ))}
@@ -555,6 +574,11 @@ export function DiscoursePage() {
               >
                 <span className="text-emerald-400">{ev.event_type}</span>
                 <span className="text-slate-600 ml-2">{ev.event_id}</span>
+                {ev.persona_cohort_id && (
+                  <span className="ml-2">
+                    <PersonaCohortBadge cohortId={ev.persona_cohort_id} />
+                  </span>
+                )}
                 {ev.stream_refs && ev.stream_refs.length > 0 && (
                   <p className="text-[10px] text-slate-500 mt-1 truncate">
                     refs: {ev.stream_refs.join(', ')}

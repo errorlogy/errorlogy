@@ -193,6 +193,7 @@ export interface CrossLayerEvent {
   jurisdiction_set?: string[]
   coordination_forum?: string
   stream_refs?: string[]
+  persona_cohort_id?: string
   topology_intersections?: Array<{
     intersection: string
     tension_type: string
@@ -224,6 +225,7 @@ export interface MemeticGraphEdge {
   testament_clause_ref?: string
   testament_clause_id?: string
   testament_clause_label?: string
+  persona_cohort_id?: string
   [key: string]: unknown
 }
 
