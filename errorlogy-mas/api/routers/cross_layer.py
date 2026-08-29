@@ -23,6 +23,7 @@ from mas.memetic.discourse_graph import (
     build_narrative_lineage_update_event,
     get_discourse_graph,
 )
+from mas.memetic.market_coupling import persist_memetic_market_coupling
 from mas.memetic.testament_clauses import clause_fork_metadata, parse_testament_clause_ref
 
 router = APIRouter(prefix="/api/events", tags=["events"])
@@ -220,4 +221,65 @@ async def get_memetic_lineage(story_id: str):
         "lineage": lineage,
         "descendants": sorted(descendants),
         "graph": graph.to_dict(),
+    }
+
+
+class MemeticMarketCouplingIn(BaseModel):
+    """Join fin-crypto market snapshot with optional memetic velocity sidecar."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    symbol: str = Field("BTC/USDT", min_length=3)
+    exchange: str = Field("binance", min_length=2)
+    story_id: str | None = Field(None, description="Join on story_id when set")
+    stream_item_id: str | None = Field(None, description="politic-bar stream item ref")
+    peak_velocity: float | None = None
+    decay_tau_hours: float | None = None
+    first_seen: str | None = None
+    variant_of: str | None = None
+    platform_contour: str | None = None
+    jurisdiction_set: list[str] | None = None
+    market_record: dict | None = Field(
+        None,
+        description="Optional pre-fetched FIN_CRYPTO record (skips CCXT fetch)",
+    )
+
+
+@router.post("/memetic/market-coupling")
+async def post_memetic_market_coupling(body: MemeticMarketCouplingIn):
+    """Join CCXT market snapshot with memetic velocity → coupling cross-layer event."""
+    memetic_metrics: dict | None = None
+    fields = {
+        "peak_velocity": body.peak_velocity,
+        "decay_tau_hours": body.decay_tau_hours,
+        "first_seen": body.first_seen,
+        "variant_of": body.variant_of,
+        "platform_contour": body.platform_contour,
+    }
+    if any(v is not None for v in fields.values()) or body.stream_item_id:
+        memetic_metrics = {k: v for k, v in fields.items() if v is not None}
+        if body.stream_item_id:
+            memetic_metrics["stream_item_id"] = body.stream_item_id
+
+    try:
+        result = persist_memetic_market_coupling(
+            symbol=body.symbol,
+            exchange_id=body.exchange,
+            story_id=body.story_id,
+            memetic_metrics=memetic_metrics,
+            stream_item_id=body.stream_item_id,
+            market_record=body.market_record,
+            jurisdiction_set=body.jurisdiction_set,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+    return {
+        "status": result["status"],
+        "note": "INSTITUTIONAL_MODEL memetic ↔ market coupling — no trading surface",
+        "event_id": result["event_id"],
+        "coupling_record": result["coupling_record"],
+        "market_record": result["market_record"],
+        "memetic_sidecar": result["memetic_sidecar"],
+        "event": result["event"],
     }
